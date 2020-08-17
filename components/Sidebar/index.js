@@ -4,7 +4,7 @@ import { useState } from "react";
 import { List as Attributes } from "../Attribute/list";
 import { List as Categories } from "../Category/list";
 import { List as Brands } from "../Brand/list";
-import { Search } from "../Search/sidebar";
+import { Search } from "../Search/index";
 export function Sidebar() {
   const router = useRouter();
   let query = router.query;
@@ -26,8 +26,10 @@ export function Sidebar() {
   };
   return (
     <section>
+      <h5>Tìm kiếm</h5>
       <Search />
       <form onSubmit={onSubmit} action="">
+        <h5>Giá từ</h5>
         <input
           placeholder="from"
           name="price_from"
@@ -36,6 +38,8 @@ export function Sidebar() {
           }}
           defaultValue={price_from}
         />
+        <h5>Đến</h5>
+
         <input
           placeholder="to"
           name="price_to"
@@ -44,7 +48,9 @@ export function Sidebar() {
           }}
           defaultValue={price_to}
         />
-        <button type="submit">filter</button>
+        <button type="submit" style={{ paddingTop: 3, paddingBottom: 3 }}>
+          Lọc
+        </button>
       </form>
       <Categories />
       <Attributes />

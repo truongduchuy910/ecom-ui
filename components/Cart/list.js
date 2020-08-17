@@ -118,7 +118,7 @@ export function List() {
     }
   };
 
-  if (loading) return <i>loading...</i>;
+  if (loading) return <Loading/>;
   return (
     <div>
       <button onClick={order}>order</button>

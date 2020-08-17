@@ -18,7 +18,7 @@ const GET_ATTRIBUTES = gql`
 export function List({ attributeGroups }) {
   return (
     <div>
-      <h6>{attributeGroups.name}</h6>
+      <h5>{attributeGroups.name}</h5>
       {attributeGroups?.map((attributeGroup) => (
         <Item key={attributeGroups.id} attributeGroup={attributeGroup} />
       ))}
@@ -28,7 +28,7 @@ export function List({ attributeGroups }) {
   //   variables: { seller: page.seller },
   // });
 
-  // if (loading) return <i>loading...</i>;
+  // if (loading) return <Loading/>;
   // return !loading && data ? (
   //   <div>
   //     <p>--------------------</p>

@@ -7,6 +7,7 @@ import { queryVar } from "../../apollo/action";
 import { page } from "../../config";
 import { Spinner, Alert } from "reactstrap";
 import { getErrorMessage } from "../../lib/chip";
+import { Loading } from "../src/Loading";
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {
     allAttributes(where: { seller: $seller }) {
@@ -21,14 +22,14 @@ export function List({ attributes }) {
     variables: { seller: page.seller },
   });
 
-  if (loading) return <i>loading...</i>;
+  if (loading) return <Loading />;
   if (error) return <i color="danger">{getErrorMessage(error)}</i>;
 
   let source = attributes ? attributes : data.allAttributes;
   return !loading && data ? (
     <div>
-      <p>--------------------</p>
-      <Item attribute={{ id: "all-attribute", name: "All ", url: "all" }} />
+      <h5>Thuộc Tính</h5>
+      <Item attribute={{ id: "all-attribute", name: "Tất Cả", url: "all" }} />
       {source.map((attribute) => (
         <Item key={attribute.id} attribute={attribute} />
       ))}

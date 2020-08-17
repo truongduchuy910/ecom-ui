@@ -15,50 +15,49 @@ import {
 } from "../../apollo/action";
 import { Fragment } from "react";
 import { page } from "../../config";
+import { Row, Col } from "reactstrap";
+import { ImgProduct } from "./imageProduct";
+import { QuickView } from "./quickView";
+import { Box } from "../src/Box";
+import { Divider } from "../src/Divider";
 export function Product({ product }) {
+  const src = page.server + product?.image?.publicUrl;
   return (
-    <div>
-      {product.image ? (
-        <img src={page.server + product?.image?.publicUrl} />
-      ) : null}
-
-      <img src={page.server + product?.images[0]?.file?.publicUrl} />
-      <h1>{product.name}</h1>
-      <h5>{formatMoney(product.price)}</h5>
-      {product.sale ? (
-        <h5>{formatMoney(product.price - product.sale)}</h5>
-      ) : null}
-      <p>{product.description}</p>
-
-      {product.file ? <img src={page.server + product.file.publicUrl} /> : null}
-
-      <p>{product.guide}</p>
-      {product.brand ? <BrandItem brand={product.brand} /> : null}
-      {product.category ? <CategoryItem category={product.category} /> : null}
-      {product.attributeGroups ? (
-        <AttributeGroups attributeGroups={product.attributeGroups} />
-      ) : null}
-      <button
-        onClick={() => {
-          addProductToLocalCart({product});
-        }}
-      >
-        Add To Cart
-      </button>
-      <button
-        onClick={() => {
-          addProductToLocalCompare(product);
-        }}
-      >
-        Add To Compare
-      </button>
-      <button
-        onClick={() => {
-          addProductToLocalWishlist(product);
-        }}
-      >
-        Add To Wishlist
-      </button>
-    </div>
+    <Fragment>
+      <QuickView product={product} />
+      <Box>
+        <Divider />
+        <Row>
+          <Col>
+            <p>{product.guide}</p>
+          </Col>
+          <Col>
+            {product.file ? (
+              <img src={page.server + product.file.publicUrl} />
+            ) : null}
+          </Col>
+          <Col lg={12}>
+            {product.brand ? (
+              <Fragment>
+                <h5>Thương Hiệu</h5>
+                <BrandItem brand={product.brand} />{" "}
+              </Fragment>
+            ) : null}
+            {product.category ? (
+              <Fragment>
+                <h5>Danh Mục</h5>
+                <CategoryItem category={product.category} />{" "}
+              </Fragment>
+            ) : null}
+            {product.attributeGroups ? (
+              <Fragment>
+                <h5>Thuộc Tính</h5>
+                <AttributeGroups attributeGroups={product.attributeGroups} />
+              </Fragment>
+            ) : null}
+          </Col>
+        </Row>
+      </Box>
+    </Fragment>
   );
 }

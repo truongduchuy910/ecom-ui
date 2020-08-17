@@ -12,9 +12,6 @@ export function Item({ categories }) {
   const childUrl = category.childs
     ? category.childs.map((category) => category.url).toString()
     : [];
-  let space = "";
-  for (let i = 1; i < categories.length; i++) space = space + "_";
-
   const handleClick = () => {
     if (category.url === "all") {
       delete query.category;
@@ -29,10 +26,12 @@ export function Item({ categories }) {
   return (
     <div>
       <a
-        style={{ fontWeight: query.category === category.url ? "bold" : null }}
+        style={{
+          fontWeight: query.category === category.url ? "bold" : null,
+          paddingLeft: categories.length * 13,
+        }}
         onClick={handleClick}
       >
-        <span> {space}</span>
         {category.label ? category.label : category.name}
       </a>
       {category.childs

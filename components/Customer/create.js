@@ -45,7 +45,7 @@ export function Create() {
   };
   return (
     <form onSubmit={submit}>
-      <h6>Toa noi nhan</h6>
+      <h5>Toa noi nhan</h5>
 
       <input
         name="phone"

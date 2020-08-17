@@ -3,6 +3,7 @@ import { Container, Spinner } from "reactstrap";
 import { Product } from "../../components/Product/detail";
 import { useRouter } from "next/router";
 import { useQuery, gql } from "@apollo/client";
+import { Loading } from "../../components/src/Loading";
 const GET_PRODUCTS = gql`
   query($url: String) {
     allProducts(first: 1, where: { url: $url }) {
@@ -51,12 +52,12 @@ export default function ProductDetali() {
   });
 
   if (error) return <i>{error}</i>;
-  if (loading) return <i>loading...</i>;
+  if (loading) return <Loading />;
   const product = data?.allProducts?.length ? data.allProducts[0] : null;
   return product ? (
     <Container>
       <Product product={product} />
-      <Products category={product.category.url} except={slug} />
+      <Products category={product.category.url} except={slug} more={false} />
     </Container>
   ) : null;
 }

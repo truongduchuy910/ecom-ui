@@ -4,6 +4,7 @@ import { Item } from "./item";
 
 import { page } from "../../config";
 import { Spinner } from "reactstrap";
+import { Loading } from "../src/Loading";
 
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput) {
@@ -44,12 +45,13 @@ export function List() {
     variables: { seller: page.seller },
   });
   if (error) return <i>{error}</i>;
-  if (loading)
-    return <Spinner className="w-100" type="grow" size="sm" color="primary" />;
+  if (loading) return <Loading />;
   return !loading && data ? (
     <div>
-      <p>--------------------</p>
-      <Item categories={[{ id: "all-category", name: "All ", url: "all" }]} />
+      <h5>Danh Mục</h5>
+      <Item
+        categories={[{ id: "all-category", name: "Tất Cả ", url: "all" }]}
+      />
       {data.allCategories.map((category) => (
         <Item key={category.id} categories={[category]} level={0} />
       ))}

@@ -2,6 +2,7 @@ import { gql, useQuery, useApolloClient } from "@apollo/client";
 import { getErrorMessage } from "../../lib/chip";
 import { newOrderVar, USER } from "../../apollo/action";
 import { Item } from "./item";
+import { Loading } from "../src/Loading";
 export const GET_CART_ITEMS = gql`
   query {
     allOrders(orderBy: "time_DESC") {
@@ -45,7 +46,7 @@ export function List() {
   const { data, loading, error, refetch } = useQuery(GET_CART_ITEMS, {
     variables: { seller: { id: user?.id } },
   });
-  if (loading) return <i>loading...</i>;
+  if (loading) return <Loading/>;
   if (error) return <i color="danger">{getErrorMessage(error)}</i>;
   console.log(data);
   let allOrders = data?.allOrders?.length ? data?.allOrders : [];

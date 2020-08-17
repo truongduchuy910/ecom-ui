@@ -9,11 +9,11 @@ export function Item({ order }) {
   ];
   return (
     <div style={{ border: "1px solid #eee", padding: 15, margin: 15 }}>
-      <h6>Reciper:</h6>
+      <h5>Reciper:</h5>
       <a>{order?.customer?.name}</a>
       <a>{order?.customer?.phone}</a>
       <a>{order?.customer?.address}</a>
-      <h6>Status: </h6>
+      <h5>Status: </h5>
       {stepName.map((step, index) =>
         index <= order.step ? (
           <i key={index}>

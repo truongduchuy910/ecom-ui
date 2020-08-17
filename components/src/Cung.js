@@ -21,9 +21,9 @@
 //         </div>
 //         {
 //         cung.cungSao.map(sao => { if (sao.saoLoai == 1) {
-//         <h6 class="{sao.cssSao}">
+//         <h5 class="{sao.cssSao}">
 //           {sao.saoTen} ({sao.saoDacTinh})
-//         </h6>
+//         </h5>
 //         {cung.cungTen}
 //         }})
 //         }

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { gql, useQuery } from "@apollo/client";
 import { getErrorMessage } from "../../lib/chip";
 import { Item } from "./item";
-import { Loading } from "../../src/Loading";
+import { Loading } from "../src/Loading";
 import { refetchCustomer } from "../../apollo/client";
 // get
 const GET_CUSTOMERS = gql`

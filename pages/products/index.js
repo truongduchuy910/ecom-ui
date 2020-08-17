@@ -31,6 +31,7 @@ const Index = () => {
           </Col>
           <Col md={{ size: 9 }}>
             <Products
+              lg={4}
               category={category}
               brand={brand}
               attributes={attributes}

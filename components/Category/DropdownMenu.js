@@ -27,7 +27,7 @@ export function CategoriesDropdownMenu() {
   return (
     <UncontrolledDropdown nav inNavbar>
       <DropdownToggle nav caret>
-        Categories
+        Danh Mục
       </DropdownToggle>
       <DropdownMenu right>
         {data.allCategories.map((category) => (

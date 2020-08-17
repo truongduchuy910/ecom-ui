@@ -1,4 +1,4 @@
-import { Users } from "../User";
+import { CategoriesDropdownMenu as Users } from "../User/DropdownUser";
 import { Icon as CartIcon } from "../Cart/icon";
 import { Icon as WishlistIcon } from "../Wishlist/icon";
 import { Icon as CompareIcon } from "../Compare/icon";
@@ -17,24 +17,48 @@ import {
   NavLink,
   Form,
 } from "reactstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search } from "../Search";
 import { page } from "../../config";
+import { Logo } from "../src/logo";
+
 export default function MenuApp() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  return (
-    <Navbar color="light" light expand="md" className="mb-3">
-      <Container>
-        <NavbarBrand href="/">{page.name}</NavbarBrand>
 
-        <Link href="/">
-          <a>Home</a>
-        </Link>
+  const [isFixed, setIsFixed] = useState(false);
+  const pose = isFixed ? "fixed" : "init";
+  useEffect(() => {
+    var doc = document.documentElement;
+    window.onscroll = function (e) {
+      const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+      if (top) setIsFixed(true);
+      else setIsFixed(false);
+    };
+  });
+  return (
+    <Navbar expand="md">
+      <Container>
+        <NavbarBrand>
+          <Logo />
+        </NavbarBrand>
+
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
+            <NavItem>
+              <Link href="/">
+                <NavLink href="/">Trang Chủ</NavLink>
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link href="/products">
+                <NavLink href="">Sản Phẩm</NavLink>
+              </Link>
+            </NavItem>
+
             <CategoriesDropdownMenu />
+
             <Search />
           </Nav>
           {/* Compare */}
@@ -52,8 +76,9 @@ export default function MenuApp() {
           {/* Order */}
 
           <OrderIcon />
-
-          <Users />
+          <Nav>
+            <Users />
+          </Nav>
         </Collapse>
       </Container>
     </Navbar>

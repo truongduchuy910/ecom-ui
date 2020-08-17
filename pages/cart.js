@@ -10,7 +10,7 @@ const About = () => {
     <div>
       <Container>
         <Customer />
-        <h6>Tao don</h6>
+        <h5>Tao don</h5>
         <Carts />
       </Container>
     </div>

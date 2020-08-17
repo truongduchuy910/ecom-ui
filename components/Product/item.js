@@ -7,36 +7,35 @@ import {
 import { formatMoney } from "../../lib/chip";
 import Link from "next/link";
 import { page } from "../../config";
+import { Tooltip } from "react-tippy";
+import { useState, Fragment } from "react";
+import { useSpring, animated } from "react-spring";
+import { ImgProduct } from "./imageProduct";
+
+
 export const Item = ({ product }) => {
-  const imageSrc =
-    page.server +
-    (product.image
-      ? product.image.publicUrl
-      : product?.images[0]?.file.publicUrl);
+  const [show, setShow] = useState(false);
 
   return (
-    <div>
-      <img src={imageSrc} key={imageSrc} />
-      <Link as={"/products/" + product.url} href="/products/[slug]">
-        <a>
-          <h6>{product.name}</h6>
-        </a>
-      </Link>
+    <div style={{ marginBottom: 13 }}>
+      <ImgProduct product={product} />
+      <div style={{ minHeight: 50 }}>
+        <Link as={"/products/" + product.url} href="/products/[slug]">
+          <a style={{ display: show ? "none" : "block" }}>
+            <h5>{product.name}</h5>
+          </a>
+        </Link>
+      </div>
+      <p style={{ display: show ? "none" : "block" }}>
+        {formatMoney(product.price)}
+      </p>
 
-      <p>{formatMoney(product.price)}</p>
-      <AttributeGroups attributeGroups={product.attributeGroups} />
       <button
         onClick={() => {
-          addProductToLocalCart({product});
+          addProductToLocalCart({ product });
         }}
       >
-        Add to Cart
-      </button>
-      <button onClick={() => addProductToLocalWishlist(product)}>
-        Add to Wishlist
-      </button>
-      <button onClick={() => addProductToLocalCompare(product)}>
-        Add to Compare
+        Thêm vào giỏ hàng
       </button>
     </div>
   );

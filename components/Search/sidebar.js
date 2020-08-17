@@ -22,13 +22,16 @@ export function Search() {
       action=""
     >
       <input
+        style={{ marginBottom: 13 }}
         placeholder="search"
         name="search"
         onChange={(event) => {
           setSearchInput(event.target.value);
         }}
       />
-      <button type="submit">search</button>
+      <button type="submit" style={{ paddingTop: 3, paddingBottom: 3 }}>
+      Tìm kiếm
+      </button>
     </form>
   );
 }

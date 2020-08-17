@@ -10,7 +10,7 @@ export function Index() {
   return (
     <div>
       {create ? <CreateCustomer /> : null}
-      <h6>Chon noi nhan</h6>
+      <h5>Chon noi nhan</h5>
       <Customers onCreate={setCreate} />
     </div>
   );

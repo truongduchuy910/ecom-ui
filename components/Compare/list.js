@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { emptyCompare } from "../../apollo/action";
 import { Item } from "./item";
-
+import { Loading } from "../src/Loading";
 export const GET_COMPARE = gql`
   query {
     compare @client
@@ -10,8 +10,7 @@ export const GET_COMPARE = gql`
 
 export function List() {
   const { data, loading, error } = useQuery(GET_COMPARE);
-
-  if (loading) return <i>loading...</i>;
+  if (loading) return <Loading />;
   return (
     <div>
       <button color="primary" onClick={emptyCompare}>
