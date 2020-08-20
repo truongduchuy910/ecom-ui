@@ -4,6 +4,7 @@ import { Product } from "../../components/Product/detail";
 import { useRouter } from "next/router";
 import { useQuery, gql } from "@apollo/client";
 import { Loading } from "../../components/src/Loading";
+import { Divider } from "../../components/src/Divider";
 const GET_PRODUCTS = gql`
   query($url: String) {
     allProducts(first: 1, where: { url: $url }) {
@@ -57,6 +58,8 @@ export default function ProductDetali() {
   return product ? (
     <Container>
       <Product product={product} />
+      <h4>Sản Phẩm Liên Quan</h4>
+      <Divider />
       <Products category={product.category.url} except={slug} more={false} />
     </Container>
   ) : null;

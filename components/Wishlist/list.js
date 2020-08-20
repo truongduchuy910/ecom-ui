@@ -16,17 +16,22 @@ export function List() {
   if (error) return <i>{error}</i>;
   return (
     <div>
-      <button onClick={emptyWishlist}>empty wishlist</button>
+      {/* <button onClick={emptyWishlist}>Xóa Tất Cả</button> */}
       <Row>
         {data ? (
           data?.wishlist?.length ? (
             data.wishlist.map((product) => (
-              <Col key={product.id} sm={6} lg={4}>
+              <Col
+                key={product.id}
+                sm={6}
+                lg={3}
+                style={{ backgroundColor: "white", padding: 8 }}
+              >
                 <Item product={product} />
               </Col>
             ))
           ) : (
-            <p>No products in your wishlist</p>
+            <p>Không có sản phẩm</p>
           )
         ) : null}
       </Row>

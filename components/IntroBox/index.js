@@ -4,11 +4,12 @@ import { Box } from "../src/Box";
 import { Divider } from "../src/Divider";
 import { List as Products } from "../Product/list";
 import { BirdBg } from "../src/BirdBg";
+
 export function IntroBox() {
   return (
     <Box>
-      <h1 className="display-4">Câu Chuyện Sản Phẩm</h1>
       <Divider />
+      <h1 className="mb-4">Câu Chuyện Sản Phẩm</h1>
       <p>
         Việt Nam là một trong 8 quốc gia trên thế giới có tổ Yến. Chính nhờ đặc
         tính giàu dinh dưỡng, cũng như sự gian nan, cầu kỳ trong quá trình thu
@@ -46,6 +47,7 @@ export function IntroBox() {
         Thưởng thức Yến Sào Đất Quảng là nếm vị ngon của tinh hoa biển trời Đất
         Quảng, là vị ngọt ngào của miền đất mẹ Quảng Nam.
       </p>
+      <Divider />
 
       <iframe
         width="100%"
@@ -55,6 +57,7 @@ export function IntroBox() {
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
+      <Divider />
     </Box>
   );
 }

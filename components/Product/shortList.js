@@ -3,7 +3,7 @@ import { gql, useQuery, rewriteURIForGET } from "@apollo/client";
 import { useRouter, withRouter, Router } from "next/router";
 import { Item as Product } from "./item";
 import { Container, Row, Col, Spinner } from "reactstrap";
-import { page } from "../../config";
+import { page } from "../../config.json";
 import { Loading } from "../src/Loading";
 
 const GET_PRODUCTS = gql`

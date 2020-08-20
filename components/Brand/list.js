@@ -5,7 +5,7 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { queryVar } from "../../apollo/action";
 import { route } from "next/dist/next-server/server/router";
-import { page } from "../../config";
+import { page } from "../../config.json";
 import { Spinner, Alert } from "reactstrap";
 import { getErrorMessage } from "../../lib/chip";
 import { Loading } from "../src/Loading";
@@ -26,7 +26,7 @@ export function List() {
   if (error) return <i color="danger">{getErrorMessage(error)}</i>;
   return !loading && data ? (
     <div>
-      <p>--------------------</p>
+      <h5>Thương Hiệu</h5>
       <Item brand={{ id: "all-brand", name: "Tất Cả ", url: "all" }} />
       {data.allBrands.map((brand) => (
         <Item key={brand.id} brand={brand} />

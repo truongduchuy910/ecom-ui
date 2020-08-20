@@ -6,10 +6,12 @@ import {
 } from "reactstrap";
 import { gql, useQuery } from "@apollo/client";
 import { getErrorMessage } from "../../lib/chip";
-import { page } from "../../config";
+import { page } from "../../config.json";
 import Link from "next/link";
 import { USER } from "../../apollo/action";
 import { Fragment } from "react";
+import { IoIosLogIn } from "react-icons/io";
+import { AiOutlineUser } from "react-icons/ai";
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput) {
     allCategories(where: { seller: $seller, root: true }) {
@@ -19,25 +21,32 @@ const GET_CATEGORIES = gql`
     }
   }
 `;
-export function CategoriesDropdownMenu() {
+export function CategoriesDropdownMenu({ onClick }) {
   const { data } = useQuery(USER);
   return typeof window !== "undefined" ? (
     data?.user?.id ? (
       <UncontrolledDropdown nav inNavbar>
         <DropdownToggle nav caret>
-          Hi {data?.user?.isSeller ? "seller" : null} {data.user.email}
+          <AiOutlineUser />
         </DropdownToggle>
         <DropdownMenu right>
+          <DropdownItem>
+            <a onClick={onClick}>
+              Hi {data?.user?.isSeller ? "seller" : null} {data.user.email}
+            </a>
+          </DropdownItem>
           <Link href="/signout">
             <DropdownItem href="">
-              <a>Đăng Xuất</a>
+              <a onClick={onClick}>Đăng Xuất</a>
             </DropdownItem>
           </Link>
         </DropdownMenu>
       </UncontrolledDropdown>
     ) : (
       <Link href="/signin">
-        <a>Đăng Nhập</a>
+        <a>
+          <IoIosLogIn />
+        </a>
       </Link>
     )
   ) : (

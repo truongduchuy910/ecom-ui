@@ -14,21 +14,76 @@ import {
   addProductToLocalCompare,
 } from "../../apollo/action";
 import { Fragment } from "react";
-import { page } from "../../config";
+import { page } from "../../config.json";
 import { Row, Col } from "reactstrap";
 import { ImgProduct } from "./imageProduct";
 import { QuickView } from "./quickView";
 import { Box } from "../src/Box";
 import { Divider } from "../src/Divider";
+import Link from "next/link";
 export function Product({ product }) {
   const src = page.server + product?.image?.publicUrl;
   return (
     <Fragment>
-      <QuickView product={product} />
+      <Row>
+        <Col
+          xs={12}
+          lg={6}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <ImgProduct product={product} />
+        </Col>
+        <Col
+          lg={6}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <h1>{product.name}</h1>
+
+            <h5
+              style={{
+                textDecoration: product.sale ? "line-through" : "",
+                color: product.sale ? "var(--secondary)" : "default",
+                fontSize: product.sale ? 15 : "default",
+                float: product.sale ? "right" : "default",
+              }}
+            >
+              {formatMoney(product.price)}
+            </h5>
+            {product.sale ? (
+              <h5>{formatMoney(product.price - product.sale)}</h5>
+            ) : null}
+            <p>{product.description?.slice(0, 500)}</p>
+
+            <button
+              onClick={() => {
+                addProductToLocalCart({ product });
+              }}
+            >
+              Thêm vào giỏ hàng
+            </button>
+          </div>
+        </Col>
+      </Row>
+      <Divider />
+
       <Box>
-        <Divider />
         <Row>
+          <Col xs={12}>
+            <h5>Mô Tả</h5>
+            <p>{product.description}</p>
+          </Col>
           <Col>
+            <h5>Hướng dẫn</h5>
+
             <p>{product.guide}</p>
           </Col>
           <Col>

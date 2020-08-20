@@ -15,7 +15,6 @@ export function Search() {
          */
         e.preventDefault();
         e.stopPropagation();
-
         router.push({ pathname: "/products", query: { search: searchInput } });
       }}
       action=""

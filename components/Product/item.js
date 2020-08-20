@@ -6,37 +6,53 @@ import {
 } from "../../apollo/action";
 import { formatMoney } from "../../lib/chip";
 import Link from "next/link";
-import { page } from "../../config";
+import { page } from "../../config.json";
 import { Tooltip } from "react-tippy";
 import { useState, Fragment } from "react";
-import { useSpring, animated } from "react-spring";
-import { ImgProduct } from "./imageProduct";
 
+import { ImgProduct } from "./imageProduct";
+import { FadeIn } from "../Animations/FadeIn";
 
 export const Item = ({ product }) => {
   const [show, setShow] = useState(false);
 
   return (
-    <div style={{ marginBottom: 13 }}>
-      <ImgProduct product={product} />
-      <div style={{ minHeight: 50 }}>
-        <Link as={"/products/" + product.url} href="/products/[slug]">
-          <a style={{ display: show ? "none" : "block" }}>
-            <h5>{product.name}</h5>
-          </a>
-        </Link>
-      </div>
-      <p style={{ display: show ? "none" : "block" }}>
-        {formatMoney(product.price)}
-      </p>
+    <FadeIn>
+      <div style={{ position: "relative" }}>
+        <ImgProduct product={product} />
+        <div style={{ minHeight: 50 }}>
+          <Link as={"/products/" + product.url} href="/products/[slug]">
+            <a style={{ display: show ? "none" : "block" }}>
+              <h5>{product.name}</h5>
+            </a>
+          </Link>
+        </div>
+        <h5
+          style={{
+            textDecoration: product.sale ? "line-through" : "",
+            color: product.sale ? "var(--secondary)" : "default",
+            fontSize: product.sale ? 15 : "default",
+            float: product.sale ? "right" : "default",
+          }}
+        >
+          {formatMoney(product.price)}
+        </h5>
 
-      <button
-        onClick={() => {
-          addProductToLocalCart({ product });
-        }}
-      >
-        Thêm vào giỏ hàng
-      </button>
-    </div>
+        {product.sale ? (
+          <h5 style={{ display: show ? "none" : "block" }}>
+            {formatMoney(product.price - product.sale)}
+          </h5>
+        ) : null}
+
+        <button
+          onClick={() => {
+            addProductToLocalCart({ product });
+          }}
+          style={{ marginBottom: 0 }}
+        >
+          Thêm vào giỏ
+        </button>
+      </div>
+    </FadeIn>
   );
 };

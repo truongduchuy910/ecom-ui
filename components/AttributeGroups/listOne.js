@@ -5,7 +5,7 @@ import { Fragment } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { queryVar } from "../../apollo/action";
-import { page } from "../../config";
+import { page } from "../../config.json";
 import { Spinner } from "reactstrap";
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {
@@ -17,7 +17,6 @@ const GET_ATTRIBUTES = gql`
   }
 `;
 export function List({ attributeGroups }) {
-  console.log(attributeGroups);
   return (
     <div>
       {attributeGroups?.map((attributeGroup) => (

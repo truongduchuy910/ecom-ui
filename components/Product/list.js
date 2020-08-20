@@ -3,9 +3,10 @@ import { gql, useQuery, rewriteURIForGET } from "@apollo/client";
 import { useRouter, withRouter, Router } from "next/router";
 import { Item as Product } from "./item";
 import { Container, Row, Col, Spinner } from "reactstrap";
-import { page } from "../../config";
+import { page } from "../../config.json";
 import { toSlug } from "../../lib/chip";
 import { Loading } from "../src/Loading";
+import { Divider } from "../src/Divider";
 
 const GET_PRODUCTS = gql`
   query(
@@ -45,6 +46,7 @@ const GET_PRODUCTS = gql`
     ) {
       id
       name
+      description
       image {
         publicUrl
       }
@@ -69,7 +71,7 @@ const GET_PRODUCTS = gql`
   }
 `;
 export const List = ({
-  first = 3,
+  first = 12,
   skip = 0,
   category,
   categories,
@@ -121,19 +123,18 @@ export const List = ({
           });
         },
       });
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   }
   if (error) return <i>{error}</i>;
   if (loading) return <Loading />;
   return data?.allProducts?.length ? (
-    <section>
-      <Row>
+    <section id="products">
+      <Row noGutters style={{ borderRadius: 8 }}>
         {data.allProducts.map((product) => (
           <Col
+            style={{ padding: 8, backgroundColor: "white" }}
             key={product.id}
-            sm={sm ? sm : { size: 6 }}
+            xs={sm ? sm : { size: 6 }}
             md={md ? md : { size: 4 }}
             lg={lg ? lg : { size: 3 }}
           >
@@ -141,9 +142,16 @@ export const List = ({
           </Col>
         ))}
       </Row>
-      {more ? <button onClick={loadingMore}>Xem thêm</button> : null}
+      {more ? (
+        <center>
+          <Divider />
+          <button onClick={loadingMore} style={{ width: 200 }}>
+            Xem thêm
+          </button>
+        </center>
+      ) : null}
     </section>
   ) : (
-    <i>Không có kết quả!</i>
+    <p style={{ textAlign: "center" }}>Không có kết quả!</p>
   );
 };

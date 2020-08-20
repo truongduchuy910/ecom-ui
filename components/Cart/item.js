@@ -7,14 +7,15 @@ import {
 import { Row, Col } from "reactstrap";
 import { formatMoney } from "../../lib/chip";
 import { ImgProduct } from "../Product/imageProduct";
+import { MdDelete } from "react-icons/md";
 import Link from "next/link";
 const style = { css: { width: 35, height: 35, padding: 0, margin: 0 } };
 
 export const Item = ({ cartItem, onChange }) => {
-  console.log(cartItem.product);
+  
   return (
     <Row>
-      <Col sm={12} md={6} lg={4}>
+      <Col sm={12} md={6} lg={5}>
         <ImgProduct product={cartItem.product} />
       </Col>
       <Col>
@@ -24,15 +25,15 @@ export const Item = ({ cartItem, onChange }) => {
           </a>
         </Link>
 
-        {formatMoney(cartItem.price)}
-        <div>
+        <p>{formatMoney(cartItem.price)}</p>
+        <div style={{ display: "inline-block" }}>
           <button
             style={style.css}
             onClick={() => {
-              quantityChange(cartItem, +1);
+              quantityChange(cartItem, -1);
             }}
           >
-            +
+            -
           </button>
           <label
             style={{ fontSize: "1.2rem", marginLeft: 13, marginRight: 13 }}
@@ -42,19 +43,19 @@ export const Item = ({ cartItem, onChange }) => {
           <button
             style={style.css}
             onClick={() => {
-              quantityChange(cartItem, -1);
+              quantityChange(cartItem, +1);
             }}
           >
-            -
+            +
           </button>
         </div>
         <button
-          style={{ height: 35, margin: 0, padding: "0px 13px 0px 13px" }}
+          style={{ display: "inline", width: "auto", marginLeft: 13 }}
           onClick={() => {
             removeItem(cartItem);
           }}
         >
-          remove
+          Bỏ khỏi giỏ hàng
         </button>
       </Col>
     </Row>

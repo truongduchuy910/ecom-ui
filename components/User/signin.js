@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { useRouter } from "next/router";
 import { gql } from "@apollo/client";
 import { useMutation } from "@apollo/client";
-import { onSignIn } from "../../apollo/action";
+import { onSignIn, init } from "../../apollo/action";
 import { getErrorMessage } from "../../lib/chip";
 import { useApollo } from "../../apollo/client";
-const SignInMutation = gql`
+export const SignInMutation = gql`
   mutation($email: String!, $password: String!) {
     authenticateUserWithPassword(email: $email, password: $password) {
       token
@@ -18,24 +18,23 @@ const SignInMutation = gql`
     }
   }
 `;
+
 export function SignIn() {
-  const [signIn] = useMutation(SignInMutation);
-  const [errorMsg, setErrorMsg] = useState();
   const router = useRouter();
   const client = useApollo();
+  const [signIn] = useMutation(SignInMutation);
+  const [errorMsg, setErrorMsg] = useState();
+
   async function handleSubmit(event) {
     event.preventDefault();
-
-    const emailElement = event.currentTarget.elements.email;
-    const passwordElement = event.currentTarget.elements.password;
-
+    const email = event.currentTarget.elements.email.value;
+    const password = event.currentTarget.elements.password.value;
     try {
       await client.clearStore();
-
       const { data } = await signIn({
         variables: {
-          email: emailElement.value,
-          password: passwordElement.value,
+          email: email,
+          password: password,
         },
       });
       if (data.authenticateUserWithPassword) {
@@ -44,26 +43,48 @@ export function SignIn() {
         } = data;
         localStorage.setItem("token", token);
         onSignIn({ user: item });
-        router.reload();
         await router.push({ pathname: "/" });
+        await client.resetStore();
+        init();
       }
     } catch (error) {
       setErrorMsg(getErrorMessage(error));
     }
   }
   return (
-    <form noValidate onSubmit={handleSubmit}>
-      <input required id="email" label="Tài khoản" name="email" />
-      <input
-        required
-        name="password"
-        label="Mật khẩu"
-        type="password"
-        id="password"
-      />
+    <Fragment>
+      <h2>Đăng Nhập</h2>
+      <form noValidate onSubmit={handleSubmit}>
+        <h5>Tài khoản</h5>
+        <input
+          required
+          id="email"
+          label="Tài khoản"
+          name="email"
+          placeholder="Nhập Tài khoản"
+          style={{ border: "1px solid black", padding: 3, paddingLeft: 13 }}
+        />
+        <h5>Mật khẩu</h5>
+        <input
+          required
+          name="password"
+          label="Mật khẩu"
+          placeholder="Nhập Mật khẩu"
+          type="password"
+          id="password"
+          style={{ border: "1px solid black", padding: 3, paddingLeft: 13 }}
+        />
 
-      <button type="submit">Đăng Nhập</button>
-      {errorMsg}
-    </form>
+        <button
+          type="submit"
+          style={{
+            marginTop: 21,
+          }}
+        >
+          Tiếp Tục
+        </button>
+        {errorMsg}
+      </form>
+    </Fragment>
   );
 }

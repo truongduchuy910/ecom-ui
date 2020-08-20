@@ -5,6 +5,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head />
         <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+        <title>Yến Sào Đất Quảng</title>
         <Main />
         <NextScript />
       </Html>

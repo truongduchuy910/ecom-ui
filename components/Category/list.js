@@ -2,7 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 
 import { Item } from "./item";
 
-import { page } from "../../config";
+import { page } from "../../config.json";
 import { Spinner } from "reactstrap";
 import { Loading } from "../src/Loading";
 
@@ -51,9 +51,15 @@ export function List() {
       <h5>Danh Mục</h5>
       <Item
         categories={[{ id: "all-category", name: "Tất Cả ", url: "all" }]}
+        
       />
       {data.allCategories.map((category) => (
-        <Item key={category.id} categories={[category]} level={0} />
+        <Item
+          
+          key={category.id}
+          categories={[category]}
+          level={0}
+        />
       ))}
     </div>
   ) : null;

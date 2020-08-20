@@ -16,39 +16,51 @@ import {
   Container,
   NavLink,
   Form,
+  ButtonToggle,
 } from "reactstrap";
 import { useState, useEffect } from "react";
 import { Search } from "../Search";
-import { page } from "../../config";
+import { page } from "../../config.json";
 import { Logo } from "../src/logo";
+import { IoIosMenu } from "react-icons/io";
+import { FiFilter } from "react-icons/fi";
 
-export default function MenuApp() {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-
+export default function MenuApp({ isOpen, toggle }) {
   const [isFixed, setIsFixed] = useState(false);
   const pose = isFixed ? "fixed" : "init";
-  useEffect(() => {
-    var doc = document.documentElement;
-    window.onscroll = function (e) {
-      const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-      if (top) setIsFixed(true);
-      else setIsFixed(false);
-    };
-  });
+
   return (
-    <Navbar expand="md">
+    <Navbar
+      expand="md"
+      style={{
+        position: "fixed",
+        backgroundColor: "white",
+        width: "100%",
+        zIndex: 100,
+        boxShadow: "3px 3px 15px #eee",
+      }}
+    >
       <Container>
         <NavbarBrand>
           <Logo />
         </NavbarBrand>
-
-        <NavbarToggler onClick={toggle} />
+        <NavbarToggler style={{ width: 50, margin: 0, padding: 0 }}>
+          <IoIosMenu
+            onClick={toggle}
+            style={{
+              display: "inline-block",
+              color: "black",
+              width: "auto",
+              padding: 0,
+              margin: 8,
+            }}
+          />
+        </NavbarToggler>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
               <Link href="/">
-                <NavLink href="/">Trang Chủ</NavLink>
+                <NavLink>Trang Chủ</NavLink>
               </Link>
             </NavItem>
             <NavItem>
@@ -61,22 +73,29 @@ export default function MenuApp() {
 
             <Search />
           </Nav>
-          {/* Compare */}
+          <Nav
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {/* Compare */}
 
-          <CompareIcon />
+            <CompareIcon />
 
-          {/* Wishlist */}
+            {/* Wishlist */}
 
-          <WishlistIcon />
+            <WishlistIcon />
 
-          {/* Cart */}
+            {/* Cart */}
 
-          <CartIcon />
+            <CartIcon />
 
-          {/* Order */}
+            {/* Order */}
 
-          <OrderIcon />
-          <Nav>
+            <OrderIcon />
+
             <Users />
           </Nav>
         </Collapse>

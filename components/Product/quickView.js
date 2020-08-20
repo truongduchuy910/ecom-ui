@@ -2,51 +2,73 @@ import { Row, Col } from "reactstrap";
 import { ImgProduct } from "./imageProduct";
 import { formatMoney } from "../../lib/chip";
 import { addProductToLocalCart } from "../../apollo/action";
-
-export function QuickView({ product }) {
+import { Fragment } from "react";
+import { Divider } from "../src/Divider";
+import Link from "next/link";
+export function QuickView({ product, onClick }) {
   return (
-    <Row>
-      <Col
-        lg={6}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div
+    <div style={{ maxHeight: "60vh" }}>
+      <Row>
+        <Col
           style={{
-            position: "inherit",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <ImgProduct product={product} />
-        </div>
-      </Col>
-      <Col
-        lg={6}
+        </Col>
+        <Col
+          lg={6}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <Link as={"/products/" + product.url} href="/products/[slug]">
+              <a>
+                <h1>{product.name}</h1>
+              </a>
+            </Link>
+            <h5
+              style={{
+                textDecoration: product.sale ? "line-through" : "",
+                color: product.sale ? "var(--secondary)" : "default",
+                fontSize: product.sale ? 15 : "default",
+                float: product.sale ? "right" : "default",
+              }}
+            >
+              {formatMoney(product.price)}
+            </h5>
+            {product.sale ? (
+              <h5>{formatMoney(product.price - product.sale)}</h5>
+            ) : null}
+            <p>{product.description?.slice(0, 200)}...</p>
+
+            <button
+              onClick={() => {
+                addProductToLocalCart({ product });
+              }}
+            >
+              Thêm vào giỏ hàng
+            </button>
+          </div>
+        </Col>
+      </Row>
+      <button
+        onClick={() => onClick()}
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          position: "absolute",
+          top: 80,
+          right: 5,
+          width: 50,
+          height: 50,
         }}
       >
-        <div>
-          <h1 style={{ textAlign: "start" }}>{product.name}</h1>
-          <h5>{formatMoney(product.price)}</h5>
-          {product.sale ? (
-            <h5>{formatMoney(product.price - product.sale)}</h5>
-          ) : null}
-          <p>{product.description}</p>
-
-          <button
-            onClick={() => {
-              addProductToLocalCart({ product });
-            }}
-          >
-            Thêm vào giỏ hàng
-          </button>
-        </div>
-      </Col>
-    </Row>
+        x
+      </button>
+    </div>
   );
 }

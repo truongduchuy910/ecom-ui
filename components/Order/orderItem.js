@@ -1,11 +1,13 @@
 import { Item } from "../Product/shortItem";
 import { formatMoney } from "../../lib/chip";
+import { Row, Col } from "reactstrap";
+import { Fragment } from "react";
 export function OrderItem({ item }) {
   return item ? (
-    <tr>
-      <th>{item.quantity}</th>
-      <th>{formatMoney(item.price)}</th>
+    <Fragment>
+      <a>Số lượng: {item.quantity}</a>
+      <a>Thành tiền: {formatMoney(item.price)}</a>
       <Item product={item.product} />
-    </tr>
+    </Fragment>
   ) : null;
 }

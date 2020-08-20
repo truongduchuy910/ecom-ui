@@ -2,6 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 import { emptyCompare } from "../../apollo/action";
 import { Item } from "./item";
 import { Loading } from "../src/Loading";
+import { QuickView } from "../Product/quickView";
 export const GET_COMPARE = gql`
   query {
     compare @client
@@ -13,16 +14,16 @@ export function List() {
   if (loading) return <Loading />;
   return (
     <div>
-      <button color="primary" onClick={emptyCompare}>
-        empty compare
-      </button>
+      {/* <button color="primary" onClick={emptyCompare}>
+        Xóa Tất Cả
+      </button> */}
       {data ? (
         data?.compare?.length ? (
           data.compare.map((product) => (
-            <Item key={product.id} product={product} />
+            <QuickView key={product.id} product={product} />
           ))
         ) : (
-          <p>No products in your compare</p>
+          <p>Không có sản phẩm</p>
         )
       ) : null}
     </div>
