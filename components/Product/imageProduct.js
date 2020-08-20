@@ -48,9 +48,9 @@ export function ImgProduct({ product }) {
   const isInWishlist = data?.wishlist?.some((item) => item.id === product.id);
   const isInCompare = data?.compare?.some((item) => item.id === product.id);
 
-  const ImgSrcs = product?.images || [];
+  let ImgSrcs = product?.images || [];
   if (product.image) {
-    ImgSrcs = [product.image].concat([{ file: product.image }]);
+    ImgSrcs = [{ file: product.image }].concat(ImgSrcs);
   }
   console.log(ImgSrcs);
   const [imgIndex, setImgIndex] = useState(0);
@@ -87,8 +87,12 @@ export function ImgProduct({ product }) {
         </animated.div>
       ) : null}
       <img
-        src={page.server + ImgSrcs[imgIndex]?.file.publicUrl}
-        key={ImgSrcs[imgIndex]?.file.publicUrl}
+        src={
+          ImgSrcs[imgIndex]
+            ? page.server + ImgSrcs[imgIndex]?.file?.publicUrl
+            : "/assets/img/no-image.jpg"
+        }
+        key={ImgSrcs[imgIndex]?.file?.publicUrl}
         onClick={() => {
           toggle(true);
         }}
