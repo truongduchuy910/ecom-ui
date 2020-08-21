@@ -5,7 +5,17 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head />
         <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
-        <title>Yến Sào Đất Quảng</title>
+        <title>Shop Whey Đà Nẵng | Dinh Dưỡng Thể Thao</title>
+        <meta
+          name="twitter:description"
+          content="113 Phan Châu Trinh, Phước Ninh, Hải Châu, Đà Nẵng | 0905 586 577 - 0773 502 200 | Uy tín, giá cả phải chăng, hợp lí"
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta property="og:type" content="website" />
+        <meta
+          name="description"
+          content="113 Phan Châu Trinh, Phước Ninh, Hải Châu, Đà Nẵng | 0905 586 577 - 0773 502 200 | Uy tín, giá cả phải chăng, hợp lí"
+        />
         <Main />
         <NextScript />
       </Html>

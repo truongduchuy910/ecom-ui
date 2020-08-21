@@ -128,7 +128,19 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], null), __jsx("meta", {
       name: "viewport",
       content: "initial-scale=1, maximum-scale=1"
-    }), __jsx("title", null, "Y\u1EBFn S\xE0o \u0110\u1EA5t Qu\u1EA3ng"), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], null), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], null));
+    }), __jsx("title", null, "Shop Whey \u0110\xE0 N\u1EB5ng | Dinh D\u01B0\u1EE1ng Th\u1EC3 Thao"), __jsx("meta", {
+      name: "twitter:description",
+      content: "113 Phan Ch\xE2u Trinh, Ph\u01B0\u1EDBc Ninh, H\u1EA3i Ch\xE2u, \u0110\xE0 N\u1EB5ng | 0905 586 577 - 0773 502 200 | Uy t\xEDn, gi\xE1 c\u1EA3 ph\u1EA3i ch\u0103ng, h\u1EE3p l\xED"
+    }), __jsx("meta", {
+      name: "twitter:card",
+      content: "summary"
+    }), __jsx("meta", {
+      property: "og:type",
+      content: "website"
+    }), __jsx("meta", {
+      name: "description",
+      content: "113 Phan Ch\xE2u Trinh, Ph\u01B0\u1EDBc Ninh, H\u1EA3i Ch\xE2u, \u0110\xE0 N\u1EB5ng | 0905 586 577 - 0773 502 200 | Uy t\xEDn, gi\xE1 c\u1EA3 ph\u1EA3i ch\u0103ng, h\u1EE3p l\xED"
+    }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], null), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], null));
   }
 
 }
