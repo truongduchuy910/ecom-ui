@@ -76,7 +76,7 @@ export function ImgProduct({ product }) {
   });
   return (
     <div style={{ position: "inherit" }}>
-      {open ? (
+      {/* {open ? (
         <animated.div style={props}>
           <QuickView
             product={product}
@@ -85,7 +85,7 @@ export function ImgProduct({ product }) {
             }}
           />
         </animated.div>
-      ) : null}
+      ) : null} */}
       <img
         src={
           ImgSrcs[imgIndex]
