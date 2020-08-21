@@ -34,22 +34,25 @@ export default function MenuApp({ isOpen, toggle }) {
       expand="md"
       style={{
         position: "fixed",
-        backgroundColor: "white",
+        backgroundColor: "#333",
         width: "100%",
         zIndex: 100,
-        boxShadow: "3px 3px 15px #eee",
+        boxShadow: "3px 3px 15px #333",
       }}
     >
       <Container>
-        <NavbarBrand>
-          <Logo />
-        </NavbarBrand>
+        <Link href="/">
+          <NavbarBrand>
+            <Logo /> Shop Whey Đà Nẵng
+          </NavbarBrand>
+        </Link>
+
         <NavbarToggler style={{ width: 50, margin: 0, padding: 0 }}>
           <IoIosMenu
             onClick={toggle}
             style={{
               display: "inline-block",
-              color: "black",
+              color: "white",
               width: "auto",
               padding: 0,
               margin: 8,
@@ -58,11 +61,6 @@ export default function MenuApp({ isOpen, toggle }) {
         </NavbarToggler>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <Link href="/">
-                <NavLink>Trang Chủ</NavLink>
-              </Link>
-            </NavItem>
             <NavItem>
               <Link href="/products">
                 <NavLink href="">Sản Phẩm</NavLink>

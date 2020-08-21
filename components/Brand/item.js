@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { route } from "next/dist/next-server/server/router";
-
+import { theme } from "../../config.json";
 export function Item({ brand }) {
   const router = useRouter();
   let query = router.query;
@@ -12,7 +12,14 @@ export function Item({ brand }) {
     router.push({ query });
   };
   return (
-    <a style={{ fontWeight: exist ? "bold" : null }} onClick={handleClick}>
+    <a
+      style={{
+        color: theme.color,
+        marginLeft: 13,
+        fontWeight: exist ? "bold" : null,
+      }}
+      onClick={handleClick}
+    >
       {brand.name}
     </a>
   );

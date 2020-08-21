@@ -2,7 +2,7 @@ import Link from "next/link";
 import { categoryVar, queryVar } from "../../apollo/action";
 import { useRouter } from "next/router";
 import { route } from "next/dist/next-server/server/router";
-
+import { theme } from "../../config.json";
 export function Item({ categories }) {
   const router = useRouter();
   let query = router.query;
@@ -27,6 +27,7 @@ export function Item({ categories }) {
     <div>
       <a
         style={{
+          color: theme.color,
           fontWeight: query.category === category.url ? "bold" : null,
           paddingLeft: categories.length * 13,
         }}

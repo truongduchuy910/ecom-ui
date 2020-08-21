@@ -7,6 +7,7 @@ import { Container, Row, Col } from "reactstrap";
 import { Sidebar } from "../../components/Sidebar";
 import { BirdBg } from "../../components/src/BirdBg";
 import { Divider } from "../../components/src/Divider";
+import { theme } from "../../config.json";
 const Index = () => {
   const router = useRouter();
   let query = router.query;
@@ -22,7 +23,11 @@ const Index = () => {
 
   return (
     <Container
-      style={{ backgroundColor: "white", marginTop: 15, borderRadius: 8 }}
+      style={{
+        backgroundColor: theme.backgroundColor,
+        marginTop: 15,
+        borderRadius: 8,
+      }}
     >
       <Divider />
       <Row>

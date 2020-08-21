@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
   });
   return (
     <ApolloProvider client={apolloClient}>
-      <header style={{ paddingBottom: 76 }}>
+      <header style={{ paddingBottom: 60 }}>
         <MenuApp isOpen={isOpen} toggle={toggle} />
       </header>
       <main style={{ minHeight: "60vh", marginTop: 34 }}>

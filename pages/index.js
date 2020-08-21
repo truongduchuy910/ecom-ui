@@ -13,7 +13,7 @@ const Index = () => {
       {/*  */}
       <Banners />
       <Container>
-        <IntroBox />
+        {/* <IntroBox /> */}
         <h2 className="text-center mt-4">Sản Phẩm Bán Chạy</h2>
         <Divider />
         <Products first={4} lg={3} suggestions="bestSeller" more={false} />

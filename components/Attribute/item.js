@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { removeItemOnce } from "../../lib/chip";
-
+import { FiThermometer } from "react-icons/fi";
+import { theme } from "../../config.json";
 export function Item({ attribute }) {
   const router = useRouter();
   let query = router.query;
@@ -18,7 +19,14 @@ export function Item({ attribute }) {
     router.push({ query });
   };
   return (
-    <a style={{ fontWeight: exist ? "bold" : null }} onClick={handleClick}>
+    <a
+      style={{
+        color: theme.color,
+        marginLeft: 13,
+        fontWeight: exist ? "bold" : null,
+      }}
+      onClick={handleClick}
+    >
       {attribute.name}
     </a>
   );

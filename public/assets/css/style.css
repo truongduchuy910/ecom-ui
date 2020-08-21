@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -13,7 +12,7 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: brown;
+  --primary: #d4ac5c;
   --secondary: #6c757d;
   --success: #28a745;
   --info: #17a2b8;
@@ -23,13 +22,14 @@
   --dark: #343a40;
 }
 body {
-  font-family: "Lora", serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1.2rem;
-  background-color: #f4f4f4;
+  background-color: #343a40;
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -43,7 +43,7 @@ input {
   border: none;
   background-color: transparent;
   padding-left: 13px;
-  color: #333;
+  color: white;
   border-bottom: 2px solid #eee;
   font-size: 18px;
   margin-bottom: 13px;
@@ -51,34 +51,36 @@ input {
   width: 100%;
 }
 input::-webkit-input-placeholder {
-  color: #333 !important;
+  color: white !important;
 }
 input::-moz-placeholder {
-  color: #333 !important;
+  color: white !important;
 }
 input:-ms-input-placeholder {
-  color: #333 !important;
+  color: white !important;
 }
 input::-ms-input-placeholder {
-  color: #333 !important;
+  color: white !important;
 }
 input::placeholder {
-  color: #333 !important;
+  color: white !important;
 }
 a {
-  color: #333;
+  color: white;
   font-size: 18px;
   display: block;
 }
 a:not([href]):not([class]):hover {
   text-decoration: underline;
 }
+h2 {
+  font-size: 24px;
+}
 h1,
 h2,
 h3,
 h4 {
   color: var(--primary);
-  font-style: italic !important;
   margin-top: 13px;
   text-align: center;
 }
@@ -96,19 +98,17 @@ section {
 }
 
 button {
-  border: 1px solid #333;
+  color: white;
+  border: 1px solid white;
   width: 100%;
   background-color: transparent;
   margin-bottom: 21px;
   padding: 3px 13px 3px 13px;
-  -webkit-transition: background-color 0.5s ease-out;
-  -moz-transition: background-color 0.5s ease-out;
-  -o-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
 }
 button:hover {
-  background-color: #333;
-  color: white;
+  background-color: white;
+  color: black;
 }
 th {
   padding-right: 21px;
@@ -123,4 +123,7 @@ th {
 .navbar-toggler:hover {
   color: black;
   background-color: white;
+}
+p {
+  color: white;
 }

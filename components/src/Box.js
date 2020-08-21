@@ -1,4 +1,3 @@
-
 import { animated, useSpring } from "react-spring";
 
 export function Box({ children }) {
@@ -10,7 +9,7 @@ export function Box({ children }) {
           padding: 34,
           marginTop: 21,
           marginBottom: 21,
-          backgroundColor: "white",
+          backgroundColor: "#333",
           borderRadius: 8,
         }}
       >

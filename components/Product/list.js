@@ -132,7 +132,7 @@ export const List = ({
       <Row noGutters style={{ borderRadius: 8 }}>
         {data.allProducts.map((product) => (
           <Col
-            style={{ padding: 8, backgroundColor: "white" }}
+            style={{ padding: 8 }}
             key={product.id}
             xs={sm ? sm : { size: 6 }}
             md={md ? md : { size: 4 }}

@@ -1,8 +1,6 @@
+import { page } from "../../config.json";
 export function Logo() {
   return (
-    <img
-      src="/assets/img/logo.png"
-      style={{ maxWidth: 50, padding: 0, margin: 0 }}
-    />
+    <img src={page.logo} style={{ maxWidth: 50, padding: 0, margin: 0 }} />
   );
 }
