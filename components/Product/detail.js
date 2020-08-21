@@ -13,7 +13,7 @@ import {
   addProductToLocalWishlist,
   addProductToLocalCompare,
 } from "../../apollo/action";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { page } from "../../config.json";
 import { Row, Col } from "reactstrap";
 import { ImgProduct } from "./imageProduct";
@@ -21,7 +21,7 @@ import { QuickView } from "./quickView";
 import { Box } from "../src/Box";
 import { Divider } from "../src/Divider";
 import Link from "next/link";
-import { useSpring } from "react-spring";
+import { useSpring, animated } from "react-spring";
 export function Product({ product }) {
   const src = page.server + product?.image?.publicUrl;
   const [open, toggle] = useState(false);
@@ -103,12 +103,14 @@ export function Product({ product }) {
           </Col>
           <Col>
             {product.file ? (
-              <img
-                src={page.server + product.file.publicUrl}
-                onClick={() => {
-                  toggle(false);
-                }}
-              />
+              <animated.div style={props}>
+                <img
+                  src={page.server + product.file.publicUrl}
+                  onClick={() => {
+                    toggle(false);
+                  }}
+                />
+              </animated.div>
             ) : null}
           </Col>
           <Col lg={12}>
