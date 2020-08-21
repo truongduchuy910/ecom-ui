@@ -1,8 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { emptyCompare } from "../../apollo/action";
-import { Item } from "./item";
 import { Loading } from "../src/Loading";
-import { QuickView } from "../Product/quickView";
+import { Item } from "../Product/compareItem";
 export const GET_COMPARE = gql`
   query {
     compare @client
@@ -20,7 +19,7 @@ export function List() {
       {data ? (
         data?.compare?.length ? (
           data.compare.map((product) => (
-            <QuickView key={product.id} product={product} />
+            <Item key={product.id} product={product} />
           ))
         ) : (
           <p>Không có sản phẩm</p>
