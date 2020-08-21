@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nexport function Logo() {\n  return __jsx(\"img\", {\n    src: \"/assets/img/logo.png\",\n    style: {\n      maxWidth: 50,\n      padding: 0,\n      margin: 0\n    }\n  });\n}","map":null,"metadata":{},"sourceType":"module"}
