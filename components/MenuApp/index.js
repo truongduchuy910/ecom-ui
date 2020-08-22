@@ -18,38 +18,77 @@ import {
   Form,
   ButtonToggle,
 } from "reactstrap";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { Search } from "../Search";
 import { page } from "../../config.json";
 import { Logo } from "../src/logo";
-import { IoIosMenu } from "react-icons/io";
+import { IoIosMenu, IoIosArrowBack } from "react-icons/io";
 import { FiFilter } from "react-icons/fi";
-
+import { useRouter } from "next/router";
+import { theme } from "../../config.json";
 export default function MenuApp({ isOpen, toggle }) {
   const [isFixed, setIsFixed] = useState(false);
   const pose = isFixed ? "fixed" : "init";
-
+  const router = useRouter();
   return (
     <Navbar
       expand="md"
       style={{
         position: "fixed",
-        backgroundColor: "white",
+        backgroundColor: theme.backgroundColor,
         width: "100%",
         zIndex: 100,
-        boxShadow: "3px 3px 15px #eee",
+        boxShadow: `3px 3px 15px ${theme.backgroundColor}`,
       }}
     >
       <Container>
-        <NavbarBrand>
-          <Logo />
+        <NavbarBrand style={{ display: "flex", alignItems: "center" }}>
+          <IoIosArrowBack
+            style={{ margin: 15 }}
+            onClick={() => {
+              router.back();
+            }}
+          />
+          <Logo
+            onClick={() => {
+              router.push("/");
+            }}
+          />
+
+          {/* Compare */}
+          <div className="hide-md">
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginLeft: 13,
+              }}
+            >
+              <CompareIcon />
+
+              {/* Wishlist */}
+
+              <WishlistIcon />
+
+              {/* Cart */}
+
+              <CartIcon />
+
+              {/* Order */}
+
+              <OrderIcon />
+
+              <Users />
+            </div>
+          </div>
         </NavbarBrand>
+
         <NavbarToggler style={{ width: 50, margin: 0, padding: 0 }}>
           <IoIosMenu
             onClick={toggle}
             style={{
               display: "inline-block",
-              color: "black",
+              color: "white",
               width: "auto",
               padding: 0,
               margin: 8,
@@ -58,11 +97,6 @@ export default function MenuApp({ isOpen, toggle }) {
         </NavbarToggler>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <Link href="/">
-                <NavLink>Trang Chủ</NavLink>
-              </Link>
-            </NavItem>
             <NavItem>
               <Link href="/products">
                 <NavLink href="">Sản Phẩm</NavLink>
@@ -80,23 +114,25 @@ export default function MenuApp({ isOpen, toggle }) {
               justifyContent: "center",
             }}
           >
-            {/* Compare */}
+            <Fragment>
+              {/* Compare */}
 
-            <CompareIcon />
+              <CompareIcon />
 
-            {/* Wishlist */}
+              {/* Wishlist */}
 
-            <WishlistIcon />
+              <WishlistIcon />
 
-            {/* Cart */}
+              {/* Cart */}
 
-            <CartIcon />
+              <CartIcon />
 
-            {/* Order */}
+              {/* Order */}
 
-            <OrderIcon />
+              <OrderIcon />
 
-            <Users />
+              <Users />
+            </Fragment>
           </Nav>
         </Collapse>
       </Container>

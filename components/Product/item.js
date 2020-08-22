@@ -21,7 +21,7 @@ export const Item = ({ product }) => {
       <div style={{ position: "relative" }}>
         <ImgProduct product={product} />
         <div style={{ minHeight: 50 }}>
-          <Link as={"/products/" + product.url} href="/products/[slug]">
+          <Link href={{ pathname: "detail", query: { url: product.url } }}>
             <a style={{ display: show ? "none" : "block" }}>
               <h5>{product.name}</h5>
             </a>
