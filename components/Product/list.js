@@ -7,7 +7,8 @@ import { page } from "../../config/yensaodatquang.json";
 import { toSlug } from "../../lib/chip";
 import { Loading } from "../src/Loading";
 import { Divider } from "../src/Divider";
-
+import { useSpring } from "react-spring";
+import { MdExpandMore } from "react-icons/md";
 const GET_PRODUCTS = gql`
   query(
     $first: Int
@@ -71,7 +72,7 @@ const GET_PRODUCTS = gql`
   }
 `;
 export const List = ({
-  first = 12,
+  first = 2,
   skip = 0,
   category,
   categories,
@@ -82,6 +83,7 @@ export const List = ({
   sale,
   price_from = 0,
   price_to,
+  xs,
   sm,
   md,
   lg,
@@ -108,6 +110,29 @@ export const List = ({
   let { data, error, loading, fetchMore } = useQuery(GET_PRODUCTS, {
     variables,
   });
+  let [on, setOn] = useState(true);
+
+  useEffect(() => {
+    // fetch more data
+    if (more) {
+      const productsEle = document.getElementById("products");
+      // hight of element - scrollTop < window height ?
+      const alpha = () =>
+        productsEle?.clientHeight -
+        document.scrollingElement.scrollTop -
+        window.innerHeight +
+        150;
+
+      if (alpha() > 0) setOn(false); // loading done
+      if (on && !loading && alpha() < 0) {
+        loadingMore();
+      }
+
+      window.onscroll = () => {
+        if (alpha() < 0 && !on) setOn(true);
+      };
+    }
+  });
   function loadingMore() {
     const count = data?.allProducts?.length;
     variables.skip = count;
@@ -115,7 +140,7 @@ export const List = ({
       fetchMore({
         variables,
         updateQuery: (prev, { fetchMoreResult }) => {
-          if (!fetchMoreResult) {
+          if (!fetchMoreResult.allProducts?.length) {
             return prev;
           }
           return Object.assign({}, prev, {
@@ -134,22 +159,15 @@ export const List = ({
           <Col
             style={{ padding: 8 }}
             key={product.id}
-            xs={sm ? sm : { size: 6 }}
-            md={md ? md : { size: 4 }}
-            lg={lg ? lg : { size: 3 }}
+            xs={xs ? xs : 6}
+            sm={sm ? sm : 6}
+            md={md ? md : 4}
+            lg={lg ? lg : 3}
           >
             <Product product={product} />
           </Col>
         ))}
       </Row>
-      {more ? (
-        <center>
-          <Divider />
-          <button onClick={loadingMore} style={{ width: 200 }}>
-            Xem thêm
-          </button>
-        </center>
-      ) : null}
     </section>
   ) : (
     <p style={{ textAlign: "center" }}>Không có kết quả!</p>

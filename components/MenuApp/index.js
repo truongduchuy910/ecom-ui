@@ -78,7 +78,7 @@ export default function MenuApp({ isOpen, toggle }) {
 
               <OrderIcon />
 
-              <Users/>
+              <Users />
             </div>
           </div>
         </NavbarBrand>
@@ -99,40 +99,39 @@ export default function MenuApp({ isOpen, toggle }) {
           <Nav className="mr-auto" navbar>
             <NavItem>
               <Link href="/products">
-                <NavLink href="">Sản Phẩm</NavLink>
+                <NavLink href="">Xem Sản Phẩm</NavLink>
               </Link>
             </NavItem>
 
-            <CategoriesDropdownMenu />
+            {/* <CategoriesDropdownMenu /> */}
 
             <Search />
           </Nav>
           <Nav
+            className="hide-sm"
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Fragment>
-              {/* Compare */}
+            {/* Compare */}
 
-              <CompareIcon />
+            <CompareIcon page />
 
-              {/* Wishlist */}
+            {/* Wishlist */}
 
-              <WishlistIcon />
+            <WishlistIcon page />
 
-              {/* Cart */}
+            {/* Cart */}
 
-              <CartIcon />
+            <CartIcon page />
 
-              {/* Order */}
+            {/* Order */}
 
-              <OrderIcon />
+            <OrderIcon page />
 
-              <Users />
-            </Fragment>
+            <Users />
           </Nav>
         </Collapse>
       </Container>

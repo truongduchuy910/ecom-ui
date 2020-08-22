@@ -1,4 +1,5 @@
 import { page } from "../../config/yensaodatquang.json";
+import { config } from "../config";
 export function SignInBg({ children, style }) {
   return (
     <div

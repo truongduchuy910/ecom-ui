@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { page, theme } from \"../config/yensaodatquang.json\";\nexport const config = {\n  page,\n  theme\n};","map":null,"metadata":{},"sourceType":"module"}
