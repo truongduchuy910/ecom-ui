@@ -11,13 +11,13 @@
         "name": "Loa Loa",
         "server": "https://ecommerce.loaloa.tech",
         "seller": {
-            "id": "5e4c2235ea30da18df1c210f"
+            "id": "5f4137da3a7e266a3e722dcc"
         },
         "logo": "/assets/img/shop-whey-da-nang.png"
     },
     "theme": {
-        "backgroundColor": "#343a40",
-        "color": "white",
+        "backgroundColor": "white",
+        "color": "black",
         "primary": "#d4ac5c"
     }
 }
