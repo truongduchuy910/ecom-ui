@@ -5,8 +5,9 @@ import {
   addProductToLocalCompare,
 } from "../../apollo/action";
 import { formatMoney } from "../../lib/chip";
+import { theme } from "../../config/yensaodatquang.json";
 import Link from "next/link";
-import { page } from "../../config.json";
+import { page } from "../../config/yensaodatquang.json";
 import { Tooltip } from "react-tippy";
 import { useState, Fragment } from "react";
 
@@ -20,8 +21,13 @@ export const Item = ({ product }) => {
     <FadeIn>
       <div style={{ position: "relative" }}>
         <ImgProduct product={product} />
-        <div style={{ minHeight: 50 }}>
-          <Link href={{ pathname: "detail", query: { url: product.url } }}>
+        <div style={{ minHeight: 35 }}>
+          <Link
+            href={{
+              pathname: "detail",
+              query: { detail: product.url },
+            }}
+          >
             <a style={{ display: show ? "none" : "block" }}>
               <h5>{product.name}</h5>
             </a>
@@ -30,7 +36,7 @@ export const Item = ({ product }) => {
         <h5
           style={{
             textDecoration: product.sale ? "line-through" : "",
-            color: product.sale ? "var(--secondary)" : "default",
+            color: product.sale ? "var(--secondary)" : theme.color,
             fontSize: product.sale ? 15 : "default",
             float: product.sale ? "right" : "default",
           }}
@@ -39,19 +45,19 @@ export const Item = ({ product }) => {
         </h5>
 
         {product.sale ? (
-          <h5 style={{ display: show ? "none" : "block" }}>
+          <p style={{ display: show ? "none" : "block" }}>
             {formatMoney(product.price - product.sale)}
-          </h5>
+          </p>
         ) : null}
 
-        <button
+        {/* <button
           onClick={() => {
             addProductToLocalCart({ product });
           }}
           style={{ marginBottom: 0 }}
         >
           Thêm vào giỏ
-        </button>
+        </button> */}
       </div>
     </FadeIn>
   );

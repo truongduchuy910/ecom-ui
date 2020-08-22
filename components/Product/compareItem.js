@@ -7,7 +7,7 @@ import { Divider } from "../src/Divider";
 import Link from "next/link";
 export function Item({ product, onClick }) {
   return (
-    <div style={{ maxHeight: "60vh" }}>
+    <div>
       <Row>
         <Col
           style={{
@@ -27,7 +27,10 @@ export function Item({ product, onClick }) {
           }}
         >
           <div>
-            <Link href={{ pathname: "detail", query: { url: product.url } }}>
+            <Link href={{
+              pathname: "detail",
+              query: { detail: product.url },
+            }}>
               <a>
                 <h1>{product.name}</h1>
               </a>

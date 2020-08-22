@@ -1,6 +1,5 @@
-
 import { animated, useSpring } from "react-spring";
-
+import { theme } from "../../config/yensaodatquang.json";
 export function Box({ children }) {
   const props = useSpring({ opacity: 1, from: { opacity: 0 } });
   return (
@@ -10,7 +9,7 @@ export function Box({ children }) {
           padding: 34,
           marginTop: 21,
           marginBottom: 21,
-          backgroundColor: "white",
+          backgroundColor: theme.bgHighlight,
           borderRadius: 8,
         }}
       >

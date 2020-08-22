@@ -123,7 +123,7 @@ export function SignUp() {
         >
           Đăng Ký
         </button>
-        {errorMsg}
+        <p>{errorMsg}</p>
       </form>
     </Fragment>
   );

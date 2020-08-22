@@ -83,7 +83,7 @@ export function SignIn() {
         >
           Tiếp Tục
         </button>
-        {errorMsg}
+        <p> {errorMsg}</p>
       </form>
     </Fragment>
   );

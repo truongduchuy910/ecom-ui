@@ -11,7 +11,7 @@ export function Sidebar() {
   const router = useRouter();
   let query = router.query;
   const price_from = query.price_from ? Number(query.price_from) : 0;
-  const price_to = query.price_to ? Number(query.price_to) : 999999999;
+  const price_to = query.price_to ? Number(query.price_to) : 0;
   //
   const [priceFrom, setPriceFrom] = useState(0);
   const [priceTo, setPriceTo] = useState(99999999);
@@ -31,67 +31,40 @@ export function Sidebar() {
   const top = useRef(null);
   const tg = () => setCollapsed(!collapsed);
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       {/* Filter button */}
 
-      <Navbar expand="md">
-        <div style={{ position: "fixed", bottom: 10, left: 10, zIndex: 99 }}>
-          <NavbarToggler
-            onClick={() => {
-              tg();
-              if (collapsed) scrollToRef(top);
-              else {
-                window.scroll({ top: 0 });
-              }
+      <section style={{ borderRight: "1px dashed black", paddingRight: 8 }}>
+        <h5>Tìm kiếm</h5>
+        <Search onSearch={tg} />
+        <form onSubmit={onSubmit} action="">
+          <h5>Giá từ</h5>
+          <input
+            placeholder="Từ"
+            name="price_from"
+            onChange={(event) => {
+              setPriceFrom(event.target.value);
             }}
-            style={{
-              top: 10,
-              backgroundColor: "rgba(0,0,0,0.5)",
-              width: 45,
-              height: 45,
-              borderRadius: "50%",
-            }}
-          >
-            <FiFilter style={{ color: "white" }} />
-          </NavbarToggler>
-        </div>
-        <div ref={top}></div>
-        <Collapse isOpen={!collapsed} navbar>
-          <section
-            style={{ borderRight: "1px dashed black", paddingRight: 21 }}
-          >
-            <h5>Tìm kiếm</h5>
-            <Search onSearch={tg} />
-            <form onSubmit={onSubmit} action="">
-              <h5>Giá từ</h5>
-              <input
-                placeholder="from"
-                name="price_from"
-                onChange={(event) => {
-                  setPriceFrom(event.target.value);
-                }}
-                defaultValue={price_from}
-              />
-              <h5>Đến</h5>
+            defaultValue={price_from ? price_from : ""}
+          />
+          <h5>Đến</h5>
 
-              <input
-                placeholder="to"
-                name="price_to"
-                onChange={(event) => {
-                  setPriceTo(event.target.value);
-                }}
-                defaultValue={price_to}
-              />
-              <button type="submit" style={{ paddingTop: 3, paddingBottom: 3 }}>
-                Lọc
-              </button>
-            </form>
-            <Categories />
-            <Attributes />
-            <Brands />
-          </section>
-        </Collapse>
-      </Navbar>
+          <input
+            placeholder="Đến"
+            name="price_to"
+            onChange={(event) => {
+              setPriceTo(event.target.value);
+            }}
+            defaultValue={price_to ? price_to : ""}
+          />
+          <button type="submit" style={{ paddingTop: 3, paddingBottom: 3 }}>
+            Lọc
+          </button>
+        </form>
+        <Categories />
+        <Attributes />
+        <Brands />
+      </section>
     </div>
   );
 }

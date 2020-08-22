@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useQuery, gql } from "@apollo/client";
 import { Loading } from "../components/src/Loading";
 import { Divider } from "../components/src/Divider";
+import { useApollo } from "../apollo/client";
 const GET_PRODUCTS = gql`
   query($url: String) {
     allProducts(first: 1, where: { url: $url }) {
@@ -47,9 +48,9 @@ const GET_PRODUCTS = gql`
 `;
 export default function ProductDetali() {
   const router = useRouter();
-  const { url } = router.query;
+  const { detail } = router.query;
   let { data, error, loading } = useQuery(GET_PRODUCTS, {
-    variables: { url: url },
+    variables: { url: detail },
   });
 
   if (error) return <i>{error}</i>;
@@ -60,7 +61,7 @@ export default function ProductDetali() {
       <Product product={product} />
       <h4>Sản Phẩm Liên Quan</h4>
       <Divider />
-      <Products category={product.category.url} except={url} more={false} />
+      <Products category={product.category.url} except={detail} more={false} />
     </Container>
   ) : null;
 }

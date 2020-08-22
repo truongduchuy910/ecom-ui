@@ -20,12 +20,12 @@ import {
 } from "reactstrap";
 import { useState, useEffect, Fragment } from "react";
 import { Search } from "../Search";
-import { page } from "../../config.json";
+import { page } from "../../config/yensaodatquang.json";
 import { Logo } from "../src/logo";
 import { IoIosMenu, IoIosArrowBack } from "react-icons/io";
 import { FiFilter } from "react-icons/fi";
 import { useRouter } from "next/router";
-import { theme } from "../../config.json";
+import { theme } from "../../config/yensaodatquang.json";
 export default function MenuApp({ isOpen, toggle }) {
   const [isFixed, setIsFixed] = useState(false);
   const pose = isFixed ? "fixed" : "init";
@@ -78,7 +78,7 @@ export default function MenuApp({ isOpen, toggle }) {
 
               <OrderIcon />
 
-              <Users />
+              <Users/>
             </div>
           </div>
         </NavbarBrand>

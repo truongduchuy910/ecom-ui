@@ -1,9 +1,10 @@
+import { page } from "../../../config/yensaodatquang.json";
 export function Divider() {
   return (
     <center>
       <img
-        style={{ width: 100, marginTop: 24, marginBottom: 24 }}
-        src="/assets/img/divider.png"
+        style={{ height: 40, marginTop: 5, marginBottom: 5 }}
+        src={page.divider}
       />
     </center>
   );

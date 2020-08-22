@@ -27,7 +27,12 @@ export function QuickView({ product, onClick }) {
           }}
         >
           <div>
-            <Link href={{ pathname: "detail", query: { url: product.url } }}>
+            <Link
+              href={{
+                pathname: "detail",
+                query: { detail: product.url },
+              }}
+            >
               <a>
                 <h1>{product.name}</h1>
               </a>

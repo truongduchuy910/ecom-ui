@@ -1,4 +1,4 @@
-import { page } from "../../config.json";
+import { page } from "../../config/yensaodatquang.json";
 
 import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { MdCompareArrows, MdDoneAll } from "react-icons/md";
@@ -32,7 +32,7 @@ const style = {
     backgroundColor: "rgba(0,0,0,0.5)",
   }),
 };
-
+import { theme } from "../../config/yensaodatquang.json";
 export function ImgProduct({ product }) {
   const { data } = useQuery(gql`
     query {
@@ -52,7 +52,6 @@ export function ImgProduct({ product }) {
   if (product.image) {
     ImgSrcs = [{ file: product.image }].concat(ImgSrcs);
   }
-  console.log(ImgSrcs);
   const [imgIndex, setImgIndex] = useState(0);
   // animation
   useEffect(() => {
@@ -67,7 +66,7 @@ export function ImgProduct({ product }) {
     top: 0,
     left: 0,
     zIndex: 11,
-    backgroundColor: "white",
+    backgroundColor: theme.backgroundColor,
     padding: 13,
     paddingTop: 85,
     height: "100vh",

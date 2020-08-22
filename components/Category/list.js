@@ -2,7 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 
 import { Item } from "./item";
 
-import { page } from "../../config.json";
+import { page } from "../../config/yensaodatquang.json";
 import { Spinner } from "reactstrap";
 import { Loading } from "../src/Loading";
 import { useRouter } from "next/router";

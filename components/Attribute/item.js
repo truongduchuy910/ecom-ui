@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
 import { removeItemOnce } from "../../lib/chip";
-
-export function Item({ attribute }) {
+import { FiThermometer } from "react-icons/fi";
+import { theme } from "../../config/yensaodatquang.json";
+import { filterAttributeVar } from "../../apollo/client";
+export function Item({ attribute, style }) {
   const router = useRouter();
   let query = router.query;
   let currentAttributes = query.attributes ? query.attributes.split(",") : [];
@@ -18,7 +20,14 @@ export function Item({ attribute }) {
     router.push({ query });
   };
   return (
-    <a style={{ fontWeight: exist ? "bold" : null }} onClick={handleClick}>
+    <a
+      style={{
+        ...style,
+        color: theme.color,
+        fontWeight: exist ? "bold" : null,
+      }}
+      onClick={handleClick}
+    >
       {attribute.name}
     </a>
   );

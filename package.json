@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 2020",
+    "start": "next start -p 2030",
     "export": "next build && next export"
   },
   "dependencies": {

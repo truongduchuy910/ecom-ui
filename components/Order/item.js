@@ -13,8 +13,8 @@ export function Item({ order }) {
   return (
     <div
       style={{
-        border: "1px solid #eee",
-        backgroundColor: "white",
+        border: "1px solid #333",
+        borderRadius: 8,
         padding: 15,
         margin: 15,
       }}

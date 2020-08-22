@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { page } from "../../config.json";
+import { page } from "../../config/yensaodatquang.json";
 import Link from "next/link";
 export const Item = ({ product }) => {
   return (

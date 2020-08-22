@@ -2,7 +2,7 @@ import Link from "next/link";
 import { categoryVar, queryVar } from "../../apollo/action";
 import { useRouter } from "next/router";
 import { route } from "next/dist/next-server/server/router";
-import { theme } from "../../config.json";
+import { theme } from "../../config/yensaodatquang.json";
 import { filterCategoryVar } from "../../apollo/client";
 export function Item({ categories = [], pre }) {
   const router = useRouter();

@@ -1,1 +1,0 @@
-{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nexport function NhaYenBg({\n  children\n}) {\n  return __jsx(\"div\", {\n    style: {\n      background: \"url(/assets/img/nha-yen-1.JPG)\",\n      backgroundSize: \"cover\"\n    }\n  }, children);\n}","map":null,"metadata":{},"sourceType":"module"}

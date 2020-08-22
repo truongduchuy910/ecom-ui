@@ -8,7 +8,7 @@ import {
 } from "../../apollo/client";
 import { Item as CartItem } from "./item";
 import { useRouter } from "next/router";
-import { page } from "../../config.json";
+import { page } from "../../config/yensaodatquang.json";
 import { formatMoney } from "../../lib/chip";
 import { Fragment } from "react";
 export const CART = gql`

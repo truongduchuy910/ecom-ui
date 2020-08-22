@@ -5,7 +5,7 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { queryVar } from "../../apollo/action";
 import { route } from "next/dist/next-server/server/router";
-import { page } from "../../config.json";
+import { page } from "../../config/yensaodatquang.json";
 import { Spinner, Alert } from "reactstrap";
 import { getErrorMessage } from "../../lib/chip";
 import { Loading } from "../src/Loading";

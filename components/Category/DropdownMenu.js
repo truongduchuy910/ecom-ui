@@ -6,11 +6,11 @@ import {
 } from "reactstrap";
 import { gql, useQuery } from "@apollo/client";
 import { getErrorMessage } from "../../lib/chip";
-import { page } from "../../config.json";
+import { page } from "../../config/yensaodatquang.json";
 import Link from "next/link";
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput) {
-    allCategories(where: { seller: $seller, root: true }) {
+    allCategories(where: { seller: $seller }) {
       id
       name
       url

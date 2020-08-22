@@ -3,7 +3,7 @@ import { gql, useQuery, rewriteURIForGET } from "@apollo/client";
 import { useRouter, withRouter, Router } from "next/router";
 import { Item as Product } from "./item";
 import { Container, Row, Col, Spinner } from "reactstrap";
-import { page } from "../../config.json";
+import { page } from "../../config/yensaodatquang.json";
 import { toSlug } from "../../lib/chip";
 import { Loading } from "../src/Loading";
 import { Divider } from "../src/Divider";
@@ -132,7 +132,7 @@ export const List = ({
       <Row noGutters style={{ borderRadius: 8 }}>
         {data.allProducts.map((product) => (
           <Col
-            style={{ padding: 8, backgroundColor: "white" }}
+            style={{ padding: 8 }}
             key={product.id}
             xs={sm ? sm : { size: 6 }}
             md={md ? md : { size: 4 }}

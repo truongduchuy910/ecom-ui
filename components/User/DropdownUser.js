@@ -6,15 +6,16 @@ import {
 } from "reactstrap";
 import { gql, useQuery } from "@apollo/client";
 import { getErrorMessage } from "../../lib/chip";
-import { page } from "../../config.json";
+import { page } from "../../config/yensaodatquang.json";
 import Link from "next/link";
 import { USER } from "../../apollo/action";
 import { Fragment } from "react";
 import { IoIosLogIn } from "react-icons/io";
 import { AiOutlineUser } from "react-icons/ai";
+import { theme } from "../../config/yensaodatquang.json";
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput) {
-    allCategories(where: { seller: $seller, root: true }) {
+    allCategories(where: { seller: $seller }) {
       id
       name
       url
@@ -25,11 +26,11 @@ export function CategoriesDropdownMenu({ onClick }) {
   const { data } = useQuery(USER);
   return typeof window !== "undefined" ? (
     data?.user?.id ? (
-      <UncontrolledDropdown nav inNavbar>
+      <UncontrolledDropdown nav inNavbar style={{ listStyle: "none" }}>
         <DropdownToggle nav caret>
           <AiOutlineUser />
         </DropdownToggle>
-        <DropdownMenu right>
+        <DropdownMenu right style={{ backgroundColor: theme.backgroundColor }}>
           <DropdownItem>
             <a onClick={onClick}>
               Hi {data?.user?.isSeller ? "seller" : null} {data.user.email}

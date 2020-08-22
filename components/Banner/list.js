@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { queryVar } from "../../apollo/action";
-import { page } from "../../config.json";
+import { page } from "../../config/yensaodatquang.json";
 import { Spinner } from "reactstrap";
 import { Loading } from "../src/Loading";
 const GET_ATTRIBUTES = gql`
@@ -21,7 +21,7 @@ export function List() {
   const { data, loading, error } = useQuery(GET_ATTRIBUTES, {
     variables: { seller: page.seller },
   });
-  if (loading) return <Loading/>;
+  if (loading) return <Loading />;
   return !loading && data ? (
     <div>
       {data.allBanners.slice(0, 1).map((banner) => (
