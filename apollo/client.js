@@ -3,7 +3,7 @@ import { ApolloClient } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { HttpLink } from "@apollo/client/link/http";
 
-import { page } from "../config.json";;
+import { page } from "../config.json";
 import { InMemoryCache, makeVar, gql } from "@apollo/client";
 import { init } from "./action";
 export const orderCountVar = makeVar(0);

@@ -7,6 +7,7 @@ import { MdCreate } from "react-icons/md";
 import { IoMdAddCircleOutline, IoIosColorWand } from "react-icons/io";
 import { Create } from "./create";
 import { customerVar } from "../../apollo/client";
+import Link from "next/link";
 // get
 const GET_CUSTOMERS = gql`
   query {
@@ -24,7 +25,12 @@ export function List({ createClick }) {
 
   const { data, loading, error, refetch } = useQuery(GET_CUSTOMERS);
   if (loading) return <i>...</i>;
-  if (error) return <i>{getErrorMessage(error)}</i>;
+  if (error)
+    return (
+      <Link href="/signin">
+        <a>{getErrorMessage(error)}</a>
+      </Link>
+    );
   return (
     <div>
       {create || data?.allCustomers.length === 0 ? (

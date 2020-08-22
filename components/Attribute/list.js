@@ -29,12 +29,9 @@ export function List({ attributes }) {
   return !loading && data ? (
     <div>
       <h5>Thuộc Tính</h5>
-      <Item
-        attribute={{ id: "all-attribute", name: "Tất Cả", url: "all" }}
-        
-      />
+      <Item attribute={{ id: "all-attribute", name: "Tất Cả", url: "all" }} />
       {source.map((attribute) => (
-        <Item  key={attribute.id} attribute={attribute} />
+        <Item key={attribute.id} attribute={attribute} />
       ))}
     </div>
   ) : null;

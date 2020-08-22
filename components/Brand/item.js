@@ -15,8 +15,9 @@ export function Item({ brand }) {
     <a
       style={{
         color: theme.color,
-        marginLeft: 13,
         fontWeight: exist ? "bold" : null,
+        fontSize: "0.8rem",
+        textTransform: "uppercase",
       }}
       onClick={handleClick}
     >

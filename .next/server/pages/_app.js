@@ -463,19 +463,26 @@ var Search = __webpack_require__("nntU");
 
 var logo_jsx = external_react_default.a.createElement;
 
-function Logo() {
+function Logo({
+  onClick
+}) {
   return logo_jsx("img", {
     src: config["a" /* page */].logo,
     style: {
       maxWidth: 50,
       padding: 0,
       margin: 0
-    }
+    },
+    onClick: onClick
   });
 }
+// EXTERNAL MODULE: external "next/router"
+var router_ = __webpack_require__("4Q3z");
+
 // CONCATENATED MODULE: ./components/MenuApp/index.js
 
 var MenuApp_jsx = external_react_default.a.createElement;
+
 
 
 
@@ -499,6 +506,7 @@ function MenuApp({
     1: setIsFixed
   } = Object(external_react_["useState"])(false);
   const pose = isFixed ? "fixed" : "init";
+  const router = Object(router_["useRouter"])();
   return MenuApp_jsx(external_reactstrap_["Navbar"], {
     expand: "md",
     style: {
@@ -508,9 +516,31 @@ function MenuApp({
       zIndex: 100,
       boxShadow: "3px 3px 15px #333"
     }
-  }, MenuApp_jsx(external_reactstrap_["Container"], null, MenuApp_jsx(link_default.a, {
-    href: "/"
-  }, MenuApp_jsx(external_reactstrap_["NavbarBrand"], null, MenuApp_jsx(Logo, null), " Shop Whey \u0110\xE0 N\u1EB5ng")), MenuApp_jsx(external_reactstrap_["NavbarToggler"], {
+  }, MenuApp_jsx(external_reactstrap_["Container"], null, MenuApp_jsx(external_reactstrap_["NavbarBrand"], {
+    style: {
+      display: "flex",
+      alignItems: "center"
+    }
+  }, MenuApp_jsx(io_["IoIosArrowBack"], {
+    style: {
+      margin: 15
+    },
+    onClick: () => {
+      router.back();
+    }
+  }), MenuApp_jsx(Logo, {
+    onClick: () => {
+      router.push("/");
+    }
+  }), MenuApp_jsx("div", {
+    className: "hide-md"
+  }, MenuApp_jsx("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      marginLeft: 13
+    }
+  }, MenuApp_jsx(Compare_icon_Icon, null), MenuApp_jsx(icon_Icon, null), MenuApp_jsx(Icon, null), MenuApp_jsx(Order_icon_Icon, null), MenuApp_jsx(CategoriesDropdownMenu, null)))), MenuApp_jsx(external_reactstrap_["NavbarToggler"], {
     style: {
       width: 50,
       margin: 0,
@@ -541,7 +571,7 @@ function MenuApp({
       alignItems: "center",
       justifyContent: "center"
     }
-  }, MenuApp_jsx(Compare_icon_Icon, null), MenuApp_jsx(icon_Icon, null), MenuApp_jsx(Icon, null), MenuApp_jsx(Order_icon_Icon, null), MenuApp_jsx(CategoriesDropdownMenu, null)))));
+  }, MenuApp_jsx(external_react_["Fragment"], null, MenuApp_jsx(Compare_icon_Icon, null), MenuApp_jsx(icon_Icon, null), MenuApp_jsx(Icon, null), MenuApp_jsx(Order_icon_Icon, null), MenuApp_jsx(CategoriesDropdownMenu, null))))));
 }
 // EXTERNAL MODULE: ./components/src/Box.js
 var Box = __webpack_require__("WBZH");
@@ -563,9 +593,6 @@ const Footer = () => {
     }
   }, Footer_jsx(external_reactstrap_["Row"], null, Footer_jsx(external_reactstrap_["Col"], null, Footer_jsx("div", null, Footer_jsx("h4", null, config["a" /* page */].intro.name), Footer_jsx("p", null, config["a" /* page */].intro.content))), Footer_jsx(external_reactstrap_["Col"], null, Footer_jsx("div", null, Footer_jsx("h4", null, config["a" /* page */].term.name), Footer_jsx("p", null, config["a" /* page */].term.content)))));
 };
-// EXTERNAL MODULE: external "next/router"
-var router_ = __webpack_require__("4Q3z");
-
 // CONCATENATED MODULE: ./pages/_app.js
 
 var _app_jsx = external_react_default.a.createElement;
@@ -3018,7 +3045,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-;
 
 
 const orderCountVar = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["makeVar"])(0);

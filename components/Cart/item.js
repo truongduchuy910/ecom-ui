@@ -12,7 +12,6 @@ import Link from "next/link";
 const style = { css: { width: 35, height: 35, padding: 0, margin: 0 } };
 
 export const Item = ({ cartItem, onChange }) => {
-  
   return (
     <Row>
       <Col sm={12} md={6} lg={5}>
@@ -26,7 +25,7 @@ export const Item = ({ cartItem, onChange }) => {
         </Link>
 
         <p>{formatMoney(cartItem.price)}</p>
-        <div style={{ display: "inline-block" }}>
+        <div style={{ display: "inline-block", display: "flex" }}>
           <button
             style={style.css}
             onClick={() => {
@@ -50,7 +49,7 @@ export const Item = ({ cartItem, onChange }) => {
           </button>
         </div>
         <button
-          style={{ display: "inline", width: "auto", marginLeft: 13 }}
+          style={{ display: "inline", width: "auto", marginTop: 13 }}
           onClick={() => {
             removeItem(cartItem);
           }}
