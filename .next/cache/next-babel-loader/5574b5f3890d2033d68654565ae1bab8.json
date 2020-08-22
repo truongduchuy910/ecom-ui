@@ -1,1 +1,0 @@
-{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nexport function Divider() {\n  return __jsx(\"center\", null, __jsx(\"img\", {\n    style: {\n      width: 100,\n      marginTop: 24,\n      marginBottom: 24\n    },\n    src: \"/assets/img/divider.png\"\n  }));\n}","map":null,"metadata":{},"sourceType":"module"}

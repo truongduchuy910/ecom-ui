@@ -1,1 +1,0 @@
-{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\n// show in product detail\nimport { List as Attributes } from \"../Attribute/listOne\";\nexport function Item(_ref) {\n  var attributeGroup = _ref.attributeGroup;\n  return __jsx(Attributes, {\n    attributes: attributeGroup.attributes\n  });\n}","map":null,"metadata":{},"sourceType":"module"}
