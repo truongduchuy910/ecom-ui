@@ -75,7 +75,7 @@ const Index = () => {
                   more={false}
                 />
 
-                <h2 className="text-center mt-4">Sản Phẩm Mới Ra</h2>
+                <h2 className="text-center mt-4">Sản Phẩm Mới Về</h2>
                 <Divider />
                 <Products first={4} lg={3} suggestions="new" more={false} />
 

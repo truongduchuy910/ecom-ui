@@ -29,12 +29,10 @@ export const Filter = ({
     category,
     attributes,
   };
-  console.log(variables);
 
   const { data, error } = useQuery(GET_CATE, {
     variables,
   });
-  console.log(data, error);
 
   return (
     <Fragment>

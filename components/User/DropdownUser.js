@@ -12,6 +12,7 @@ import { USER } from "../../apollo/action";
 import { Fragment } from "react";
 import { IoIosLogIn } from "react-icons/io";
 import { AiOutlineUser } from "react-icons/ai";
+import { theme } from "../../config.json";
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput) {
     allCategories(where: { seller: $seller, root: true }) {
@@ -25,11 +26,11 @@ export function CategoriesDropdownMenu({ onClick }) {
   const { data } = useQuery(USER);
   return typeof window !== "undefined" ? (
     data?.user?.id ? (
-      <UncontrolledDropdown nav inNavbar>
+      <UncontrolledDropdown nav inNavbar style={{ listStyle: "none" }}>
         <DropdownToggle nav caret>
           <AiOutlineUser />
         </DropdownToggle>
-        <DropdownMenu right>
+        <DropdownMenu right style={{ backgroundColor: theme.backgroundColor }}>
           <DropdownItem>
             <a onClick={onClick}>
               Hi {data?.user?.isSeller ? "seller" : null} {data.user.email}

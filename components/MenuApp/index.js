@@ -78,7 +78,7 @@ export default function MenuApp({ isOpen, toggle }) {
 
               <OrderIcon />
 
-              <Users />
+              <Users/>
             </div>
           </div>
         </NavbarBrand>

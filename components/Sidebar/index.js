@@ -34,7 +34,7 @@ export function Sidebar() {
     <div style={{ width: "100%" }}>
       {/* Filter button */}
 
-      <section style={{ borderRight: "1px dashed black", paddingRight: 21 }}>
+      <section style={{ borderRight: "1px dashed black", paddingRight: 8 }}>
         <h5>Tìm kiếm</h5>
         <Search onSearch={tg} />
         <form onSubmit={onSubmit} action="">
