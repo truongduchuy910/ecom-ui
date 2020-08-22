@@ -21,12 +21,7 @@ export function List() {
         {data ? (
           data?.wishlist?.length ? (
             data.wishlist.map((product) => (
-              <Col
-                key={product.id}
-                sm={6}
-                lg={3}
-                style={{ backgroundColor: "white", padding: 8 }}
-              >
+              <Col key={product.id} sm={6} lg={3} style={{ padding: 8 }}>
                 <Item product={product} />
               </Col>
             ))

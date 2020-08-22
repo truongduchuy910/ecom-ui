@@ -7,7 +7,7 @@ import { Divider } from "../src/Divider";
 import Link from "next/link";
 export function Item({ product, onClick }) {
   return (
-    <div style={{ maxHeight: "60vh" }}>
+    <div>
       <Row>
         <Col
           style={{

@@ -20,7 +20,7 @@ export const Item = ({ product }) => {
     <FadeIn>
       <div style={{ position: "relative" }}>
         <ImgProduct product={product} />
-        <div style={{ minHeight: 50 }}>
+        <div style={{ minHeight: 35 }}>
           <Link as={"/products/" + product.url} href="/products/[slug]">
             <a style={{ display: show ? "none" : "block" }}>
               <h5>{product.name}</h5>
@@ -30,7 +30,7 @@ export const Item = ({ product }) => {
         <h5
           style={{
             textDecoration: product.sale ? "line-through" : "",
-            color: product.sale ? "var(--secondary)" : "default",
+            color: product.sale ? "var(--secondary)" : "white",
             fontSize: product.sale ? 15 : "default",
             float: product.sale ? "right" : "default",
           }}
@@ -39,19 +39,19 @@ export const Item = ({ product }) => {
         </h5>
 
         {product.sale ? (
-          <h5 style={{ display: show ? "none" : "block" }}>
+          <p style={{ display: show ? "none" : "block" }}>
             {formatMoney(product.price - product.sale)}
-          </h5>
+          </p>
         ) : null}
 
-        <button
+        {/* <button
           onClick={() => {
             addProductToLocalCart({ product });
           }}
           style={{ marginBottom: 0 }}
         >
           Thêm vào giỏ
-        </button>
+        </button> */}
       </div>
     </FadeIn>
   );

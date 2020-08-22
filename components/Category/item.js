@@ -3,15 +3,16 @@ import { categoryVar, queryVar } from "../../apollo/action";
 import { useRouter } from "next/router";
 import { route } from "next/dist/next-server/server/router";
 import { theme } from "../../config.json";
-export function Item({ categories }) {
+import { filterCategoryVar } from "../../apollo/client";
+export function Item({ categories = [] }) {
   const router = useRouter();
   let query = router.query;
+  const category = categories[categories?.length - 1];
 
-  const category = categories[categories.length - 1];
-
-  const childUrl = category.childs
+  const childUrl = category?.childs
     ? category.childs.map((category) => category.url).toString()
     : [];
+
   const handleClick = () => {
     if (category.url === "all") {
       delete query.category;
@@ -23,13 +24,14 @@ export function Item({ categories }) {
       router.push({ query });
     }
   };
-  return (
+  return category ? (
     <div>
       <a
         style={{
           color: theme.color,
           fontWeight: query.category === category.url ? "bold" : null,
-          paddingLeft: categories.length * 13,
+          paddingLeft: (categories.length - 1) * 13,
+          marginBottom: 13,
         }}
         onClick={handleClick}
       >
@@ -45,5 +47,5 @@ export function Item({ categories }) {
           ))
         : null}
     </div>
-  );
+  ) : null;
 }

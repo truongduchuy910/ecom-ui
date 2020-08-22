@@ -52,7 +52,6 @@ export function ImgProduct({ product }) {
   if (product.image) {
     ImgSrcs = [{ file: product.image }].concat(ImgSrcs);
   }
-  console.log(ImgSrcs);
   const [imgIndex, setImgIndex] = useState(0);
   // animation
   useEffect(() => {

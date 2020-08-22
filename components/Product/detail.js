@@ -13,7 +13,7 @@ import {
   addProductToLocalWishlist,
   addProductToLocalCompare,
 } from "../../apollo/action";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { page } from "../../config.json";
 import { Row, Col } from "reactstrap";
 import { ImgProduct } from "./imageProduct";
@@ -21,23 +21,19 @@ import { QuickView } from "./quickView";
 import { Box } from "../src/Box";
 import { Divider } from "../src/Divider";
 import Link from "next/link";
-import { useSpring } from "react-spring";
+import { useSpring, animated } from "react-spring";
 export function Product({ product }) {
   const src = page.server + product?.image?.publicUrl;
   const [open, toggle] = useState(false);
   const props = useSpring({
-    position: "fixed",
-    opacity: open ? 1 : 0,
-    top: 0,
-    left: 0,
+    top: 100,
+    right: 0,
     zIndex: 11,
-    backgroundColor: "white",
-    padding: 13,
-    paddingTop: 85,
-    height: "100vh",
-    display: "flex",
-    from: { opacity: 0 },
+    width: open ? 940 : 640,
+    right: 0,
+    from: { width: 0 },
   });
+
   return (
     <Fragment>
       <Row>
@@ -101,16 +97,20 @@ export function Product({ product }) {
 
             <p>{product.guide}</p>
           </Col>
-          <Col>
-            {product.file ? (
-              <img
-                src={page.server + product.file.publicUrl}
-                onClick={() => {
-                  toggle(false);
-                }}
-              />
-            ) : null}
+          <Col xs={12} md={open ? 12 : 6}>
+            <center>
+              {product.file ? (
+                <animated.img
+                  src={page.server + product.file.publicUrl}
+                  style={props}
+                  onClick={() => {
+                    toggle(!open);
+                  }}
+                />
+              ) : null}
+            </center>
           </Col>
+
           <Col lg={12}>
             {product.brand ? (
               <Fragment>
