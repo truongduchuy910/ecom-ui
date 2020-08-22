@@ -3,13 +3,15 @@ import { ApolloClient } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { HttpLink } from "@apollo/client/link/http";
 
-import { page } from "../config";
+import { page } from "../config/yensaodatquang.json";
 import { InMemoryCache, makeVar, gql } from "@apollo/client";
-
+import { init } from "./action";
 export const orderCountVar = makeVar(0);
 export const newOrderVar = makeVar(false);
-export const customerVar = makeVar();
-export const refetchCustomer = makeVar(() => {});
+export const newOrderCountVar = makeVar();
+export const customerVar = makeVar({ id: null });
+export const refetchCustomer = makeVar(async () => {});
+
 export let cache = new InMemoryCache();
 
 const httpLink = new HttpLink({
@@ -43,10 +45,13 @@ export function initializeApollo(initialState = null) {
   }
   if (typeof window === "undefined") return _apolloClient;
   if (!apolloClient) apolloClient = _apolloClient;
-
   return _apolloClient;
 }
 export function useApollo(initialState) {
-  const store = useMemo(() => initializeApollo(initialState), [initialState]);
+  const store = useMemo(() => {
+    init();
+
+    return initializeApollo(initialState);
+  }, [initialState]);
   return store;
 }

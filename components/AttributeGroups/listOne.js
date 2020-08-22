@@ -5,7 +5,7 @@ import { Fragment } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { queryVar } from "../../apollo/action";
-import { page } from "../../config";
+import { page } from "../../config/yensaodatquang.json";
 import { Spinner } from "reactstrap";
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {
@@ -19,9 +19,13 @@ const GET_ATTRIBUTES = gql`
 export function List({ attributeGroups }) {
   return (
     <div>
-      <h6>{attributeGroups.name}</h6>
       {attributeGroups?.map((attributeGroup) => (
-        <Item key={attributeGroup.id} attributeGroup={attributeGroup} />
+        <Fragment key={attributeGroup.id}>
+          <h5 style={{ color: "black", display: "inline-block" }}>
+            {attributeGroup.name}:
+          </h5>
+          <Item attributeGroup={attributeGroup} />
+        </Fragment>
       ))}
     </div>
   );

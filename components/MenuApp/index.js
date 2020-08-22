@@ -1,4 +1,4 @@
-import { Users } from "../User";
+import { CategoriesDropdownMenu as Users } from "../User/DropdownUser";
 import { Icon as CartIcon } from "../Cart/icon";
 import { Icon as WishlistIcon } from "../Wishlist/icon";
 import { Icon as CompareIcon } from "../Compare/icon";
@@ -16,44 +16,124 @@ import {
   Container,
   NavLink,
   Form,
+  ButtonToggle,
 } from "reactstrap";
-import { useState } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { Search } from "../Search";
-import { page } from "../../config";
-export default function MenuApp() {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+import { page } from "../../config/yensaodatquang.json";
+import { Logo } from "../src/logo";
+import { IoIosMenu, IoIosArrowBack } from "react-icons/io";
+import { FiFilter } from "react-icons/fi";
+import { useRouter } from "next/router";
+import { theme } from "../../config/yensaodatquang.json";
+export default function MenuApp({ isOpen, toggle }) {
+  const [isFixed, setIsFixed] = useState(false);
+  const pose = isFixed ? "fixed" : "init";
+  const router = useRouter();
   return (
-    <Navbar color="light" light expand="md" className="mb-3">
+    <Navbar
+      expand="md"
+      style={{
+        position: "fixed",
+        backgroundColor: theme.backgroundColor,
+        width: "100%",
+        zIndex: 100,
+        boxShadow: `3px 3px 15px ${theme.backgroundColor}`,
+      }}
+    >
       <Container>
-        <NavbarBrand href="/">{page.name}</NavbarBrand>
+        <NavbarBrand style={{ display: "flex", alignItems: "center" }}>
+          <IoIosArrowBack
+            style={{ margin: 15 }}
+            onClick={() => {
+              router.back();
+            }}
+          />
+          <Logo
+            onClick={() => {
+              router.push("/");
+            }}
+          />
 
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-        <NavbarToggler onClick={toggle} />
+          {/* Compare */}
+          <div className="hide-md">
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginLeft: 13,
+              }}
+            >
+              <CompareIcon />
+
+              {/* Wishlist */}
+
+              <WishlistIcon />
+
+              {/* Cart */}
+
+              <CartIcon />
+
+              {/* Order */}
+
+              <OrderIcon />
+
+              <Users/>
+            </div>
+          </div>
+        </NavbarBrand>
+
+        <NavbarToggler style={{ width: 50, margin: 0, padding: 0 }}>
+          <IoIosMenu
+            onClick={toggle}
+            style={{
+              display: "inline-block",
+              color: "white",
+              width: "auto",
+              padding: 0,
+              margin: 8,
+            }}
+          />
+        </NavbarToggler>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
+            <NavItem>
+              <Link href="/products">
+                <NavLink href="">Sản Phẩm</NavLink>
+              </Link>
+            </NavItem>
+
             <CategoriesDropdownMenu />
+
             <Search />
           </Nav>
-          {/* Compare */}
+          <Nav
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Fragment>
+              {/* Compare */}
 
-          <CompareIcon />
+              <CompareIcon />
 
-          {/* Wishlist */}
+              {/* Wishlist */}
 
-          <WishlistIcon />
+              <WishlistIcon />
 
-          {/* Cart */}
+              {/* Cart */}
 
-          <CartIcon />
+              <CartIcon />
 
-          {/* Order */}
+              {/* Order */}
 
-          <OrderIcon />
+              <OrderIcon />
 
-          <Users />
+              <Users />
+            </Fragment>
+          </Nav>
         </Collapse>
       </Container>
     </Navbar>

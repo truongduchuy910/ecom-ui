@@ -1,9 +1,10 @@
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { useEffect, Fragment } from "react";
 import { cartItemsVar, CART } from "../../apollo/action";
-
+import { MdAddShoppingCart } from "react-icons/md";
 import Link from "next/link";
-export function Icon() {
+import { CountIcon } from "../src/count";
+export function Icon({ onClick }) {
   const { data, loading, error } = useQuery(CART);
   let count = 0;
   if (data?.cartItems?.length) {
@@ -13,7 +14,10 @@ export function Icon() {
   }
   return data?.cartItems?.length ? (
     <Link href="/cart">
-      <a>cart ({count})</a>
+      <a style={{ marginRight: 34 }} onClick={onClick}>
+        <MdAddShoppingCart />
+        <CountIcon count={count} />
+      </a>
     </Link>
   ) : null;
 }

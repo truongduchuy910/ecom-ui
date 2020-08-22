@@ -21,7 +21,7 @@ export function Users() {
       </Fragment>
     ) : (
       <Link href="/signin">
-        <a>Signin</a>
+        <a>Đăng Nhập</a>
       </Link>
     )
   ) : (

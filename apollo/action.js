@@ -1,8 +1,5 @@
 import { cache } from "./client";
 import { makeVar, gql } from "@apollo/client";
-export const newOrderCountVar = makeVar(false);
-export const newOrderVar = makeVar(false);
-export const customerVar = makeVar();
 
 export const USER = gql`
   query {
@@ -24,46 +21,62 @@ export const COMPARE = gql`
     compare @client
   }
 `;
+export const CUSTOMER = gql`
+  query {
+    customer @client
+  }
+`;
 // initialize
-cache.writeQuery({
-  query: USER,
+export const init = () => {
+  console.log("reload cache");
+  cache.writeQuery({
+    query: USER,
 
-  data: {
-    user:
-      typeof window !== "undefined"
-        ? JSON.parse(localStorage.getItem("user"))
-        : { id: null, email: null, isAdmin: null, isSeller: null },
-  },
-});
+    data: {
+      user:
+        typeof window !== "undefined"
+          ? JSON.parse(localStorage.getItem("user"))
+          : { id: null, email: null, isAdmin: null, isSeller: null },
+    },
+  });
 
-cache.writeQuery({
-  query: CART,
-  data: {
-    cartItems:
-      typeof window !== "undefined"
-        ? JSON.parse(localStorage.getItem("cartItems") || '{ "data": [] }').data
-        : null,
-  },
-});
-cache.writeQuery({
-  query: COMPARE,
-  data: {
-    compare:
-      typeof window !== "undefined"
-        ? JSON.parse(localStorage.getItem("compare") || '{ "data": [] }').data
-        : null,
-  },
-});
-cache.writeQuery({
-  query: WISHLIST,
-  data: {
-    wishlist:
-      typeof window !== "undefined"
-        ? JSON.parse(localStorage.getItem("wishlist") || '{ "data": [] }').data
-        : null,
-  },
-});
+  cache.writeQuery({
+    query: CART,
+    data: {
+      cartItems:
+        typeof window !== "undefined"
+          ? JSON.parse(localStorage.getItem("cartItems") || '{ "data": [] }')
+              .data
+          : null,
+    },
+  });
+  cache.writeQuery({
+    query: COMPARE,
+    data: {
+      compare:
+        typeof window !== "undefined"
+          ? JSON.parse(localStorage.getItem("compare") || '{ "data": [] }').data
+          : null,
+    },
+  });
+  cache.writeQuery({
+    query: WISHLIST,
+    data: {
+      wishlist:
+        typeof window !== "undefined"
+          ? JSON.parse(localStorage.getItem("wishlist") || '{ "data": [] }')
+              .data
+          : null,
+    },
+  });
+  cache.writeQuery({
+    query: CUSTOMER,
 
+    data: {
+      customer: { phone: null, name: null, address: null },
+    },
+  });
+};
 const modifyUser = ({ user }) => {
   if (typeof window !== "undefined") {
     if (user) {
@@ -111,6 +124,23 @@ const modifyCompare = ({ items }) => {
       fields: {
         compare() {
           return items;
+        },
+      },
+    });
+  }
+};
+
+const modifyCustomer = ({ customer }) => {
+  if (typeof window !== "undefined") {
+    if (customer) {
+      localStorage.setItem("customer", JSON.stringify(customer));
+    } else {
+      localStorage.removeItem("customer");
+    }
+    cache.modify({
+      fields: {
+        customer() {
+          return customer;
         },
       },
     });
@@ -166,6 +196,11 @@ export const onSignIn = ({ user }) => {
 export const onSignOut = () => {
   modifyUser({ user: null });
 };
+
+export const chooseCustomer = ({ customer }) => {
+  modifyCustomer({ customer });
+};
+
 export const emptyCart = function () {
   modifyCart({ items: [] });
 };

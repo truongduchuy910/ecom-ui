@@ -6,11 +6,11 @@ import {
 } from "reactstrap";
 import { gql, useQuery } from "@apollo/client";
 import { getErrorMessage } from "../../lib/chip";
-import { page } from "../../config";
+import { page } from "../../config/yensaodatquang.json";
 import Link from "next/link";
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput) {
-    allCategories(where: { seller: $seller, root: true }) {
+    allCategories(where: { seller: $seller }) {
       id
       name
       url
@@ -26,11 +26,9 @@ export function CategoriesDropdownMenu() {
 
   return (
     <UncontrolledDropdown nav inNavbar>
-      <DropdownToggle nav caret>
-        Categories
-      </DropdownToggle>
+      <DropdownToggle nav>Danh Mục</DropdownToggle>
       <DropdownMenu right>
-        {data.allCategories.map((category) => (
+        {data?.allCategories.map((category) => (
           <Link
             key={category.id}
             href={{ pathname: "/products", query: { category: category.url } }}

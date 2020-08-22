@@ -5,39 +5,60 @@ import {
   addProductToLocalCompare,
 } from "../../apollo/action";
 import { formatMoney } from "../../lib/chip";
+import { theme } from "../../config/yensaodatquang.json";
 import Link from "next/link";
-import { page } from "../../config";
+import { page } from "../../config/yensaodatquang.json";
+import { Tooltip } from "react-tippy";
+import { useState, Fragment } from "react";
+
+import { ImgProduct } from "./imageProduct";
+import { FadeIn } from "../Animations/FadeIn";
+
 export const Item = ({ product }) => {
-  const imageSrc =
-    page.server +
-    (product.image
-      ? product.image.publicUrl
-      : product?.images[0]?.file.publicUrl);
+  const [show, setShow] = useState(false);
 
   return (
-    <div>
-      <img src={imageSrc} key={imageSrc} />
-      <Link as={"/products/" + product.url} href="/products/[slug]">
-        <a>
-          <h6>{product.name}</h6>
-        </a>
-      </Link>
+    <FadeIn>
+      <div style={{ position: "relative" }}>
+        <ImgProduct product={product} />
+        <div style={{ minHeight: 35 }}>
+          <Link
+            href={{
+              pathname: "detail",
+              query: { detail: product.url },
+            }}
+          >
+            <a style={{ display: show ? "none" : "block" }}>
+              <h5>{product.name}</h5>
+            </a>
+          </Link>
+        </div>
+        <h5
+          style={{
+            textDecoration: product.sale ? "line-through" : "",
+            color: product.sale ? "var(--secondary)" : theme.color,
+            fontSize: product.sale ? 15 : "default",
+            float: product.sale ? "right" : "default",
+          }}
+        >
+          {formatMoney(product.price)}
+        </h5>
 
-      <p>{formatMoney(product.price)}</p>
-      <AttributeGroups attributeGroups={product.attributeGroups} />
-      <button
-        onClick={() => {
-          addProductToLocalCart({product});
-        }}
-      >
-        Add to Cart
-      </button>
-      <button onClick={() => addProductToLocalWishlist(product)}>
-        Add to Wishlist
-      </button>
-      <button onClick={() => addProductToLocalCompare(product)}>
-        Add to Compare
-      </button>
-    </div>
+        {product.sale ? (
+          <p style={{ display: show ? "none" : "block" }}>
+            {formatMoney(product.price - product.sale)}
+          </p>
+        ) : null}
+
+        {/* <button
+          onClick={() => {
+            addProductToLocalCart({ product });
+          }}
+          style={{ marginBottom: 0 }}
+        >
+          Thêm vào giỏ
+        </button> */}
+      </div>
+    </FadeIn>
   );
 };

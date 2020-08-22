@@ -1,0 +1,10 @@
+import { page } from "../../config/yensaodatquang.json";
+export function Logo({ onClick}) {
+  return (
+    <img
+      src={page.logo}
+      style={{ maxWidth: 50, padding: 0, margin: 0 }}
+      onClick={onClick}
+    />
+  );
+}

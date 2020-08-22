@@ -1,7 +1,9 @@
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, Fragment } from "react";
-import { Item } from "./item";
+
 import { emptyWishlist } from "../../apollo/action";
+import { Item } from "../Product/item";
+import { Row, Col } from "reactstrap";
 export const GET_WISHLIST = gql`
   query {
     wishlist @client
@@ -14,16 +16,20 @@ export function List() {
   if (error) return <i>{error}</i>;
   return (
     <div>
-      <button onClick={emptyWishlist}>empty wishlist</button>
-      {data ? (
-        data?.wishlist?.length ? (
-          data.wishlist.map((product) => (
-            <Item key={product.id} product={product} />
-          ))
-        ) : (
-          <p>No products in your wishlist</p>
-        )
-      ) : null}
+      {/* <button onClick={emptyWishlist}>Xóa Tất Cả</button> */}
+      <Row>
+        {data ? (
+          data?.wishlist?.length ? (
+            data.wishlist.map((product) => (
+              <Col key={product.id} sm={6} lg={3} style={{ padding: 8 }}>
+                <Item product={product} />
+              </Col>
+            ))
+          ) : (
+            <p>Không có sản phẩm</p>
+          )
+        ) : null}
+      </Row>
     </div>
   );
 }

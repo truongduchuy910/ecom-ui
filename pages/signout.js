@@ -1,7 +1,12 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { gql, useMutation, useApolloClient } from "@apollo/client";
-import cache, { USER, onSignOut } from "../apollo/action";
+import cache, {
+  USER,
+  onSignOut,
+  init as reloadApolloState,
+} from "../apollo/action";
+import { BirdBg } from "../components/src/BirdBg";
 const SignOutMutation = gql`
   mutation {
     unauthenticateUser {
@@ -15,18 +20,19 @@ function SignOut() {
   const [signOut] = useMutation(SignOutMutation);
 
   useEffect(() => {
-    client.clearStore().then(() => {
+    client.resetStore().then(() => {
       signOut().then(() => {
         onSignOut();
         localStorage.removeItem("token");
+
         router.push({ pathname: "/signin" }).then(() => {
-          router.reload();
+          reloadApolloState();
         });
       });
     });
   }, [signOut, router, client]);
 
-  return <i>sign-out</i>;
+  return <BirdBg />;
 }
 
 export default SignOut;

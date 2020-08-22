@@ -3,15 +3,20 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Link from "next/link";
 import { List as Carts } from "../components/Cart/list";
-import { Index as Customer } from "../components/Customer";
-import { Container } from "reactstrap";
+import { List as Customer } from "../components/Customer/list";
+import { Container, Row, Col } from "reactstrap";
 const About = () => {
   return (
     <div>
       <Container>
-        <Customer />
-        <h6>Tao don</h6>
-        <Carts />
+        <Row>
+          <Col sm={4} lg={6}>
+            <Customer />
+          </Col>
+          <Col sm={8} lg={6}>
+            <Carts />
+          </Col>
+        </Row>
       </Container>
     </div>
   );

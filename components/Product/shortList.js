@@ -3,7 +3,8 @@ import { gql, useQuery, rewriteURIForGET } from "@apollo/client";
 import { useRouter, withRouter, Router } from "next/router";
 import { Item as Product } from "./item";
 import { Container, Row, Col, Spinner } from "reactstrap";
-import { page } from "../../config";
+import { page } from "../../config/yensaodatquang.json";
+import { Loading } from "../src/Loading";
 
 const GET_PRODUCTS = gql`
   query($first: Int, $skip: Int, $keyword: String, $seller: UserWhereInput) {
@@ -56,7 +57,7 @@ export const List = ({ first = 4, skip = 0, keyword, sm, md, lg }) => {
     });
   }
   if (error) return <i>{error}</i>;
-  if (loading) return <i>loading...</i>;
+  if (loading) return <Loading/>;
   return data?.allProducts?.length ? (
     <section>
       <Row>
