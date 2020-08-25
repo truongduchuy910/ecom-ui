@@ -6,6 +6,7 @@ import { useQuery, gql } from "@apollo/client";
 import { Loading } from "../components/src/Loading";
 import { Divider } from "../components/src/Divider";
 import { useApollo } from "../apollo/client";
+import { css } from "../components/src/css";
 const GET_PRODUCTS = gql`
   query($url: String) {
     allProducts(first: 1, where: { url: $url }) {
@@ -59,7 +60,7 @@ export default function ProductDetali() {
   return product ? (
     <Container>
       <Product product={product} />
-      <h4>Sản Phẩm Liên Quan</h4>
+      <h5 style={css.h5}>Sản Phẩm Liên Quan</h5>
       <Divider />
       <Products category={product.category.url} except={detail} more={false} />
     </Container>

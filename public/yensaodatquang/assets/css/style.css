@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -25,7 +25,7 @@
   --bg-color: white;
 }
 body {
-  font-family: "Lora", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   background-color: var(--bg-color);
 
@@ -80,13 +80,10 @@ a:not([href]):not([class]):hover {
   text-decoration: underline;
 }
 h2 {
-  font-size: 24px;
-}
-a > h5 {
-  text-transform: uppercase;
+  font-size: 1.1rem;
 }
 h5 {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 h1,
 h2,
@@ -154,4 +151,4 @@ p {
   .hide-sm {
     display: inline-block;
   }
-}
+} */

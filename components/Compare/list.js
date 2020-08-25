@@ -2,6 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 import { emptyCompare } from "../../apollo/action";
 import { Loading } from "../src/Loading";
 import { Item } from "../Product/compareItem";
+import theme from "../src/theme";
 export const GET_COMPARE = gql`
   query {
     compare @client

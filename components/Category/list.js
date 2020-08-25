@@ -6,6 +6,7 @@ import { page } from "../../config/yensaodatquang.json";
 import { Spinner } from "reactstrap";
 import { Loading } from "../src/Loading";
 import { useRouter } from "next/router";
+import { css } from "../src/css";
 
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput, $category: String) {
@@ -40,16 +41,19 @@ export function List() {
   if (loading) return <Loading />;
   return !loading && data ? (
     <div>
-      <h5>{category ? data.allCategories[0].name : "Danh Mục"}</h5>
+      <h5 style={css.h5}>
+        {category ? data.allCategories[0].name : "Danh Mục"}
+      </h5>
 
       <Item
         categories={[
           {
             id: "all-category",
-            name: category ? "Quay Về" : null,
+            name: category ? "Trở lại mục trước" : null,
             url: "back",
           },
         ]}
+        style={{ display: "block" }}
       />
 
       {category
@@ -57,7 +61,12 @@ export function List() {
             <Item key={cate.id} categories={[cate]} level={0} />
           ))
         : data.allCategories.map((category) => (
-            <Item key={category.id} categories={[category]} level={0} />
+            <Item
+              key={category.id}
+              categories={[category]}
+              level={0}
+              style={{ display: "block" }}
+            />
           ))}
     </div>
   ) : null;

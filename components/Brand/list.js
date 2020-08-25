@@ -1,14 +1,9 @@
 import { gql, useQuery } from "@apollo/client";
-import { useRouter, withRouter } from "next/router";
 import { Item } from "./item";
-import { Fragment } from "react";
-import Link from "next/link";
-import { queryVar } from "../../apollo/action";
-import { route } from "next/dist/next-server/server/router";
 import { page } from "../../config/yensaodatquang.json";
-import { Spinner, Alert } from "reactstrap";
 import { getErrorMessage } from "../../lib/chip";
 import { Loading } from "../src/Loading";
+import { css } from "../src/css";
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput) {
     allBrands(where: { seller: $seller }) {
@@ -26,10 +21,10 @@ export function List() {
   if (error) return <i color="danger">{getErrorMessage(error)}</i>;
   return !loading && data ? (
     <div>
-      <h5>Thương Hiệu</h5>
+      <h5 style={css.h5}>Thương Hiệu</h5>
       <Item brand={{ id: "all-brand", name: "Tất Cả ", url: "all" }} />
       {data.allBrands.map((brand) => (
-        <Item key={brand.id} brand={brand} />
+        <Item key={brand.id} brand={brand} style={{ display: "block" }} />
       ))}
     </div>
   ) : null;

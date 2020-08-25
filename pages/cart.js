@@ -8,7 +8,7 @@ import { Container, Row, Col } from "reactstrap";
 const About = () => {
   return (
     <div>
-      <Container>
+      <Container style={{ marginTop: 35 }}>
         <Row>
           <Col sm={4} lg={6}>
             <Customer />

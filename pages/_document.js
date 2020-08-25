@@ -16,6 +16,10 @@ export default class MyDocument extends Document {
           name="description"
           content="113 Phan Châu Trinh, Phước Ninh, Hải Châu, Đà Nẵng | 0905 586 577 - 0773 502 200 | Uy tín, giá cả phải chăng, hợp lí"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+          rel="stylesheet"
+        />
         <Main />
         <NextScript />
       </Html>

@@ -6,7 +6,7 @@
 import { Item as BrandItem } from "../../components/Brand/itemOne";
 import { Item as CategoryItem } from "../../components/Category/itemOne";
 import { List as AttributeGroups } from "../../components/AttributeGroups/listOne";
-
+import { css } from "../src/css";
 import { formatMoney } from "../../lib/chip";
 import {
   addProductToLocalCart,
@@ -36,7 +36,11 @@ export function Product({ product }) {
 
   return (
     <Fragment>
-      <Row>
+      <Row
+        style={{
+          marginTop: 35,
+        }}
+      >
         <Col
           xs={12}
           lg={6}
@@ -57,7 +61,7 @@ export function Product({ product }) {
           }}
         >
           <div>
-            <h1>{product.name}</h1>
+            <h1 style={css.h1}>{product.name}</h1>
 
             <h5
               style={{
@@ -78,6 +82,7 @@ export function Product({ product }) {
               onClick={() => {
                 addProductToLocalCart({ product });
               }}
+              style={css.button}
             >
               Thêm vào giỏ hàng
             </button>
@@ -89,11 +94,11 @@ export function Product({ product }) {
       <Box>
         <Row>
           <Col xs={12}>
-            <h5>Mô Tả</h5>
+            <h5 style={css.h5}>Mô Tả</h5>
             <p>{product.description}</p>
           </Col>
           <Col>
-            <h5>Hướng dẫn</h5>
+            <h5 style={css.h5}>Hướng dẫn</h5>
 
             <p>{product.guide}</p>
           </Col>
@@ -114,19 +119,19 @@ export function Product({ product }) {
           <Col lg={12}>
             {product.brand ? (
               <Fragment>
-                <h5>Thương Hiệu</h5>
+                <h5 style={css.h5}>Thương Hiệu</h5>
                 <BrandItem brand={product.brand} />{" "}
               </Fragment>
             ) : null}
             {product.category ? (
               <Fragment>
-                <h5>Danh Mục</h5>
+                <h5 style={css.h5}>Danh Mục</h5>
                 <CategoryItem category={product.category} />{" "}
               </Fragment>
             ) : null}
             {product.attributeGroups ? (
               <Fragment>
-                <h5>Thuộc Tính</h5>
+                <h5 style={css.h5}>Thuộc Tính</h5>
                 <AttributeGroups attributeGroups={product.attributeGroups} />
               </Fragment>
             ) : null}

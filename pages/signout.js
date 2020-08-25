@@ -20,19 +20,27 @@ function SignOut() {
   const [signOut] = useMutation(SignOutMutation);
 
   useEffect(() => {
-    client.resetStore().then(() => {
-      signOut().then(() => {
-        onSignOut();
-        localStorage.removeItem("token");
+    client
+      .resetStore()
+      .then(() => {
+        signOut()
+          .then(() => {
+            onSignOut();
 
-        router.push({ pathname: "/signin" }).then(() => {
-          reloadApolloState();
-        });
+            localStorage.removeItem("token");
+
+            router.push({ pathname: "/signin" }).then(() => {
+              reloadApolloState();
+            });
+          })
+          .catch(() => {});
+      })
+      .catch(() => {
+        router.push("/");
       });
-    });
   }, [signOut, router, client]);
 
-  return <BirdBg />;
+  return null;
 }
 
 export default SignOut;

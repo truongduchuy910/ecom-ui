@@ -1,5 +1,5 @@
 import { gql, useQuery, useMutation, useApolloClient } from "@apollo/client";
-import Link from "next/link";
+import { Link } from "../src/Link";
 import { newOrderCountVar } from "../../apollo/client";
 import { USER } from "../../apollo/action";
 import { FiPackage } from "react-icons/fi";
@@ -12,7 +12,7 @@ const ORDER_COUNT = gql`
     }
   }
 `;
-export function Icon({ onClick }) {
+export function Icon({ onClick, style }) {
   let data;
   const { data: orderData, refetch, error } = useQuery(ORDER_COUNT);
   data = orderData;
@@ -25,7 +25,7 @@ export function Icon({ onClick }) {
     newOrderCountVar(false);
   }
   return data?.user?.id && data?._allOrdersMeta?.count ? (
-    <Link href="/order">
+    <Link href="/order" style={style}>
       <a style={{ marginRight: 34 }} onClick={onClick}>
         <FiPackage /> <CountIcon count={data?._allOrdersMeta?.count} />
       </a>

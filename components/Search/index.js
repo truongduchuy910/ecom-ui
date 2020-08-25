@@ -2,8 +2,9 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { Form } from "reactstrap";
-
-export function Search() {
+import theme from "../src/theme";
+import { css } from "../src/css";
+export function Search({ style }) {
   const [searchInput, setSearchInput] = useState();
   const router = useRouter();
   return (
@@ -18,6 +19,7 @@ export function Search() {
         router.push({ pathname: "/products", query: { search: searchInput } });
       }}
       action=""
+      style={{ ...style, display: "inline-block", width: "auto" }}
     >
       <input
         placeholder="Tìm sản phẩm..."
@@ -25,7 +27,7 @@ export function Search() {
         onChange={(event) => {
           setSearchInput(event.target.value);
         }}
-        style={{ marginBottom: 0 }}
+        style={css.input}
       />
     </Form>
   );

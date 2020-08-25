@@ -7,6 +7,13 @@ import { List as Brands } from "../Brand/list";
 import { Search } from "../Search/index";
 import { Navbar, NavbarBrand, NavbarToggler, Collapse } from "reactstrap";
 import { FiFilter } from "react-icons/fi";
+import { css } from "../src/css";
+import theme from "../src/theme";
+const box = {
+  marginBottom: theme.spacing(4),
+  paddingBottom: theme.spacing(2),
+  borderBottom: `1px solid ${theme.secondary}`,
+};
 export function Sidebar() {
   const router = useRouter();
   let query = router.query;
@@ -31,40 +38,51 @@ export function Sidebar() {
   const top = useRef(null);
   const tg = () => setCollapsed(!collapsed);
   return (
-    <div style={{ width: "100%" }}>
-      {/* Filter button */}
-
-      <section style={{ borderRight: "1px dashed black", paddingRight: 8 }}>
-        <h5>Tìm kiếm</h5>
-        <Search onSearch={tg} />
-        <form onSubmit={onSubmit} action="">
-          <h5>Giá từ</h5>
-          <input
-            placeholder="Từ"
-            name="price_from"
-            onChange={(event) => {
-              setPriceFrom(event.target.value);
-            }}
-            defaultValue={price_from ? price_from : ""}
-          />
-          <h5>Đến</h5>
-
-          <input
-            placeholder="Đến"
-            name="price_to"
-            onChange={(event) => {
-              setPriceTo(event.target.value);
-            }}
-            defaultValue={price_to ? price_to : ""}
-          />
-          <button type="submit" style={{ paddingTop: 3, paddingBottom: 3 }}>
-            Lọc
-          </button>
-        </form>
+    <section>
+      <div style={box}>
         <Categories />
+      </div>
+      {/* KHOANG GIA */}
+      <form onSubmit={onSubmit} action="" style={box}>
+        <h5 style={css.h5}>Giá</h5>
+
+        <input
+          placeholder="Từ"
+          name="price_from"
+          onChange={(event) => {
+            setPriceFrom(event.target.value);
+          }}
+          defaultValue={price_from ? price_from : ""}
+          style={{ ...css.input, width: "45%" }}
+        />
+        <div
+          style={{ width: "10%", display: "inline-block", textAlign: "center" }}
+        >
+          -
+        </div>
+
+        <input
+          placeholder="Đến"
+          name="price_to"
+          onChange={(event) => {
+            setPriceTo(event.target.value);
+          }}
+          defaultValue={price_to ? price_to : ""}
+          style={{ ...css.input, width: "45%" }}
+        />
+        <button
+          type="submit"
+          style={{ ...css.button, marginTop: theme.spacing(3) }}
+        >
+          Lọc
+        </button>
+      </form>
+      <div style={box}>
         <Attributes />
+      </div>
+      <div style={box}>
         <Brands />
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

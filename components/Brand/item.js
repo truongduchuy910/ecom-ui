@@ -1,8 +1,6 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { route } from "next/dist/next-server/server/router";
 import { theme } from "../../config/yensaodatquang.json";
-export function Item({ brand }) {
+export function Item({ brand, style }) {
   const router = useRouter();
   let query = router.query;
   const exist = query.brand == brand.url;
@@ -14,10 +12,9 @@ export function Item({ brand }) {
   return (
     <a
       style={{
+        ...style,
         color: theme.color,
         fontWeight: exist ? "bold" : null,
-        fontSize: "0.8rem",
-        textTransform: "uppercase",
       }}
       onClick={handleClick}
     >

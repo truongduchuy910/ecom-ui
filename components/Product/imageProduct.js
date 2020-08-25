@@ -32,7 +32,7 @@ const style = {
     backgroundColor: "rgba(0,0,0,0.5)",
   }),
 };
-import { theme } from "../../config/yensaodatquang.json";
+import theme from "../src/theme";
 export function ImgProduct({ product }) {
   const { data } = useQuery(gql`
     query {
@@ -91,6 +91,7 @@ export function ImgProduct({ product }) {
             ? page.server + ImgSrcs[imgIndex]?.file?.publicUrl
             : "/assets/img/no-image.jpg"
         }
+        style={{ width: "100%", marginBottom: theme.spacing(4) }}
         key={ImgSrcs[imgIndex]?.file?.publicUrl}
         onClick={() => {
           toggle(true);

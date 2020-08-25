@@ -8,23 +8,36 @@ import { Footer } from "../components/src/Footer";
 import { Container } from "reactstrap";
 import { useState, useEffect } from "react";
 import { withRouter, useRouter } from "next/router";
+import theme from "../components/src/theme";
 
 export default function App({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps.initialApolloState);
+
   const [isOpen, setIsOpen] = useState(false);
+  const [innerWidth, setInnerWidth] = useState();
+
   const toggle = () => setIsOpen(!isOpen);
   const router = useRouter();
   useEffect(() => {
     router.events.on("routeChangeComplete", (url) => {
       setIsOpen(false);
     });
+    setInnerWidth(window.innerWidth);
   });
   return (
     <ApolloProvider client={apolloClient}>
-      <header style={{ paddingBottom: 60 }}>
-        <MenuApp isOpen={isOpen} toggle={toggle} />
+      <header>
+        <MenuApp isOpen={isOpen} toggle={toggle} innerWidth={innerWidth} />
       </header>
-      <main style={{ minHeight: "60vh", marginTop: 34 }}>
+      <main
+        style={{
+          paddingTop: 35,
+          paddingBottom: theme.spacing(4),
+          minHeight: "60vh",
+          fontFamily: "'Roboto', sans-serif",
+          backgroundColor: theme.bgDark,
+        }}
+      >
         <Component {...pageProps} />
       </main>
       <footer>

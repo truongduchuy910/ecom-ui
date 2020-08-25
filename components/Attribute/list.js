@@ -8,6 +8,7 @@ import { page } from "../../config/yensaodatquang.json";
 import { Spinner, Alert } from "reactstrap";
 import { getErrorMessage } from "../../lib/chip";
 import { Loading } from "../src/Loading";
+import { css } from "../src/css";
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {
     allAttributes(where: { seller: $seller }) {
@@ -28,7 +29,7 @@ export function List({ attributes }) {
   let source = attributes ? attributes : data.allAttributes;
   return !loading && data ? (
     <div>
-      <h5>Thuộc Tính</h5>
+      <h5 style={css.h5}>Thuộc Tính</h5>
       <Item attribute={{ id: "all-attribute", name: "Tất Cả", url: "all" }} />
       {source.map((attribute) => (
         <Item key={attribute.id} attribute={attribute} />

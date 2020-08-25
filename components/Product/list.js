@@ -87,6 +87,7 @@ export const List = ({
   sm,
   md,
   lg,
+  xl,
   more = true,
   search,
   except,
@@ -163,6 +164,7 @@ export const List = ({
             sm={sm ? sm : 6}
             md={md ? md : 4}
             lg={lg ? lg : 3}
+            xl={xl ? xl : 2}
           >
             <Product product={product} />
           </Col>

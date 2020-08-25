@@ -9,7 +9,8 @@ export function CountIcon({ count }) {
         fontWeight: 500,
       }}
     >
-      ({count})
+      {count}
+      
     </span>
   );
 }

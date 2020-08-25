@@ -5,7 +5,6 @@ import {
   addProductToLocalCompare,
 } from "../../apollo/action";
 import { formatMoney } from "../../lib/chip";
-import { theme } from "../../config/yensaodatquang.json";
 import Link from "next/link";
 import { page } from "../../config/yensaodatquang.json";
 import { Tooltip } from "react-tippy";
@@ -13,6 +12,8 @@ import { useState, Fragment } from "react";
 
 import { ImgProduct } from "./imageProduct";
 import { FadeIn } from "../Animations/FadeIn";
+import theme from "../src/theme";
+import { css } from "../src/css";
 
 export const Item = ({ product }) => {
   const [show, setShow] = useState(false);
@@ -28,24 +29,34 @@ export const Item = ({ product }) => {
               query: { detail: product.url },
             }}
           >
-            <a style={{ display: show ? "none" : "block" }}>
-              <h5>{product.name}</h5>
+            <a>
+              <p
+                style={{
+                  color: theme.color,
+                  marginTop: theme.spacing(4),
+                  textTransform: "capitalize",
+                  minHeight: 48,
+                }}
+              >
+                {product.name}
+              </p>
             </a>
           </Link>
         </div>
-        <h5
+        <p
           style={{
             textDecoration: product.sale ? "line-through" : "",
             color: product.sale ? "var(--secondary)" : theme.color,
             fontSize: product.sale ? 15 : "default",
             float: product.sale ? "right" : "default",
+            fontWeight: product.sale ? "normal" : "bold",
           }}
         >
           {formatMoney(product.price)}
-        </h5>
+        </p>
 
         {product.sale ? (
-          <p style={{ display: show ? "none" : "block" }}>
+          <p style={{ display: show ? "none" : "block", fontWeigh: "bold" }}>
             {formatMoney(product.price - product.sale)}
           </p>
         ) : null}

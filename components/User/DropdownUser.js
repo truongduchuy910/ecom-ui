@@ -27,7 +27,11 @@ export function CategoriesDropdownMenu({ onClick }) {
   return typeof window !== "undefined" ? (
     data?.user?.id ? (
       <UncontrolledDropdown nav inNavbar style={{ listStyle: "none" }}>
-        <DropdownToggle nav caret>
+        <DropdownToggle
+          nav
+          caret
+          style={{ color: theme.color, margin: 0, padding: 0 }}
+        >
           <AiOutlineUser />
         </DropdownToggle>
         <DropdownMenu right style={{ backgroundColor: theme.backgroundColor }}>
@@ -45,7 +49,7 @@ export function CategoriesDropdownMenu({ onClick }) {
       </UncontrolledDropdown>
     ) : (
       <Link href="/signin">
-        <a>
+        <a style={{ color: theme.color, margin: 0, padding: 0 }}>
           <IoIosLogIn />
         </a>
       </Link>
