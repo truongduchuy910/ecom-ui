@@ -40,12 +40,18 @@ export function CategoriesDropdownMenu({ onClick }) {
           style={{ backgroundColor: theme.backgroundColor, color: theme.color }}
         >
           <DropdownItem>
-            <a onClick={onClick}>
+            <a onClick={onClick} style={{ color: theme.color }}>
               Hi {data?.user?.isSeller ? "seller" : null} {data.user.email}
             </a>
           </DropdownItem>
-          <Link href="/signout" onClick={onClick}>
-            <DropdownItem href="">Đăng Xuất</DropdownItem>
+          <Link
+            href="/signout"
+            onClick={onClick}
+            style={{ color: theme.color }}
+          >
+            <DropdownItem href="" style={{ color: theme.color }}>
+              Đăng Xuất
+            </DropdownItem>
           </Link>
         </DropdownMenu>
       </UncontrolledDropdown>
