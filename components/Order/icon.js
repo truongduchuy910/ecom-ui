@@ -4,6 +4,7 @@ import { newOrderCountVar } from "../../apollo/client";
 import { USER } from "../../apollo/action";
 import { FiPackage } from "react-icons/fi";
 import { CountIcon } from "../src/count";
+import { theme } from "../../config";
 const ORDER_COUNT = gql`
   query {
     user @client
@@ -26,7 +27,8 @@ export function Icon({ onClick, style }) {
   }
   return data?.user?.id && data?._allOrdersMeta?.count ? (
     <Link href="/order" style={style} onClick={onClick}>
-      <FiPackage /> <CountIcon count={data?._allOrdersMeta?.count} />
+      <FiPackage style={{ color: theme.primary }} />{" "}
+      <CountIcon count={data?._allOrdersMeta?.count} />
     </Link>
   ) : null;
 }

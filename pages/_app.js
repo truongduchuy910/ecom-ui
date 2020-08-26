@@ -31,18 +31,17 @@ export default function App({ Component, pageProps }) {
       </header>
       <main
         style={{
-          paddingTop: 35,
+          paddingTop: 60,
           paddingBottom: theme.spacing(4),
           minHeight: "60vh",
           fontFamily: "'Roboto', sans-serif",
           backgroundColor: theme.bgDark,
+          color: theme.color,
         }}
       >
         <Component {...pageProps} />
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </ApolloProvider>
   );
 }

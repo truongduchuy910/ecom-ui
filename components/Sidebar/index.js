@@ -9,11 +9,7 @@ import { Navbar, NavbarBrand, NavbarToggler, Collapse } from "reactstrap";
 import { FiFilter } from "react-icons/fi";
 import { css } from "../src/css";
 import theme from "../src/theme";
-const box = {
-  marginBottom: theme.spacing(4),
-  paddingBottom: theme.spacing(2),
-  borderBottom: `1px solid ${theme.secondary}`,
-};
+
 export function Sidebar() {
   const router = useRouter();
   let query = router.query;
@@ -38,16 +34,16 @@ export function Sidebar() {
   const top = useRef(null);
   const tg = () => setCollapsed(!collapsed);
   return (
-    <section>
-      <div style={box}>
+    <section style={{ paddingTop: theme.spacing(4) }}>
+      <div style={css.box}>
         <h5 style={css.h5}>Tìm Kiếm</h5>
         <Search style={{ width: "100%", marginBottom: theme.spacing(3) }} />
       </div>
-      <div style={box}>
+      <div style={css.box}>
         <Categories />
       </div>
       {/* KHOANG GIA */}
-      <form onSubmit={onSubmit} action="" style={box}>
+      <form onSubmit={onSubmit} action="" style={css.box}>
         <h5 style={css.h5}>Giá</h5>
 
         <input
@@ -81,10 +77,10 @@ export function Sidebar() {
           Lọc
         </button>
       </form>
-      <div style={box}>
+      <div style={css.box}>
         <Attributes />
       </div>
-      <div style={box}>
+      <div style={css.box}>
         <Brands />
       </div>
     </section>

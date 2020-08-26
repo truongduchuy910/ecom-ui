@@ -62,7 +62,7 @@ export default function ProductDetali() {
     <Container>
       <Product product={product} />
       <h5 style={css.h5}>Sản Phẩm Liên Quan</h5>
-      <Divider />
+
       <Products category={product.category.url} except={detail} more={false} />
     </Container>
   ) : null;

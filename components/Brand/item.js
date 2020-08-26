@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { theme } from "../../config/yensaodatquang.json";
+import { theme } from "../../config/index";
 export function Item({ brand, style }) {
   const router = useRouter();
   let query = router.query;

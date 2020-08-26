@@ -3,12 +3,15 @@ import { gql, useQuery, rewriteURIForGET } from "@apollo/client";
 import { useRouter, withRouter, Router } from "next/router";
 import { Item as Product } from "./item";
 import { Container, Row, Col, Spinner } from "reactstrap";
-import { page } from "../../config/yensaodatquang.json";
+import { page } from "../../config/index";
+
 import { toSlug } from "../../lib/chip";
 import { Loading } from "../src/Loading";
 import { Divider } from "../src/Divider";
 import { useSpring } from "react-spring";
 import { MdExpandMore } from "react-icons/md";
+import theme from "../src/theme";
+import { Filter } from "./filter";
 const GET_PRODUCTS = gql`
   query(
     $first: Int
@@ -154,17 +157,20 @@ export const List = ({
   if (error) return <i>{error}</i>;
   if (loading) return <Loading />;
   return data?.allProducts?.length ? (
-    <section id="products">
-      <Row noGutters style={{ borderRadius: 8 }}>
+    <section
+      id="products"
+      style={{ paddingLeft: theme.spacing(1), paddingRight: 0 }}
+    >
+      <Row noGutters>
         {data.allProducts.map((product) => (
           <Col
-            style={{ padding: 8 }}
             key={product.id}
             xs={xs ? xs : 6}
             sm={sm ? sm : 6}
             md={md ? md : 4}
             lg={lg ? lg : 3}
             xl={xl ? xl : 2}
+            style={{ padding: theme.spacing(1) }}
           >
             <Product product={product} />
           </Col>

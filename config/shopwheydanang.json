@@ -13,11 +13,23 @@
         "seller": {
             "id": "5e4c2235ea30da18df1c210f"
         },
-        "logo": "/assets/img/shop-whey-da-nang.png"
+        "logo": "/shopwheydanang/assets/img/shop-whey-da-nang.png",
+        "signInBg": "/shopwheydanang/assets/img/gymer.JPG"
     },
     "theme": {
         "backgroundColor": "#343a40",
         "color": "white",
-        "primary": "#d4ac5c"
+        "primary": "#d4ac5c",
+        "secondary": "#c0c0c0",
+        "bgHighlight": "#343a40",
+        "bgDark": "#333"
+    },
+    "theme-1": {
+        "backgroundColor": "white",
+        "color": "#333",
+        "secondary": "#c0c0c0",
+        "primary": "brown",
+        "bgHighlight": "#f7f8f9",
+        "bgDark": "rgb(244, 244, 244)"
     }
 }

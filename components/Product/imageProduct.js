@@ -1,4 +1,5 @@
-import { page } from "../../config/yensaodatquang.json";
+import { page } from "../../config/index";
+
 
 import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { MdCompareArrows, MdDoneAll } from "react-icons/md";
@@ -12,7 +13,7 @@ import { useQuery, gql } from "@apollo/client";
 import { useState } from "react";
 
 const style = {
-  button: (top, color = "white") => ({
+  button: (top, color = theme.backgroundColor) => ({
     position: "absolute",
     top,
     right: 5,
@@ -26,7 +27,7 @@ const style = {
     borderRadius: "50%",
     color,
     fontWeight: 800,
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: theme.primary,
   }),
 };
 import theme from "../src/theme";
@@ -69,11 +70,11 @@ export function ImgProduct({ product }) {
             ? page.server + ImgSrcs[imgIndex]?.file?.publicUrl
             : "/assets/img/no-image.jpg"
         }
-        style={{ width: "100%", marginBottom: theme.spacing(4) }}
+        style={{ width: "100%", borderRadius: theme.spacing(2) }}
         key={ImgSrcs[imgIndex]?.file?.publicUrl}
       />
       {/* icon compare */}
-      <i
+      {/* <i
         onClick={() =>
           isInCompare
             ? removeCompareItem(product)
@@ -82,7 +83,7 @@ export function ImgProduct({ product }) {
         style={style.button(5)}
       >
         {isInCompare ? <MdDoneAll /> : <MdCompareArrows />}
-      </i>
+      </i> */}
       {/* icon wishlist */}
       <i
         onClick={() =>
@@ -90,7 +91,7 @@ export function ImgProduct({ product }) {
             ? removeWishListItem(product)
             : addProductToLocalWishlist(product)
         }
-        style={style.button(45, "white")}
+        style={style.button(5)}
       >
         {isInWishlist ? <MdDoneAll /> : <IoIosHeartEmpty />}
       </i>

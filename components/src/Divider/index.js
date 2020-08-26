@@ -1,4 +1,5 @@
-import { page } from "../../../config/yensaodatquang.json";
+import { page } from "../../../config/index";
+
 export function Divider() {
   return (
     <center>

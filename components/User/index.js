@@ -1,5 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import Link from "next/link";
+import { Link } from "../src/Link";
 import { USER } from "../../apollo/action";
 import { useRouter } from "next/router";
 import { Fragment } from "react";

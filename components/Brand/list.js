@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { Item } from "./item";
-import { page } from "../../config/yensaodatquang.json";
+import { page } from "../../config/index";
+
 import { getErrorMessage } from "../../lib/chip";
 import { Loading } from "../src/Loading";
 import { css } from "../src/css";

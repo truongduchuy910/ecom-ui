@@ -7,10 +7,10 @@ export function OrderItem({ item }) {
   return item ? (
     <Fragment>
       <div>
-        <a style={{ float: "left" }}>Số lượng: {item.quantity}</a>
-        <a style={{ float: "right" }}>Thành tiền: {formatMoney(item.price)}</a>
-      </div>
-      <div>
+        <a style={{ display: "block" }}>Số lượng: {item.quantity}</a>
+        <a style={{ display: "block" }}>
+          Thành tiền: {formatMoney(item.price)}
+        </a>
         <Item product={item.product} />
       </div>
     </Fragment>

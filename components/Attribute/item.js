@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { removeItemOnce } from "../../lib/chip";
 import { FiThermometer } from "react-icons/fi";
-import { theme } from "../../config/yensaodatquang.json";
+import theme from "../src/theme";
 import { filterAttributeVar } from "../../apollo/client";
 export function Item({ attribute, style }) {
   const router = useRouter();
@@ -25,6 +25,7 @@ export function Item({ attribute, style }) {
         ...style,
         color: theme.color,
         fontWeight: exist ? "bold" : null,
+        display: "block",
       }}
       onClick={handleClick}
     >

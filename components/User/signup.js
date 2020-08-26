@@ -99,7 +99,7 @@ export function SignUp() {
             ...css.input,
             width: "100%",
             marginBottom: theme.spacing(3),
-            borderRadius: 35,
+            borderRadius: theme.spacing(2),
           }}
         />
         <h5 style={css.h5}>Mật khẩu</h5>
@@ -113,7 +113,7 @@ export function SignUp() {
             ...css.input,
             width: "100%",
             marginBottom: theme.spacing(3),
-            borderRadius: 35,
+            borderRadius: theme.spacing(2),
           }}
         />
         <h5 style={css.h5}>Nhập Lại Mật Khẩu</h5>
@@ -128,7 +128,7 @@ export function SignUp() {
             ...css.input,
             width: "100%",
             marginBottom: theme.spacing(3),
-            borderRadius: 35,
+            borderRadius: theme.spacing(2),
           }}
         />
 

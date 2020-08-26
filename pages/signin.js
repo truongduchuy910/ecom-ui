@@ -23,7 +23,7 @@ export default function SignIn() {
               maxWidth: 500,
               // marginLeft: "auto",
               marginRight: "auto",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: "rgba(0,0,0,0.5)",
               borderRadius: theme.spacing(2),
               padding: 30,
               height: "100%",

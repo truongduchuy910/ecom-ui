@@ -68,7 +68,7 @@ export function SignIn() {
             ...css.input,
             width: "100%",
             marginBottom: theme.spacing(3),
-            borderRadius: 35,
+            borderRadius: theme.spacing(2),
           }}
         />
         <h5 style={css.h5}>Mật khẩu</h5>
@@ -79,7 +79,7 @@ export function SignIn() {
           placeholder="Nhập Mật khẩu"
           type="password"
           id="password"
-          style={{ ...css.input, width: "100%", borderRadius: 35 }}
+          style={{ ...css.input, width: "100%", borderRadius: theme.spacing(2) }}
         />
 
         <button

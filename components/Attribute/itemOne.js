@@ -1,5 +1,5 @@
 // show in product detail
-import Link from "next/link";
+import { Link } from "../src/Link";
 export function Item({ attribute }) {
   return (
     <Link

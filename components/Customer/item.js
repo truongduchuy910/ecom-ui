@@ -28,7 +28,7 @@ export function Item({ customer, onDelete, hight = false, onClick }) {
         style={{
           fontWeight: data?.customer?.id === customer.id ? "bold" : "",
           marginBottom: 13,
-          border: "1px solid black",
+          border: `1px solid ${theme.color}`,
           padding: 13,
           position: "relative",
           borderRadius: theme.spacing(1),
@@ -42,6 +42,7 @@ export function Item({ customer, onDelete, hight = false, onClick }) {
               console.log(e);
             }
           }}
+          style={{ color: theme.color }}
         >
           <a style={{ display: "block" }}>{customer.name}</a>
           <a style={{ display: "block" }}>{customer.phone}</a>

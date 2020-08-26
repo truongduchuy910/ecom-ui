@@ -8,7 +8,8 @@ import {
 } from "../../apollo/client";
 import { Item as CartItem } from "./item";
 import { useRouter } from "next/router";
-import { page } from "../../config/yensaodatquang.json";
+import { page } from "../../config/index";
+
 import { formatMoney } from "../../lib/chip";
 import { Fragment } from "react";
 import { css } from "../src/css";
@@ -149,7 +150,10 @@ export function List() {
       </div>
       <h5 style={css.h5}>Tổng</h5>
       <p>{formatMoney(sum)}</p>
-      <button style={css.button} onClick={order}>
+      <button
+        style={{ ...css.button, marginBottom: theme.spacing(4) }}
+        onClick={order}
+      >
         Đặt Hàng
       </button>
       {dataCartItems ? (

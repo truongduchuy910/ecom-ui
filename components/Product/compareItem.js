@@ -4,7 +4,7 @@ import { formatMoney } from "../../lib/chip";
 import { addProductToLocalCart } from "../../apollo/action";
 import { Fragment } from "react";
 import { Divider } from "../src/Divider";
-import Link from "next/link";
+import { Link } from "../src/Link";
 import { css } from "../src/css";
 export function Item({ product, onClick }) {
   return (

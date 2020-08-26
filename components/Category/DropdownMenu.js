@@ -6,8 +6,9 @@ import {
 } from "reactstrap";
 import { gql, useQuery } from "@apollo/client";
 import { getErrorMessage } from "../../lib/chip";
-import { page } from "../../config/yensaodatquang.json";
-import Link from "next/link";
+import { page } from "../../config/index";
+
+import { Link } from "../src/Link";
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput) {
     allCategories(where: { seller: $seller }) {

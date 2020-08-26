@@ -4,6 +4,7 @@ import { cartItemsVar, CART } from "../../apollo/action";
 import { MdAddShoppingCart } from "react-icons/md";
 import { Link } from "../src/Link";
 import { CountIcon } from "../src/count";
+import { theme } from "../../config";
 export function Icon({ onClick, style }) {
   const { data, loading, error } = useQuery(CART);
   let count = 0;
@@ -14,7 +15,7 @@ export function Icon({ onClick, style }) {
   }
   return (
     <Link href="/cart" onClick={onClick} style={style}>
-      <MdAddShoppingCart />
+      <MdAddShoppingCart  style={{ color: theme.primary }} />
       <CountIcon count={count} />
     </Link>
   );

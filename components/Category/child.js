@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "../src/Link";
 import { categoryVar, queryVar } from "../../apollo/action";
 import { useRouter } from "next/router";
 import { route } from "next/dist/next-server/server/router";

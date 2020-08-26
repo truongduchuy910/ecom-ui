@@ -8,15 +8,12 @@ import { Row, Col } from "reactstrap";
 import { formatMoney } from "../../lib/chip";
 import { ImgProduct } from "../Product/imageProduct";
 import { MdDelete } from "react-icons/md";
-import Link from "next/link";
+import { Link } from "../src/Link";
 import { css } from "../src/css";
 import theme from "../src/theme";
-const style = { css: { width: 35, height: 35, padding: 0, margin: 0 } };
 export const Item = ({ cartItem, onChange }) => {
-  console.log(cartItem);
-
   return (
-    <Row>
+    <Row style={{ marginBottom: theme.spacing(3) }}>
       <Col sm={12} md={6} lg={5}>
         <ImgProduct product={cartItem.product} />
       </Col>
@@ -74,7 +71,7 @@ export const Item = ({ cartItem, onChange }) => {
             removeItem(cartItem);
           }}
         >
-          Bỏ khỏi giỏ hàng
+          Bỏ ra
         </button>
       </Col>
     </Row>

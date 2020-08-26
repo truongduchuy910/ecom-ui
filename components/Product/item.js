@@ -5,8 +5,9 @@ import {
   addProductToLocalCompare,
 } from "../../apollo/action";
 import { formatMoney } from "../../lib/chip";
-import Link from "next/link";
-import { page } from "../../config/yensaodatquang.json";
+import { Link } from "../src/Link";
+import { page } from "../../config/index";
+
 import { Tooltip } from "react-tippy";
 import { useState, Fragment } from "react";
 
@@ -20,7 +21,14 @@ export const Item = ({ product }) => {
 
   return (
     <FadeIn>
-      <div style={{ position: "relative" }}>
+      <div
+        style={{
+          position: "relative",
+          backgroundColor: theme.backgroundColor,
+          padding: theme.spacing(2),
+          borderRadius: theme.spacing(2),
+        }}
+      >
         <ImgProduct product={product} />
         <div style={{ minHeight: 35 }}>
           <Link
@@ -50,13 +58,21 @@ export const Item = ({ product }) => {
             fontSize: product.sale ? 15 : "default",
             float: product.sale ? "right" : "default",
             fontWeight: product.sale ? "normal" : "bold",
+            marginBottom: theme.spacing(0),
           }}
         >
           {formatMoney(product.price)}
         </p>
 
         {product.sale ? (
-          <p style={{ display: show ? "none" : "block", fontWeigh: "bold" }}>
+          <p
+            style={{
+              color: theme.color,
+              display: show ? "none" : "block",
+              fontWeigh: "bold",
+              marginBottom: theme.spacing(0),
+            }}
+          >
             {formatMoney(product.price - product.sale)}
           </p>
         ) : null}

@@ -8,7 +8,7 @@ import { Sidebar } from "../components/Sidebar";
 import { BirdBg } from "../components/src/BirdBg";
 import { Divider } from "../components/src/Divider";
 import theme from "../components/src/theme";
-import { Filter } from "../components/Sidebar/filter";
+import { Filter } from "../components/Product/filter";
 import { List as Banners } from "../components/Banner/list";
 import { css } from "../components/src/css";
 const Index = () => {
@@ -26,41 +26,19 @@ const Index = () => {
 
   return (
     <Fragment>
-      <Container
-        style={{
-          marginTop: 15,
-          padding: 0,
-          backgroundColor: theme.backgroundColor,
-        }}
-      >
+      <Banners />
+
+      <Container fluid>
         <Row noGutters>
-          <Col
-            xs={4}
-            md={3}
-            lg={3}
-            // xl={2}
-            style={{
-              borderRight: `1.1px solid ${theme.secondary}`,
-            }}
-          >
-            <div
-              style={{
-                padding: theme.spacing(2),
+          <Col xs={4} md={3} lg={3} xl={2}>
+            <Sidebar
+              onSearch={(search) => {
+                setSearch(search);
               }}
-            >
-              <Sidebar
-                onSearch={(search) => {
-                  setSearch(search);
-                }}
-              />
-            </div>
+            />
           </Col>
-          <Col xs={8} md={9} lg={9}>
-            <div
-              style={{
-                padding: theme.spacing(2),
-              }}
-            >
+          <Col xs={8} md={9} lg={9} xl={10}>
+            <div>
               {category ||
               categories ||
               brand ||
@@ -68,7 +46,7 @@ const Index = () => {
               attributes ||
               price_from ||
               price_to != 999999999 ? (
-                <Fragment style={{ padding: theme.spacing(2) }}>
+                <Fragment>
                   <Filter
                     category={category}
                     categories={categories}
@@ -95,10 +73,19 @@ const Index = () => {
                 </Fragment>
               ) : (
                 <Fragment>
-                  <h5 style={{ ...css.h5, textAlign: "center" }}>
-                    Sản Phẩm Bán Chạy
-                  </h5>
-                  <Divider />
+                  <div style={css.filter}>
+                    <h6
+                      style={{
+                        ...css.h6,
+                        display: "inline-block",
+                        marginRight: theme.spacing(2),
+                      }}
+                    >
+                      Sản Phẩm:{" "}
+                    </h6>
+                    Bán Chạy
+                  </div>
+
                   <Products
                     first={4}
                     lg={3}
@@ -107,17 +94,40 @@ const Index = () => {
                     more={false}
                   />
 
-                  <h5 style={{ ...css.h5, textAlign: "center" }}>
-                    Sản Phẩm Mới Về
-                  </h5>
-                  <Divider />
-                  <Products first={4} lg={3} suggestions="new" more={false} />
+                  <div style={css.filter}>
+                    <h6
+                      style={{
+                        ...css.h6,
+                        display: "inline-block",
+                        marginRight: theme.spacing(2),
+                      }}
+                    >
+                      Sản Phẩm:{" "}
+                    </h6>
+                    Mới Về
+                  </div>
 
-                  <h5 style={{ ...css.h5, textAlign: "center" }}>
-                    Sản Phẩm Khuyến Mãi
-                  </h5>
-                  <Divider />
-                  <Products first={4} lg={3} sale more={false} />
+                  <Products
+                    first={4}
+                    lg={3}
+                    xl={3}
+                    suggestions="new"
+                    more={false}
+                  />
+                  <div style={css.filter}>
+                    <h6
+                      style={{
+                        ...css.h6,
+                        display: "inline-block",
+                        marginRight: theme.spacing(2),
+                      }}
+                    >
+                      Sản Phẩm:{" "}
+                    </h6>
+                    Khuyến Mãi
+                  </div>
+
+                  <Products first={4} lg={3} xl={3} sale more={false} />
                 </Fragment>
               )}
             </div>

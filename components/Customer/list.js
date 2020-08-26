@@ -55,7 +55,7 @@ export function List({ createClick }) {
             onClick={() => {
               setCreate(true);
             }}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", color: theme.color }}
           >
             Hoặc tạo mới <IoMdAddCircleOutline />
           </label>

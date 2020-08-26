@@ -1,5 +1,5 @@
 import { animated, useSpring } from "react-spring";
-import { theme } from "../../config/yensaodatquang.json";
+import { theme } from "../../config/index";
 export function Box({ children }) {
   const props = useSpring({ opacity: 1, from: { opacity: 0 } });
   return (

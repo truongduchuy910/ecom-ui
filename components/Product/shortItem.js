@@ -1,6 +1,7 @@
 import { Fragment } from "react";
-import { page } from "../../config/yensaodatquang.json";
-import Link from "next/link";
+import { page } from "../../config/index";
+
+import { Link } from "../src/Link";
 import theme from "../src/theme";
 export const Item = ({ product }) => {
   return (
@@ -18,7 +19,7 @@ export const Item = ({ product }) => {
       </th>
       <th>
         <Link href={{ pathname: "detail", query: { detail: product.url } }}>
-          <a>{product.name}</a>
+          {product.name}
         </Link>
       </th>
     </>

@@ -8,20 +8,17 @@ import { Item as CategoryItem } from "../../components/Category/itemOne";
 import { List as AttributeGroups } from "../../components/AttributeGroups/listOne";
 import { css } from "../src/css";
 import { formatMoney } from "../../lib/chip";
-import {
-  addProductToLocalCart,
-  addProductToLocalWishlist,
-  addProductToLocalCompare,
-} from "../../apollo/action";
+import { addProductToLocalCart } from "../../apollo/action";
 import { Fragment, useState } from "react";
-import { page } from "../../config/yensaodatquang.json";
+import { page } from "../../config/index";
+
 import { Row, Col } from "reactstrap";
 import { ImgProduct } from "./imageProduct";
-import { QuickView } from "./quickView";
+
 import { Box } from "../src/Box";
-import { Divider } from "../src/Divider";
-import Link from "next/link";
+
 import { useSpring, animated } from "react-spring";
+import theme from "../src/theme";
 export function Product({ product }) {
   const src = page.server + product?.image?.publicUrl;
   const [open, toggle] = useState(false);
@@ -29,7 +26,7 @@ export function Product({ product }) {
     top: 100,
     right: 0,
     zIndex: 11,
-    width: open ? 940 : 640,
+    width: open ? 940 : 340,
     right: 0,
     from: { width: 0 },
   });
@@ -76,7 +73,9 @@ export function Product({ product }) {
             {product.sale ? (
               <h5>{formatMoney(product.price - product.sale)}</h5>
             ) : null}
-            <p>{product.description?.slice(0, 500)}</p>
+            <p style={{ color: theme.color }}>
+              {product.description?.slice(0, 500)}
+            </p>
 
             <button
               onClick={() => {
@@ -89,18 +88,17 @@ export function Product({ product }) {
           </div>
         </Col>
       </Row>
-      <Divider />
 
       <Box>
         <Row>
           <Col xs={12}>
             <h5 style={css.h5}>Mô Tả</h5>
-            <p>{product.description}</p>
+            <p style={{ color: theme.color }}>{product.description}</p>
           </Col>
           <Col>
             <h5 style={css.h5}>Hướng dẫn</h5>
 
-            <p>{product.guide}</p>
+            <p style={{ color: theme.color }}>{product.guide}</p>
           </Col>
           <Col xs={12} md={open ? 12 : 6}>
             <center>

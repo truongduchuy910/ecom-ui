@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { gql, useMutation } from "@apollo/client";
-import { page } from "../../config/yensaodatquang.json";
+import { page } from "../../config/index";
+
 import { refetchCustomer, customerVar } from "../../apollo/client";
 import { useRouter } from "next/router";
 import { chooseCustomer } from "../../apollo/action";

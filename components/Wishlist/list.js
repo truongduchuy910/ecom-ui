@@ -29,7 +29,7 @@ export function List() {
             </Col>
           ))
         ) : (
-          <p>Không có sản phẩm</p>
+          <p style={{ color: theme.color }}>Không có sản phẩm</p>
         )
       ) : null}
     </Row>

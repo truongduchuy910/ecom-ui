@@ -2,9 +2,10 @@ import { gql, useQuery } from "@apollo/client";
 import { Item } from "./item";
 import { Fragment } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
+import { Link } from "../src/Link";
 import { queryVar } from "../../apollo/action";
-import { page } from "../../config/yensaodatquang.json";
+import { page } from "../../config/index";
+
 import { Spinner } from "reactstrap";
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {

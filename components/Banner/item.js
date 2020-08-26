@@ -1,6 +1,8 @@
 import { removeItemOnce } from "../../lib/chip";
-import { page } from "../../config/yensaodatquang.json";
+import { page } from "../../config/index";
+
 import { FadeIn } from "../Animations/FadeIn";
+import theme from "../src/theme";
 export function Item({ banner }) {
   return (
     <FadeIn>
@@ -12,6 +14,7 @@ export function Item({ banner }) {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "inherit",
+          borderRadius: theme.spacing(2),
         }}
       ></div>
     </FadeIn>

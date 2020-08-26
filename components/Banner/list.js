@@ -2,11 +2,13 @@ import { gql, useQuery } from "@apollo/client";
 import { Item } from "./item";
 import { Fragment } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
+import { Link } from "../src/Link";
 import { queryVar } from "../../apollo/action";
-import { page } from "../../config/yensaodatquang.json";
-import { Spinner } from "reactstrap";
+import { page } from "../../config/index";
+
+import { Spinner, Container } from "reactstrap";
 import { Loading } from "../src/Loading";
+import theme from "../src/theme";
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {
     allBanners(where: { seller: $seller }) {
@@ -23,10 +25,10 @@ export function List() {
   });
   if (loading) return <Loading />;
   return !loading && data ? (
-    <div>
+    <Container fluid>
       {data.allBanners.slice(0, 1).map((banner) => (
         <Item key={banner.id} banner={banner} />
       ))}
-    </div>
+    </Container>
   ) : null;
 }
