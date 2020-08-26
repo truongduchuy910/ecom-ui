@@ -5,8 +5,6 @@ import { toAttributeGourpWhereInput } from "../lib/chip";
 import { useState, useEffect, Fragment } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Sidebar } from "../components/Sidebar";
-import { BirdBg } from "../components/src/BirdBg";
-import { Divider } from "../components/src/Divider";
 import theme from "../components/src/theme";
 import { Filter } from "../components/Product/filter";
 import { List as Banners } from "../components/Banner/list";

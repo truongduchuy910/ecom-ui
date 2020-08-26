@@ -1,0 +1,1 @@
+{"ast":null,"code":"import json from \"./shopwheydanang.json\";\nexport const page = json.page;\nexport const theme = json.theme;","map":null,"metadata":{},"sourceType":"module"}
