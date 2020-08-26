@@ -7,13 +7,10 @@ import {
   removeCompareItem,
   addProductToLocalWishlist,
   addProductToLocalCompare,
-  CART,
 } from "../../apollo/action";
 import { useQuery, gql } from "@apollo/client";
-import { useState, useEffect, useCallback } from "react";
-import { FadeIn } from "../Animations/FadeIn";
-import { useSpring, animated, useSprings } from "react-spring";
-import { QuickView } from "./quickView";
+import { useState } from "react";
+
 const style = {
   button: (top, color = "white") => ({
     position: "absolute",
@@ -53,26 +50,7 @@ export function ImgProduct({ product }) {
     ImgSrcs = [{ file: product.image }].concat(ImgSrcs);
   }
   const [imgIndex, setImgIndex] = useState(0);
-  // animation
-  useEffect(() => {
-    window.onscroll = () => {
-      toggle(false);
-    };
-  });
-  const [open, toggle] = useState(false);
-  const props = useSpring({
-    position: "fixed",
-    opacity: open ? 1 : 0,
-    top: 0,
-    left: 0,
-    zIndex: 11,
-    backgroundColor: theme.backgroundColor,
-    padding: 13,
-    paddingTop: 85,
-    height: "100vh",
-    display: "flex",
-    from: { opacity: 0 },
-  });
+
   return (
     <div style={{ position: "inherit" }}>
       {/* {open ? (
@@ -93,9 +71,6 @@ export function ImgProduct({ product }) {
         }
         style={{ width: "100%", marginBottom: theme.spacing(4) }}
         key={ImgSrcs[imgIndex]?.file?.publicUrl}
-        onClick={() => {
-          toggle(true);
-        }}
       />
       {/* icon compare */}
       <i

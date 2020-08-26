@@ -19,7 +19,7 @@ export function Search({ style }) {
         router.push({ pathname: "/products", query: { search: searchInput } });
       }}
       action=""
-      style={{ ...style, display: "inline-block", width: "auto" }}
+      style={{ ...style }}
     >
       <input
         placeholder="Tìm sản phẩm..."
@@ -27,7 +27,7 @@ export function Search({ style }) {
         onChange={(event) => {
           setSearchInput(event.target.value);
         }}
-        style={css.input}
+        style={{ ...css.input, width: "100%" }}
       />
     </Form>
   );

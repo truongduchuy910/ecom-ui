@@ -29,16 +29,9 @@ import theme from "../src/theme";
 import { useSpring, animated } from "react-spring";
 import { compact } from "@apollo/client/utilities";
 import { MdSearch } from "react-icons/md";
+import { css } from "../src/css";
 export default function MenuApp({ isOpen, toggle, innerWidth }) {
   const router = useRouter();
-
-  const css = {
-    icon: {
-      display: innerWidth < 768 ? "inline-block" : "none",
-      fontSize: "1rem",
-      padding: theme.spacing(2),
-    },
-  };
 
   const [onIn, setonIn] = useState(false);
   useEffect(() => {});
@@ -75,123 +68,190 @@ export default function MenuApp({ isOpen, toggle, innerWidth }) {
       }}
     >
       <Container style={{ padding: 0 }}>
-        {/* DISPLAY IN MOBILE */}
-        {innerWidth < 768 ? (
-          <div
-            style={{
-              display: "flex",
-              justifyItems: "center",
-              justifyContent: "center",
-              alignItems: "center",
-              alignContent: "center",
-            }}
-          >
-            <Link
-              style={{
-                ...css.icon,
-                float: "left",
-              }}
-              onClick={() => {
-                router.back();
-              }}
-            >
-              <IoIosArrowBack />
-            </Link>
-            {/* ICON MENU */}
-            <Link
-              style={{
-                ...css.icon,
-                float: "right",
-                marginLeft: theme.spacing(1),
-                paddingRight: theme.spacing(3),
-              }}
-              onClick={toggle}
-            >
-              <IoIosMenu />
-            </Link>
-            {/* LOGO */}
+        {
+          // DISPLAY IN MOBILE
+          innerWidth < 768 ? (
             <div
               style={{
-                marginLeft: "auto",
-                marginRight: "auto",
-                width: "100%",
-                textAlign: "center",
+                display: "flex",
+                justifyItems: "center",
+                justifyContent: "center",
+                alignItems: "center",
+                alignContent: "center",
+                height: 40,
               }}
             >
-              <Form
-                inline
-                onSubmit={(e) => {
-                  /**
-                   * Prevent submit from reloading the page
-                   */
-                  e.preventDefault();
-                  e.stopPropagation();
-                  router.push({
-                    pathname: "/products",
-                    query: { search: searchInput },
-                  });
-                }}
-                action=""
-                style={{ display: "inline-block", width: "auto" }}
-              >
-                <animated.input
-                  style={{
-                    ...inputSpring,
-                    width: "100%",
-                    height: 30,
-                    paddingLeft: theme.spacing(2),
-                    border: `1px solid ${theme.secondary}`,
-                    borderRadius: theme.spacing(1),
-                  }}
-                  onChange={(e) => {
-                    setSearchInput(e.target.value);
-                  }}
-                />
-              </Form>
-              <animated.h1
+              <Link
                 style={{
-                  ...h1Spring,
-                  margin: 0,
-                  padding: 0,
+                  ...css.icon,
+                  float: "left",
+                }}
+                onClick={() => {
+                  router.back();
+                }}
+              >
+                <IoIosArrowBack />
+              </Link>
+              {/* ICON MENU */}
+              <Link
+                style={{
+                  ...css.icon,
+                  float: "right",
+                  marginLeft: theme.spacing(1),
+                  paddingRight: theme.spacing(3),
+                }}
+                onClick={toggle}
+              >
+                <IoIosMenu />
+              </Link>
+              {/* LOGO */}
+              <div
+                style={{
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  width: "100%",
+                  textAlign: "center",
+                }}
+              >
+                <Form
+                  inline
+                  onSubmit={(e) => {
+                    /**
+                     * Prevent submit from reloading the page
+                     */
+                    e.preventDefault();
+                    e.stopPropagation();
+                    router.push({
+                      pathname: "/products",
+                      query: { search: searchInput },
+                    });
+                  }}
+                  action=""
+                  style={{ display: "inline-block", width: "auto" }}
+                >
+                  <animated.input
+                    style={{
+                      ...inputSpring,
+                      width: "100%",
+                      height: 30,
+                      paddingLeft: theme.spacing(2),
+                      border: `1px solid ${theme.secondary}`,
+                      borderRadius: theme.spacing(1),
+                    }}
+                    onChange={(e) => {
+                      setSearchInput(e.target.value);
+                    }}
+                  />
+                </Form>
+                <animated.h1
+                  style={{
+                    margin: 0,
+                    padding: 0,
+                    fontSize: "1.3rem",
+                    color: theme.primary,
+                    fontWeight: "bold",
+                  }}
+                  onClick={() => {
+                    router.push("/");
+                  }}
+                >
+                  {page.name}
+                </animated.h1>
+              </div>
+
+              {/* SEARCH ICON */}
+              <Link
+                style={{
+                  ...css.icon,
+                  marginRight: theme.spacing(2),
+                }}
+                onClick={() => {
+                  setonIn(!onIn);
+                }}
+              >
+                <MdSearch />
+              </Link>
+              {/* CART ICON */}
+              <CartIcon
+                style={{
+                  ...css.icon,
+                  float: "right",
+                  marginRight: theme.spacing(3),
+                }}
+              />
+            </div>
+          ) : (
+            // DISPLAY IN DESKTOP
+            <div
+              style={{
+                display: "flex",
+                justifyItems: "center",
+                justifyContent: "center",
+                alignItems: "center",
+                alignContent: "center",
+                height: 40,
+              }}
+            >
+              <Link
+                style={{
+                  ...css.icon,
+                  float: "left",
+                }}
+                onClick={() => {
+                  router.back();
+                }}
+              >
+                <IoIosArrowBack />
+              </Link>
+              <Logo
+                style={{ float: "left", marginLeft: theme.spacing(4) }}
+                onClick={() => {
+                  router.push("/");
+                }}
+              />
+              <h1
+                style={{
+                  float: "left",
+                  marginLeft: theme.spacing(2),
                   fontSize: "1.2rem",
-                  color: theme.primary,
-                  fontWeight: "bold",
+                  width: 300,
+                  padding: 0,
+                  marginBottom: 0,
                 }}
                 onClick={() => {
                   router.push("/");
                 }}
               >
                 {page.name}
-              </animated.h1>
+              </h1>
+              {/* LOGO */}
+              <div
+                style={{
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  width: "100%",
+                  textAlign: "center",
+                }}
+              ></div>
+
+              {/* Wishlist */}
+              <WishlistIcon page style={{ marginRight: theme.spacing(4) }} />
+
+              {/* Compare */}
+              <CompareIcon page style={{ marginRight: theme.spacing(4) }} />
+
+              {/* CART ICON */}
+              <CartIcon page style={{ marginRight: theme.spacing(4) }} />
+
+              {/* Order */}
+              <OrderIcon page style={{ marginRight: theme.spacing(4) }} />
+
+              {/* USER ICON */}
+              <Users />
             </div>
-            {/* <Search
-            style={{
-              padding: theme.spacing(1),
-              marginLeft: theme.spacing(3),
-              display: "inline-block",
-            }}
-          /> */}
-            {/* SEARCH ICON */}
-            <Link
-              style={{
-                ...css.icon,
-              }}
-              onClick={() => {
-                setonIn(!onIn);
-              }}
-            >
-              <MdSearch />
-            </Link>
-            {/* CART ICON */}
-            <CartIcon
-              style={{
-                ...css.icon,
-                float: "right",
-                marginRight: theme.spacing(3),
-              }}
-            />
-          </div>
-        ) : null}
+          )
+        }
+
         <Collapse isOpen={isOpen} div>
           <Nav
             className="hide-sm"

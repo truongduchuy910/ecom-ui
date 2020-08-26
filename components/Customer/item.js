@@ -4,6 +4,7 @@ import { chooseCustomer } from "../../apollo/action";
 import { compose } from "redux";
 import { CUSTOMER } from "../../apollo/action";
 import { CustomInput } from "reactstrap";
+import theme from "../src/theme";
 const DELETE_CUSTOMER = gql`
   mutation($id: ID!) {
     deleteCustomer(id: $id) {
@@ -30,6 +31,7 @@ export function Item({ customer, onDelete, hight = false, onClick }) {
           border: "1px solid black",
           padding: 13,
           position: "relative",
+          borderRadius: theme.spacing(1),
         }}
       >
         <div
@@ -41,9 +43,9 @@ export function Item({ customer, onDelete, hight = false, onClick }) {
             }
           }}
         >
-          <a>{customer.name}</a>
-          <a>{customer.phone}</a>
-          <a># {customer.address}</a>
+          <a style={{ display: "block" }}>{customer.name}</a>
+          <a style={{ display: "block" }}>{customer.phone}</a>
+          <a style={{ display: "block" }}># {customer.address}</a>
         </div>
         <a
           style={{

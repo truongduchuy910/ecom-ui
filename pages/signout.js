@@ -20,24 +20,23 @@ function SignOut() {
   const [signOut] = useMutation(SignOutMutation);
 
   useEffect(() => {
-    client
-      .resetStore()
+    localStorage.removeItem("token");
+    onSignOut();
+
+    signOut()
       .then(() => {
-        signOut()
-          .then(() => {
-            onSignOut();
-
-            localStorage.removeItem("token");
-
-            router.push({ pathname: "/signin" }).then(() => {
-              reloadApolloState();
-            });
-          })
-          .catch(() => {});
+        router.push({ pathname: "/signin" }).then(() => {
+          reloadApolloState();
+        });
       })
       .catch(() => {
         router.push("/");
       });
+
+    client
+      .resetStore()
+      .then(() => {})
+      .catch(() => {});
   }, [signOut, router, client]);
 
   return null;

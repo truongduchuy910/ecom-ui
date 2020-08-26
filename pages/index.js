@@ -34,13 +34,14 @@ const Index = () => {
           padding: 0,
           backgroundColor: theme.backgroundColor,
         }}
+        
       >
         <Row noGutters>
           <Col
             xs={4}
             md={3}
             lg={3}
-            // xl={2}
+            xl={2}
             style={{
               borderRight: `1.1px solid ${theme.secondary}`,
             }}
@@ -48,6 +49,7 @@ const Index = () => {
             <div
               style={{
                 padding: theme.spacing(2),
+                paddingTop: theme.spacing(4),
               }}
             >
               <Sidebar
@@ -57,10 +59,11 @@ const Index = () => {
               />
             </div>
           </Col>
-          <Col xs={8} md={9} lg={9}>
+          <Col xs={8} md={9} lg={9} xl={10}>
             <div
               style={{
                 padding: theme.spacing(2),
+                paddingTop: theme.spacing(4),
               }}
             >
               {category ||
@@ -85,7 +88,7 @@ const Index = () => {
                   <Products
                     sm={6}
                     lg={4}
-                    xl={2}
+                    xl={3}
                     category={category}
                     categories={categories}
                     brand={brand}

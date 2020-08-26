@@ -11,6 +11,7 @@ const GET_PRODUCTS = gql`
   query($url: String) {
     allProducts(first: 1, where: { url: $url }) {
       id
+      url
       image {
         publicUrl
       }

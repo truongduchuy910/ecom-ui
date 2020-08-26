@@ -4,6 +4,8 @@ import { page } from "../../config/yensaodatquang.json";
 import { refetchCustomer, customerVar } from "../../apollo/client";
 import { useRouter } from "next/router";
 import { chooseCustomer } from "../../apollo/action";
+import { css } from "../src/css";
+import theme from "../src/theme";
 const CREATE_CUSTOMER = gql`
   mutation($data: CustomerCreateInput) {
     createCustomer(data: $data) {
@@ -48,8 +50,9 @@ export function Create({ onSubmit }) {
   };
   return (
     <form onSubmit={submit}>
-      <h5>Tạo Địa Chỉ Nhận Mới</h5>
+      <h5 style={css.h5}>Tạo Địa Chỉ Nhận Mới</h5>
       <input
+        style={{ ...css.input, width: "100%", marginBottom: theme.spacing(3) }}
         required
         name="name"
         placeholder="Tên"
@@ -57,6 +60,7 @@ export function Create({ onSubmit }) {
         onChange={(e) => setName(e.target.value)}
       />
       <input
+        style={{ ...css.input, width: "100%", marginBottom: theme.spacing(3) }}
         required
         name="phone"
         placeholder="Điện Thoại"
@@ -66,13 +70,16 @@ export function Create({ onSubmit }) {
       />
 
       <input
+        style={{ ...css.input, width: "100%", marginBottom: theme.spacing(3) }}
         required
         name="address"
         placeholder="Địa Chỉ"
         value={address}
         onChange={(e) => setAddress(e.target.value)}
       />
-      <button type="submit">Tạo</button>
+      <button style={css.button} type="submit">
+        Tạo
+      </button>
     </form>
   );
 }

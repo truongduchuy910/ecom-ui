@@ -7,6 +7,8 @@ import { getErrorMessage } from "../../lib/chip";
 import { useApollo } from "../../apollo/client";
 import { SignInMutation } from "./signin";
 import { compose } from "redux";
+import { css } from "../src/css";
+import theme from "../src/theme";
 const SignUpMutation = gql`
   mutation($email: String!, $password: String!) {
     createUser(data: { email: $email, password: $password }) {
@@ -85,26 +87,36 @@ export function SignUp() {
   }
   return (
     <Fragment>
-      <h2>Đăng Ký Tài Khoản</h2>
+      <h2 style={css.h2}>Đăng Ký Tài Khoản</h2>
       <form noValidate onSubmit={handleSubmit}>
-        <h5>Tài khoản</h5>
+        <h5 style={css.h5}>Tài khoản</h5>
         <input
           required
           label="Tài khoản"
           name="email"
           placeholder="Nhập Tài khoản"
-          style={{ border: "1px solid black", padding: 3, paddingLeft: 13 }}
+          style={{
+            ...css.input,
+            width: "100%",
+            marginBottom: theme.spacing(3),
+            borderRadius: 35,
+          }}
         />
-        <h5>Mật khẩu</h5>
+        <h5 style={css.h5}>Mật khẩu</h5>
         <input
           required
           name="password"
           label="Mật khẩu"
           placeholder="Nhập Mật khẩu"
           type="password"
-          style={{ border: "1px solid black", padding: 3, paddingLeft: 13 }}
+          style={{
+            ...css.input,
+            width: "100%",
+            marginBottom: theme.spacing(3),
+            borderRadius: 35,
+          }}
         />
-        <h5>Nhập Lại Mật Khẩu</h5>
+        <h5 style={css.h5}>Nhập Lại Mật Khẩu</h5>
 
         <input
           required
@@ -112,13 +124,18 @@ export function SignUp() {
           label="Mật khẩu"
           placeholder="Nhập Lại Mật Khẩu"
           type="password"
-          style={{ border: "1px solid black", padding: 3, paddingLeft: 13 }}
+          style={{
+            ...css.input,
+            width: "100%",
+            marginBottom: theme.spacing(3),
+            borderRadius: 35,
+          }}
         />
 
         <button
           type="submit"
           style={{
-            marginTop: 21,
+            ...css.button,
           }}
         >
           Đăng Ký

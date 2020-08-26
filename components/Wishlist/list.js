@@ -16,20 +16,22 @@ export function List() {
 
   if (error) return <i>{error}</i>;
   return (
-    <div style={{ padding: theme.spacing(2) }}>
-      <Row>
-        {data ? (
-          data?.wishlist?.length ? (
-            data.wishlist.map((product) => (
-              <Col key={product.id} xs={6} lg={3} style={{ padding: 8 }}>
-                <Item product={product} />
-              </Col>
-            ))
-          ) : (
-            <p>Không có sản phẩm</p>
-          )
-        ) : null}
-      </Row>
-    </div>
+    <Row
+      style={{
+        backgroundColor: theme.backgroundColor,
+      }}
+    >
+      {data ? (
+        data?.wishlist?.length ? (
+          data.wishlist.map((product) => (
+            <Col key={product.id} xs={4} lg={3} style={{ padding: 8 }}>
+              <Item product={product} />
+            </Col>
+          ))
+        ) : (
+          <p>Không có sản phẩm</p>
+        )
+      ) : null}
+    </Row>
   );
 }

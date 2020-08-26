@@ -13,7 +13,12 @@ export function List() {
   const { data, loading, error } = useQuery(GET_COMPARE);
   if (loading) return <Loading />;
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: theme.backgroundColor,
+        padding: theme.spacing(3),
+      }}
+    >
       {/* <button color="primary" onClick={emptyCompare}>
         Xóa Tất Cả
       </button> */}

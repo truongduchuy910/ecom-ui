@@ -17,7 +17,7 @@ export const Item = ({ product }) => {
         />
       </th>
       <th>
-        <Link href="products/[slug]" as={"products/" + product.url}>
+        <Link href={{ pathname: "detail", query: { detail: product.url } }}>
           <a>{product.name}</a>
         </Link>
       </th>

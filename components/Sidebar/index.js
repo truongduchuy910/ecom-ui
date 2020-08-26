@@ -40,6 +40,10 @@ export function Sidebar() {
   return (
     <section>
       <div style={box}>
+        <h5 style={css.h5}>Tìm Kiếm</h5>
+        <Search style={{ width: "100%", marginBottom: theme.spacing(3) }} />
+      </div>
+      <div style={box}>
         <Categories />
       </div>
       {/* KHOANG GIA */}

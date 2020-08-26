@@ -7,7 +7,9 @@ import { MdCreate } from "react-icons/md";
 import { IoMdAddCircleOutline, IoIosColorWand } from "react-icons/io";
 import { Create } from "./create";
 import { customerVar } from "../../apollo/client";
-import Link from "next/link";
+import { Link } from "../src/Link";
+import theme from "../src/theme";
+import { css } from "../src/css";
 // get
 const GET_CUSTOMERS = gql`
   query {
@@ -27,12 +29,13 @@ export function List({ createClick }) {
   if (loading) return <i>...</i>;
   if (error)
     return (
-      <Link href="/signin">
-        <a>{getErrorMessage(error)}</a>
-      </Link>
+      <div style={{ marginBottom: theme.spacing(4) }}>
+        <h5 style={css.h5}>{getErrorMessage(error)}</h5>
+        <Link href="/signin">Bấm vào đây</Link>
+      </div>
     );
   return (
-    <div>
+    <div style={{ marginBottom: theme.spacing(3) }}>
       {create || data?.allCustomers.length === 0 ? (
         <Create
           onSubmit={() => {
@@ -45,7 +48,7 @@ export function List({ createClick }) {
       ) : null}
       {data?.allCustomers.length ? (
         <Fragment>
-          <h5 style={{ display: "inline", marginRight: 13 }}>
+          <h5 style={{ ...css.h5, display: "inline", marginRight: 13 }}>
             Chọn Địa Chỉ Nhận.
           </h5>
           <label

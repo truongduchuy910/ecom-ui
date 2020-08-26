@@ -11,6 +11,8 @@ import { useRouter } from "next/router";
 import { page } from "../../config/yensaodatquang.json";
 import { formatMoney } from "../../lib/chip";
 import { Fragment } from "react";
+import { css } from "../src/css";
+import theme from "../src/theme";
 export const CART = gql`
   query {
     cartItems @client
@@ -133,17 +135,23 @@ export function List() {
   });
   return (
     <div>
-      {customer?.id ? (
-        <Fragment>
-          <h5>Thông Tin Người Nhận</h5>
-          <a>{customer.name}</a>
-          <a>{customer.phone}</a>
-          <a>{customer.address}</a>
-        </Fragment>
-      ) : null}
-      <h5>Tổng</h5>
+      <h5 style={css.h5}>Thông Tin Người Nhận</h5>
+      <div style={{ marginBottom: theme.spacing(3) }}>
+        {customer?.id ? (
+          <Fragment>
+            <a style={css.a}>{customer.name}</a>
+            <a style={css.a}>{customer.phone}</a>
+            <a style={css.a}>{customer.address}</a>
+          </Fragment>
+        ) : (
+          "Bạn chưa chọn địa chỉ nhận."
+        )}
+      </div>
+      <h5 style={css.h5}>Tổng</h5>
       <p>{formatMoney(sum)}</p>
-      <button onClick={order}>Đặt Hàng</button>
+      <button style={css.button} onClick={order}>
+        Đặt Hàng
+      </button>
       {dataCartItems ? (
         dataCartItems?.cartItems?.length === 0 ? (
           <p>Bạn chưa chọn sản phẩm nào!</p>

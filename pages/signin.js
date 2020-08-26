@@ -6,18 +6,25 @@ import { BirdBg } from "../components/src/BirdBg";
 import { Box } from "../components/src/Box";
 import { SignInBg } from "../components/src/SignInBg";
 import { IoIosThermometer } from "react-icons/io";
-import { theme } from "../config/yensaodatquang.json";
+import theme from "../components/src/theme";
 export default function SignIn() {
   return (
     <Container>
-      <section style={{ marginTop: 34, marginBottom: 34 }}>
+      <section
+        style={{
+          marginTop: 34,
+          marginBottom: 34,
+          backgroundColor: theme.backgroundColor,
+        }}
+      >
         <SignInBg style={{ borderRadius: 8 }}>
           <div
             style={{
               maxWidth: 500,
               // marginLeft: "auto",
               marginRight: "auto",
-              backgroundColor: theme.bgHighlight,
+              backgroundColor: theme.backgroundColor,
+              borderRadius: theme.spacing(2),
               padding: 30,
               height: "100%",
             }}
