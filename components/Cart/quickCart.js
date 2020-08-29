@@ -37,7 +37,7 @@ export const QuickCart = ({ cartItems }) => {
   // function
   return (
     <Fragment>
-      {cartItems.length ? (
+      {cartItems?.length ? (
         <CreateCustomer
           onCreate={({ customer }) => {
             order({
