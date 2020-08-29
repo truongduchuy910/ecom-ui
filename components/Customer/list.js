@@ -3,15 +3,21 @@ import { gql, useQuery } from "@apollo/client";
 import { getErrorMessage } from "../../lib/chip";
 import { Item } from "./item";
 import { Loading } from "../src/Loading";
-import { MdCreate } from "react-icons/md";
-import { IoMdAddCircleOutline, IoIosColorWand } from "react-icons/io";
+import { MdCreate, MdChangeHistory, MdTrackChanges } from "react-icons/md";
+import {
+  IoMdAddCircleOutline,
+  IoIosColorWand,
+  IoIosSwap,
+} from "react-icons/io";
 import { Create } from "./create";
 import { customerVar } from "../../apollo/client";
 import { Link } from "../src/Link";
 import theme from "../src/theme";
 import { css } from "../src/css";
+import { chooseCustomer } from "../../apollo/action";
+import { useRouter } from "next/router";
 // get
-const GET_CUSTOMERS = gql`
+const GET_CUS = gql`
   query {
     allCustomers {
       id
@@ -22,58 +28,37 @@ const GET_CUSTOMERS = gql`
   }
 `;
 
-export function List({ createClick }) {
-  const [create, setCreate] = useState(false);
+export function List() {
+  const router = useRouter();
+  const { data, loading, error, refetch } = useQuery(GET_CUS);
+  if (loading) return <Loading />;
+  if (error) return null;
+  const customer = data?.allCustomers[0];
 
-  const { data, loading, error, refetch } = useQuery(GET_CUSTOMERS);
-  if (loading) return <i>...</i>;
-  if (error)
-    return (
-      <div style={{ marginBottom: theme.spacing(4) }}>
-        <h5 style={css.h5}>{getErrorMessage(error)}</h5>
-        <Link href="/signin">Bấm vào đây</Link>
-      </div>
-    );
   return (
-    <div style={{ marginBottom: theme.spacing(3) }}>
-      {create || data?.allCustomers.length === 0 ? (
-        <Create
-          onSubmit={() => {
-            setCreate(false);
-            try {
-              refetch();
-            } catch {}
-          }}
-        />
-      ) : null}
-      {data?.allCustomers.length ? (
+    <div
+      style={{
+        marginBottom: theme.spacing(3),
+      }}
+    >
+      <h5 style={{ ...css.h5, display: "inline", marginRight: 13 }}>
+        Địa Chỉ Nhận.
+      </h5>
+      <label
+        onClick={() => {
+          router.push("/customer");
+        }}
+        style={{ cursor: "pointer", color: theme.color }}
+      >
+        Thay đổi <IoIosSwap />
+      </label>
+      {customer?.name ? (
         <Fragment>
-          <h5 style={{ ...css.h5, display: "inline", marginRight: 13 }}>
-            Chọn Địa Chỉ Nhận.
-          </h5>
-          <label
-            onClick={() => {
-              setCreate(true);
-            }}
-            style={{ cursor: "pointer", color: theme.color }}
-          >
-            Hoặc tạo mới <IoMdAddCircleOutline />
-          </label>
+          <a style={{ display: "block" }}>{customer.name}</a>
+          <a style={{ display: "block" }}>{customer.phone}</a>
+          <a style={{ display: "block" }}>{customer.address}</a>
         </Fragment>
       ) : null}
-      {data ? (
-        data.allCustomers.map((customer) => (
-          <Item
-            key={customer.id}
-            customer={customer}
-            onDelete={() => {
-              refetch();
-            }}
-          />
-        ))
-      ) : (
-        <Loading />
-      )}
     </div>
   );
 }

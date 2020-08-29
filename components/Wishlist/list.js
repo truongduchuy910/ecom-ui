@@ -29,7 +29,9 @@ export function List() {
             </Col>
           ))
         ) : (
-          <p style={{ color: theme.color }}>Không có sản phẩm</p>
+          <p style={{ color: theme.color, padding: theme.spacing(3) }}>
+            Không có sản phẩm
+          </p>
         )
       ) : null}
     </Row>

@@ -7,6 +7,8 @@ import { CountIcon } from "../src/count";
 import { theme } from "../../config";
 export function Icon({ onClick, style }) {
   const { data, loading, error } = useQuery(CART);
+  if (loading || error || !data) return null;
+
   let count = 0;
   if (data?.cartItems?.length) {
     data.cartItems.map((cartItem) => {
@@ -15,8 +17,8 @@ export function Icon({ onClick, style }) {
   }
   return (
     <Link href="/cart" onClick={onClick} style={style}>
-      <MdAddShoppingCart  style={{ color: theme.primary }} />
-      <CountIcon count={count} />
+      <MdAddShoppingCart style={{ color: theme.primary }} />
+      {count ? <CountIcon count={count} /> : null}
     </Link>
   );
 }

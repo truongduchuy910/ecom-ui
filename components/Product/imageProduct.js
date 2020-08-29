@@ -1,6 +1,5 @@
 import { page } from "../../config/index";
 
-
 import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { MdCompareArrows, MdDoneAll } from "react-icons/md";
 import {
@@ -34,17 +33,11 @@ import theme from "../src/theme";
 export function ImgProduct({ product }) {
   const { data } = useQuery(gql`
     query {
-      cartItems @client
       wishlist @client
-      compare @client
     }
   `);
 
-  const isIncart = data?.cartItems?.some(
-    (item) => item.product.id === product.id
-  );
   const isInWishlist = data?.wishlist?.some((item) => item.id === product.id);
-  const isInCompare = data?.compare?.some((item) => item.id === product.id);
 
   let ImgSrcs = product?.images || [];
   if (product.image) {
@@ -54,16 +47,6 @@ export function ImgProduct({ product }) {
 
   return (
     <div style={{ position: "inherit" }}>
-      {/* {open ? (
-        <animated.div style={props}>
-          <QuickView
-            product={product}
-            onClick={() => {
-              toggle(false);
-            }}
-          />
-        </animated.div>
-      ) : null} */}
       <img
         src={
           ImgSrcs[imgIndex]
@@ -73,17 +56,7 @@ export function ImgProduct({ product }) {
         style={{ width: "100%", borderRadius: theme.spacing(2) }}
         key={ImgSrcs[imgIndex]?.file?.publicUrl}
       />
-      {/* icon compare */}
-      {/* <i
-        onClick={() =>
-          isInCompare
-            ? removeCompareItem(product)
-            : addProductToLocalCompare(product)
-        }
-        style={style.button(5)}
-      >
-        {isInCompare ? <MdDoneAll /> : <MdCompareArrows />}
-      </i> */}
+
       {/* icon wishlist */}
       <i
         onClick={() =>

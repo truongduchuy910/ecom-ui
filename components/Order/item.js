@@ -25,9 +25,9 @@ export function Item({ order }) {
         <Col sm={12} md={6}>
           <div style={{ marginBottom: theme.spacing(3) }}>
             <h5 style={css.h5}>Địa Chỉ:</h5>
-            <a>{order?.customer?.name}</a>
-            <a>{order?.customer?.phone}</a>
-            <a>{order?.customer?.address}</a>
+            <a style={{ display: "block" }}>{order?.customer?.name}</a>
+            <a style={{ display: "block" }}>{order?.customer?.phone}</a>
+            <a style={{ display: "block" }}>{order?.customer?.address}</a>
           </div>
           <div style={{ marginBottom: theme.spacing(3) }}>
             <h5 style={css.h5}>Trạng Thái: </h5>

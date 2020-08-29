@@ -7,7 +7,8 @@ import { Link } from "../src/Link";
 import { queryVar } from "../../apollo/action";
 import { page } from "../../config/index";
 
-import { Spinner } from "reactstrap";
+import { Spinner, Row, Col } from "reactstrap";
+import { css } from "../src/css";
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {
     allAttributes(where: { seller: $seller }) {
@@ -21,12 +22,14 @@ export function List({ attributeGroups }) {
   return (
     <div>
       {attributeGroups?.map((attributeGroup) => (
-        <Fragment key={attributeGroup.id}>
-          <h5 style={{ color: "black", display: "inline-block" }}>
-            {attributeGroup.name}:
-          </h5>
-          <Item attributeGroup={attributeGroup} />
-        </Fragment>
+        <Row key={attributeGroup.id}>
+          <Col xs={4}>
+            <h5 style={{ ...css.h5 }}>{attributeGroup.name}:</h5>
+          </Col>
+          <Col xs={8}>
+            <Item attributeGroup={attributeGroup} />
+          </Col>
+        </Row>
       ))}
     </div>
   );

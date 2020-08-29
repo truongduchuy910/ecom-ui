@@ -4,9 +4,11 @@ import { USER } from "../../apollo/action";
 import { newOrderVar } from "../../apollo/client";
 import { Item } from "./item";
 import { Loading } from "../src/Loading";
+import { useRouter } from "next/router";
+import { route } from "next/dist/next-server/server/router";
 export const GET_CART_ITEMS = gql`
-  query {
-    allOrders(orderBy: "time_DESC") {
+  query($id: ID) {
+    allOrders(orderBy: "time_DESC", where: { id: $id }) {
       id
       total
       step
@@ -43,10 +45,13 @@ export const GET_CART_ITEMS = gql`
 `;
 
 export function List() {
+  const router = useRouter();
+  const id = router.query?.createOrderId;
+  console.log(id);
   const client = useApolloClient();
   const user = client.readQuery({ query: USER });
   const { data, loading, error, refetch } = useQuery(GET_CART_ITEMS, {
-    variables: { seller: { id: user?.id } },
+    variables: { seller: { id: user?.id }, id },
   });
   if (loading) return <Loading />;
   if (error) return <i color="danger">{getErrorMessage(error)}</i>;

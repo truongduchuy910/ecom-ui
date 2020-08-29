@@ -8,7 +8,7 @@ export function Item({ attribute }) {
         query: { attributes: [attribute.url].toString() },
       }}
     >
-      <a style={{ display: "inline-block", marginLeft: 13 }}>
+      <a style={{ display: "inline-block", marginRight: 13 }}>
         {attribute.name}
       </a>
     </Link>

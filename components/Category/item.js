@@ -22,16 +22,16 @@ export function Item({ categories = [], pre, style }) {
     }
   };
   return category ? (
-      <a
-        style={{
-          ...style,
-          color: theme.color,
-          fontWeight: query.category === category.url ? "bold" : null,
-        }}
-        onClick={handleClick}
-      >
-        {category.label ? category.label : category.name}
-      </a>
-    
+    <a
+      style={{
+        ...style,
+        color: theme.color,
+        fontWeight: query.category === category.url ? "bold" : null,
+        marginBottom: theme.spacing(2),
+      }}
+      onClick={handleClick}
+    >
+      {category.label ? category.label : category.name}
+    </a>
   ) : null;
 }

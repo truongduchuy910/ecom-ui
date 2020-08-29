@@ -17,21 +17,17 @@ const CREATE_CUSTOMER = gql`
     }
   }
 `;
-export function Create({ onSubmit }) {
-  const [phone, setPhone] = useState();
-  const [name, setName] = useState();
-  const [address, setAddress] = useState();
+export function Create({ onCreate = () => {} }) {
   const [createCustomer] = useMutation(CREATE_CUSTOMER);
-  const router = useRouter();
+  const refetchCus = refetchCustomer();
 
   const submit = async (e) => {
-    /**
-     * Prevent submit from reloading the page
-     */
+    // Prevent submit from reloading the page
     e.preventDefault();
     e.stopPropagation();
+
     const { phone, name, address } = e.target;
-    const { data } = await createCustomer({
+    const { data, errors } = await createCustomer({
       variables: {
         data: {
           phone: phone.value,
@@ -41,24 +37,24 @@ export function Create({ onSubmit }) {
         },
       },
     });
-    chooseCustomer({ customer: data.createCustomer });
-
-    setName("");
-    setPhone("");
-    setAddress("");
-
-    onSubmit();
+    const customer = data?.createCustomer;
+    console.log(data, errors);
+    if (customer?.id) {
+      onCreate({ customer });
+    }
   };
   return (
-    <form onSubmit={submit}>
-      <h5 style={css.h5}>Tạo Địa Chỉ Nhận Mới</h5>
+    <form
+      onSubmit={submit}
+      noValidate
+      style={{ marginBottom: theme.spacing(3) }}
+    >
+      <h5 style={css.h5}>Điền Địa Chỉ Nhận</h5>
       <input
         style={{ ...css.input, width: "100%", marginBottom: theme.spacing(3) }}
         required
         name="name"
         placeholder="Tên"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
       />
       <input
         style={{ ...css.input, width: "100%", marginBottom: theme.spacing(3) }}
@@ -66,8 +62,6 @@ export function Create({ onSubmit }) {
         name="phone"
         placeholder="Điện Thoại"
         type="number"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
       />
 
       <input
@@ -75,11 +69,9 @@ export function Create({ onSubmit }) {
         required
         name="address"
         placeholder="Địa Chỉ"
-        value={address}
-        onChange={(e) => setAddress(e.target.value)}
       />
       <button style={css.button} type="submit">
-        Tạo
+        Xác nhận
       </button>
     </form>
   );

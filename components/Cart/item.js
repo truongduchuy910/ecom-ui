@@ -60,9 +60,9 @@ export const Item = ({ cartItem, onChange }) => {
             +
           </button>
         </div>
-        <button
+        <a
           style={{
-            ...css.btnInline,
+            ...css.a,
             display: "inline-block",
             padding: theme.spacing(1),
             float: "right",
@@ -72,7 +72,7 @@ export const Item = ({ cartItem, onChange }) => {
           }}
         >
           Bỏ ra
-        </button>
+        </a>
       </Col>
     </Row>
   );

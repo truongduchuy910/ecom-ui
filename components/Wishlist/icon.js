@@ -7,10 +7,12 @@ import { FiThermometer } from "react-icons/fi";
 import { theme } from "../../config";
 export function Icon({ onClick, style }) {
   const { data, loading, error } = useQuery(WISHLIST);
-  return data?.wishlist?.length ? (
+  if (loading || error || !data) return null;
+  const count = data?.wishlist?.length;
+  return (
     <Link href="/wishlist" style={{ ...style }} onClick={onClick}>
       <IoIosHeartEmpty style={{ color: theme.primary }} />{" "}
-      <CountIcon count={data?.wishlist?.length} />
+      {count ? <CountIcon count={count} /> : null}
     </Link>
-  ) : null;
+  );
 }

@@ -29,6 +29,7 @@ export const CUSTOMER = gql`
 // initialize
 export const init = () => {
   console.log("reload cache");
+ 
   cache.writeQuery({
     query: USER,
 

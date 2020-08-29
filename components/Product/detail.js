@@ -8,7 +8,7 @@ import { Item as CategoryItem } from "../../components/Category/itemOne";
 import { List as AttributeGroups } from "../../components/AttributeGroups/listOne";
 import { css } from "../src/css";
 import { formatMoney } from "../../lib/chip";
-import { addProductToLocalCart } from "../../apollo/action";
+import { addProductToLocalCart, removeCartItem } from "../../apollo/action";
 import { Fragment, useState } from "react";
 import { page } from "../../config/index";
 
@@ -19,9 +19,21 @@ import { Box } from "../src/Box";
 
 import { useSpring, animated } from "react-spring";
 import theme from "../src/theme";
+import { QuickCart } from "../Cart/quickCart";
+import { gql, useQuery } from "@apollo/client";
+const GET_CART = gql`
+  query {
+    cartItems @client
+  }
+`;
 export function Product({ product }) {
-  const src = page.server + product?.image?.publicUrl;
+  const { data } = useQuery(GET_CART);
+  const isIncart = data?.cartItems?.some(
+    (item) => item.product.id === product.id
+  );
+  console.log(isIncart);
   const [open, toggle] = useState(false);
+  const [quickCart, setQuickCart] = useState(false);
   const props = useSpring({
     top: 100,
     right: 0,
@@ -70,21 +82,89 @@ export function Product({ product }) {
             >
               {formatMoney(product.price)}
             </h5>
+
             {product.sale ? (
               <h5>{formatMoney(product.price - product.sale)}</h5>
             ) : null}
-            <p style={{ color: theme.color }}>
-              {product.description?.slice(0, 500)}
-            </p>
-
-            <button
-              onClick={() => {
-                addProductToLocalCart({ product });
+            <div
+              style={{
+                marginTop: theme.spacing(4),
+                marginBottom: theme.spacing(4),
               }}
-              style={css.button}
             >
-              Thêm vào giỏ hàng
-            </button>
+              {product.brand ? (
+                <Row>
+                  <Col xs={4}>
+                    <h5 style={css.h5}>Thương Hiệu</h5>
+                  </Col>
+                  <Col xs={8}>
+                    <BrandItem brand={product.brand} />
+                  </Col>
+                </Row>
+              ) : null}
+              {product.category ? (
+                <Row>
+                  <Col xs={4}>
+                    <h5 style={css.h5}>Danh Mục</h5>
+                  </Col>
+                  <Col xs={8}>
+                    <CategoryItem category={product.category} />{" "}
+                  </Col>
+                </Row>
+              ) : null}
+              {product.attributeGroups ? (
+                <AttributeGroups attributeGroups={product.attributeGroups} />
+              ) : null}
+            </div>
+            {quickCart ? (
+              <Fragment>
+                <QuickCart
+                  cartItems={[
+                    {
+                      product,
+                      quantity: 1,
+                      price: product.price - product.sale,
+                    },
+                  ]}
+                />
+                <a
+                  onClick={() => {
+                    setQuickCart(false);
+                  }}
+                >
+                  Thoát mua nhanh
+                </a>
+              </Fragment>
+            ) : (
+              <Fragment>
+                {isIncart ? (
+                  <button
+                    style={{ ...css.button }}
+                    onClick={() => {
+                      removeCartItem({ product });
+                    }}
+                  >
+                    Bỏ khỏi giỏ hàng
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      addProductToLocalCart({ product });
+                    }}
+                    style={{ ...css.button }}
+                  >
+                    Thêm vào giỏ hàng
+                  </button>
+                )}
+                <a
+                  onClick={() => {
+                    setQuickCart(true);
+                  }}
+                >
+                  Hoặc mua nhanh (Không cần đăng nhập)
+                </a>
+              </Fragment>
+            )}
           </div>
         </Col>
       </Row>
@@ -103,9 +183,9 @@ export function Product({ product }) {
           <Col xs={12} md={open ? 12 : 6}>
             <center>
               {product.file ? (
-                <animated.img
+                <img
                   src={page.server + product.file.publicUrl}
-                  style={props}
+                  style={{ width: "100%" }}
                   onClick={() => {
                     toggle(!open);
                   }}
@@ -114,26 +194,7 @@ export function Product({ product }) {
             </center>
           </Col>
 
-          <Col lg={12}>
-            {product.brand ? (
-              <Fragment>
-                <h5 style={css.h5}>Thương Hiệu</h5>
-                <BrandItem brand={product.brand} />{" "}
-              </Fragment>
-            ) : null}
-            {product.category ? (
-              <Fragment>
-                <h5 style={css.h5}>Danh Mục</h5>
-                <CategoryItem category={product.category} />{" "}
-              </Fragment>
-            ) : null}
-            {product.attributeGroups ? (
-              <Fragment>
-                <h5 style={css.h5}>Thuộc Tính</h5>
-                <AttributeGroups attributeGroups={product.attributeGroups} />
-              </Fragment>
-            ) : null}
-          </Col>
+          <Col lg={12}></Col>
         </Row>
       </Box>
     </Fragment>

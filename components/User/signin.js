@@ -26,7 +26,7 @@ export function SignIn() {
   const client = useApollo();
   const [signIn] = useMutation(SignInMutation);
   const [errorMsg, setErrorMsg] = useState();
-
+  const redirect = router.query?.redirect;
   async function handleSubmit(event) {
     event.preventDefault();
     const email = event.currentTarget.elements.email.value;
@@ -44,10 +44,11 @@ export function SignIn() {
           authenticateUserWithPassword: { token, item },
         } = data;
         localStorage.setItem("token", token);
-        onSignIn({ user: item });
-        await router.push({ pathname: "/" });
         await client.resetStore();
+        await router.push({ pathname: redirect ? redirect : "/" });
+
         init();
+        onSignIn({ user: item });
       }
     } catch (error) {
       setErrorMsg(getErrorMessage(error));
@@ -79,7 +80,11 @@ export function SignIn() {
           placeholder="Nhập Mật khẩu"
           type="password"
           id="password"
-          style={{ ...css.input, width: "100%", borderRadius: theme.spacing(2) }}
+          style={{
+            ...css.input,
+            width: "100%",
+            borderRadius: theme.spacing(2),
+          }}
         />
 
         <button

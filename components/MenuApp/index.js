@@ -31,9 +31,16 @@ import { useSpring, animated } from "react-spring";
 import { compact } from "@apollo/client/utilities";
 import { MdSearch } from "react-icons/md";
 import { css } from "../src/css";
+import { useQuery, gql } from "@apollo/client";
+const GET_USER = gql`
+  query {
+    user @client
+  }
+`;
 export default function MenuApp() {
   const router = useRouter();
-
+  const { data } = useQuery(GET_USER);
+  const isLogin = data?.user;
   // ANIMATION
 
   return (
@@ -88,7 +95,7 @@ export default function MenuApp() {
             router.push("/");
           }}
         >
-          {page.name}
+          {isLogin ? null : page.name}
         </h1>
 
         <WishlistIcon
