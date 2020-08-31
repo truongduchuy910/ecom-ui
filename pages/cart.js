@@ -1,11 +1,7 @@
-import { useEffect, Fragment } from "react";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import Link from "next/link";
 import { Cart as CartInfo } from "../components/Cart/index";
-import { List as Customer } from "../components/Customer/list";
-import { Container, Row, Col } from "reactstrap";
-import theme from "../components/src/theme";
+import { Container } from "reactstrap";
+import { theme } from "../config/index";
+
 const Cart = () => {
   return (
     <div>

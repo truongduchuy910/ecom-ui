@@ -5,7 +5,8 @@ import Link from "next/link";
 import { List as Carts } from "../components/Cart/list";
 import { List } from "../components/Customer/ChooseCustomer";
 import { Container, Row, Col } from "reactstrap";
-import theme from "../components/src/theme";
+import { theme } from "../config/index";
+
 const Customer = () => {
   return (
     <div>

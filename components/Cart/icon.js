@@ -5,6 +5,7 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { Link } from "../src/Link";
 import { CountIcon } from "../src/count";
 import { theme } from "../../config";
+import { IoIosCart } from "react-icons/io";
 export function Icon({ onClick, style }) {
   const { data, loading, error } = useQuery(CART);
   if (loading || error || !data) return null;
@@ -17,7 +18,7 @@ export function Icon({ onClick, style }) {
   }
   return (
     <Link href="/cart" onClick={onClick} style={style}>
-      <MdAddShoppingCart style={{ color: theme.primary }} />
+      <IoIosCart style={{ color: theme.primary }} />
       {count ? <CountIcon count={count} /> : null}
     </Link>
   );

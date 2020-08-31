@@ -5,10 +5,12 @@ import { toAttributeGourpWhereInput } from "../lib/chip";
 import { useState, useEffect, Fragment } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Sidebar } from "../components/Sidebar";
-import theme from "../components/src/theme";
+import { theme } from "../config/index";
+
 import { Filter } from "../components/Product/filter";
 import { List as Banners } from "../components/Banner/list";
 import { css } from "../components/src/css";
+import { IntroBox } from "../components/IntroBox";
 const Index = () => {
   const router = useRouter();
   let query = router.query;
@@ -24,8 +26,9 @@ const Index = () => {
 
   return (
     <Fragment>
-      <Banners />
-
+      <Container fluid style={{ marginTop: theme.spacing(3) }}>
+        <Banners />
+      </Container>
       <Container fluid>
         <Row noGutters>
           <Col xs={4} md={3} lg={3} xl={2}>
@@ -35,7 +38,12 @@ const Index = () => {
               }}
             />
           </Col>
-          <Col xs={8} md={9} lg={9} xl={10}>
+          <Col
+            xs={8}
+            md={9}
+            lg={9}
+            xl={10}
+          >
             <div>
               {category ||
               categories ||

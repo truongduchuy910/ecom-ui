@@ -7,7 +7,8 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { Create } from "./create";
 import { customerVar, refetchCustomer } from "../../apollo/client";
 import { Link } from "../src/Link";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { css } from "../src/css";
 import { chooseCustomer } from "../../apollo/action";
 import { useRouter } from "next/router";

@@ -4,8 +4,18 @@ import { Item as Attribute } from "../Attribute/item";
 import { formatMoney } from "../../lib/chip";
 import { Link } from "../src/Link";
 import { css } from "../src/css";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { Item as Brand } from "../Brand/item";
+import {
+  IoIosEasel,
+  IoIosExit,
+  IoIosRemove,
+  IoIosRemoveCircle,
+  IoIosRemoveCircleOutline,
+} from "react-icons/io";
+import { route } from "next/dist/next-server/server/router";
+import { useRouter } from "next/router";
 const GET_CATE = gql`
   query($category: String, $attributes: [String], $brand: String) {
     allCategories(where: { url: $category }) {
@@ -33,6 +43,7 @@ export const Filter = ({
   price_to,
   attributes,
 }) => {
+  const router = useRouter();
   const variables = {
     category,
     attributes,
@@ -42,6 +53,11 @@ export const Filter = ({
   const { data, error } = useQuery(GET_CATE, {
     variables,
   });
+  const removeSearch = () => {
+    let query = router.query;
+    delete query.search;
+    router.push({ query });
+  };
   return (
     <section
       style={{
@@ -60,6 +76,10 @@ export const Filter = ({
             Tìm kiếm:
           </h6>
           <a style={{ color: theme.color }}>{search}</a>
+          <IoIosRemoveCircleOutline
+            onClick={removeSearch}
+            style={{ marginLeft: theme.spacing(2), color: theme.primary }}
+          />
         </div>
       ) : null}
       {price_to != 999999999 ? (
@@ -89,8 +109,8 @@ export const Filter = ({
             Danh mục:{" "}
           </h6>
           <Category
-            categories={data?.allCategories || []}
-            style={{ display: "inline-block", margin: 0, padding: 0 }}
+            category={data?.allCategories[0]}
+            style={{ display: "inline-block", marginBottom: 0, padding: 0 }}
           />
         </div>
       ) : null}

@@ -8,7 +8,8 @@ import { page } from "../../config/index";
 
 import { Spinner, Container } from "reactstrap";
 import { Loading } from "../src/Loading";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {
     allBanners(where: { seller: $seller }) {
@@ -24,11 +25,9 @@ export function List() {
     variables: { seller: page.seller },
   });
   if (loading) return <Loading />;
-  return !loading && data ? (
-    <Container fluid>
-      {data.allBanners.slice(0, 1).map((banner) => (
-        <Item key={banner.id} banner={banner} />
-      ))}
-    </Container>
-  ) : null;
+  return !loading && data
+    ? data.allBanners
+        .slice(0, 1)
+        .map((banner) => <Item key={banner.id} banner={banner} />)
+    : null;
 }

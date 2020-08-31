@@ -8,7 +8,9 @@ import { Search } from "../Search/index";
 import { Navbar, NavbarBrand, NavbarToggler, Collapse } from "reactstrap";
 import { FiFilter } from "react-icons/fi";
 import { css } from "../src/css";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
+import { IoIosSearch, IoIosPricetag, IoIosPricetags, IoIosColorFilter } from "react-icons/io";
 
 export function Sidebar() {
   const router = useRouter();
@@ -36,7 +38,10 @@ export function Sidebar() {
   return (
     <section style={{ paddingTop: theme.spacing(4) }}>
       <div style={css.box}>
-        <h5 style={css.h5}>Tìm Kiếm</h5>
+        <h5 style={css.h5}>
+          <IoIosSearch style={css.iconHeader} />
+          Tìm Kiếm
+        </h5>
         <Search style={{ width: "100%", marginBottom: theme.spacing(3) }} />
       </div>
       <div style={css.box}>
@@ -44,7 +49,10 @@ export function Sidebar() {
       </div>
       {/* KHOANG GIA */}
       <form onSubmit={onSubmit} action="" style={css.box}>
-        <h5 style={css.h5}>Giá</h5>
+        <h5 style={css.h5}>
+          <IoIosPricetag style={css.iconHeader} />
+          Giá
+        </h5>
 
         <input
           placeholder="Từ"

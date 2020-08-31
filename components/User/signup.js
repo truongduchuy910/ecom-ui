@@ -6,9 +6,9 @@ import { onSignIn, init as reloadApollo } from "../../apollo/action";
 import { getErrorMessage } from "../../lib/chip";
 import { useApollo } from "../../apollo/client";
 import { SignInMutation } from "./signin";
-import { compose } from "redux";
 import { css } from "../src/css";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 const SignUpMutation = gql`
   mutation($email: String!, $password: String!) {
     createUser(data: { email: $email, password: $password }) {

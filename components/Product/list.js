@@ -10,7 +10,8 @@ import { Loading } from "../src/Loading";
 import { Divider } from "../src/Divider";
 import { useSpring } from "react-spring";
 import { MdExpandMore } from "react-icons/md";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { Filter } from "./filter";
 const GET_PRODUCTS = gql`
   query(
@@ -115,7 +116,7 @@ export const List = ({
     variables,
   });
   let [on, setOn] = useState(true);
-
+  let width = 0;
   useEffect(() => {
     // fetch more data
     if (more) {
@@ -136,6 +137,7 @@ export const List = ({
         if (alpha() < 0 && !on) setOn(true);
       };
     }
+    if (!width) width = window.innerWidth;
   });
   function loadingMore() {
     const count = data?.allProducts?.length;
@@ -154,13 +156,9 @@ export const List = ({
       });
     } catch (e) {}
   }
-  if (error) return <i>{error}</i>;
-  if (loading) return <Loading />;
+  if (error || loading) return <Loading />;
   return data?.allProducts?.length ? (
-    <section
-      id="products"
-      style={{ paddingLeft: theme.spacing(1), paddingRight: 0 }}
-    >
+    <section id="products" style={{ paddingLeft: theme.spacing(2) }}>
       <Row noGutters>
         {data.allProducts.map((product) => (
           <Col
@@ -170,7 +168,9 @@ export const List = ({
             md={md ? md : 4}
             lg={lg ? lg : 3}
             xl={xl ? xl : 2}
-            style={{ padding: theme.spacing(1) }}
+            style={{
+              padding: width <= 768 && width != 0 ? 3 : theme.spacing(1),
+            }}
           >
             <Product product={product} />
           </Col>

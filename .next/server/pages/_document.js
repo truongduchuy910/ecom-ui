@@ -118,7 +118,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8cZr");
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_document__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("rOcY");
+/* harmony import */ var _config_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("rOcY");
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -130,9 +130,9 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], null), __jsx("meta", {
       name: "viewport",
       content: "initial-scale=1, maximum-scale=1"
-    }), __jsx("title", null, _config__WEBPACK_IMPORTED_MODULE_2__[/* page */ "a"].title), __jsx("meta", {
+    }), __jsx("title", null, _config_index__WEBPACK_IMPORTED_MODULE_2__[/* page */ "a"].name), __jsx("meta", {
       name: "twitter:description",
-      content: _config__WEBPACK_IMPORTED_MODULE_2__[/* page */ "a"].content
+      content: _config_index__WEBPACK_IMPORTED_MODULE_2__[/* page */ "a"].intro.content
     }), __jsx("meta", {
       name: "twitter:card",
       content: "summary"
@@ -141,7 +141,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       content: "website"
     }), __jsx("meta", {
       name: "description",
-      content: _config__WEBPACK_IMPORTED_MODULE_2__[/* page */ "a"].content
+      content: _config_index__WEBPACK_IMPORTED_MODULE_2__[/* page */ "a"].intro.content
     }), __jsx("link", {
       href: "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap",
       rel: "stylesheet"
@@ -168,13 +168,6 @@ exports.__esModule=true;exports.htmlEscapeJsonString=htmlEscapeJsonString;// Thi
 // License: https://github.com/zertosh/htmlescape/blob/0527ca7156a524d256101bb310a9f970f63078ad/LICENSE
 const ESCAPE_LOOKUP={'&':'\\u0026','>':'\\u003e','<':'\\u003c','\u2028':'\\u2028','\u2029':'\\u2029'};const ESCAPE_REGEX=/[&><\u2028\u2029]/g;function htmlEscapeJsonString(str){return str.replace(ESCAPE_REGEX,match=>ESCAPE_LOOKUP[match]);}
 //# sourceMappingURL=htmlescape.js.map
-
-/***/ }),
-
-/***/ "OY3Y":
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"page\":{\"term\":{\"name\":\"Mua Hàng Tại Shop\",\"content\":\"100% hàng chính hãng\\nChúng tôi là chuyên gia dinh dưỡng, tư vấn về chế độ tập luyện, chế độ dinh dưỡng và cách sử dụng sản phẩm để đạt hiệu quả tốt nhất\\nUy tín, nhiệt tình, niềm nở với khách hàng \\nGiá cả phải chăng, hợp lí\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Chuỗi cửa hàng cung cấp thực phẩm bổ sung, dinh dưỡng thể thao: Whey protein, Mass Gainer, Bcaas, Amino... Uy tín, lâu năm số 1 Việt Nam.\\n113 Phan Châu Trinh, Phước Ninh, Hải Châu, Đà Nẵng | 0905 586 577 - 0773 502 200\\nMở cửa 8: 00 đến 21: 00 hằng ngày\"},\"name\":\"Shop Whey Đà Nẵng\",\"server\":\"https://ecommerce.loaloa.tech\",\"seller\":{\"id\":\"5e4c2235ea30da18df1c210f\"},\"logo\":\"/shopwheydanang/assets/img/shop-whey-da-nang.png\",\"signInBg\":\"/shopwheydanang/assets/img/gymer.JPG\",\"title\":\"Shop Whey Đà Nẵng | Dinh Dưỡng Thể Thao\",\"content\":\"113 Phan Châu Trinh, Phước Ninh, Hải Châu, Đà Nẵng | 0905 586 577 - 0773 502 200 | Uy tín, giá cả phải chăng, hợp lí\"},\"theme\":{\"backgroundColor\":\"#343a40\",\"color\":\"white\",\"primary\":\"#d4ac5c\",\"secondary\":\"#c0c0c0\",\"bgHighlight\":\"#343a40\",\"bgDark\":\"#333\"},\"theme-1\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#c0c0c0\",\"primary\":\"brown\",\"bgHighlight\":\"#f7f8f9\",\"bgDark\":\"rgb(244, 244, 244)\"}}");
 
 /***/ }),
 
@@ -826,11 +819,20 @@ module.exports = require("next/dist/next-server/lib/document-context.js");
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return page; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return theme; });
-/* harmony import */ var _shopwheydanang_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("OY3Y");
-var _shopwheydanang_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t("OY3Y", 1);
+/* harmony import */ var _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("siBO");
+var _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t("siBO", 1);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-const page = _shopwheydanang_json__WEBPACK_IMPORTED_MODULE_0__.page;
-const theme = _shopwheydanang_json__WEBPACK_IMPORTED_MODULE_0__.theme;
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const spacing = [0, 5, 8, 13, 21, 34, 55];
+const page = _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__.page;
+const theme = _objectSpread(_objectSpread({}, _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__.theme), {}, {
+  spacing: n => spacing[n]
+});
 
 /***/ }),
 
@@ -845,6 +847,13 @@ module.exports = require("prop-types");
 /***/ (function(module, exports) {
 
 module.exports = require("next/dist/next-server/server/utils.js");
+
+/***/ }),
+
+/***/ "siBO":
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"page\":{\"logo\":\"/yensaodatquang/assets/img/logo.png\",\"term\":{\"name\":\"Thông tin\",\"content\":\"Địa chỉ: thôn Trà Đóa, xã Bình Đào, huyện Thăng Bình, tỉnh Quảng Nam. Mã số thuế: 4001040242. Điện thoại: 0914758179 (chị Vinh), 0973799915 (anh Long)\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Chuyên cung cấp nguồn yến sào tự dẫn dụ và khai thác. Với công nghệ giả hang đá tự nhiên. Chất lượng tổ Yến của chúng tôi đã làm hài lòng tất cả khách hàng.\"},\"name\":\"Yến Sào Đất Quảng\",\"server\":\"https://ecommerce.loaloa.tech\",\"seller\":{\"id\":\"5e4feaf835fcaa2d50509597\"},\"divider\":\"/yensaodatquang/assets/img/divider.png\",\"signInBg\":\"/yensaodatquang/assets/img/nha-yen-1.JPG\"},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"brown\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
 
 /***/ })
 

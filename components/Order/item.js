@@ -2,7 +2,8 @@ import { OrderItems } from "./orderItems";
 import { Row, Col } from "reactstrap";
 import { formatMoney } from "../../lib/chip";
 import { Divider } from "../src/Divider";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { css } from "../src/css";
 export function Item({ order }) {
   const stepName = [

@@ -6,7 +6,8 @@ import { refetchCustomer, customerVar } from "../../apollo/client";
 import { useRouter } from "next/router";
 import { chooseCustomer } from "../../apollo/action";
 import { css } from "../src/css";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 const CREATE_CUSTOMER = gql`
   mutation($data: CustomerCreateInput) {
     createCustomer(data: $data) {

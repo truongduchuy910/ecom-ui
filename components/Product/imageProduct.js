@@ -29,7 +29,8 @@ const style = {
     backgroundColor: theme.primary,
   }),
 };
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 export function ImgProduct({ product }) {
   const { data } = useQuery(gql`
     query {
@@ -46,7 +47,12 @@ export function ImgProduct({ product }) {
   const [imgIndex, setImgIndex] = useState(0);
 
   return (
-    <div style={{ position: "inherit" }}>
+    <div
+      style={{
+        position: "inherit",
+        marginBottom: theme.spacing(3),
+      }}
+    >
       <img
         src={
           ImgSrcs[imgIndex]

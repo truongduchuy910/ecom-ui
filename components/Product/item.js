@@ -13,7 +13,8 @@ import { useState, Fragment } from "react";
 
 import { ImgProduct } from "./imageProduct";
 import { FadeIn } from "../Animations/FadeIn";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { css } from "../src/css";
 
 export const Item = ({ product }) => {
@@ -23,10 +24,8 @@ export const Item = ({ product }) => {
     <FadeIn>
       <div
         style={{
+          ...css.box,
           position: "relative",
-          backgroundColor: theme.backgroundColor,
-          padding: theme.spacing(2),
-          borderRadius: theme.spacing(2),
         }}
       >
         <ImgProduct product={product} />
@@ -44,6 +43,7 @@ export const Item = ({ product }) => {
                   marginTop: theme.spacing(4),
                   textTransform: "capitalize",
                   minHeight: 48,
+                  fontWeight: 700,
                 }}
               >
                 {product.name}
@@ -54,7 +54,7 @@ export const Item = ({ product }) => {
         <p
           style={{
             textDecoration: product.sale ? "line-through" : "",
-            color: product.sale ? "var(--secondary)" : theme.color,
+            color: product.sale ? theme.secondary : theme.primary,
             fontSize: product.sale ? 15 : "default",
             float: product.sale ? "right" : "default",
             fontWeight: product.sale ? "normal" : "bold",
@@ -67,7 +67,7 @@ export const Item = ({ product }) => {
         {product.sale ? (
           <p
             style={{
-              color: theme.color,
+              color: theme.primary,
               display: show ? "none" : "block",
               fontWeigh: "bold",
               marginBottom: theme.spacing(0),

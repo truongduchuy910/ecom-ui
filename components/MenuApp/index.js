@@ -1,35 +1,17 @@
 import { CategoriesDropdownMenu as Users } from "../User/DropdownUser";
 import { Icon as CartIcon } from "../Cart/icon";
 import { Icon as WishlistIcon } from "../Wishlist/icon";
-import { Icon as CompareIcon } from "../Compare/icon";
 import { Icon as OrderIcon } from "../Order/icon";
-import { CategoriesDropdownMenu } from "../Category/DropdownMenu";
 import { Link } from "../src/Link";
-import {
-  Collapse,
-  div,
-  divToggler,
-  divBrand,
-  Nav,
-  NavItem,
-  divText,
-  Container,
-  NavLink,
-  Form,
-  ButtonToggle,
-} from "reactstrap";
-import { useState, useEffect, Fragment } from "react";
-import { Search } from "../Search";
+import { Container } from "reactstrap";
 import { page } from "../../config/index";
 
 import { Logo } from "../src/logo";
-import { IoIosMenu, IoIosArrowBack, IoIosSearch } from "react-icons/io";
-import { FiFilter } from "react-icons/fi";
+import { IoIosArrowBack } from "react-icons/io";
 import { useRouter } from "next/router";
-import theme from "../src/theme";
-import { useSpring, animated } from "react-spring";
-import { compact } from "@apollo/client/utilities";
-import { MdSearch } from "react-icons/md";
+import { theme } from "../../config/index";
+
+
 import { css } from "../src/css";
 import { useQuery, gql } from "@apollo/client";
 const GET_USER = gql`
@@ -51,8 +33,8 @@ export default function MenuApp() {
         width: "100%",
         zIndex: 100,
         backgroundColor: theme.backgroundColor,
-        paddingTop: theme.spacing(1),
-        paddingBottom: theme.spacing(1),
+        paddingTop: theme.spacing(3),
+        paddingBottom: theme.spacing(3),
       }}
     >
       <div
@@ -84,7 +66,7 @@ export default function MenuApp() {
           style={{
             float: "left",
             marginLeft: theme.spacing(3),
-            fontSize: "1rem",
+            fontSize: "1.2rem",
             width: "100%",
             padding: 0,
             marginBottom: 0,
@@ -95,7 +77,7 @@ export default function MenuApp() {
             router.push("/");
           }}
         >
-          {isLogin ? null : page.name}
+          {page.name}
         </h1>
 
         <WishlistIcon

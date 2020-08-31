@@ -10,7 +10,8 @@ import { ImgProduct } from "../Product/imageProduct";
 import { MdDelete } from "react-icons/md";
 import { Link } from "../src/Link";
 import { css } from "../src/css";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 export const Item = ({ cartItem, onChange }) => {
   return (
     <Row style={{ marginBottom: theme.spacing(3) }}>

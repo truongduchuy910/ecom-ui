@@ -2,7 +2,8 @@ import { Item as CartItem } from "./item";
 
 import { formatMoney, getErrorMessage } from "../../lib/chip";
 import { css } from "../src/css";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 
 export function List({ cartItems }) {
   // loading data

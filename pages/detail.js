@@ -1,12 +1,11 @@
 import { List as Products } from "../components/Product/list";
-import { Container, Spinner } from "reactstrap";
+import { Container } from "reactstrap";
 import { Product } from "../components/Product/detail";
 import { useRouter } from "next/router";
 import { useQuery, gql } from "@apollo/client";
 import { Loading } from "../components/src/Loading";
-import { Divider } from "../components/src/Divider";
-import { useApollo } from "../apollo/client";
 import { css } from "../components/src/css";
+import { theme } from "../config";
 const GET_PRODUCTS = gql`
   query($url: String) {
     allProducts(first: 1, where: { url: $url }) {
@@ -55,11 +54,11 @@ export default function ProductDetali() {
     variables: { url: detail },
   });
 
-  if (error) return <i>{error}</i>;
-  if (loading) return <Loading />;
+  if (error || loading) return <Loading />;
+
   const product = data?.allProducts?.length ? data.allProducts[0] : null;
   return product ? (
-    <Container>
+    <Container style={{ marginTop: theme.spacing(4) }}>
       <Product product={product} />
       <h5 style={css.h5}>Sản Phẩm Liên Quan</h5>
 

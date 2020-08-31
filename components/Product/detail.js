@@ -18,7 +18,8 @@ import { ImgProduct } from "./imageProduct";
 import { Box } from "../src/Box";
 
 import { useSpring, animated } from "react-spring";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { QuickCart } from "../Cart/quickCart";
 import { gql, useQuery } from "@apollo/client";
 const GET_CART = gql`
@@ -45,11 +46,7 @@ export function Product({ product }) {
 
   return (
     <Fragment>
-      <Row
-        style={{
-          marginTop: 35,
-        }}
-      >
+      <Row>
         <Col
           xs={12}
           lg={6}
@@ -169,7 +166,7 @@ export function Product({ product }) {
         </Col>
       </Row>
 
-      <Box>
+      <div style={css.box}>
         <Row>
           <Col xs={12}>
             <h5 style={css.h5}>Mô Tả</h5>
@@ -196,7 +193,7 @@ export function Product({ product }) {
 
           <Col lg={12}></Col>
         </Row>
-      </Box>
+      </div>
     </Fragment>
   );
 }

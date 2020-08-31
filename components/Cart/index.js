@@ -14,7 +14,8 @@ import { page } from "../../config/index";
 import { formatMoney, getErrorMessage } from "../../lib/chip";
 import { Fragment } from "react";
 import { css } from "../src/css";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { Loading } from "../src/Loading";
 import { Link } from "../src/Link";
 import { List as Customer } from "../Customer/CurrentCustomer";

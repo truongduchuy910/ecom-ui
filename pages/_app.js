@@ -5,10 +5,10 @@ import "../public/yensaodatquang/assets/css/style.css";
 import MenuApp from "../components/MenuApp/index";
 import { useApollo } from "../apollo/client";
 import { Footer } from "../components/src/Footer";
-import { Container } from "reactstrap";
 import { useState, useEffect } from "react";
-import { withRouter, useRouter } from "next/router";
-import theme from "../components/src/theme";
+import {  useRouter } from "next/router";
+import { theme } from "../config/index";
+
 
 export default function App({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps.initialApolloState);

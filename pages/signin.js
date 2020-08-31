@@ -2,11 +2,9 @@ import { SignIn as In } from "../components/User/signin";
 import { SignUp as Up } from "../components/User/signup";
 import { Container, Col, Row } from "reactstrap";
 import { Divider } from "../components/src/Divider";
-import { BirdBg } from "../components/src/BirdBg";
-import { Box } from "../components/src/Box";
 import { SignInBg } from "../components/src/SignInBg";
-import { IoIosThermometer } from "react-icons/io";
-import theme from "../components/src/theme";
+import { theme } from "../config/index";
+
 export default function SignIn() {
   return (
     <Container>

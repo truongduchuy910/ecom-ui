@@ -3,7 +3,8 @@ import { Box } from "./Box";
 import { BirdBg } from "./BirdBg";
 import { page } from "../../config/index";
 
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { css } from "../src/css";
 export const Footer = () => {
   return (

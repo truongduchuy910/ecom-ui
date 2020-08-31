@@ -2,7 +2,8 @@ import { Item } from "../Product/shortItem";
 import { formatMoney } from "../../lib/chip";
 import { Row, Col } from "reactstrap";
 import { Fragment } from "react";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 export function OrderItem({ item }) {
   return item ? (
     <Fragment>

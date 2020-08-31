@@ -105,7 +105,7 @@ module.exports = require("react-icons/ai");
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return css; });
-/* harmony import */ var _src_theme__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("E6R1");
+/* harmony import */ var _config_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("rOcY");
 /* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("C9pf");
 /* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_icons_fi__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -113,40 +113,39 @@ module.exports = require("react-icons/ai");
 const css = {
   input: {
     display: "block-inline",
-    border: "none",
-    padding: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(1),
-    paddingLeft: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(3),
-    borderRadius: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(2),
-    backgroundColor: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].bgDark,
-    color: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].color
+    border: `1px solid ${_config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].bgHighlight}`,
+    padding: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
+    paddingLeft: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
+    borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
+    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].bgDark,
+    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].color
   },
   btnInline: {
     display: "inline-block",
-    backgroundColor: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].primary,
-    color: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].backgroundColor,
+    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
+    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor,
     border: "none",
     borderRadius: 35,
     minWidth: 35
   },
   button: {
-    color: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].backgroundColor,
+    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor,
     width: "100%",
-    backgroundColor: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].primary,
-    border: `1px solid ${_src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].primary}`,
-    borderRadius: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(2),
-    paddingTop: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(1),
-    paddingBottom: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(1),
-    marginBottom: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(2)
+    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
+    border: `1px solid ${_config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary}`,
+    borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
+    paddingTop: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
+    paddingBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
+    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2)
   },
   h5: {
-    color: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].primary,
+    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
     fontSize: "0.9rem",
     fontWeight: "bold",
-    textTransform: "uppercase",
-    marginBottom: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(3)
+    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3)
   },
   h6: {
-    color: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].primary,
+    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
     fontSize: "0.8rem",
     fontWeight: "bold",
     textTransform: "uppercase",
@@ -154,43 +153,46 @@ const css = {
     padding: 0
   },
   h1: {
-    color: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].primary
+    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary
   },
   h2: {
     fontSize: "1.5rem",
     fontWeight: "bold",
     textTransform: "uppercase",
-    color: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].primary,
-    marginBottom: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(4)
+    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
+    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(4)
   },
   a: {
     display: "block"
   },
   box: {
-    backgroundColor: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].backgroundColor,
-    marginBottom: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(3),
-    paddingLeft: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(2),
-    paddingRight: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(2),
-    paddingTop: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(3),
-    paddingBottom: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(2),
-    borderRadius: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(3)
+    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor,
+    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
+    padding: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
+    borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
+    boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)"
   },
   filter: {
-    color: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].color,
-    backgroundColor: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].backgroundColor,
-    borderRadius: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(3),
-    padding: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(2),
-    paddingLeft: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(3),
-    paddingRight: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(3),
+    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].color,
+    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor,
+    borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
+    padding: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
+    paddingLeft: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
+    paddingRight: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
     display: "inline-block",
     fontWeight: "bold",
-    marginRight: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(3),
-    marginLeft: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(2),
-    marginBottom: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(3),
-    marginTop: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].spacing(4)
+    boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
+    marginTop: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(4),
+    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
+    marginLeft: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3)
   },
   icon: {
-    color: _src_theme__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].color
+    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].color
+  },
+  iconHeader: {
+    fontSize: "1rem",
+    marginRight: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
+    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1)
   }
 };
 
@@ -327,7 +329,7 @@ function CategoriesDropdownMenu({
 
   const {
     data
-  } = Object(client_["useQuery"])(action["d" /* USER */]);
+  } = Object(client_["useQuery"])(action["c" /* USER */]);
   return false ? undefined : __jsx("label", null, "server");
 }
 // EXTERNAL MODULE: external "react-icons/md"
@@ -361,6 +363,7 @@ var icon_jsx = external_react_default.a.createElement;
 
 
 
+
 function Icon({
   onClick,
   style
@@ -385,7 +388,7 @@ function Icon({
     href: "/cart",
     onClick: onClick,
     style: style
-  }, icon_jsx(md_["MdAddShoppingCart"], {
+  }, icon_jsx(io_["IoIosCart"], {
     style: {
       color: config["b" /* theme */].primary
     }
@@ -423,7 +426,7 @@ function icon_Icon({
     data,
     loading,
     error
-  } = Object(client_["useQuery"])(action["e" /* WISHLIST */]);
+  } = Object(client_["useQuery"])(action["d" /* WISHLIST */]);
   if (loading || error || !data) return null;
   const count = data === null || data === void 0 ? void 0 : (_data$wishlist = data.wishlist) === null || _data$wishlist === void 0 ? void 0 : _data$wishlist.length;
   return Wishlist_icon_jsx(Link["a" /* Link */], {
@@ -437,35 +440,6 @@ function icon_Icon({
   }), " ", count ? Wishlist_icon_jsx(CountIcon, {
     count: count
   }) : null);
-}
-// CONCATENATED MODULE: ./components/Compare/icon.js
-
-var Compare_icon_jsx = external_react_default.a.createElement;
-
-
-
-
-
-
-function Compare_icon_Icon({
-  onClick,
-  style
-}) {
-  var _data$compare;
-
-  const {
-    data,
-    loading,
-    error
-  } = Object(client_["useQuery"])(action["b" /* COMPARE */]);
-  if (error) return Compare_icon_jsx("i", null, Object(chip["b" /* getErrorMessage */])(error));
-  if (loading) return Compare_icon_jsx("i", null, "...");
-  return (data === null || data === void 0 ? void 0 : (_data$compare = data.compare) === null || _data$compare === void 0 ? void 0 : _data$compare.length) ? Compare_icon_jsx(Link["a" /* Link */], {
-    href: "/compare",
-    style: style
-  }, Compare_icon_jsx(md_["MdCompareArrows"], null), Compare_icon_jsx(CountIcon, {
-    count: data.compare.length
-  })) : null;
 }
 // EXTERNAL MODULE: ./apollo/client.js
 var client = __webpack_require__("rbTy");
@@ -523,57 +497,6 @@ function Order_icon_Icon({
     count: (_data3 = data) === null || _data3 === void 0 ? void 0 : (_data3$_allOrdersMeta = _data3._allOrdersMeta) === null || _data3$_allOrdersMeta === void 0 ? void 0 : _data3$_allOrdersMeta.count
   })) : null;
 }
-// CONCATENATED MODULE: ./components/Category/DropdownMenu.js
-
-var DropdownMenu_jsx = external_react_default.a.createElement;
-
-
-
-
-
-const DropdownMenu_GET_CATEGORIES = client_["gql"]`
-  query($seller: UserWhereInput) {
-    allCategories(where: { seller: $seller }) {
-      id
-      name
-      url
-    }
-  }
-`;
-function DropdownMenu_CategoriesDropdownMenu() {
-  const {
-    data,
-    loading,
-    error
-  } = Object(client_["useQuery"])(DropdownMenu_GET_CATEGORIES, {
-    variables: {
-      seller: config["a" /* page */].seller
-    }
-  });
-  if (error) return null;
-  if (loading) return null;
-  return DropdownMenu_jsx(external_reactstrap_["UncontrolledDropdown"], {
-    nav: true,
-    inNavbar: true
-  }, DropdownMenu_jsx(external_reactstrap_["DropdownToggle"], {
-    nav: true
-  }, "Danh M\u1EE5c"), DropdownMenu_jsx(external_reactstrap_["DropdownMenu"], {
-    right: true
-  }, data === null || data === void 0 ? void 0 : data.allCategories.map(category => DropdownMenu_jsx(Link["a" /* Link */], {
-    key: category.id,
-    href: {
-      pathname: "/products",
-      query: {
-        category: category.url
-      }
-    }
-  }, DropdownMenu_jsx(external_reactstrap_["DropdownItem"], {
-    href: ""
-  }, category.name)))));
-}
-// EXTERNAL MODULE: ./components/Search/index.js
-var Search = __webpack_require__("nntU");
-
 // CONCATENATED MODULE: ./components/src/logo.js
 
 var logo_jsx = external_react_default.a.createElement;
@@ -601,15 +524,6 @@ function Logo({
 // EXTERNAL MODULE: external "next/router"
 var router_ = __webpack_require__("4Q3z");
 
-// EXTERNAL MODULE: ./components/src/theme.js
-var theme = __webpack_require__("E6R1");
-
-// EXTERNAL MODULE: external "react-spring"
-var external_react_spring_ = __webpack_require__("KwCx");
-
-// EXTERNAL MODULE: external "@apollo/client/utilities"
-var utilities_ = __webpack_require__("Dxod");
-
 // EXTERNAL MODULE: ./components/src/css.js
 var css = __webpack_require__("/d8b");
 
@@ -622,14 +536,6 @@ function MenuApp_ownKeys(object, enumerableOnly) { var keys = Object.keys(object
 function MenuApp_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { MenuApp_ownKeys(Object(source), true).forEach(function (key) { MenuApp_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { MenuApp_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function MenuApp_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
 
 
 
@@ -662,9 +568,9 @@ function MenuApp() {
       position: "fixed",
       width: "100%",
       zIndex: 100,
-      backgroundColor: theme["a" /* default */].backgroundColor,
-      paddingTop: theme["a" /* default */].spacing(1),
-      paddingBottom: theme["a" /* default */].spacing(1)
+      backgroundColor: config["b" /* theme */].backgroundColor,
+      paddingTop: config["b" /* theme */].spacing(3),
+      paddingBottom: config["b" /* theme */].spacing(3)
     }
   }, MenuApp_jsx("div", {
     style: {
@@ -682,12 +588,12 @@ function MenuApp() {
     }
   }, MenuApp_jsx(io_["IoIosArrowBack"], {
     style: {
-      color: theme["a" /* default */].primary
+      color: config["b" /* theme */].primary
     }
   })), MenuApp_jsx(Logo, {
     style: {
       float: "left",
-      marginLeft: theme["a" /* default */].spacing(3)
+      marginLeft: config["b" /* theme */].spacing(3)
     },
     onClick: () => {
       router.push("/");
@@ -695,31 +601,31 @@ function MenuApp() {
   }), MenuApp_jsx("h1", {
     style: {
       float: "left",
-      marginLeft: theme["a" /* default */].spacing(3),
-      fontSize: "1rem",
+      marginLeft: config["b" /* theme */].spacing(3),
+      fontSize: "1.2rem",
       width: "100%",
       padding: 0,
       marginBottom: 0,
-      color: theme["a" /* default */].primary,
+      color: config["b" /* theme */].primary,
       fontWeight: 900
     },
     onClick: () => {
       router.push("/");
     }
-  }, isLogin ? null : config["a" /* page */].name), MenuApp_jsx(icon_Icon, {
+  }, config["a" /* page */].name), MenuApp_jsx(icon_Icon, {
     style: {
       float: "right",
-      marginRight: theme["a" /* default */].spacing(4)
+      marginRight: config["b" /* theme */].spacing(4)
     }
   }), MenuApp_jsx(Icon, {
     style: {
       float: "right",
-      marginRight: theme["a" /* default */].spacing(4)
+      marginRight: config["b" /* theme */].spacing(4)
     }
   }), MenuApp_jsx(Order_icon_Icon, {
     style: {
       float: "right",
-      marginRight: theme["a" /* default */].spacing(4)
+      marginRight: config["b" /* theme */].spacing(4)
     }
   }), MenuApp_jsx(CategoriesDropdownMenu, null)));
 }
@@ -741,43 +647,42 @@ var Footer_jsx = external_react_default.a.createElement;
 const Footer = () => {
   return Footer_jsx("div", {
     style: {
-      backgroundColor: theme["a" /* default */].backgroundColor
+      backgroundColor: config["b" /* theme */].backgroundColor
     }
   }, Footer_jsx(external_reactstrap_["Container"], {
     style: {
-      paddingTop: theme["a" /* default */].spacing(5),
-      paddingBottom: theme["a" /* default */].spacing(5)
+      paddingTop: config["b" /* theme */].spacing(5),
+      paddingBottom: config["b" /* theme */].spacing(5)
     }
   }, Footer_jsx(external_reactstrap_["Row"], null, Footer_jsx(external_reactstrap_["Col"], {
     xs: 12,
     md: 6,
     style: {
-      marginBottom: theme["a" /* default */].spacing(4)
+      marginBottom: config["b" /* theme */].spacing(4)
     }
   }, Footer_jsx("h2", {
     style: css["a" /* css */].h2
   }, config["a" /* page */].intro.name), Footer_jsx("div", {
     style: {
-      color: theme["a" /* default */].color
+      color: config["b" /* theme */].color
     }
   }, config["a" /* page */].intro.content)), Footer_jsx(external_reactstrap_["Col"], {
     xs: 12,
     md: 6,
     style: {
-      marginBottom: theme["a" /* default */].spacing(4)
+      marginBottom: config["b" /* theme */].spacing(4)
     }
   }, Footer_jsx("h2", {
     style: css["a" /* css */].h2
   }, config["a" /* page */].term.name), Footer_jsx("div", {
     style: {
-      color: theme["a" /* default */].color
+      color: config["b" /* theme */].color
     }
   }, config["a" /* page */].term.content)))));
 };
 // CONCATENATED MODULE: ./pages/_app.js
 
 var _app_jsx = external_react_default.a.createElement;
-
 
 
 
@@ -819,11 +724,11 @@ function App({
   })), _app_jsx("main", {
     style: {
       paddingTop: 60,
-      paddingBottom: theme["a" /* default */].spacing(4),
+      paddingBottom: config["b" /* theme */].spacing(4),
       minHeight: "60vh",
       fontFamily: "'Roboto', sans-serif",
-      backgroundColor: theme["a" /* default */].bgDark,
-      color: theme["a" /* default */].color
+      backgroundColor: config["b" /* theme */].bgDark,
+      color: config["b" /* theme */].color
     }
   }, _app_jsx(Component, pageProps)), _app_jsx(Footer, null));
 }
@@ -909,7 +814,7 @@ module.exports = require("react-icons/io");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_spring__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("KwCx");
 /* harmony import */ var react_spring__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_spring__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("E6R1");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("rOcY");
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -932,7 +837,7 @@ const Link = ({
 
   const link = __jsx("a", {
     style: _objectSpread(_objectSpread({}, style), {}, {
-      color: _theme__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"].color
+      color: _config__WEBPACK_IMPORTED_MODULE_3__[/* theme */ "b"].color
     }),
     onClick: onClick
   }, children);
@@ -1177,25 +1082,25 @@ module.exports = require("react-icons/fi");
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CART; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return WISHLIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return COMPARE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return CUSTOMER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return init; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return WISHLIST; });
+/* unused harmony export COMPARE */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CUSTOMER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return init; });
 /* unused harmony export emptyCompare */
 /* unused harmony export removeCompareItem */
 /* unused harmony export addProductToLocalCompare */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return onSignIn; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return onSignOut; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return chooseCustomer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return emptyCart; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return removeCartItem; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return changeCartItem; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return addProductToLocalCart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return onSignIn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return onSignOut; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return chooseCustomer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return emptyCart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return removeCartItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return changeCartItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return addProductToLocalCart; });
 /* unused harmony export emptyWishlist */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return removeWishListItem; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return addProductToLocalWishlist; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return removeWishListItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return addProductToLocalWishlist; });
 /* harmony import */ var _client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("rbTy");
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("z+8S");
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_apollo_client__WEBPACK_IMPORTED_MODULE_1__);
@@ -1502,43 +1407,10 @@ module.exports = require("@apollo/client/link/http");
 
 /***/ }),
 
-/***/ "Dxod":
-/***/ (function(module, exports) {
-
-module.exports = require("@apollo/client/utilities");
-
-/***/ }),
-
-/***/ "E6R1":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _config_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("rOcY");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-const spacing = [0, 5, 8, 13, 21, 34, 55];
-
-/* harmony default export */ __webpack_exports__["a"] = (_objectSpread(_objectSpread({}, _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"]), {}, {
-  spacing: n => spacing[n]
-}));
-
-/***/ }),
-
 /***/ "KwCx":
 /***/ (function(module, exports) {
 
 module.exports = require("react-spring");
-
-/***/ }),
-
-/***/ "OY3Y":
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"page\":{\"term\":{\"name\":\"Mua Hàng Tại Shop\",\"content\":\"100% hàng chính hãng\\nChúng tôi là chuyên gia dinh dưỡng, tư vấn về chế độ tập luyện, chế độ dinh dưỡng và cách sử dụng sản phẩm để đạt hiệu quả tốt nhất\\nUy tín, nhiệt tình, niềm nở với khách hàng \\nGiá cả phải chăng, hợp lí\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Chuỗi cửa hàng cung cấp thực phẩm bổ sung, dinh dưỡng thể thao: Whey protein, Mass Gainer, Bcaas, Amino... Uy tín, lâu năm số 1 Việt Nam.\\n113 Phan Châu Trinh, Phước Ninh, Hải Châu, Đà Nẵng | 0905 586 577 - 0773 502 200\\nMở cửa 8: 00 đến 21: 00 hằng ngày\"},\"name\":\"Shop Whey Đà Nẵng\",\"server\":\"https://ecommerce.loaloa.tech\",\"seller\":{\"id\":\"5e4c2235ea30da18df1c210f\"},\"logo\":\"/shopwheydanang/assets/img/shop-whey-da-nang.png\",\"signInBg\":\"/shopwheydanang/assets/img/gymer.JPG\",\"title\":\"Shop Whey Đà Nẵng | Dinh Dưỡng Thể Thao\",\"content\":\"113 Phan Châu Trinh, Phước Ninh, Hải Châu, Đà Nẵng | 0905 586 577 - 0773 502 200 | Uy tín, giá cả phải chăng, hợp lí\"},\"theme\":{\"backgroundColor\":\"#343a40\",\"color\":\"white\",\"primary\":\"#d4ac5c\",\"secondary\":\"#c0c0c0\",\"bgHighlight\":\"#343a40\",\"bgDark\":\"#333\"},\"theme-1\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#c0c0c0\",\"primary\":\"brown\",\"bgHighlight\":\"#f7f8f9\",\"bgDark\":\"rgb(244, 244, 244)\"}}");
 
 /***/ }),
 
@@ -1573,7 +1445,7 @@ module.exports = require("@apollo/client/link/context");
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Box; });
+/* unused harmony export Box */
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("cDcd");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_spring__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("KwCx");
@@ -1599,7 +1471,7 @@ function Box({
       padding: 34,
       marginTop: 21,
       marginBottom: 21,
-      backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_2__[/* theme */ "b"].bgHighlight,
+      backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_2__[/* theme */ "b"].backgroundColor,
       borderRadius: 8
     }
   }, children));
@@ -3206,73 +3078,6 @@ function makePublicRouterInstance(router) {
 
 /***/ }),
 
-/***/ "nntU":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Search; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("cDcd");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("4Q3z");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("oL/c");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _src_theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("E6R1");
-/* harmony import */ var _src_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("/d8b");
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-// search in nav
-
-
-
-
-
-function Search({
-  style
-}) {
-  const {
-    0: searchInput,
-    1: setSearchInput
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
-  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_1__["useRouter"])();
-  return __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Form"], {
-    inline: true,
-    onSubmit: e => {
-      /**
-       * Prevent submit from reloading the page
-       */
-      e.preventDefault();
-      e.stopPropagation();
-      router.push({
-        pathname: "/products",
-        query: {
-          search: searchInput
-        }
-      });
-    },
-    action: "",
-    style: _objectSpread({}, style)
-  }, __jsx("input", {
-    placeholder: "T\xECm s\u1EA3n ph\u1EA9m...",
-    name: "search",
-    onChange: event => {
-      setSearchInput(event.target.value);
-    },
-    style: _objectSpread(_objectSpread({}, _src_css__WEBPACK_IMPORTED_MODULE_4__[/* css */ "a"].input), {}, {
-      width: "100%"
-    })
-  }));
-}
-
-/***/ }),
-
 /***/ "oL/c":
 /***/ (function(module, exports) {
 
@@ -3293,11 +3098,20 @@ module.exports = require("reactstrap");
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return page; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return theme; });
-/* harmony import */ var _shopwheydanang_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("OY3Y");
-var _shopwheydanang_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t("OY3Y", 1);
+/* harmony import */ var _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("siBO");
+var _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t("siBO", 1);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-const page = _shopwheydanang_json__WEBPACK_IMPORTED_MODULE_0__.page;
-const theme = _shopwheydanang_json__WEBPACK_IMPORTED_MODULE_0__.theme;
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const spacing = [0, 5, 8, 13, 21, 34, 55];
+const page = _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__.page;
+const theme = _objectSpread(_objectSpread({}, _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__.theme), {}, {
+  spacing: n => spacing[n]
+});
 
 /***/ }),
 
@@ -3378,11 +3192,18 @@ function initializeApollo(initialState = null) {
 }
 function useApollo(initialState) {
   const store = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => {
-    Object(_action__WEBPACK_IMPORTED_MODULE_5__[/* init */ "k"])();
+    Object(_action__WEBPACK_IMPORTED_MODULE_5__[/* init */ "j"])();
     return initializeApollo(initialState);
   }, [initialState]);
   return store;
 }
+
+/***/ }),
+
+/***/ "siBO":
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"page\":{\"logo\":\"/yensaodatquang/assets/img/logo.png\",\"term\":{\"name\":\"Thông tin\",\"content\":\"Địa chỉ: thôn Trà Đóa, xã Bình Đào, huyện Thăng Bình, tỉnh Quảng Nam. Mã số thuế: 4001040242. Điện thoại: 0914758179 (chị Vinh), 0973799915 (anh Long)\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Chuyên cung cấp nguồn yến sào tự dẫn dụ và khai thác. Với công nghệ giả hang đá tự nhiên. Chất lượng tổ Yến của chúng tôi đã làm hài lòng tất cả khách hàng.\"},\"name\":\"Yến Sào Đất Quảng\",\"server\":\"https://ecommerce.loaloa.tech\",\"seller\":{\"id\":\"5e4feaf835fcaa2d50509597\"},\"divider\":\"/yensaodatquang/assets/img/divider.png\",\"signInBg\":\"/yensaodatquang/assets/img/nha-yen-1.JPG\"},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"brown\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
 
 /***/ }),
 

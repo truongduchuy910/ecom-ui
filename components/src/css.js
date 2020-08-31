@@ -1,9 +1,10 @@
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { FiThermometer } from "react-icons/fi";
 export const css = {
   input: {
     display: "block-inline",
-    border: "none",
+    border: `1px solid ${theme.bgHighlight}`,
     padding: theme.spacing(1),
     paddingLeft: theme.spacing(3),
     borderRadius: theme.spacing(2),
@@ -32,7 +33,6 @@ export const css = {
     color: theme.primary,
     fontSize: "0.9rem",
     fontWeight: "bold",
-    textTransform: "uppercase",
     marginBottom: theme.spacing(3),
   },
   h6: {
@@ -59,11 +59,9 @@ export const css = {
   box: {
     backgroundColor: theme.backgroundColor,
     marginBottom: theme.spacing(3),
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(2),
+    padding: theme.spacing(2),
     borderRadius: theme.spacing(3),
+    boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
   },
   filter: {
     color: theme.color,
@@ -74,12 +72,17 @@ export const css = {
     paddingRight: theme.spacing(3),
     display: "inline-block",
     fontWeight: "bold",
-    marginRight: theme.spacing(3),
-    marginLeft: theme.spacing(2),
-    marginBottom: theme.spacing(3),
+    boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
     marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(3),
+    marginLeft: theme.spacing(3),
   },
   icon: {
     color: theme.color,
+  },
+  iconHeader: {
+    fontSize: "1rem",
+    marginRight: theme.spacing(2),
+    marginBottom: theme.spacing(1),
   },
 };
