@@ -10,8 +10,8 @@ export function Icon({ onClick, style }) {
   if (loading || error || !data) return null;
   const count = data?.wishlist?.length;
   return (
-    <Link href="/wishlist" style={{ ...style }} onClick={onClick}>
-      <IoIosHeartEmpty style={{ color: theme.primary }} />{" "}
+    <Link href="/wishlist" onClick={onClick} style={{ position: "relative" }}>
+      <IoIosHeartEmpty style={{ ...style }} />{" "}
       {count ? <CountIcon count={count} /> : null}
     </Link>
   );

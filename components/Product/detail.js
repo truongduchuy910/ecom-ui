@@ -56,7 +56,13 @@ export function Product({ product }) {
             alignItems: "center",
           }}
         >
-          <ImgProduct product={product} />
+          <ImgProduct
+            product={product}
+            style={{
+              borderRadius: theme.spacing(1),
+              marginBottom: theme.spacing(3),
+            }}
+          />
         </Col>
         <Col
           lg={6}
@@ -128,6 +134,7 @@ export function Product({ product }) {
                   onClick={() => {
                     setQuickCart(false);
                   }}
+                  style={{ marginBottom: theme.spacing(3), display: "block" }}
                 >
                   Thoát mua nhanh
                 </a>
@@ -157,8 +164,9 @@ export function Product({ product }) {
                   onClick={() => {
                     setQuickCart(true);
                   }}
+                  style={{ marginBottom: theme.spacing(3), display: "block" }}
                 >
-                  Hoặc mua nhanh (Không cần đăng nhập)
+                  Mua nhanh
                 </a>
               </Fragment>
             )}

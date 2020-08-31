@@ -1,7 +1,21 @@
 import { theme } from "../../config/index";
-
-import { FiThermometer } from "react-icons/fi";
 export const css = {
+  btnIcon: (top = -5, color = theme.backgroundColor) => ({
+    position: "absolute",
+    top,
+    right: -5,
+    padding: 3,
+    paddingTop: 5,
+    width: 30,
+    height: 30,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "50%",
+    color,
+    fontWeight: 800,
+    backgroundColor: theme.primary,
+  }),
   input: {
     display: "block-inline",
     border: `1px solid ${theme.bgHighlight}`,
@@ -38,7 +52,6 @@ export const css = {
   h6: {
     color: theme.primary,
     fontSize: "0.8rem",
-    fontWeight: "bold",
     textTransform: "uppercase",
     margin: 0,
     padding: 0,
@@ -60,7 +73,7 @@ export const css = {
     backgroundColor: theme.backgroundColor,
     marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
-    borderRadius: theme.spacing(3),
+    borderRadius: theme.spacing(1),
     boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
   },
   filter: {
@@ -71,11 +84,11 @@ export const css = {
     paddingLeft: theme.spacing(3),
     paddingRight: theme.spacing(3),
     display: "inline-block",
-    fontWeight: "bold",
     boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(3),
     marginLeft: theme.spacing(3),
+    fontSize: "0.9rem",
   },
   icon: {
     color: theme.color,
@@ -84,5 +97,13 @@ export const css = {
     fontSize: "1rem",
     marginRight: theme.spacing(2),
     marginBottom: theme.spacing(1),
+  },
+  iconBorder: {
+    borderRadius: 35,
+    color: theme.primary,
+    width: 35,
+    height: 35,
+    padding: 8,
+    fontSize: "1rem",
   },
 };

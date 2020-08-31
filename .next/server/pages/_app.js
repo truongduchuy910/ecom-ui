@@ -106,11 +106,24 @@ module.exports = require("react-icons/ai");
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return css; });
 /* harmony import */ var _config_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("rOcY");
-/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("C9pf");
-/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_icons_fi__WEBPACK_IMPORTED_MODULE_1__);
-
 
 const css = {
+  btnIcon: (top = -5, color = _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor) => ({
+    position: "absolute",
+    top,
+    right: -5,
+    padding: 3,
+    paddingTop: 5,
+    width: 30,
+    height: 30,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "50%",
+    color,
+    fontWeight: 800,
+    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary
+  }),
   input: {
     display: "block-inline",
     border: `1px solid ${_config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].bgHighlight}`,
@@ -147,7 +160,6 @@ const css = {
   h6: {
     color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
     fontSize: "0.8rem",
-    fontWeight: "bold",
     textTransform: "uppercase",
     margin: 0,
     padding: 0
@@ -169,7 +181,7 @@ const css = {
     backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor,
     marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
     padding: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
-    borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
+    borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
     boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)"
   },
   filter: {
@@ -180,11 +192,11 @@ const css = {
     paddingLeft: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
     paddingRight: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
     display: "inline-block",
-    fontWeight: "bold",
     boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
     marginTop: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(4),
     marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
-    marginLeft: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3)
+    marginLeft: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
+    fontSize: "0.9rem"
   },
   icon: {
     color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].color
@@ -193,6 +205,14 @@ const css = {
     fontSize: "1rem",
     marginRight: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
     marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1)
+  },
+  iconBorder: {
+    borderRadius: 35,
+    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
+    width: 35,
+    height: 35,
+    padding: 8,
+    fontSize: "1rem"
   }
 };
 
@@ -300,9 +320,13 @@ var io_ = __webpack_require__("2yjL");
 // EXTERNAL MODULE: external "react-icons/ai"
 var ai_ = __webpack_require__("/WcL");
 
+// EXTERNAL MODULE: ./components/src/css.js
+var css = __webpack_require__("/d8b");
+
 // CONCATENATED MODULE: ./components/User/DropdownUser.js
 
 var __jsx = external_react_default.a.createElement;
+
 
 
 
@@ -345,10 +369,11 @@ function CountIcon({
   return count_jsx("span", {
     style: {
       position: "absolute",
-      textAlign: "center",
-      borderRadius: "50%",
       fontSize: 12,
       fontWeight: 500,
+      float: "right",
+      right: 0,
+      display: "inline",
       color: config["b" /* theme */].primary
     }
   }, count);
@@ -387,11 +412,11 @@ function Icon({
   return icon_jsx(Link["a" /* Link */], {
     href: "/cart",
     onClick: onClick,
-    style: style
-  }, icon_jsx(io_["IoIosCart"], {
     style: {
-      color: config["b" /* theme */].primary
+      position: "relative"
     }
+  }, icon_jsx(io_["IoIosCart"], {
+    style: style
   }), count ? icon_jsx(CountIcon, {
     count: count
   }) : null);
@@ -431,12 +456,12 @@ function icon_Icon({
   const count = data === null || data === void 0 ? void 0 : (_data$wishlist = data.wishlist) === null || _data$wishlist === void 0 ? void 0 : _data$wishlist.length;
   return Wishlist_icon_jsx(Link["a" /* Link */], {
     href: "/wishlist",
-    style: _objectSpread({}, style),
-    onClick: onClick
-  }, Wishlist_icon_jsx(io_["IoIosHeartEmpty"], {
+    onClick: onClick,
     style: {
-      color: config["b" /* theme */].primary
+      position: "relative"
     }
+  }, Wishlist_icon_jsx(io_["IoIosHeartEmpty"], {
+    style: _objectSpread({}, style)
   }), " ", count ? Wishlist_icon_jsx(CountIcon, {
     count: count
   }) : null);
@@ -487,13 +512,13 @@ function Order_icon_Icon({
 
   return ((_data = data) === null || _data === void 0 ? void 0 : (_data$user = _data.user) === null || _data$user === void 0 ? void 0 : _data$user.id) && ((_data2 = data) === null || _data2 === void 0 ? void 0 : (_data2$_allOrdersMeta = _data2._allOrdersMeta) === null || _data2$_allOrdersMeta === void 0 ? void 0 : _data2$_allOrdersMeta.count) ? Order_icon_jsx(Link["a" /* Link */], {
     href: "/order",
-    style: style,
+    style: {
+      position: "relative"
+    },
     onClick: onClick
   }, Order_icon_jsx(fi_["FiPackage"], {
-    style: {
-      color: config["b" /* theme */].primary
-    }
-  }), " ", Order_icon_jsx(CountIcon, {
+    style: style
+  }), Order_icon_jsx(CountIcon, {
     count: (_data3 = data) === null || _data3 === void 0 ? void 0 : (_data3$_allOrdersMeta = _data3._allOrdersMeta) === null || _data3$_allOrdersMeta === void 0 ? void 0 : _data3$_allOrdersMeta.count
   })) : null;
 }
@@ -523,9 +548,6 @@ function Logo({
 }
 // EXTERNAL MODULE: external "next/router"
 var router_ = __webpack_require__("4Q3z");
-
-// EXTERNAL MODULE: ./components/src/css.js
-var css = __webpack_require__("/d8b");
 
 // CONCATENATED MODULE: ./components/MenuApp/index.js
 
@@ -579,21 +601,11 @@ function MenuApp() {
       height: 40,
       width: "100%"
     }
-  }, MenuApp_jsx(Link["a" /* Link */], {
-    style: MenuApp_objectSpread(MenuApp_objectSpread({}, css["a" /* css */].icon), {}, {
-      float: "left"
-    }),
-    onClick: () => {
-      router.back();
-    }
-  }, MenuApp_jsx(io_["IoIosArrowBack"], {
-    style: {
-      color: config["b" /* theme */].primary
-    }
-  })), MenuApp_jsx(Logo, {
+  }, MenuApp_jsx(Logo, {
     style: {
       float: "left",
-      marginLeft: config["b" /* theme */].spacing(3)
+      marginLeft: config["b" /* theme */].spacing(3),
+      minHeight: 40
     },
     onClick: () => {
       router.push("/");
@@ -613,20 +625,17 @@ function MenuApp() {
       router.push("/");
     }
   }, config["a" /* page */].name), MenuApp_jsx(icon_Icon, {
-    style: {
-      float: "right",
-      marginRight: config["b" /* theme */].spacing(4)
-    }
+    style: MenuApp_objectSpread(MenuApp_objectSpread({}, css["a" /* css */].iconBorder), {}, {
+      float: "right"
+    })
   }), MenuApp_jsx(Icon, {
-    style: {
-      float: "right",
-      marginRight: config["b" /* theme */].spacing(4)
-    }
+    style: MenuApp_objectSpread(MenuApp_objectSpread({}, css["a" /* css */].iconBorder), {}, {
+      float: "right"
+    })
   }), MenuApp_jsx(Order_icon_Icon, {
-    style: {
-      float: "right",
-      marginRight: config["b" /* theme */].spacing(4)
-    }
+    style: MenuApp_objectSpread(MenuApp_objectSpread({}, css["a" /* css */].iconBorder), {}, {
+      float: "right"
+    })
   }), MenuApp_jsx(CategoriesDropdownMenu, null)));
 }
 // EXTERNAL MODULE: ./components/src/Box.js
@@ -728,7 +737,8 @@ function App({
       minHeight: "60vh",
       fontFamily: "'Roboto', sans-serif",
       backgroundColor: config["b" /* theme */].bgDark,
-      color: config["b" /* theme */].color
+      color: config["b" /* theme */].color,
+      textShadow: "1px 1px 1px rgba(0,0,0,0.04)"
     }
   }, _app_jsx(Component, pageProps)), _app_jsx(Footer, null));
 }
@@ -833,8 +843,6 @@ const Link = ({
   href = "",
   onClick
 }) => {
-  const props = Object(react_spring__WEBPACK_IMPORTED_MODULE_2__["useSpring"])({});
-
   const link = __jsx("a", {
     style: _objectSpread(_objectSpread({}, style), {}, {
       color: _config__WEBPACK_IMPORTED_MODULE_3__[/* theme */ "b"].color

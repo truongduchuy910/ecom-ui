@@ -16,20 +16,34 @@ import { FadeIn } from "../Animations/FadeIn";
 import { theme } from "../../config/index";
 
 import { css } from "../src/css";
+import { useRouter } from "next/router";
 
 export const Item = ({ product }) => {
   const [show, setShow] = useState(false);
-
+  const router = useRouter();
   return (
     <FadeIn>
       <div
         style={{
           ...css.box,
+          padding: 0,
           position: "relative",
         }}
       >
-        <ImgProduct product={product} />
-        <div style={{ minHeight: 35 }}>
+        <ImgProduct
+          product={product}
+          style={{
+            marginBottom: 0,
+            borderRadius: `${theme.spacing(1)}px ${theme.spacing(1)}px 0px 0px`,
+          }}
+          onClick={() => {
+            router.push({
+              pathname: "detail",
+              query: { detail: product.url },
+            });
+          }}
+        />
+        <div style={{ padding: theme.spacing(1) }}>
           <Link
             href={{
               pathname: "detail",
@@ -40,44 +54,40 @@ export const Item = ({ product }) => {
               <p
                 style={{
                   color: theme.color,
-                  marginTop: theme.spacing(4),
                   textTransform: "capitalize",
-                  minHeight: 48,
-                  fontWeight: 700,
                 }}
               >
                 {product.name}
               </p>
             </a>
           </Link>
-        </div>
-        <p
-          style={{
-            textDecoration: product.sale ? "line-through" : "",
-            color: product.sale ? theme.secondary : theme.primary,
-            fontSize: product.sale ? 15 : "default",
-            float: product.sale ? "right" : "default",
-            fontWeight: product.sale ? "normal" : "bold",
-            marginBottom: theme.spacing(0),
-          }}
-        >
-          {formatMoney(product.price)}
-        </p>
-
-        {product.sale ? (
           <p
             style={{
-              color: theme.primary,
-              display: show ? "none" : "block",
-              fontWeigh: "bold",
+              textDecoration: product.sale ? "line-through" : "",
+              color: product.sale ? theme.secondary : theme.primary,
+              fontSize: product.sale ? 15 : "default",
+              float: product.sale ? "right" : "default",
+              fontWeight: product.sale ? "normal" : "bold",
               marginBottom: theme.spacing(0),
             }}
           >
-            {formatMoney(product.price - product.sale)}
+            {formatMoney(product.price)}
           </p>
-        ) : null}
 
-        {/* <button
+          {product.sale ? (
+            <p
+              style={{
+                color: theme.primary,
+                display: show ? "none" : "block",
+                fontWeigh: "bold",
+                marginBottom: theme.spacing(0),
+              }}
+            >
+              {formatMoney(product.price - product.sale)}
+            </p>
+          ) : null}
+
+          {/* <button
           onClick={() => {
             addProductToLocalCart({ product });
           }}
@@ -85,6 +95,7 @@ export const Item = ({ product }) => {
         >
           Thêm vào giỏ
         </button> */}
+        </div>
       </div>
     </FadeIn>
   );

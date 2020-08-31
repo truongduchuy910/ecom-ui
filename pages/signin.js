@@ -15,26 +15,23 @@ export default function SignIn() {
           backgroundColor: theme.backgroundColor,
         }}
       >
-        <SignInBg style={{ borderRadius: 8 }}>
-          <div
-            style={{
-              maxWidth: 500,
-              // marginLeft: "auto",
-              marginRight: "auto",
-              backgroundColor: "rgba(0,0,0,0.5)",
-              borderRadius: theme.spacing(2),
-              padding: 30,
-              height: "100%",
-            }}
-          >
-            <Divider />
+        <div
+          style={{
+            maxWidth: 500,
+            // marginLeft: "auto",
+            marginRight: "auto",
+            borderRadius: theme.spacing(2),
+            padding: 30,
+            height: "100%",
+          }}
+        >
+          <Divider />
 
-            <In />
-            <Divider />
-            <Up />
-            <Divider />
-          </div>
-        </SignInBg>
+          <In />
+          <Divider />
+          <Up />
+          <Divider />
+        </div>
       </section>
     </Container>
   );

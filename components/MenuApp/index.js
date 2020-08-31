@@ -11,7 +11,6 @@ import { IoIosArrowBack } from "react-icons/io";
 import { useRouter } from "next/router";
 import { theme } from "../../config/index";
 
-
 import { css } from "../src/css";
 import { useQuery, gql } from "@apollo/client";
 const GET_USER = gql`
@@ -45,19 +44,8 @@ export default function MenuApp() {
           width: "100%",
         }}
       >
-        <Link
-          style={{
-            ...css.icon,
-            float: "left",
-          }}
-          onClick={() => {
-            router.back();
-          }}
-        >
-          <IoIosArrowBack style={{ color: theme.primary }} />
-        </Link>
         <Logo
-          style={{ float: "left", marginLeft: theme.spacing(3) }}
+          style={{ float: "left", marginLeft: theme.spacing(3), minHeight: 40 }}
           onClick={() => {
             router.push("/");
           }}
@@ -82,20 +70,20 @@ export default function MenuApp() {
 
         <WishlistIcon
           style={{
+            ...css.iconBorder,
             float: "right",
-            marginRight: theme.spacing(4),
           }}
         />
         <CartIcon
           style={{
+            ...css.iconBorder,
             float: "right",
-            marginRight: theme.spacing(4),
           }}
         />
         <OrderIcon
           style={{
+            ...css.iconBorder,
             float: "right",
-            marginRight: theme.spacing(4),
           }}
         />
         <Users />

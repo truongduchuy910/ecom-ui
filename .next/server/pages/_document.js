@@ -145,6 +145,9 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
     }), __jsx("link", {
       href: "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap",
       rel: "stylesheet"
+    }), __jsx("link", {
+      href: "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
+      rel: "stylesheet"
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], null), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], null));
   }
 

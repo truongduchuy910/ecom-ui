@@ -17,8 +17,8 @@ export function Icon({ onClick, style }) {
     });
   }
   return (
-    <Link href="/cart" onClick={onClick} style={style}>
-      <IoIosCart style={{ color: theme.primary }} />
+    <Link href="/cart" onClick={onClick} style={{ position: "relative" }}>
+      <IoIosCart style={style} />
       {count ? <CountIcon count={count} /> : null}
     </Link>
   );

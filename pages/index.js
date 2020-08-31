@@ -38,12 +38,7 @@ const Index = () => {
               }}
             />
           </Col>
-          <Col
-            xs={8}
-            md={9}
-            lg={9}
-            xl={10}
-          >
+          <Col xs={8} md={9} lg={9} xl={10}>
             <div>
               {category ||
               categories ||
@@ -89,6 +84,20 @@ const Index = () => {
                     >
                       Sản Phẩm:{" "}
                     </h6>
+                    Khuyến Mãi
+                  </div>
+
+                  <Products first={4} lg={3} xl={3} sale more={false} />
+                  <div style={css.filter}>
+                    <h6
+                      style={{
+                        ...css.h6,
+                        display: "inline-block",
+                        marginRight: theme.spacing(2),
+                      }}
+                    >
+                      Sản Phẩm:{" "}
+                    </h6>
                     Bán Chạy
                   </div>
 
@@ -120,20 +129,6 @@ const Index = () => {
                     suggestions="new"
                     more={false}
                   />
-                  <div style={css.filter}>
-                    <h6
-                      style={{
-                        ...css.h6,
-                        display: "inline-block",
-                        marginRight: theme.spacing(2),
-                      }}
-                    >
-                      Sản Phẩm:{" "}
-                    </h6>
-                    Khuyến Mãi
-                  </div>
-
-                  <Products first={4} lg={3} xl={3} sale more={false} />
                 </Fragment>
               )}
             </div>

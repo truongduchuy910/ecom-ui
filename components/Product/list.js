@@ -169,7 +169,7 @@ export const List = ({
             lg={lg ? lg : 3}
             xl={xl ? xl : 2}
             style={{
-              padding: width <= 768 && width != 0 ? 3 : theme.spacing(1),
+              padding: width <= 768 && width != 0 ? 3 : theme.spacing(2),
             }}
           >
             <Product product={product} />
