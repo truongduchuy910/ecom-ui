@@ -71,8 +71,8 @@ export const css = {
   },
   box: {
     backgroundColor: theme.backgroundColor,
-    marginBottom: theme.spacing(3),
-    padding: theme.spacing(2),
+    marginBottom: theme.spacing(4),
+    padding: theme.spacing(3),
     borderRadius: theme.spacing(1),
     boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
   },
@@ -89,6 +89,7 @@ export const css = {
     marginBottom: theme.spacing(3),
     marginLeft: theme.spacing(3),
     fontSize: "0.9rem",
+    position: "relative",
   },
   icon: {
     color: theme.color,

@@ -179,8 +179,8 @@ const css = {
   },
   box: {
     backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor,
-    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
-    padding: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
+    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(4),
+    padding: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
     borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
     boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)"
   },
@@ -196,7 +196,8 @@ const css = {
     marginTop: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(4),
     marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
     marginLeft: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
-    fontSize: "0.9rem"
+    fontSize: "0.9rem",
+    position: "relative"
   },
   icon: {
     color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].color
@@ -3211,7 +3212,7 @@ function useApollo(initialState) {
 /***/ "siBO":
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"page\":{\"logo\":\"/yensaodatquang/assets/img/logo.png\",\"term\":{\"name\":\"Thông tin\",\"content\":\"Địa chỉ: thôn Trà Đóa, xã Bình Đào, huyện Thăng Bình, tỉnh Quảng Nam. Mã số thuế: 4001040242. Điện thoại: 0914758179 (chị Vinh), 0973799915 (anh Long)\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Chuyên cung cấp nguồn yến sào tự dẫn dụ và khai thác. Với công nghệ giả hang đá tự nhiên. Chất lượng tổ Yến của chúng tôi đã làm hài lòng tất cả khách hàng.\"},\"name\":\"Yến Sào Đất Quảng\",\"server\":\"https://ecommerce.loaloa.tech\",\"seller\":{\"id\":\"5e4feaf835fcaa2d50509597\"},\"divider\":\"/yensaodatquang/assets/img/divider.png\",\"signInBg\":\"/yensaodatquang/assets/img/nha-yen-1.JPG\"},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"brown\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
+module.exports = JSON.parse("{\"page\":{\"logo\":\"/yensaodatquang/assets/img/logo.png\",\"term\":{\"name\":\"Thông tin\",\"content\":\"Địa chỉ: thôn Trà Đóa, xã Bình Đào, huyện Thăng Bình, tỉnh Quảng Nam. Mã số thuế: 4001040242. Điện thoại: 0914758179 (chị Vinh), 0973799915 (anh Long)\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Chuyên cung cấp nguồn yến sào tự dẫn dụ và khai thác. Với công nghệ giả hang đá tự nhiên. Chất lượng tổ Yến của chúng tôi đã làm hài lòng tất cả khách hàng.\"},\"name\":\"Yến Sào Đất Quảng\",\"server\":\"https://ecommerce.loaloa.tech\",\"seller\":{\"id\":\"5e4feaf835fcaa2d50509597\"},\"divider\":\"/yensaodatquang/assets/img/divider.png\",\"signInBg\":\"/yensaodatquang/assets/img/nha-yen-1.JPG\",\"prices\":[200000,500000,1000000,2000000,5000000]},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"brown\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
 
 /***/ }),
 

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { toAttributeGourpWhereInput } from "../../lib/chip";
+import { toAttributeGourpWhereInput, formatMoney } from "../../lib/chip";
 import { useState, useRef } from "react";
 import { List as Attributes } from "../Attribute/list";
 import { List as Categories } from "../Category/list";
@@ -8,9 +8,14 @@ import { Search } from "../Search/index";
 import { Navbar, NavbarBrand, NavbarToggler, Collapse } from "reactstrap";
 import { FiFilter } from "react-icons/fi";
 import { css } from "../src/css";
-import { theme } from "../../config/index";
+import { theme, page } from "../../config/index";
 
-import { IoIosSearch, IoIosPricetag, IoIosPricetags, IoIosColorFilter } from "react-icons/io";
+import {
+  IoIosSearch,
+  IoIosPricetag,
+  IoIosPricetags,
+  IoIosColorFilter,
+} from "react-icons/io";
 
 export function Sidebar() {
   const router = useRouter();
@@ -48,42 +53,39 @@ export function Sidebar() {
         <Categories />
       </div>
       {/* KHOANG GIA */}
+
       <form onSubmit={onSubmit} action="" style={css.box}>
         <h5 style={css.h5}>
           <IoIosPricetag style={css.iconHeader} />
           Giá
         </h5>
-
-        <input
-          placeholder="Từ"
-          name="price_from"
-          onChange={(event) => {
-            setPriceFrom(event.target.value);
-          }}
-          defaultValue={price_from ? price_from : ""}
-          style={{ ...css.input, width: "45%" }}
-        />
-        <div
-          style={{ width: "10%", display: "inline-block", textAlign: "center" }}
-        >
-          -
-        </div>
-
-        <input
-          placeholder="Đến"
-          name="price_to"
-          onChange={(event) => {
-            setPriceTo(event.target.value);
-          }}
-          defaultValue={price_to ? price_to : ""}
-          style={{ ...css.input, width: "45%" }}
-        />
-        <button
-          type="submit"
-          style={{ ...css.button, marginTop: theme.spacing(3) }}
-        >
-          Lọc
-        </button>
+        {page.prices.map((price, index) => {
+          const choosed = Number(query.price_to) === price;
+          return (
+            <div
+              style={{
+                fontSize: "0.8rem",
+                borderRadius: theme.spacing(1),
+                padding: theme.spacing(1),
+                marginBottom: theme.spacing(2),
+                textAlign: "center",
+                border: "1px solid rgba(0,0,0,0.08)",
+                cursor: "pointer",
+                fontWeight: choosed ? 700 : 300,
+                color: choosed ? theme.primary : theme.color,
+              }}
+              onClick={() => {
+                query.price_from = index > 0 ? page.prices[index - 1] : 0;
+                query.price_to = price;
+                router.push({ query });
+              }}
+            >
+              {index > 0 ? formatMoney(page.prices[index - 1]) : 0}
+              {" - "}
+              {formatMoney(price)}
+            </div>
+          );
+        })}
       </form>
       <div style={css.box}>
         <Attributes />

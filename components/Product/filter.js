@@ -35,6 +35,18 @@ const GET_CATE = gql`
     }
   }
 `;
+const localCss = {
+  marginTop: 0,
+  marginBottom: 0,
+  marginRight: 0,
+  marginLeft: theme.spacing(2),
+  padding: 3,
+  color: theme.primary,
+  position: "relative",
+  top: 0,
+  width: 25,
+  height: 25,
+};
 export const Filter = ({
   category = "-",
   brand = "-",
@@ -58,10 +70,16 @@ export const Filter = ({
     delete query.search;
     router.push({ query });
   };
+  const removePrice = () => {
+    let query = router.query;
+    query.price_to = 999999999;
+    router.push({ query });
+  };
   return (
     <section
       style={{
         paddingRight: 0,
+        paddingTop: theme.spacing(3),
       }}
     >
       {search ? (
@@ -76,10 +94,7 @@ export const Filter = ({
             Tìm kiếm:
           </h6>
           <a style={{ color: theme.color }}>{search}</a>
-          <IoIosRemoveCircleOutline
-            onClick={removeSearch}
-            style={{ marginLeft: theme.spacing(2), color: theme.primary }}
-          />
+          <IoIosRemoveCircleOutline onClick={removeSearch} style={localCss} />
         </div>
       ) : null}
       {price_to != 999999999 ? (
@@ -94,6 +109,7 @@ export const Filter = ({
             Giá:{" "}
           </h6>
           {formatMoney(price_from)} - {formatMoney(price_to)}
+          <IoIosRemoveCircleOutline onClick={removePrice} style={localCss} />
         </div>
       ) : null}
 

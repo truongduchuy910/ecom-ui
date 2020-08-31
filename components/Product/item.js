@@ -43,7 +43,7 @@ export const Item = ({ product }) => {
             });
           }}
         />
-        <div style={{ padding: theme.spacing(1) }}>
+        <div style={{ padding: theme.spacing(2) }}>
           <Link
             href={{
               pathname: "detail",
