@@ -4,13 +4,13 @@ import { page } from "../../config/index";
 import { FadeIn } from "../Animations/FadeIn";
 import { theme } from "../../config/index";
 
-export function Item({ banner }) {
+export function Item({ style, banner }) {
   return (
     <FadeIn>
       <div
         style={{
+          ...style,
           width: "100%",
-          height: "60vh",
           backgroundImage: `url(${page.server + banner.file.publicUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",

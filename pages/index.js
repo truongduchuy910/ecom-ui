@@ -27,7 +27,7 @@ const Index = () => {
   return (
     <Fragment>
       <Container fluid style={{ marginTop: theme.spacing(3) }}>
-        <Banners />
+        <Banners style={{ height: "60vh" }} />
       </Container>
       <Container fluid>
         <Row noGutters>

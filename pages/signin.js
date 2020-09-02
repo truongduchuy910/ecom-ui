@@ -4,7 +4,7 @@ import { Container, Col, Row } from "reactstrap";
 import { Divider } from "../components/src/Divider";
 import { SignInBg } from "../components/src/SignInBg";
 import { theme } from "../config/index";
-
+import { List as Banners } from "../components/Banner/list";
 export default function SignIn() {
   return (
     <Container>
@@ -13,25 +13,20 @@ export default function SignIn() {
           marginTop: 34,
           marginBottom: 34,
           backgroundColor: theme.backgroundColor,
+          padding: theme.spacing(4),
         }}
       >
-        <div
-          style={{
-            maxWidth: 500,
-            // marginLeft: "auto",
-            marginRight: "auto",
-            borderRadius: theme.spacing(2),
-            padding: 30,
-            height: "100%",
-          }}
-        >
-          <Divider />
-
-          <In />
-          <Divider />
-          <Up />
-          <Divider />
-        </div>
+        <Row>
+          <Col xs={12} md={4} style={{ paddingTop: theme.spacing(4) }}>
+            <In />
+            <Up />
+          </Col>
+          <Col xs={12} md={8}>
+            <div style={{ height: "100%" }}>
+              <Banners style={{ height: "100%" }} />
+            </div>
+          </Col>
+        </Row>
       </section>
     </Container>
   );
