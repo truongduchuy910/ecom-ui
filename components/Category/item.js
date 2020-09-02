@@ -38,7 +38,7 @@ export function Item({ category, style }) {
     <a
       style={{
         ...style,
-        fontWeight: query.category === category?.url ? "bold" : null,
+        cursor: "pointer",
       }}
       onClick={handleClick}
     >

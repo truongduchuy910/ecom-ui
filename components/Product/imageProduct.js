@@ -42,7 +42,7 @@ export function ImgProduct({ product, style, onClick }) {
             : "/assets/img/no-image.jpg"
         }
         onClick={onClick}
-        style={{ ...style, width: "100%" }}
+        style={{ ...style, width: "100%", cursor: "pointer" }}
         key={ImgSrcs[imgIndex]?.file?.publicUrl}
       />
 

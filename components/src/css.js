@@ -45,7 +45,7 @@ export const css = {
   },
   h5: {
     color: theme.primary,
-    fontSize: "0.9rem",
+    fontSize: "0.87rem",
     fontWeight: "bold",
     marginBottom: theme.spacing(3),
   },
@@ -74,12 +74,15 @@ export const css = {
     marginBottom: theme.spacing(4),
     padding: theme.spacing(3),
     borderRadius: theme.spacing(1),
+    border: "1px solid rgba(0,0,0,0.05)",
     boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
   },
   filter: {
     color: theme.color,
     backgroundColor: theme.backgroundColor,
-    borderRadius: theme.spacing(3),
+    borderRadius: theme.spacing(1),
+    border: "1px solid rgba(0,0,0,0.05)",
+
     padding: theme.spacing(2),
     paddingLeft: theme.spacing(3),
     paddingRight: theme.spacing(3),

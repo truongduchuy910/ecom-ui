@@ -79,7 +79,6 @@ export const Filter = ({
     <section
       style={{
         paddingRight: 0,
-        paddingTop: theme.spacing(3),
       }}
     >
       {search ? (

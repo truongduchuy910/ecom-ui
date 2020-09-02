@@ -13,6 +13,7 @@ import { MdExpandMore } from "react-icons/md";
 import { theme } from "../../config/index";
 
 import { Filter } from "./filter";
+import { css } from "../src/css";
 const GET_PRODUCTS = gql`
   query(
     $first: Int
@@ -156,7 +157,12 @@ export const List = ({
       });
     } catch (e) {}
   }
-  if (error || loading) return <Loading />;
+  if (error || loading)
+    return (
+      <div style={{ margin: theme.spacing(3) }}>
+        <Loading />
+      </div>
+    );
   return data?.allProducts?.length ? (
     <section id="products" style={{ paddingLeft: theme.spacing(2) }}>
       <Row noGutters>

@@ -29,11 +29,11 @@ export default function MenuApp() {
       fluid
       style={{
         position: "fixed",
-        width: "100%",
         zIndex: 100,
         backgroundColor: theme.backgroundColor,
         paddingTop: theme.spacing(3),
         paddingBottom: theme.spacing(3),
+        border: "1px solid rgba(0,0,0,0.05)",
       }}
     >
       <div
@@ -60,6 +60,7 @@ export default function MenuApp() {
             marginBottom: 0,
             color: theme.primary,
             fontWeight: 900,
+            cursor: "pointer",
           }}
           onClick={() => {
             router.push("/");

@@ -15,6 +15,7 @@ import {
   IoIosPricetag,
   IoIosPricetags,
   IoIosColorFilter,
+  IoIosArrowDown,
 } from "react-icons/io";
 
 export function Sidebar() {
@@ -41,7 +42,28 @@ export function Sidebar() {
   const top = useRef(null);
   const tg = () => setCollapsed(!collapsed);
   return (
-    <section style={{ paddingTop: theme.spacing(4) }}>
+    <section
+      style={{
+        paddingTop: theme.spacing(4),
+        // position: "sticky",
+        // top: 68,
+        // zIndex: 13,
+        // marginLeft: -theme.spacing(3),
+      }}
+    >
+      {/* <div
+        style={{
+          height: "90vh",
+          overflowY: "scroll",
+          direction: "rtl",
+          paddingLeft: theme.spacing(3),
+        }}
+      >
+        <div
+          style={{
+            direction: "ltr",
+          }}
+        > */}
       <div style={css.box}>
         <h5 style={css.h5}>
           <IoIosSearch style={css.iconHeader} />
@@ -93,6 +115,23 @@ export function Sidebar() {
       <div style={css.box}>
         <Brands />
       </div>
+      {/* </div> */}
+      <h5
+        style={{
+          position: "sticky",
+          bottom: 0,
+          textAlign: "center",
+        }}
+      >
+        <IoIosArrowDown
+          style={{
+            ...css.iconBorder,
+            backgroundColor: "rbga(0,0,0,0.05)",
+            marginBottom: theme.spacing(1),
+          }}
+        />
+      </h5>
+      {/* </div> */}
     </section>
   );
 }

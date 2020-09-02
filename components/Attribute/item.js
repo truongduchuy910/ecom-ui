@@ -27,6 +27,7 @@ export function Item({ attribute, style }) {
         color: theme.color,
         fontWeight: exist ? "bold" : null,
         display: "block",
+        cursor: "pointer",
       }}
       onClick={handleClick}
     >
