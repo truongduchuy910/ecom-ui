@@ -25,9 +25,9 @@ export const Item = ({ cartItem, onChange }) => {
             query: { detail: cartItem.product.url },
           }}
         >
-          <a>
-            <h5 style={css.h5}>{cartItem.product.name}</h5>
-          </a>
+          <h5 style={{ ...css.h5, marginTop: theme.spacing(3) }}>
+            {cartItem.product.name}
+          </h5>
         </Link>
 
         <p>{formatMoney(cartItem.price)}</p>

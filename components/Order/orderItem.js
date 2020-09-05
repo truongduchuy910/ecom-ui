@@ -8,11 +8,13 @@ export function OrderItem({ item }) {
   return item ? (
     <Fragment>
       <div>
-        <a style={{ display: "block" }}>Số lượng: {item.quantity}</a>
-        <a style={{ display: "block" }}>
-          Thành tiền: {formatMoney(item.price)}
-        </a>
         <Item product={item.product} />
+        <a style={{ display: "block", float: "left" }}>
+          Số lượng: {item.quantity}
+        </a>
+        <a style={{ display: "block", float: "right" }}>
+          {formatMoney(item.price)}
+        </a>
       </div>
     </Fragment>
   ) : null;

@@ -8,10 +8,12 @@ import { useRouter } from "next/router";
 import { route } from "next/dist/next-server/server/router";
 export const GET_CART_ITEMS = gql`
   query($id: ID) {
+    user @client
     allOrders(orderBy: "time_DESC", where: { id: $id }) {
       id
       total
       step
+      time
       customer {
         id
         name
@@ -64,5 +66,14 @@ export function List() {
     } catch {}
   }
 
-  return allOrders.map((order) => <Item key={order.id} order={order} />);
+  return allOrders.map((order) => (
+    <Item
+      key={order.id}
+      order={order}
+      user={data.user}
+      onChange={() => {
+        refetch();
+      }}
+    />
+  ));
 }

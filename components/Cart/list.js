@@ -4,7 +4,6 @@ import { formatMoney, getErrorMessage } from "../../lib/chip";
 import { css } from "../src/css";
 import { theme } from "../../config/index";
 
-
 export function List({ cartItems }) {
   // loading data
   let sum = 0;
@@ -14,8 +13,6 @@ export function List({ cartItems }) {
 
   return (
     <div style={{ paddingBottom: theme.spacing(2) }}>
-      <h5 style={css.h5}>Tổng</h5>
-      <p>{formatMoney(sum)}</p>
       {cartItems ? (
         cartItems?.length === 0 ? (
           <p>Bạn chưa chọn sản phẩm nào!</p>
@@ -25,6 +22,10 @@ export function List({ cartItems }) {
           })
         )
       ) : null}
+      <h5 style={{ ...css.h5, display: "inline-block" }}>Tổng:</h5>
+      <p style={{ display: "inline-block", marginLeft: theme.spacing(2) }}>
+        {formatMoney(sum)}
+      </p>
     </div>
   );
 }

@@ -20,6 +20,7 @@ import { Loading } from "../src/Loading";
 import { Link } from "../src/Link";
 import { List as Customer } from "../Customer/CurrentCustomer";
 import { QuickCart } from "./quickCart";
+import { Row, Col } from "reactstrap";
 export const CART = gql`
   query {
     cartItems @client
@@ -157,45 +158,50 @@ export function Cart() {
   // function
 
   return (
-    <Fragment>
-      {user?.id ? (
-        <div>
-          <Customer customer={customer} />
-          {dataOICI?.length && user ? (
-            <button
-              style={css.button}
-              onClick={() => {
-                order({
-                  createOrderItems,
-                  createOrder,
-                  dataOICI,
-                  page,
-                  customer,
-                  sum,
-                  router,
-                });
-              }}
-            >
-              Xác nhận đơn hàng
-            </button>
-          ) : null}
-        </div>
-      ) : (
-        <div
-          style={{
-            paddingBottom: theme.spacing(3),
-          }}
-        >
-          <Link
-            href={{ pathname: "/signin", query: { redirect: "/cart" } }}
-            style={{ marginBottom: theme.spacing(4), display: "block" }}
+    <Row>
+      <Col>
+        {/* CUSTOMER */}
+        {user?.id ? (
+          <div>
+            <Customer customer={customer} />
+          </div>
+        ) : (
+          <div
+            style={{
+              paddingBottom: theme.spacing(3),
+            }}
           >
-            Mua hàng với tài khoản (Khuyên dùng)
-          </Link>
-          <QuickCart cartItems={cartItems} />
-        </div>
-      )}
-      <List cartItems={cartItems} />
-    </Fragment>
+            <Link
+              href={{ pathname: "/signin", query: { redirect: "/cart" } }}
+              style={{ marginBottom: theme.spacing(4), display: "block" }}
+            >
+              Mua hàng với tài khoản (Khuyên dùng)
+            </Link>
+            <QuickCart cartItems={cartItems} />
+          </div>
+        )}{" "}
+        {/* LIST CART ITEM */}
+        <List cartItems={cartItems} />
+        {/* CREATE BUTTON */}
+        {dataOICI?.length && user ? (
+          <button
+            style={css.button}
+            onClick={() => {
+              order({
+                createOrderItems,
+                createOrder,
+                dataOICI,
+                page,
+                customer,
+                sum,
+                router,
+              });
+            }}
+          >
+            Xác nhận đơn hàng
+          </button>
+        ) : null}
+      </Col>
+    </Row>
   );
 }

@@ -116,21 +116,7 @@ export function Sidebar() {
         <Brands />
       </div>
       {/* </div> */}
-      <h5
-        style={{
-          position: "sticky",
-          bottom: 0,
-          textAlign: "center",
-        }}
-      >
-        <IoIosArrowDown
-          style={{
-            ...css.iconBorder,
-            backgroundColor: "rbga(0,0,0,0.05)",
-            marginBottom: theme.spacing(1),
-          }}
-        />
-      </h5>
+
       {/* </div> */}
     </section>
   );

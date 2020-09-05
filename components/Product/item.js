@@ -65,10 +65,11 @@ export const Item = ({ product }) => {
             style={{
               textDecoration: product.sale ? "line-through" : "",
               color: product.sale ? theme.secondary : theme.primary,
-              fontSize: product.sale ? 15 : "default",
+              fontSize: product.sale ? "0.8rem" : "0.85rem",
               float: product.sale ? "right" : "default",
               fontWeight: product.sale ? "normal" : "bold",
               marginBottom: theme.spacing(0),
+              wordWrap: "break-word",
             }}
           >
             {formatMoney(product.price)}
@@ -80,6 +81,7 @@ export const Item = ({ product }) => {
                 color: theme.primary,
                 display: show ? "none" : "block",
                 fontWeigh: "bold",
+                fontSize: "0.85rem",
                 marginBottom: theme.spacing(0),
               }}
             >

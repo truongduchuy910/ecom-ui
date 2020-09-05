@@ -18,25 +18,25 @@ export const Footer = () => {
         <Row>
           <Col xs={12} md={6} style={{ marginBottom: theme.spacing(4) }}>
             <h2 style={css.h2}>{page.intro.name}</h2>
-            <p
+            <div
               style={{
                 color: theme.color,
-                display: "inline-block",
+                display: "inline",
               }}
             >
               {page.intro.content}
-            </p>
+            </div>
           </Col>
           <Col xs={12} md={6} style={{ marginBottom: theme.spacing(4) }}>
             <h2 style={css.h2}>{page.term.name}</h2>
-            <p
+            <div
               style={{
                 color: theme.color,
-                display: "inline-block",
+                display: "inline",
               }}
             >
               {page.term.content}
-            </p>
+            </div>
           </Col>
         </Row>
       </Container>

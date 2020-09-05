@@ -176,15 +176,19 @@ export function Product({ product }) {
 
       <div style={css.box}>
         <Row>
-          <Col xs={12}>
-            <h5 style={css.h5}>Mô Tả</h5>
-            <p style={{ color: theme.color }}>{product.description}</p>
-          </Col>
-          <Col>
-            <h5 style={css.h5}>Hướng dẫn</h5>
+          {product.description ? (
+            <Col xs={12}>
+              <h5 style={css.h5}>Mô Tả</h5>
+              <p style={{ color: theme.color }}>{product.description}</p>
+            </Col>
+          ) : null}
+          {product.guide ? (
+            <Col>
+              <h5 style={css.h5}>Hướng dẫn</h5>
 
-            <p style={{ color: theme.color }}>{product.guide}</p>
-          </Col>
+              <p style={{ color: theme.color }}>{product.guide}</p>
+            </Col>
+          ) : null}
           <Col xs={12} md={open ? 12 : 6}>
             <center>
               {product.file ? (
