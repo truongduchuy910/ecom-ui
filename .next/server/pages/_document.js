@@ -119,8 +119,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8cZr");
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_document__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _config_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("rOcY");
+/* harmony import */ var react_facebook_dist_FacebookProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("lNca");
+/* harmony import */ var react_facebook_dist_FacebookProvider__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_facebook_dist_FacebookProvider__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_facebook_dist_Comments__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("m3CN");
+/* harmony import */ var react_facebook_dist_Comments__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_facebook_dist_Comments__WEBPACK_IMPORTED_MODULE_4__);
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
 
 
 class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
@@ -809,6 +815,20 @@ module.exports = require("next/dist/next-server/lib/utils.js");
 
 /***/ }),
 
+/***/ "lNca":
+/***/ (function(module, exports) {
+
+module.exports = require("react-facebook/dist/FacebookProvider");
+
+/***/ }),
+
+/***/ "m3CN":
+/***/ (function(module, exports) {
+
+module.exports = require("react-facebook/dist/Comments");
+
+/***/ }),
+
 /***/ "nMq/":
 /***/ (function(module, exports) {
 
@@ -856,7 +876,7 @@ module.exports = require("next/dist/next-server/server/utils.js");
 /***/ "rqQo":
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"page\":{\"term\":{\"name\":\"Liên Hệ\",\"content\":\"Hotline: 0935584569 - 0399968761\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Lắp Đặt - Bảo trì hệ thống CAMERA. Nhanh Chóng - Chất Lượng - Uy Tín\"},\"name\":\"Quảng Đà Camera\",\"server\":\"https://ecommerce.loaloa.tech\",\"seller\":{\"id\":\"5e9b9df7e66ce019add308da\"},\"logo\":\"/quangdacamera/assets/img/logo.jpg\",\"title\":\"Quảng Đà Camera | Quảng Nam - Đà Nẵng\",\"content\":\"Uy tín, giá cả phải chăng, hợp lí. Hotline: 0935584569 - 0399968761\",\"prices\":[200000,500000,1000000,2000000,5000000]},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"#0A75BB\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
+module.exports = JSON.parse("{\"page\":{\"term\":{\"name\":\"Liên Hệ\",\"content\":\"Hotline: 0935584569 - 0399968761\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Lắp Đặt - Bảo trì hệ thống CAMERA. Nhanh Chóng - Chất Lượng - Uy Tín\"},\"name\":\"Quảng Đà Camera\",\"server\":\"https://ecommerce.loaloa.tech\",\"ui\":\"https://quangdacamera.com\",\"seller\":{\"id\":\"5e9b9df7e66ce019add308da\"},\"logo\":\"/quangdacamera/assets/img/logo.jpg\",\"title\":\"Quảng Đà Camera | Quảng Nam - Đà Nẵng\",\"content\":\"Uy tín, giá cả phải chăng, hợp lí. Hotline: 0935584569 - 0399968761\",\"prices\":[200000,500000,1000000,2000000,5000000],\"pageId\":\"137263190447835\"},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"#0A75BB\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
 
 /***/ })
 

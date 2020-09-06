@@ -648,9 +648,23 @@ var Box = __webpack_require__("WBZH");
 // EXTERNAL MODULE: ./components/src/BirdBg.js
 var BirdBg = __webpack_require__("AYQM");
 
+// EXTERNAL MODULE: external "react-facebook/dist/FacebookProvider"
+var FacebookProvider_ = __webpack_require__("lNca");
+var FacebookProvider_default = /*#__PURE__*/__webpack_require__.n(FacebookProvider_);
+
+// EXTERNAL MODULE: external "react-facebook/dist/CustomChat"
+var CustomChat_ = __webpack_require__("5Q9j");
+
+// EXTERNAL MODULE: external "react-facebook/dist/Comments"
+var Comments_ = __webpack_require__("m3CN");
+var Comments_default = /*#__PURE__*/__webpack_require__.n(Comments_);
+
 // CONCATENATED MODULE: ./components/src/Footer.js
 
 var Footer_jsx = external_react_default.a.createElement;
+
+
+
 
 
 
@@ -693,11 +707,20 @@ const Footer = () => {
       color: config["b" /* theme */].color,
       display: "inline"
     }
-  }, config["a" /* page */].term.content)))));
+  }, config["a" /* page */].term.content)))), Footer_jsx(FacebookProvider_default.a, {
+    appId: "335701763968445",
+    chatSupport: true
+  }, Footer_jsx(Comments_default.a, {
+    href: "http://www.facebook.com"
+  })));
 };
+// EXTERNAL MODULE: external "react-facebook"
+var external_react_facebook_ = __webpack_require__("ekOq");
+
 // CONCATENATED MODULE: ./pages/_app.js
 
 var _app_jsx = external_react_default.a.createElement;
+
 
 
 
@@ -746,7 +769,7 @@ function App({
       color: config["b" /* theme */].color,
       textShadow: "1px 1px 1px rgba(0,0,0,0.04)"
     }
-  }, _app_jsx(Component, pageProps)), _app_jsx(Footer, null));
+  }, _app_jsx(Component, pageProps)), _app_jsx("footer", null, _app_jsx(Footer, null)));
 }
 
 /***/ }),
@@ -867,6 +890,13 @@ const Link = ({
 /***/ (function(module, exports) {
 
 module.exports = require("next/router");
+
+/***/ }),
+
+/***/ "5Q9j":
+/***/ (function(module, exports) {
+
+module.exports = require("react-facebook/dist/CustomChat");
 
 /***/ }),
 
@@ -1989,6 +2019,13 @@ function mitt() {
 
 /***/ }),
 
+/***/ "ekOq":
+/***/ (function(module, exports) {
+
+module.exports = require("react-facebook");
+
+/***/ }),
+
 /***/ "elyg":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2938,6 +2975,20 @@ module.exports = require("next/dist/next-server/lib/utils.js");
 
 /***/ }),
 
+/***/ "lNca":
+/***/ (function(module, exports) {
+
+module.exports = require("react-facebook/dist/FacebookProvider");
+
+/***/ }),
+
+/***/ "m3CN":
+/***/ (function(module, exports) {
+
+module.exports = require("react-facebook/dist/Comments");
+
+/***/ }),
+
 /***/ "nOHt":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3217,7 +3268,7 @@ function useApollo(initialState) {
 /***/ "rqQo":
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"page\":{\"term\":{\"name\":\"Liên Hệ\",\"content\":\"Hotline: 0935584569 - 0399968761\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Lắp Đặt - Bảo trì hệ thống CAMERA. Nhanh Chóng - Chất Lượng - Uy Tín\"},\"name\":\"Quảng Đà Camera\",\"server\":\"https://ecommerce.loaloa.tech\",\"seller\":{\"id\":\"5e9b9df7e66ce019add308da\"},\"logo\":\"/quangdacamera/assets/img/logo.jpg\",\"title\":\"Quảng Đà Camera | Quảng Nam - Đà Nẵng\",\"content\":\"Uy tín, giá cả phải chăng, hợp lí. Hotline: 0935584569 - 0399968761\",\"prices\":[200000,500000,1000000,2000000,5000000]},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"#0A75BB\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
+module.exports = JSON.parse("{\"page\":{\"term\":{\"name\":\"Liên Hệ\",\"content\":\"Hotline: 0935584569 - 0399968761\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Lắp Đặt - Bảo trì hệ thống CAMERA. Nhanh Chóng - Chất Lượng - Uy Tín\"},\"name\":\"Quảng Đà Camera\",\"server\":\"https://ecommerce.loaloa.tech\",\"ui\":\"https://quangdacamera.com\",\"seller\":{\"id\":\"5e9b9df7e66ce019add308da\"},\"logo\":\"/quangdacamera/assets/img/logo.jpg\",\"title\":\"Quảng Đà Camera | Quảng Nam - Đà Nẵng\",\"content\":\"Uy tín, giá cả phải chăng, hợp lí. Hotline: 0935584569 - 0399968761\",\"prices\":[200000,500000,1000000,2000000,5000000],\"pageId\":\"137263190447835\"},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"#0A75BB\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
 
 /***/ }),
 

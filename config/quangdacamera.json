@@ -10,6 +10,7 @@
         },
         "name": "Quảng Đà Camera",
         "server": "https://ecommerce.loaloa.tech",
+        "ui": "https://quangdacamera.com",
         "seller": {
             "id": "5e9b9df7e66ce019add308da"
         },
@@ -22,7 +23,8 @@
             1000000,
             2000000,
             5000000
-        ]
+        ],
+        "pageId": "137263190447835"
     },
     "theme": {
         "backgroundColor": "white",
