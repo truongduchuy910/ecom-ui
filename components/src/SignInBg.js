@@ -1,6 +1,5 @@
 import { page } from "../../config/index";
 
-import { config } from "../config";
 export function SignInBg({ children, style }) {
   return (
     <div

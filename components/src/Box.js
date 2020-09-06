@@ -9,7 +9,7 @@ export function Box({ children }) {
           padding: 34,
           marginTop: 21,
           marginBottom: 21,
-          backgroundColor: theme.bgHighlight,
+          backgroundColor: theme.backgroundColor,
           borderRadius: 8,
         }}
       >

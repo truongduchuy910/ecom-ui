@@ -6,7 +6,8 @@ import { onSignIn, init } from "../../apollo/action";
 import { getErrorMessage } from "../../lib/chip";
 import { useApollo } from "../../apollo/client";
 import { css } from "../src/css";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 export const SignInMutation = gql`
   mutation($email: String!, $password: String!) {
     authenticateUserWithPassword(email: $email, password: $password) {

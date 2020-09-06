@@ -4,26 +4,28 @@ import { Item } from "./item";
 
 import { page, theme } from "../../config/index";
 
-import { Spinner } from "reactstrap";
 import { Loading } from "../src/Loading";
 import { useRouter } from "next/router";
 import { css } from "../src/css";
 import { useState } from "react";
+import { IoIosList, IoIosArrowRoundBack } from "react-icons/io";
 
 const GET_CATEGORIES = gql`
-  query($seller: UserWhereInput, $category: String) {
-    allCategories(where: { seller: $seller, url: $category }) {
+  query($seller: UserWhereInput, $category: String, $root: Boolean) {
+    allCategories(
+      where: {
+        seller: $seller
+        OR: [{ url: $category }, { parent_is_null: $root }]
+      }
+    ) {
       id
       name
       label
       url
-      childs {
-        id
-        name
-        label
+      parent {
         url
       }
-      parent {
+      childs {
         id
         name
         label
@@ -34,42 +36,39 @@ const GET_CATEGORIES = gql`
 `;
 export function List() {
   const router = useRouter();
+  const [open, setOpen] = useState(false);
+
   const { category } = router.query;
   const { data, loading, error } = useQuery(GET_CATEGORIES, {
-    variables: { seller: page.seller, category },
+    variables: {
+      seller: page.seller,
+      category,
+      root: category ? false : true,
+    },
   });
-  const [open, setOpen] = useState(false);
-  if (error) return <i>{error}</i>;
-  if (loading) return <Loading />;
+  if (error || loading) return <Loading />;
   return !loading && data ? (
     <div>
       <h5 style={css.h5}>
+        <IoIosList style={css.iconHeader} />
         {category ? data.allCategories[0].name : "Danh Mục"}
       </h5>
 
-      <Item
-        categories={[
-          {
-            id: "all-category",
-            name: category ? "Trở lại mục trước" : null,
-            url: "back",
-          },
-        ]}
-        style={{ display: "block" }}
-      />
-
       {category
         ? data.allCategories[0].childs.map((cate) => (
-            <Item key={cate.id} categories={[cate]} level={0} />
+            <Item
+              key={cate.id}
+              category={cate}
+              style={{ display: "block", marginBottom: theme.spacing(2) }}
+            />
           ))
         : data.allCategories
             ?.slice(0, open ? data.allCategories.length : 7)
             .map((category) => (
               <Item
                 key={category.id}
-                categories={[category]}
-                level={0}
-                style={{ display: "block" }}
+                category={category}
+                style={{ display: "block", marginBottom: theme.spacing(2) }}
               />
             ))}
       {data?.allCategories?.length > 7 ? (
@@ -82,6 +81,25 @@ export function List() {
             Xem thêm
           </a>
         )
+      ) : null}
+
+      {category ? (
+        <a
+          style={{
+            display: "block",
+            marginBottom: theme.spacing(2),
+            color: theme.primary,
+          }}
+          onClick={() => {
+            let query = router.query;
+            if (data.allCategories[0]?.parent)
+              query.category = data.allCategories[0].parent.url;
+            else delete query.category;
+            router.push({ query });
+          }}
+        >
+          <IoIosArrowRoundBack /> Quay lại
+        </a>
       ) : null}
     </div>
   ) : null;

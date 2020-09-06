@@ -4,7 +4,8 @@ import { chooseCustomer } from "../../apollo/action";
 import { compose } from "redux";
 import { CUSTOMER } from "../../apollo/action";
 import { CustomInput } from "reactstrap";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { useRouter } from "next/router";
 import { refetchCustomer } from "../../apollo/client";
 const DELETE_CUSTOMER = gql`

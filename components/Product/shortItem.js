@@ -2,7 +2,8 @@ import { Fragment } from "react";
 import { page } from "../../config/index";
 
 import { Link } from "../src/Link";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 export const Item = ({ product }) => {
   return (
     <>

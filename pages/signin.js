@@ -2,11 +2,9 @@ import { SignIn as In } from "../components/User/signin";
 import { SignUp as Up } from "../components/User/signup";
 import { Container, Col, Row } from "reactstrap";
 import { Divider } from "../components/src/Divider";
-import { BirdBg } from "../components/src/BirdBg";
-import { Box } from "../components/src/Box";
 import { SignInBg } from "../components/src/SignInBg";
-import { IoIosThermometer } from "react-icons/io";
-import theme from "../components/src/theme";
+import { theme } from "../config/index";
+import { List as Banners } from "../components/Banner/list";
 export default function SignIn() {
   return (
     <Container>
@@ -15,28 +13,20 @@ export default function SignIn() {
           marginTop: 34,
           marginBottom: 34,
           backgroundColor: theme.backgroundColor,
+          padding: theme.spacing(4),
         }}
       >
-        <SignInBg style={{ borderRadius: 8 }}>
-          <div
-            style={{
-              maxWidth: 500,
-              // marginLeft: "auto",
-              marginRight: "auto",
-              backgroundColor: "rgba(0,0,0,0.5)",
-              borderRadius: theme.spacing(2),
-              padding: 30,
-              height: "100%",
-            }}
-          >
-            <Divider />
-
+        <Row>
+          <Col xs={12} md={4} style={{ paddingTop: theme.spacing(4) }}>
             <In />
-            <Divider />
             <Up />
-            <Divider />
-          </div>
-        </SignInBg>
+          </Col>
+          <Col xs={12} md={8}>
+            <div style={{ height: "100%" }}>
+              <Banners style={{ height: "100%" }} />
+            </div>
+          </Col>
+        </Row>
       </section>
     </Container>
   );

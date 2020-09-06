@@ -10,7 +10,8 @@ import { ImgProduct } from "../Product/imageProduct";
 import { MdDelete } from "react-icons/md";
 import { Link } from "../src/Link";
 import { css } from "../src/css";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 export const Item = ({ cartItem, onChange }) => {
   return (
     <Row style={{ marginBottom: theme.spacing(3) }}>
@@ -24,9 +25,9 @@ export const Item = ({ cartItem, onChange }) => {
             query: { detail: cartItem.product.url },
           }}
         >
-          <a>
-            <h5 style={css.h5}>{cartItem.product.name}</h5>
-          </a>
+          <h5 style={{ ...css.h5, marginTop: theme.spacing(3) }}>
+            {cartItem.product.name}
+          </h5>
         </Link>
 
         <p>{formatMoney(cartItem.price)}</p>

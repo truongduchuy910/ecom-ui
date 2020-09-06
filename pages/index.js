@@ -5,10 +5,12 @@ import { toAttributeGourpWhereInput } from "../lib/chip";
 import { useState, useEffect, Fragment } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Sidebar } from "../components/Sidebar";
-import theme from "../components/src/theme";
+import { theme } from "../config/index";
+
 import { Filter } from "../components/Product/filter";
 import { List as Banners } from "../components/Banner/list";
 import { css } from "../components/src/css";
+import { IntroBox } from "../components/IntroBox";
 const Index = () => {
   const router = useRouter();
   let query = router.query;
@@ -24,8 +26,9 @@ const Index = () => {
 
   return (
     <Fragment>
-      <Banners />
-
+      <Container fluid style={{ marginTop: theme.spacing(3) }}>
+        <Banners style={{ height: "60vh" }} />
+      </Container>
       <Container fluid>
         <Row noGutters>
           <Col xs={4} md={3} lg={3} xl={2}>
@@ -81,6 +84,20 @@ const Index = () => {
                     >
                       Sản Phẩm:{" "}
                     </h6>
+                    Khuyến Mãi
+                  </div>
+
+                  <Products first={4} lg={3} xl={3} sale more={false} />
+                  <div style={css.filter}>
+                    <h6
+                      style={{
+                        ...css.h6,
+                        display: "inline-block",
+                        marginRight: theme.spacing(2),
+                      }}
+                    >
+                      Sản Phẩm:{" "}
+                    </h6>
                     Bán Chạy
                   </div>
 
@@ -112,20 +129,6 @@ const Index = () => {
                     suggestions="new"
                     more={false}
                   />
-                  <div style={css.filter}>
-                    <h6
-                      style={{
-                        ...css.h6,
-                        display: "inline-block",
-                        marginRight: theme.spacing(2),
-                      }}
-                    >
-                      Sản Phẩm:{" "}
-                    </h6>
-                    Khuyến Mãi
-                  </div>
-
-                  <Products first={4} lg={3} xl={3} sale more={false} />
                 </Fragment>
               )}
             </div>

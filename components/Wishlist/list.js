@@ -4,7 +4,8 @@ import { useEffect, Fragment } from "react";
 import { emptyWishlist } from "../../apollo/action";
 import { Item } from "../Product/item";
 import { Row, Col } from "reactstrap";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 export const GET_WISHLIST = gql`
   query {
     wishlist @client
@@ -16,11 +17,7 @@ export function List() {
 
   if (error) return <i>{error}</i>;
   return (
-    <Row
-      style={{
-        backgroundColor: theme.backgroundColor,
-      }}
-    >
+    <Row>
       {data ? (
         data?.wishlist?.length ? (
           data.wishlist.map((product) => (

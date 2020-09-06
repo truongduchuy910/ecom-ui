@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { Form } from "reactstrap";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { css } from "../src/css";
 export function Search({ style }) {
   const [searchInput, setSearchInput] = useState();

@@ -11,26 +11,10 @@ import {
 import { useQuery, gql } from "@apollo/client";
 import { useState } from "react";
 
-const style = {
-  button: (top, color = theme.backgroundColor) => ({
-    position: "absolute",
-    top,
-    right: 5,
-    padding: 3,
-    paddingTop: 5,
-    width: 30,
-    height: 30,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: "50%",
-    color,
-    fontWeight: 800,
-    backgroundColor: theme.primary,
-  }),
-};
-import theme from "../src/theme";
-export function ImgProduct({ product }) {
+import { theme } from "../../config/index";
+import { css } from "../src/css";
+
+export function ImgProduct({ product, style, onClick }) {
   const { data } = useQuery(gql`
     query {
       wishlist @client
@@ -46,14 +30,19 @@ export function ImgProduct({ product }) {
   const [imgIndex, setImgIndex] = useState(0);
 
   return (
-    <div style={{ position: "inherit" }}>
+    <div
+      style={{
+        position: "inherit",
+      }}
+    >
       <img
         src={
           ImgSrcs[imgIndex]
             ? page.server + ImgSrcs[imgIndex]?.file?.publicUrl
             : "/assets/img/no-image.jpg"
         }
-        style={{ width: "100%", borderRadius: theme.spacing(2) }}
+        onClick={onClick}
+        style={{ ...style, width: "100%", cursor: "pointer" }}
         key={ImgSrcs[imgIndex]?.file?.publicUrl}
       />
 
@@ -64,7 +53,7 @@ export function ImgProduct({ product }) {
             ? removeWishListItem(product)
             : addProductToLocalWishlist(product)
         }
-        style={style.button(5)}
+        style={css.btnIcon()}
       >
         {isInWishlist ? <MdDoneAll /> : <IoIosHeartEmpty />}
       </i>

@@ -6,7 +6,8 @@ import { refetchCustomer, customerVar } from "../../apollo/client";
 import { useRouter } from "next/router";
 import { chooseCustomer } from "../../apollo/action";
 import { css } from "../src/css";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 const CREATE_CUSTOMER = gql`
   mutation($data: CustomerCreateInput) {
     createCustomer(data: $data) {
@@ -38,7 +39,6 @@ export function Create({ onCreate = () => {} }) {
       },
     });
     const customer = data?.createCustomer;
-    console.log(data, errors);
     if (customer?.id) {
       onCreate({ customer });
     }
@@ -49,7 +49,9 @@ export function Create({ onCreate = () => {} }) {
       noValidate
       style={{ marginBottom: theme.spacing(3) }}
     >
-      <h5 style={css.h5}>Điền Địa Chỉ Nhận</h5>
+      <h5 style={{ ...css.h5, textTransform: "capitalize" }}>
+        Điền thông tin nhận hàng
+      </h5>
       <input
         style={{ ...css.input, width: "100%", marginBottom: theme.spacing(3) }}
         required
@@ -71,7 +73,7 @@ export function Create({ onCreate = () => {} }) {
         placeholder="Địa Chỉ"
       />
       <button style={css.button} type="submit">
-        Xác nhận
+        Xác nhận thông tin
       </button>
     </form>
   );

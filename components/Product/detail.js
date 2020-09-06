@@ -18,7 +18,8 @@ import { ImgProduct } from "./imageProduct";
 import { Box } from "../src/Box";
 
 import { useSpring, animated } from "react-spring";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { QuickCart } from "../Cart/quickCart";
 import { gql, useQuery } from "@apollo/client";
 const GET_CART = gql`
@@ -45,11 +46,7 @@ export function Product({ product }) {
 
   return (
     <Fragment>
-      <Row
-        style={{
-          marginTop: 35,
-        }}
-      >
+      <Row>
         <Col
           xs={12}
           lg={6}
@@ -59,7 +56,13 @@ export function Product({ product }) {
             alignItems: "center",
           }}
         >
-          <ImgProduct product={product} />
+          <ImgProduct
+            product={product}
+            style={{
+              borderRadius: theme.spacing(1),
+              marginBottom: theme.spacing(3),
+            }}
+          />
         </Col>
         <Col
           lg={6}
@@ -131,6 +134,7 @@ export function Product({ product }) {
                   onClick={() => {
                     setQuickCart(false);
                   }}
+                  style={{ marginBottom: theme.spacing(3), display: "block" }}
                 >
                   Thoát mua nhanh
                 </a>
@@ -160,8 +164,9 @@ export function Product({ product }) {
                   onClick={() => {
                     setQuickCart(true);
                   }}
+                  style={{ marginBottom: theme.spacing(3), display: "block" }}
                 >
-                  Hoặc mua nhanh (Không cần đăng nhập)
+                  Mua nhanh
                 </a>
               </Fragment>
             )}
@@ -169,17 +174,21 @@ export function Product({ product }) {
         </Col>
       </Row>
 
-      <Box>
+      <div style={css.box}>
         <Row>
-          <Col xs={12}>
-            <h5 style={css.h5}>Mô Tả</h5>
-            <p style={{ color: theme.color }}>{product.description}</p>
-          </Col>
-          <Col>
-            <h5 style={css.h5}>Hướng dẫn</h5>
+          {product.description ? (
+            <Col xs={12}>
+              <h5 style={css.h5}>Mô Tả</h5>
+              <p style={{ color: theme.color }}>{product.description}</p>
+            </Col>
+          ) : null}
+          {product.guide ? (
+            <Col>
+              <h5 style={css.h5}>Hướng dẫn</h5>
 
-            <p style={{ color: theme.color }}>{product.guide}</p>
-          </Col>
+              <p style={{ color: theme.color }}>{product.guide}</p>
+            </Col>
+          ) : null}
           <Col xs={12} md={open ? 12 : 6}>
             <center>
               {product.file ? (
@@ -196,7 +205,7 @@ export function Product({ product }) {
 
           <Col lg={12}></Col>
         </Row>
-      </Box>
+      </div>
     </Fragment>
   );
 }

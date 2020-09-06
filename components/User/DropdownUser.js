@@ -14,6 +14,7 @@ import { Fragment } from "react";
 import { IoIosLogIn } from "react-icons/io";
 import { AiOutlineUser } from "react-icons/ai";
 import { theme } from "../../config/index";
+import { css } from "../src/css";
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput) {
     allCategories(where: { seller: $seller }) {
@@ -33,7 +34,7 @@ export function CategoriesDropdownMenu({ onClick }) {
           caret
           style={{ color: theme.primary, margin: 0, padding: 0 }}
         >
-          <AiOutlineUser />
+          <AiOutlineUser style={css.iconBorder} />
         </DropdownToggle>
         <DropdownMenu
           right
@@ -60,7 +61,7 @@ export function CategoriesDropdownMenu({ onClick }) {
         href="/signin"
         style={{ color: theme.primary, margin: 0, padding: 0 }}
       >
-        <IoIosLogIn style={{ color: theme.primary }} />
+        <AiOutlineUser style={css.iconBorder} />
       </Link>
     )
   ) : (

@@ -5,10 +5,11 @@ export function CountIcon({ count }) {
     <span
       style={{
         position: "absolute",
-        textAlign: "center",
-        borderRadius: "50%",
         fontSize: 12,
         fontWeight: 500,
+        float: "right",
+        right: 0,
+        display: "inline",
         color: theme.primary,
       }}
     >

@@ -26,8 +26,8 @@ export function Icon({ onClick, style }) {
     newOrderCountVar(false);
   }
   return data?.user?.id && data?._allOrdersMeta?.count ? (
-    <Link href="/order" style={style} onClick={onClick}>
-      <FiPackage style={{ color: theme.primary }} />{" "}
+    <Link href="/order" style={{ position: "relative" }} onClick={onClick}>
+      <FiPackage style={style} />
       <CountIcon count={data?._allOrdersMeta?.count} />
     </Link>
   ) : null;

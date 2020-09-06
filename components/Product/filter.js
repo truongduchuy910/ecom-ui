@@ -4,8 +4,18 @@ import { Item as Attribute } from "../Attribute/item";
 import { formatMoney } from "../../lib/chip";
 import { Link } from "../src/Link";
 import { css } from "../src/css";
-import theme from "../src/theme";
+import { theme } from "../../config/index";
+
 import { Item as Brand } from "../Brand/item";
+import {
+  IoIosEasel,
+  IoIosExit,
+  IoIosRemove,
+  IoIosRemoveCircle,
+  IoIosRemoveCircleOutline,
+} from "react-icons/io";
+import { route } from "next/dist/next-server/server/router";
+import { useRouter } from "next/router";
 const GET_CATE = gql`
   query($category: String, $attributes: [String], $brand: String) {
     allCategories(where: { url: $category }) {
@@ -25,6 +35,18 @@ const GET_CATE = gql`
     }
   }
 `;
+const localCss = {
+  marginTop: 0,
+  marginBottom: 0,
+  marginRight: 0,
+  marginLeft: theme.spacing(2),
+  padding: 3,
+  color: theme.primary,
+  position: "relative",
+  top: 0,
+  width: 25,
+  height: 25,
+};
 export const Filter = ({
   category = "-",
   brand = "-",
@@ -33,6 +55,7 @@ export const Filter = ({
   price_to,
   attributes,
 }) => {
+  const router = useRouter();
   const variables = {
     category,
     attributes,
@@ -42,6 +65,16 @@ export const Filter = ({
   const { data, error } = useQuery(GET_CATE, {
     variables,
   });
+  const removeSearch = () => {
+    let query = router.query;
+    delete query.search;
+    router.push({ query });
+  };
+  const removePrice = () => {
+    let query = router.query;
+    query.price_to = 999999999;
+    router.push({ query });
+  };
   return (
     <section
       style={{
@@ -60,6 +93,7 @@ export const Filter = ({
             Tìm kiếm:
           </h6>
           <a style={{ color: theme.color }}>{search}</a>
+          <IoIosRemoveCircleOutline onClick={removeSearch} style={localCss} />
         </div>
       ) : null}
       {price_to != 999999999 ? (
@@ -74,6 +108,7 @@ export const Filter = ({
             Giá:{" "}
           </h6>
           {formatMoney(price_from)} - {formatMoney(price_to)}
+          <IoIosRemoveCircleOutline onClick={removePrice} style={localCss} />
         </div>
       ) : null}
 
@@ -89,8 +124,8 @@ export const Filter = ({
             Danh mục:{" "}
           </h6>
           <Category
-            categories={data?.allCategories || []}
-            style={{ display: "inline-block", margin: 0, padding: 0 }}
+            category={data?.allCategories[0]}
+            style={{ display: "inline-block", marginBottom: 0, padding: 0 }}
           />
         </div>
       ) : null}

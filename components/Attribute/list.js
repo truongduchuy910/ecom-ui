@@ -10,6 +10,7 @@ import { Spinner, Alert } from "reactstrap";
 import { getErrorMessage } from "../../lib/chip";
 import { Loading } from "../src/Loading";
 import { css } from "../src/css";
+import { IoIosColorFilter, IoIosAdd, IoIosAnalytics, IoIosCompass, IoIosCheckbox, IoIosCheckboxOutline, IoIosCheckmark, IoIosAirplane, IoIosArrowDropup, IoIosBackspace, IoIosBookmark, IoIosOptions } from "react-icons/io";
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {
     allAttributes(where: { seller: $seller }) {
@@ -31,7 +32,10 @@ export function List({ attributes }) {
   let source = attributes ? attributes : data.allAttributes;
   return !loading && data ? (
     <div>
-      <h5 style={css.h5}>Thuộc Tính</h5>
+      <h5 style={css.h5}>
+        <IoIosOptions style={css.iconHeader} />
+        Thuộc Tính
+      </h5>
       <Item attribute={{ id: "all-attribute", name: "Tất Cả", url: "all" }} />
       {source?.slice(0, open ? source?.lenght : 7).map((attribute) => (
         <Item key={attribute.id} attribute={attribute} />

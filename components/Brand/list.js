@@ -6,6 +6,23 @@ import { getErrorMessage } from "../../lib/chip";
 import { Loading } from "../src/Loading";
 import { css } from "../src/css";
 import { useState } from "react";
+import {
+  IoIosArchive,
+  IoIosStarOutline,
+  IoIosCheckbox,
+  IoIosCheckmark,
+  IoIosCheckboxOutline,
+  IoIosContact,
+  IoIosHome,
+  IoIosAdd,
+  IoIosFlag,
+  IoIosFlashlight,
+  IoIosBusiness,
+  IoIosCash,
+  IoIosDesktop,
+  IoIosOptions,
+  IoIosBookmark,
+} from "react-icons/io";
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput) {
     allBrands(where: { seller: $seller }) {
@@ -24,7 +41,9 @@ export function List() {
   if (error) return <i color="danger">{getErrorMessage(error)}</i>;
   return !loading && data ? (
     <div>
-      <h5 style={css.h5}>Thương Hiệu</h5>
+      <h5 style={css.h5}>
+        <IoIosBookmark style={css.iconHeader} /> Thương Hiệu
+      </h5>
       <Item brand={{ id: "all-brand", name: "Tất Cả ", url: "all" }} />
       {data?.allBrands
         ?.slice(0, open ? data?.allBrands?.lenght : 7)
