@@ -1,5 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { page } from "../config/index";
+import FacebookProvider from "react-facebook/dist/FacebookProvider";
+import Comments from "react-facebook/dist/Comments";
 export default class MyDocument extends Document {
   render() {
     return (

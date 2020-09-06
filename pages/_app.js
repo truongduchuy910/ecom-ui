@@ -7,8 +7,8 @@ import { useApollo } from "../apollo/client";
 import { Footer } from "../components/src/Footer";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { theme } from "../config/index";
-
+import { theme, page } from "../config/index";
+import { FacebookProvider, CustomChat } from "react-facebook";
 export default function App({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps.initialApolloState);
 
@@ -41,7 +41,9 @@ export default function App({ Component, pageProps }) {
       >
         <Component {...pageProps} />
       </main>
-      <Footer />
+      <footer>
+        <Footer />
+      </footer>
     </ApolloProvider>
   );
 }

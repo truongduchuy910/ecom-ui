@@ -85,6 +85,7 @@ export function Sidebar() {
           const choosed = Number(query.price_to) === price;
           return (
             <div
+              key={index}
               style={{
                 fontSize: "0.8rem",
                 borderRadius: theme.spacing(1),
