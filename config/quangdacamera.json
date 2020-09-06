@@ -1,7 +1,7 @@
 {
     "page": {
         "term": {
-            "name": "Mua Hàng Tại Shop",
+            "name": "Liên Hệ",
             "content": "Hotline: 0935584569 - 0399968761"
         },
         "intro": {
@@ -11,12 +11,11 @@
         "name": "Quảng Đà Camera",
         "server": "https://ecommerce.loaloa.tech",
         "seller": {
-            "id": "5e4c2235ea30da18df1c210f"
+            "id": "5e9b9df7e66ce019add308da"
         },
-        "logo": "/shopwheydanang/assets/img/shop-whey-da-nang.png",
-        "signInBg": "/shopwheydanang/assets/img/gymer.JPG",
-        "title": "Shop Whey Đà Nẵng | Dinh Dưỡng Thể Thao",
-        "content": "113 Phan Châu Trinh, Phước Ninh, Hải Châu, Đà Nẵng | 0905 586 577 - 0773 502 200 | Uy tín, giá cả phải chăng, hợp lí",
+        "logo": "/quangdacamera/assets/img/logo.jpg",
+        "title": "Quảng Đà Camera | Quảng Nam - Đà Nẵng",
+        "content": "Uy tín, giá cả phải chăng, hợp lí. Hotline: 0935584569 - 0399968761",
         "prices": [
             200000,
             500000,
