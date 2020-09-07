@@ -1,0 +1,37 @@
+{
+    "page": {
+        "term": {
+            "name": "Liên Hệ",
+            "content": "0332813077"
+        },
+        "intro": {
+            "name": "Giới Thiệu",
+            "content": "Tạo Cửa Hàng Online Miễn Phí"
+        },
+        "name": "Loa Loa Tech",
+        "server": "https://ecommerce.loaloa.tech",
+        "ui": "https://quangdacamera.com",
+        "seller": {
+            "id": "5e9b9df7e66ce019add308da"
+        },
+        "logo": "/quangdacamera/assets/img/logo.jpg",
+        "title": "Loa Loa Tech | Tạo Cửa Hàng Online Miễn Phí",
+        "content": "Uy tín, giá cả phải chăng, hợp lí.",
+        "prices": [
+            200000,
+            500000,
+            1000000,
+            2000000,
+            5000000
+        ],
+        "pageId": "137263190447835"
+    },
+    "theme": {
+        "backgroundColor": "white",
+        "color": "#333",
+        "secondary": "#a9a9a9",
+        "primary": "#0A75BB",
+        "bgHighlight": "rgb(241, 241, 241)",
+        "bgDark": "rgb(247, 247, 247)"
+    }
+}
