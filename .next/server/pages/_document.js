@@ -842,8 +842,8 @@ module.exports = require("next/dist/next-server/lib/document-context.js");
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return page; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return theme; });
-/* harmony import */ var _quangdacamera_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("rqQo");
-var _quangdacamera_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t("rqQo", 1);
+/* harmony import */ var _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("siBO");
+var _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t("siBO", 1);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -852,8 +852,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 const spacing = [0, 5, 8, 13, 21, 34, 55];
-const page = _quangdacamera_json__WEBPACK_IMPORTED_MODULE_0__.page;
-const theme = _objectSpread(_objectSpread({}, _quangdacamera_json__WEBPACK_IMPORTED_MODULE_0__.theme), {}, {
+const page = _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__.page;
+const theme = _objectSpread(_objectSpread({}, _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__.theme), {}, {
   spacing: n => spacing[n]
 });
 
@@ -873,10 +873,10 @@ module.exports = require("next/dist/next-server/server/utils.js");
 
 /***/ }),
 
-/***/ "rqQo":
+/***/ "siBO":
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"page\":{\"term\":{\"name\":\"Liên Hệ\",\"content\":\"Hotline: 0935584569 - 0399968761\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Lắp Đặt - Bảo trì hệ thống CAMERA. Nhanh Chóng - Chất Lượng - Uy Tín\"},\"name\":\"Quảng Đà Camera\",\"server\":\"https://ecommerce.loaloa.tech\",\"ui\":\"https://quangdacamera.com\",\"seller\":{\"id\":\"5e9b9df7e66ce019add308da\"},\"logo\":\"/quangdacamera/assets/img/logo.jpg\",\"title\":\"Quảng Đà Camera | Quảng Nam - Đà Nẵng\",\"content\":\"Uy tín, giá cả phải chăng, hợp lí. Hotline: 0935584569 - 0399968761\",\"prices\":[200000,500000,1000000,2000000,5000000],\"pageId\":\"137263190447835\"},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"#0A75BB\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
+module.exports = JSON.parse("{\"page\":{\"logo\":\"/yensaodatquang/assets/img/logo.png\",\"term\":{\"name\":\"Thông tin\",\"content\":\"Địa chỉ: thôn Trà Đóa, xã Bình Đào, huyện Thăng Bình, tỉnh Quảng Nam. \\nMã số thuế: 4001040242. \\nĐiện thoại: 0914758179 (chị Vinh), 0973799915 (anh Long)\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Chuyên cung cấp nguồn yến sào tự dẫn dụ và khai thác. Với công nghệ giả hang đá tự nhiên. Chất lượng tổ Yến của chúng tôi đã làm hài lòng tất cả khách hàng.\"},\"name\":\"Yến Sào Đất Quảng\",\"server\":\"https://ecommerce.loaloa.tech\",\"seller\":{\"id\":\"5e4feaf835fcaa2d50509597\"},\"divider\":\"/yensaodatquang/assets/img/divider.png\",\"signInBg\":\"/yensaodatquang/assets/img/nha-yen-1.JPG\",\"prices\":[200000,500000,1000000,2000000,5000000]},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"brown\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
 
 /***/ })
 

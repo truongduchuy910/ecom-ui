@@ -27,10 +27,6 @@ const Index = () => {
   return (
     <Fragment>
       <Container fluid>
-        {/* <Banners /> */}
-        {/* <IntroBox /> */}
-      </Container>
-      <Container fluid>
         <Row noGutters>
           <Col xs={4} md={3} lg={3} xl={2}>
             <Sidebar
@@ -39,13 +35,7 @@ const Index = () => {
               }}
             />
           </Col>
-          <Col
-            xs={8}
-            md={9}
-            lg={9}
-            xl={10}
-            style={{ paddingLeft: theme.spacing(3) }}
-          >
+          <Col xs={8} md={9} lg={9} xl={10}>
             <div>
               {category ||
               categories ||
@@ -91,6 +81,20 @@ const Index = () => {
                     >
                       Sản Phẩm:{" "}
                     </h6>
+                    Khuyến Mãi
+                  </div>
+
+                  <Products first={4} lg={3} xl={3} sale more={false} />
+                  <div style={css.filter}>
+                    <h6
+                      style={{
+                        ...css.h6,
+                        display: "inline-block",
+                        marginRight: theme.spacing(2),
+                      }}
+                    >
+                      Sản Phẩm:{" "}
+                    </h6>
                     Bán Chạy
                   </div>
 
@@ -122,20 +126,6 @@ const Index = () => {
                     suggestions="new"
                     more={false}
                   />
-                  <div style={css.filter}>
-                    <h6
-                      style={{
-                        ...css.h6,
-                        display: "inline-block",
-                        marginRight: theme.spacing(2),
-                      }}
-                    >
-                      Sản Phẩm:{" "}
-                    </h6>
-                    Khuyến Mãi
-                  </div>
-
-                  <Products first={4} lg={3} xl={3} sale more={false} />
                 </Fragment>
               )}
             </div>

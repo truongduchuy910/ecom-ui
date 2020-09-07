@@ -7,7 +7,6 @@ import { BirdBg } from "../src/BirdBg";
 import { css } from "../src/css";
 import { theme } from "../../config/index";
 
-
 export function IntroBox() {
   return (
     <div style={{ ...css.box, marginTop: theme.spacing(4) }}>
@@ -56,7 +55,6 @@ export function IntroBox() {
           </p>
         </Col>
         <Col xs={12} md={6}>
-          {" "}
           <iframe
             width="100%"
             height="597"
