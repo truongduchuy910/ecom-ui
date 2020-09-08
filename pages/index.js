@@ -22,6 +22,33 @@ const Index = () => {
 
       <Feature />
       <Container>
+        <h2
+          style={{
+            ...css.h2,
+            marginBottom: theme.spacing(4),
+            marginTop: theme.spacing(6),
+
+            textAlign: "center",
+          }}
+        >
+          Phóng Sự Báo Quốc Hội
+        </h2>
+        <video
+          width="100%"
+          height="100%"
+          controls
+          style={{
+            marginBottom: theme.spacing(6),
+            borderRadius: theme.spacing(2),
+          }}
+        >
+          <source
+            src="http://quochoitv.vn//202008/Sequence%2001.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </Container>
+      <Container>
         <Products
           first={4}
           lg={4}
