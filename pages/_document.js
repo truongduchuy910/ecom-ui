@@ -14,15 +14,17 @@ export default class MyDocument extends Document {
         <meta property="og:type" content="website" />
         <meta name="description" content={page.intro.content} />
         <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,400;1,500&display=swap"
           rel="stylesheet"
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-          rel="stylesheet"
-        />
-        <Main />
-        <NextScript />
+        <body
+          style={{
+            fontFamily: "'Lora', sans-serif",
+          }}
+        >
+          <Main />
+          <NextScript />
+        </body>
       </Html>
     );
   }

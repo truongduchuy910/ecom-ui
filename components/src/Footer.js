@@ -6,9 +6,7 @@ import { page } from "../../config/index";
 import { theme } from "../../config/index";
 
 import { css } from "../src/css";
-import FacebookProvider from "react-facebook/dist/FacebookProvider";
-import CustomChat from "react-facebook/dist/CustomChat";
-import Comments from "react-facebook/dist/Comments";
+
 export const Footer = () => {
   return (
     <div style={{ backgroundColor: theme.backgroundColor }}>
@@ -43,10 +41,6 @@ export const Footer = () => {
           </Col>
         </Row>
       </Container>
-      <FacebookProvider appId="335701763968445" chatSupport>
-        {/* <CustomChat minimized={false} pageId={page.pageId} /> */}
-        <Comments href="http://www.facebook.com" />
-      </FacebookProvider>
     </div>
   );
 };

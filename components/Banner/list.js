@@ -17,7 +17,7 @@ const GET_ATTRIBUTES = gql`
     }
   }
 `;
-export function List({ style }) {
+export function ListBanner({ style }) {
   const { data, loading, error } = useQuery(GET_ATTRIBUTES, {
     variables: { seller: page.seller },
   });

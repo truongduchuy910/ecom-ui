@@ -3,7 +3,7 @@ export function GymerBg({ children, style }) {
     <div
       style={{
         ...style,
-        background: "url(/assets/img/gymer.JPG)",
+        background: "url(/assets/img/gymer.jpg)",
         backgroundSize: "cover",
       }}
     >

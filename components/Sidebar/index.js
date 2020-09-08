@@ -38,19 +38,9 @@ export function Sidebar() {
     router.push({ query });
   };
   const [collapsed, setCollapsed] = useState(true);
-  const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
   const top = useRef(null);
-  const tg = () => setCollapsed(!collapsed);
   return (
-    <section
-      style={{
-        paddingTop: theme.spacing(4),
-        // position: "sticky",
-        // top: 68,
-        // zIndex: 13,
-        // marginLeft: -theme.spacing(3),
-      }}
-    >
+    <section>
       {/* <div
         style={{
           height: "90vh",

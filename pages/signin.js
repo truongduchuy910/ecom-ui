@@ -4,7 +4,7 @@ import { Container, Col, Row } from "reactstrap";
 import { Divider } from "../components/src/Divider";
 import { SignInBg } from "../components/src/SignInBg";
 import { theme } from "../config/index";
-import { List as Banners } from "../components/Banner/list";
+import { ListBanner } from "../components/Banner/list";
 export default function SignIn() {
   return (
     <Container>
@@ -23,7 +23,7 @@ export default function SignIn() {
           </Col>
           <Col xs={12} md={8}>
             <div style={{ height: "100%" }}>
-              <Banners style={{ height: "100%" }} />
+              <ListBanner style={{ height: "100%" }} />
             </div>
           </Col>
         </Row>

@@ -4,7 +4,7 @@ import { theme } from "../../config";
 
 export const Link = ({ children, style, href = "", onClick }) => {
   const link = (
-    <a style={{ ...style, color: theme.color }} onClick={onClick}>
+    <a style={{ ...style, display: "inline-block" }} onClick={onClick}>
       {children}
     </a>
   );

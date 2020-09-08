@@ -32,7 +32,6 @@ export function Product({ product }) {
   const isIncart = data?.cartItems?.some(
     (item) => item.product.id === product.id
   );
-  console.log(isIncart);
   const [open, toggle] = useState(false);
   const [quickCart, setQuickCart] = useState(false);
   const props = useSpring({

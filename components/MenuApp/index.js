@@ -25,10 +25,10 @@ export default function MenuApp() {
   // ANIMATION
 
   return (
-    <Container
-      fluid
+    <section
       style={{
         position: "fixed",
+        width: "100%",
         zIndex: 100,
         backgroundColor: theme.backgroundColor,
         paddingTop: theme.spacing(3),
@@ -36,59 +36,65 @@ export default function MenuApp() {
         border: "1px solid rgba(0,0,0,0.05)",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          height: 40,
-          width: "100%",
-        }}
-      >
-        <Logo
-          style={{ float: "left", marginLeft: theme.spacing(3), minHeight: 40 }}
-          onClick={() => {
-            router.push("/");
-          }}
-        />
-        <h1
+      <Container>
+        <div
           style={{
-            float: "left",
-            marginLeft: theme.spacing(3),
-            fontSize: "1.2rem",
+            display: "flex",
+            alignItems: "center",
+            height: 40,
             width: "100%",
-            padding: 0,
-            marginBottom: 0,
-            color: theme.primary,
-            fontWeight: 900,
-            cursor: "pointer",
-          }}
-          onClick={() => {
-            router.push("/");
           }}
         >
-          {page.name}
-        </h1>
+          <Logo
+            style={{
+              float: "left",
+              marginLeft: theme.spacing(3),
+              minHeight: 40,
+            }}
+            onClick={() => {
+              router.push("/");
+            }}
+          />
+          <h1
+            style={{
+              float: "left",
+              marginLeft: theme.spacing(3),
+              fontSize: "1.2rem",
+              width: "100%",
+              padding: 0,
+              marginBottom: 0,
+              color: theme.primary,
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              router.push("/");
+            }}
+          >
+            {page.name}
+          </h1>
 
-        <WishlistIcon
-          style={{
-            ...css.iconBorder,
-            float: "right",
-          }}
-        />
-        <CartIcon
-          style={{
-            ...css.iconBorder,
-            float: "right",
-          }}
-        />
-        <OrderIcon
-          style={{
-            ...css.iconBorder,
-            float: "right",
-          }}
-        />
-        <Users />
-      </div>
-    </Container>
+          <WishlistIcon
+            style={{
+              ...css.iconBorder,
+              float: "right",
+            }}
+          />
+          <CartIcon
+            style={{
+              ...css.iconBorder,
+              float: "right",
+            }}
+          />
+          <OrderIcon
+            style={{
+              ...css.iconBorder,
+              float: "right",
+            }}
+          />
+          <Users />
+        </div>
+      </Container>
+    </section>
   );
 }

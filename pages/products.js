@@ -26,8 +26,8 @@ const Index = () => {
 
   return (
     <Fragment>
-      <Container fluid>
-        <Row noGutters>
+      <Container>
+        <Row noGutters style={{ paddingTop: theme.spacing(4) }}>
           <Col xs={4} md={3} lg={3} xl={2}>
             <Sidebar
               onSearch={(search) => {
@@ -36,99 +36,27 @@ const Index = () => {
             />
           </Col>
           <Col xs={8} md={9} lg={9} xl={10}>
-            <div>
-              {category ||
-              categories ||
-              brand ||
-              search ||
-              attributes ||
-              price_from ||
-              price_to != 999999999 ? (
-                <Fragment>
-                  <Filter
-                    category={category}
-                    categories={categories}
-                    brand={brand}
-                    search={search}
-                    price_from={price_from}
-                    price_to={price_to}
-                    attributes={
-                      query.attributes ? query.attributes.split(",") : []
-                    }
-                  />
-                  <Products
-                    sm={6}
-                    lg={4}
-                    xl={3}
-                    category={category}
-                    categories={categories}
-                    brand={brand}
-                    search={search}
-                    price_from={price_from}
-                    price_to={price_to}
-                    attributes={attributes}
-                  />
-                </Fragment>
-              ) : (
-                <Fragment>
-                  <div style={css.filter}>
-                    <h6
-                      style={{
-                        ...css.h6,
-                        display: "inline-block",
-                        marginRight: theme.spacing(2),
-                      }}
-                    >
-                      Sản Phẩm:{" "}
-                    </h6>
-                    Khuyến Mãi
-                  </div>
-
-                  <Products first={4} lg={3} xl={3} sale more={false} />
-                  <div style={css.filter}>
-                    <h6
-                      style={{
-                        ...css.h6,
-                        display: "inline-block",
-                        marginRight: theme.spacing(2),
-                      }}
-                    >
-                      Sản Phẩm:{" "}
-                    </h6>
-                    Bán Chạy
-                  </div>
-
-                  <Products
-                    first={4}
-                    lg={3}
-                    xl={3}
-                    suggestions="bestSeller"
-                    more={false}
-                  />
-
-                  <div style={css.filter}>
-                    <h6
-                      style={{
-                        ...css.h6,
-                        display: "inline-block",
-                        marginRight: theme.spacing(2),
-                      }}
-                    >
-                      Sản Phẩm:{" "}
-                    </h6>
-                    Mới Về
-                  </div>
-
-                  <Products
-                    first={4}
-                    lg={3}
-                    xl={3}
-                    suggestions="new"
-                    more={false}
-                  />
-                </Fragment>
-              )}
-            </div>
+            <Filter
+              category={category}
+              categories={categories}
+              brand={brand}
+              search={search}
+              price_from={price_from}
+              price_to={price_to}
+              attributes={query.attributes ? query.attributes.split(",") : []}
+            />
+            <Products
+              sm={6}
+              lg={4}
+              xl={3}
+              category={category}
+              categories={categories}
+              brand={brand}
+              search={search}
+              price_from={price_from}
+              price_to={price_to}
+              attributes={attributes}
+            />
           </Col>
         </Row>
       </Container>

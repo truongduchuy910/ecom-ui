@@ -151,6 +151,15 @@ const css = {
     paddingBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
     marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2)
   },
+  btnOutline: {
+    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
+    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor,
+    border: `1px solid ${_config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary}`,
+    borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
+    paddingTop: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
+    paddingBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1) + 1,
+    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2)
+  },
   h5: {
     color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
     fontSize: "0.87rem",
@@ -172,7 +181,7 @@ const css = {
     fontWeight: "bold",
     textTransform: "uppercase",
     color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
-    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(4)
+    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2)
   },
   a: {
     display: "block"
@@ -587,17 +596,17 @@ function MenuApp() {
   } = Object(client_["useQuery"])(GET_USER);
   const isLogin = data === null || data === void 0 ? void 0 : data.user; // ANIMATION
 
-  return MenuApp_jsx(external_reactstrap_["Container"], {
-    fluid: true,
+  return MenuApp_jsx("section", {
     style: {
       position: "fixed",
+      width: "100%",
       zIndex: 100,
       backgroundColor: config["b" /* theme */].backgroundColor,
       paddingTop: config["b" /* theme */].spacing(3),
       paddingBottom: config["b" /* theme */].spacing(3),
       border: "1px solid rgba(0,0,0,0.05)"
     }
-  }, MenuApp_jsx("div", {
+  }, MenuApp_jsx(external_reactstrap_["Container"], null, MenuApp_jsx("div", {
     style: {
       display: "flex",
       alignItems: "center",
@@ -622,7 +631,7 @@ function MenuApp() {
       padding: 0,
       marginBottom: 0,
       color: config["b" /* theme */].primary,
-      fontWeight: 900,
+      fontWeight: "bold",
       cursor: "pointer"
     },
     onClick: () => {
@@ -640,7 +649,7 @@ function MenuApp() {
     style: MenuApp_objectSpread(MenuApp_objectSpread({}, css["a" /* css */].iconBorder), {}, {
       float: "right"
     })
-  }), MenuApp_jsx(CategoriesDropdownMenu, null)));
+  }), MenuApp_jsx(CategoriesDropdownMenu, null))));
 }
 // EXTERNAL MODULE: ./components/src/Box.js
 var Box = __webpack_require__("WBZH");
@@ -648,23 +657,9 @@ var Box = __webpack_require__("WBZH");
 // EXTERNAL MODULE: ./components/src/BirdBg.js
 var BirdBg = __webpack_require__("AYQM");
 
-// EXTERNAL MODULE: external "react-facebook/dist/FacebookProvider"
-var FacebookProvider_ = __webpack_require__("lNca");
-var FacebookProvider_default = /*#__PURE__*/__webpack_require__.n(FacebookProvider_);
-
-// EXTERNAL MODULE: external "react-facebook/dist/CustomChat"
-var CustomChat_ = __webpack_require__("5Q9j");
-
-// EXTERNAL MODULE: external "react-facebook/dist/Comments"
-var Comments_ = __webpack_require__("m3CN");
-var Comments_default = /*#__PURE__*/__webpack_require__.n(Comments_);
-
 // CONCATENATED MODULE: ./components/src/Footer.js
 
 var Footer_jsx = external_react_default.a.createElement;
-
-
-
 
 
 
@@ -707,12 +702,7 @@ const Footer = () => {
       color: config["b" /* theme */].color,
       display: "inline"
     }
-  }, config["a" /* page */].term.content)))), Footer_jsx(FacebookProvider_default.a, {
-    appId: "335701763968445",
-    chatSupport: true
-  }, Footer_jsx(Comments_default.a, {
-    href: "http://www.facebook.com"
-  })));
+  }, config["a" /* page */].term.content)))));
 };
 // EXTERNAL MODULE: external "react-facebook"
 var external_react_facebook_ = __webpack_require__("ekOq");
@@ -728,43 +718,24 @@ var _app_jsx = external_react_default.a.createElement;
 
 
 
-
-
 function App({
   Component,
   pageProps
 }) {
   const apolloClient = Object(client["e" /* useApollo */])(pageProps.initialApolloState);
-  const {
-    0: isOpen,
-    1: setIsOpen
-  } = Object(external_react_["useState"])(false);
-  const {
-    0: innerWidth,
-    1: setInnerWidth
-  } = Object(external_react_["useState"])();
-
-  const toggle = () => setIsOpen(!isOpen);
-
-  const router = Object(router_["useRouter"])();
-  Object(external_react_["useEffect"])(() => {
-    router.events.on("routeChangeComplete", url => {
-      setIsOpen(false);
-    });
-    setInnerWidth(window.innerWidth);
-  });
   return _app_jsx(client_["ApolloProvider"], {
     client: apolloClient
-  }, _app_jsx("header", null, _app_jsx(MenuApp, {
-    isOpen: isOpen,
-    toggle: toggle,
-    innerWidth: innerWidth
-  })), _app_jsx("main", {
+  }, _app_jsx(external_react_facebook_["FacebookProvider"], {
+    appId: "404979820059541",
+    chatSupport: true
+  }, _app_jsx(external_react_facebook_["CustomChat"], {
+    pageId: "1627025060846047",
+    minimized: false
+  })), _app_jsx("header", null, _app_jsx(MenuApp, null)), _app_jsx("main", {
     style: {
       paddingTop: 60,
       paddingBottom: config["b" /* theme */].spacing(4),
       minHeight: "60vh",
-      fontFamily: "'Roboto', sans-serif",
       backgroundColor: config["b" /* theme */].bgDark,
       color: config["b" /* theme */].color,
       textShadow: "1px 1px 1px rgba(0,0,0,0.04)"
@@ -874,7 +845,7 @@ const Link = ({
 }) => {
   const link = __jsx("a", {
     style: _objectSpread(_objectSpread({}, style), {}, {
-      color: _config__WEBPACK_IMPORTED_MODULE_3__[/* theme */ "b"].color
+      display: "inline-block"
     }),
     onClick: onClick
   }, children);
@@ -890,13 +861,6 @@ const Link = ({
 /***/ (function(module, exports) {
 
 module.exports = require("next/router");
-
-/***/ }),
-
-/***/ "5Q9j":
-/***/ (function(module, exports) {
-
-module.exports = require("react-facebook/dist/CustomChat");
 
 /***/ }),
 
@@ -1177,7 +1141,6 @@ const CUSTOMER = _apollo_client__WEBPACK_IMPORTED_MODULE_1__["gql"]`
 `; // initialize
 
 const init = () => {
-  console.log("reload cache");
   _client__WEBPACK_IMPORTED_MODULE_0__[/* cache */ "a"].writeQuery({
     query: USER,
     data: {
@@ -2975,20 +2938,6 @@ module.exports = require("next/dist/next-server/lib/utils.js");
 
 /***/ }),
 
-/***/ "lNca":
-/***/ (function(module, exports) {
-
-module.exports = require("react-facebook/dist/FacebookProvider");
-
-/***/ }),
-
-/***/ "m3CN":
-/***/ (function(module, exports) {
-
-module.exports = require("react-facebook/dist/Comments");
-
-/***/ }),
-
 /***/ "nOHt":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3172,7 +3121,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-const spacing = [0, 5, 8, 13, 21, 34, 55];
+const spacing = [0, 5, 8, 13, 21, 34, 55, 89];
 const page = _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__.page;
 const theme = _objectSpread(_objectSpread({}, _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__.theme), {}, {
   spacing: n => spacing[n]
@@ -3268,7 +3217,7 @@ function useApollo(initialState) {
 /***/ "siBO":
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"page\":{\"logo\":\"/yensaodatquang/assets/img/logo.png\",\"term\":{\"name\":\"Thông tin\",\"content\":\"Địa chỉ: thôn Trà Đóa, xã Bình Đào, huyện Thăng Bình, tỉnh Quảng Nam. \\nMã số thuế: 4001040242. \\nĐiện thoại: 0914758179 (chị Vinh), 0973799915 (anh Long)\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Chuyên cung cấp nguồn yến sào tự dẫn dụ và khai thác. Với công nghệ giả hang đá tự nhiên. Chất lượng tổ Yến của chúng tôi đã làm hài lòng tất cả khách hàng.\"},\"name\":\"Yến Sào Đất Quảng\",\"server\":\"https://ecommerce.loaloa.tech\",\"seller\":{\"id\":\"5e4feaf835fcaa2d50509597\"},\"divider\":\"/yensaodatquang/assets/img/divider.png\",\"signInBg\":\"/yensaodatquang/assets/img/nha-yen-1.JPG\",\"prices\":[200000,500000,1000000,2000000,5000000]},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"brown\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
+module.exports = JSON.parse("{\"page\":{\"logo\":\"/yensaodatquang/assets/img/logo.png\",\"term\":{\"name\":\"Thông tin\",\"content\":\"Địa chỉ: thôn Trà Đóa, xã Bình Đào, huyện Thăng Bình, tỉnh Quảng Nam. \\nMã số thuế: 4001040242. \\nĐiện thoại: 0914758179 (chị Vinh), 0973799915 (anh Long)\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Chuyên cung cấp nguồn yến sào tự dẫn dụ và khai thác. Với công nghệ giả hang đá tự nhiên. Chất lượng tổ Yến của chúng tôi đã làm hài lòng tất cả khách hàng.\"},\"name\":\"Yến Sào Đất Quảng\",\"server\":\"https://ecommerce.loaloa.tech\",\"seller\":{\"id\":\"5e4feaf835fcaa2d50509597\"},\"divider\":\"/yensaodatquang/assets/img/divider.png\",\"signInBg\":\"/yensaodatquang/assets/img/nha-yen-1.jpg\",\"prices\":[200000,500000,1000000,2000000,5000000]},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"brown\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
 
 /***/ }),
 

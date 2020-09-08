@@ -21,16 +21,18 @@ export function Item({ category, style }) {
   const childUrl = category?.childs
     ? category?.childs.map((category) => category?.url).toString()
     : [];
-  console.log(category?.parent);
   const handleClick = () => {
     if (category?.url === "back") {
       if (category?.parent) query.category = category?.parent.url;
-      else delete query.category;
+      else {
+        delete query.category;
+      }
       delete query.categories;
       router.push({ query });
     } else {
       query.category = category?.url;
-      query.categories = childUrl;
+      if (query?.categories) query.categories = childUrl;
+      else delete query.categories;
       router.push({ query });
     }
   };

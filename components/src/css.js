@@ -43,6 +43,16 @@ export const css = {
     paddingBottom: theme.spacing(1),
     marginBottom: theme.spacing(2),
   },
+  btnOutline: {
+    color: theme.primary,
+
+    backgroundColor: theme.backgroundColor,
+    border: `1px solid ${theme.primary}`,
+    borderRadius: theme.spacing(2),
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1) + 1,
+    marginBottom: theme.spacing(2),
+  },
   h5: {
     color: theme.primary,
     fontSize: "0.87rem",
@@ -64,7 +74,7 @@ export const css = {
     fontWeight: "bold",
     textTransform: "uppercase",
     color: theme.primary,
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(2),
   },
   a: {
     display: "block",

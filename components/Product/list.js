@@ -7,12 +7,10 @@ import { page } from "../../config/index";
 
 import { toSlug } from "../../lib/chip";
 import { Loading } from "../src/Loading";
-import { Divider } from "../src/Divider";
-import { useSpring } from "react-spring";
-import { MdExpandMore } from "react-icons/md";
+
 import { theme } from "../../config/index";
 
-import { Filter } from "./filter";
+import { MoreProducts } from "../UI/moreProducts";
 import { css } from "../src/css";
 const GET_PRODUCTS = gql`
   query(
@@ -77,6 +75,7 @@ const GET_PRODUCTS = gql`
   }
 `;
 export const List = ({
+  title = "",
   first = 2,
   skip = 0,
   category,
@@ -164,7 +163,23 @@ export const List = ({
       </div>
     );
   return data?.allProducts?.length ? (
-    <section id="products" style={{ paddingLeft: theme.spacing(2) }}>
+    <section
+      id="products"
+      style={{
+        paddingLeft: theme.spacing(2),
+      }}
+    >
+      {title ? (
+        <h2
+          style={{
+            ...css.h2,
+            textAlign: "center",
+            marginBottom: theme.spacing(5),
+          }}
+        >
+          {title}
+        </h2>
+      ) : null}
       <Row noGutters>
         {data.allProducts.map((product) => (
           <Col
@@ -176,6 +191,7 @@ export const List = ({
             xl={xl ? xl : 2}
             style={{
               padding: width <= 768 && width != 0 ? 3 : theme.spacing(2),
+              paddingTop: 0,
             }}
           >
             <Product product={product} />
