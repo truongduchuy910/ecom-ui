@@ -18,8 +18,16 @@ import { MoreProducts } from "../components/UI/moreProducts";
 const Index = () => {
   return (
     <Fragment>
-      <HeaderStory />
-
+      {/* <HeaderStory /> */}
+      <div
+        style={{
+          width: "100%",
+          borderRadius: theme.spacing(2),
+          height: "60vh",
+          background: "url(/hypedanang/assets/img/hype-da-nang.jpg)",
+          backgroundSize: "cover",
+        }}
+      ></div>
       <Feature />
       <Container>
         <h2

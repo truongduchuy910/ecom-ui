@@ -1,17 +1,7 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/cart": "pages/cart.html",
-  "/compare": "pages/compare.html",
-  "/customer": "pages/customer.html",
-  "/detail": "pages/detail.html",
-  "/": "pages/index.html",
-  "/order": "pages/order.html",
-  "/products": "pages/products.html",
-  "/seller": "pages/seller.html",
-  "/signin": "pages/signin.html",
-  "/signout": "pages/signout.html",
-  "/wishlist": "pages/wishlist.html",
   "/_error": "pages/_error.js",
-  "/404": "pages/404.html"
+  "/": "pages/index.js",
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js"
 }

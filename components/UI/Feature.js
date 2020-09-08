@@ -43,11 +43,8 @@ export const Feature = () => {
   return (
     <section
       style={{
-        marginTop: theme.spacing(7),
-        marginBottom: theme.spacing(7),
-        paddingTop: theme.spacing(6),
-        paddingBottom: theme.spacing(6),
-        backgroundColor: theme.backgroundColor,
+        marginTop: theme.spacing(6),
+        marginBottom: theme.spacing(6),
       }}
     >
       <Container>

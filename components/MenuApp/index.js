@@ -45,7 +45,7 @@ export default function MenuApp() {
             width: "100%",
           }}
         >
-          <Logo
+          {/* <Logo
             style={{
               float: "left",
               marginLeft: theme.spacing(3),
@@ -54,7 +54,7 @@ export default function MenuApp() {
             onClick={() => {
               router.push("/");
             }}
-          />
+          /> */}
           <h1
             style={{
               float: "left",
@@ -66,6 +66,7 @@ export default function MenuApp() {
               color: theme.primary,
               fontWeight: "bold",
               cursor: "pointer",
+              textTransform: "uppercase",
             }}
             onClick={() => {
               router.push("/");
