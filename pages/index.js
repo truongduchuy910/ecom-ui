@@ -27,7 +27,7 @@ const Index = () => {
   return (
     <div style={{ marginTop: -13 }}>
       {/*  */}
-      <Banners />
+      {/* <Banners /> */}
       <Container style={{ paddingTop: 34 }} fluid>
         <Row>
           <Col xs={4} md={3} lg={2}>
