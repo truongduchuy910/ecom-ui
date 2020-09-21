@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { animated, useSpring } from "react-spring";
-import { theme } from "../../config/index";
+import { SellerContext } from "./SellerProvider";
+
 export function Box({ children }) {
+  const theme = useContext(SellerContext);
   const props = useSpring({ opacity: 1, from: { opacity: 0 } });
   return (
     <animated.div style={props}>

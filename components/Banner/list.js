@@ -5,7 +5,9 @@ import { page } from "../../config/index";
 
 import { Spinner, Container } from "reactstrap";
 import { Loading } from "../src/Loading";
-import { theme } from "../../config/index";
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
+
 
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {
@@ -18,10 +20,14 @@ const GET_ATTRIBUTES = gql`
   }
 `;
 export function ListBanner({ style }) {
+  const theme = useContext(SellerContext);
+
   const { data, loading, error } = useQuery(GET_ATTRIBUTES, {
-    variables: { seller: page.seller },
+    variables: { seller: theme.seller },
   });
+
   if (loading) return <Loading />;
+  
   return !loading && data
     ? data.allBanners
         .slice(0, 1)

@@ -2,7 +2,9 @@ import { gql, useQuery } from "@apollo/client";
 import { emptyCompare } from "../../apollo/action";
 import { Loading } from "../src/Loading";
 import { Item } from "../Product/compareItem";
-import { theme } from "../../config/index";
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
+
 
 export const GET_COMPARE = gql`
   query {
@@ -11,6 +13,8 @@ export const GET_COMPARE = gql`
 `;
 
 export function List() {
+  const theme = useContext(SellerContext);
+
   const { data, loading, error } = useQuery(GET_COMPARE);
   if (loading) return <Loading />;
   return (

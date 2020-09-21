@@ -2,10 +2,10 @@ import { Row, Col } from "reactstrap";
 import { ImgProduct } from "./imageProduct";
 import { formatMoney } from "../../lib/chip";
 import { addProductToLocalCart } from "../../apollo/action";
-import { Fragment } from "react";
-import { Divider } from "../src/Divider";
+
 import { Link } from "../src/Link";
-import { css } from "../src/css";
+
+
 export function Item({ product, onClick }) {
   return (
     <div>
@@ -30,12 +30,12 @@ export function Item({ product, onClick }) {
           <div>
             <Link
               href={{
-                pathname: "detail",
+                pathname: "/detail",
                 query: { detail: product.url },
               }}
             >
               <a>
-                <h1 style={css.h1}>{product.name}</h1>
+                <h1 style={theme.css.h1}>{product.name}</h1>
               </a>
             </Link>
             <h5
@@ -54,7 +54,7 @@ export function Item({ product, onClick }) {
             <p>{product.description?.slice(0, 200)}...</p>
 
             <button
-              style={css.button}
+              style={theme.css.button}
               onClick={() => {
                 addProductToLocalCart({ product });
               }}

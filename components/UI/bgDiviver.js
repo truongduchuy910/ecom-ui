@@ -1,7 +1,7 @@
 import { theme } from "../../config";
 import { Container, Row, Col } from "reactstrap";
 import { TextWrap } from "./TextWrap";
-import { css } from "../src/css";
+
 
 export const BgDivider = () => {
   return (

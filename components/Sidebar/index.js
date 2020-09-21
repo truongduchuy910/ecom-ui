@@ -1,24 +1,22 @@
 import { useRouter } from "next/router";
 import { toAttributeGourpWhereInput, formatMoney } from "../../lib/chip";
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback, useContext } from "react";
 import { List as Attributes } from "../Attribute/list";
 import { List as Categories } from "../Category/list";
 import { List as Brands } from "../Brand/list";
 import { Search } from "../Search/index";
-import { Navbar, NavbarBrand, NavbarToggler, Collapse } from "reactstrap";
-import { FiFilter } from "react-icons/fi";
-import { css } from "../src/css";
-import { theme, page } from "../../config/index";
+
 
 import {
   IoIosSearch,
   IoIosPricetag,
-  IoIosPricetags,
-  IoIosColorFilter,
-  IoIosArrowDown,
+
 } from "react-icons/io";
+import { SellerContext } from "../src/SellerProvider";
 
 export function Sidebar() {
+  
+  const theme = useContext(SellerContext);
   const router = useRouter();
   let query = router.query;
   const price_from = query.price_from ? Number(query.price_from) : 0;
@@ -54,24 +52,24 @@ export function Sidebar() {
             direction: "ltr",
           }}
         > */}
-      <div style={css.box}>
-        <h5 style={css.h5}>
-          <IoIosSearch style={css.iconHeader} />
+      <div style={theme.css.box}>
+        <h5 style={theme.css.h5}>
+          <IoIosSearch style={theme.css.iconHeader} />
           Tìm Kiếm
         </h5>
         <Search style={{ width: "100%", marginBottom: theme.spacing(3) }} />
       </div>
-      <div style={css.box}>
+      <div style={theme.css.box}>
         <Categories />
       </div>
       {/* KHOANG GIA */}
 
-      <form onSubmit={onSubmit} action="" style={css.box}>
-        <h5 style={css.h5}>
-          <IoIosPricetag style={css.iconHeader} />
+      <form onSubmit={onSubmit} action="" style={theme.css.box}>
+        <h5 style={theme.css.h5}>
+          <IoIosPricetag style={theme.css.iconHeader} />
           Giá
         </h5>
-        {page.prices.map((price, index) => {
+        {theme.prices.map((price, index) => {
           const choosed = Number(query.price_to) === price;
           return (
             <div
@@ -88,22 +86,22 @@ export function Sidebar() {
                 color: choosed ? theme.primary : theme.color,
               }}
               onClick={() => {
-                query.price_from = index > 0 ? page.prices[index - 1] : 0;
+                query.price_from = index > 0 ? theme.prices[index - 1] : 0;
                 query.price_to = price;
                 router.push({ query });
               }}
             >
-              {index > 0 ? formatMoney(page.prices[index - 1]) : 0}
+              {index > 0 ? formatMoney(theme.prices[index - 1]) : 0}
               {" - "}
               {formatMoney(price)}
             </div>
           );
         })}
       </form>
-      <div style={css.box}>
+      <div style={theme.css.box}>
         <Attributes />
       </div>
-      <div style={css.box}>
+      <div style={theme.css.box}>
         <Brands />
       </div>
       {/* </div> */}

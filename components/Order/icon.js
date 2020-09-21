@@ -4,7 +4,6 @@ import { newOrderCountVar } from "../../apollo/client";
 import { USER } from "../../apollo/action";
 import { FiPackage } from "react-icons/fi";
 import { CountIcon } from "../src/count";
-import { theme } from "../../config";
 const ORDER_COUNT = gql`
   query {
     user @client

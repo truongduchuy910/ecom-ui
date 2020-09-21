@@ -2,20 +2,13 @@ import { gql, useQuery } from "@apollo/client";
 import { Item as Category } from "../Category/item";
 import { Item as Attribute } from "../Attribute/item";
 import { formatMoney } from "../../lib/chip";
-import { Link } from "../src/Link";
-import { css } from "../src/css";
-import { theme } from "../../config/index";
+
 
 import { Item as Brand } from "../Brand/item";
-import {
-  IoIosEasel,
-  IoIosExit,
-  IoIosRemove,
-  IoIosRemoveCircle,
-  IoIosRemoveCircleOutline,
-} from "react-icons/io";
-import { route } from "next/dist/next-server/server/router";
+import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { useRouter } from "next/router";
+import { SellerContext } from "../src/SellerProvider";
+import { useContext } from "react";
 const GET_CATE = gql`
   query($category: String, $attributes: [String], $brand: String) {
     allCategories(where: { url: $category }) {
@@ -35,18 +28,6 @@ const GET_CATE = gql`
     }
   }
 `;
-const localCss = {
-  marginTop: 0,
-  marginBottom: 0,
-  marginRight: 0,
-  marginLeft: theme.spacing(2),
-  padding: 3,
-  color: theme.primary,
-  position: "relative",
-  top: 0,
-  width: 25,
-  height: 25,
-};
 export const Filter = ({
   category = "-",
   brand = "-",
@@ -55,6 +36,8 @@ export const Filter = ({
   price_to,
   attributes,
 }) => {
+  const theme = useContext(SellerContext);
+
   const router = useRouter();
   const variables = {
     category,
@@ -75,6 +58,19 @@ export const Filter = ({
     query.price_to = 999999999;
     router.push({ query });
   };
+
+  const localCss = {
+    marginTop: 0,
+    marginBottom: 0,
+    marginRight: 0,
+    marginLeft: theme.spacing(2),
+    padding: 3,
+    color: theme.primary,
+    position: "relative",
+    top: 0,
+    width: 25,
+    height: 25,
+  };
   return (
     <section
       style={{
@@ -82,10 +78,10 @@ export const Filter = ({
       }}
     >
       {search ? (
-        <div style={css.filter}>
+        <div style={theme.css.filter}>
           <h6
             style={{
-              ...css.h6,
+              ...theme.css.h6,
               display: "inline-block",
               marginRight: theme.spacing(2),
             }}
@@ -97,10 +93,10 @@ export const Filter = ({
         </div>
       ) : null}
       {price_to != 999999999 ? (
-        <div style={css.filter}>
+        <div style={theme.css.filter}>
           <h6
             style={{
-              ...css.h6,
+              ...theme.css.h6,
               display: "inline-block",
               marginRight: theme.spacing(2),
             }}
@@ -113,10 +109,10 @@ export const Filter = ({
       ) : null}
 
       {data?.allCategories.length ? (
-        <div style={css.filter}>
+        <div style={theme.css.filter}>
           <h6
             style={{
-              ...css.h6,
+              ...theme.css.h6,
               display: "inline-block",
               marginRight: theme.spacing(2),
             }}
@@ -130,10 +126,10 @@ export const Filter = ({
         </div>
       ) : null}
       {data?.allAttributes?.length ? (
-        <div style={css.filter}>
+        <div style={theme.css.filter}>
           <h6
             style={{
-              ...css.h6,
+              ...theme.css.h6,
               display: "inline-block",
               marginRight: theme.spacing(2),
             }}
@@ -150,10 +146,10 @@ export const Filter = ({
         </div>
       ) : null}
       {data?.allBrands.length ? (
-        <div style={css.filter}>
+        <div style={theme.css.filter}>
           <h6
             style={{
-              ...css.h6,
+              ...theme.css.h6,
               display: "inline-block",
               marginRight: theme.spacing(2),
             }}

@@ -1,12 +1,11 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment, useContext } from "react";
 import { useRouter } from "next/router";
 import { gql } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 import { onSignIn, init } from "../../apollo/action";
 import { getErrorMessage } from "../../lib/chip";
 import { useApollo } from "../../apollo/client";
-import { css } from "../src/css";
-import { theme } from "../../config/index";
+import { SellerContext } from "../src/SellerProvider";
 
 export const SignInMutation = gql`
   mutation($email: String!, $password: String!) {
@@ -23,6 +22,7 @@ export const SignInMutation = gql`
 `;
 
 export function SignIn() {
+  const theme = useContext(SellerContext);
   const router = useRouter();
   const client = useApollo();
   const [signIn] = useMutation(SignInMutation);
@@ -57,9 +57,9 @@ export function SignIn() {
   }
   return (
     <Fragment>
-      <h2 style={css.h2}>Đăng Nhập</h2>
+      <h2 style={theme.css.h2}>Đăng Nhập</h2>
       <form noValidate onSubmit={handleSubmit}>
-        <h5 style={css.h5}>Tài khoản</h5>
+        <h5 style={theme.css.h5}>Tài khoản</h5>
         <input
           required
           id="email"
@@ -67,13 +67,13 @@ export function SignIn() {
           name="email"
           placeholder="Nhập Tài khoản"
           style={{
-            ...css.input,
+            ...theme.css.input,
             width: "100%",
             marginBottom: theme.spacing(3),
             borderRadius: theme.spacing(2),
           }}
         />
-        <h5 style={css.h5}>Mật khẩu</h5>
+        <h5 style={theme.css.h5}>Mật khẩu</h5>
         <input
           required
           name="password"
@@ -82,7 +82,7 @@ export function SignIn() {
           type="password"
           id="password"
           style={{
-            ...css.input,
+            ...theme.css.input,
             width: "100%",
             borderRadius: theme.spacing(2),
           }}
@@ -91,7 +91,7 @@ export function SignIn() {
         <button
           type="submit"
           style={{
-            ...css.button,
+            ...theme.css.button,
             marginTop: 21,
           }}
         >

@@ -11,20 +11,21 @@ import { Filter } from "../components/Product/filter";
 
 import { css } from "../components/src/css";
 import { HeaderStory } from "../components/UI/HeaderStory";
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Feature } from "../components/UI/Feature";
 import { BgDivider } from "../components/UI/bgDiviver";
 import { MoreProducts } from "../components/UI/moreProducts";
+import { SellerContext } from "../components/src/SellerProvider";
 const Index = () => {
+  const theme = useContext(SellerContext);
   return (
     <Fragment>
       {/* <HeaderStory /> */}
       <div
         style={{
           width: "100%",
-          borderRadius: theme.spacing(2),
           height: "60vh",
-          background: "url(/hypedanang/assets/img/hype-da-nang.jpg)",
+          background: `url(${theme.server + theme.file?.publicUrl})`,
           backgroundSize: "cover",
         }}
       ></div>

@@ -21,7 +21,7 @@ const GET_ATTRIBUTES = gql`
 `;
 export function List({ attributes }) {
   const { data, loading, error } = useQuery(GET_ATTRIBUTES, {
-    variables: { seller: page.seller },
+    variables: { seller: theme.seller },
   });
 
   if (loading) return <Loading />;

@@ -4,17 +4,17 @@ import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { MdCompareArrows, MdDoneAll } from "react-icons/md";
 import {
   removeWishListItem,
-  removeCompareItem,
   addProductToLocalWishlist,
   addProductToLocalCompare,
 } from "../../apollo/action";
 import { useQuery, gql } from "@apollo/client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
-import { theme } from "../../config/index";
-import { css } from "../src/css";
+
+import { SellerContext } from "../src/SellerProvider";
 
 export function ImgProduct({ product, style, onClick }) {
+  const theme = useContext(SellerContext);
   const { data } = useQuery(gql`
     query {
       wishlist @client
@@ -38,7 +38,7 @@ export function ImgProduct({ product, style, onClick }) {
       <img
         src={
           ImgSrcs[imgIndex]
-            ? page.server + ImgSrcs[imgIndex]?.file?.publicUrl
+            ? theme.server + ImgSrcs[imgIndex]?.file?.publicUrl
             : "/assets/img/no-image.jpg"
         }
         onClick={onClick}
@@ -53,7 +53,7 @@ export function ImgProduct({ product, style, onClick }) {
             ? removeWishListItem(product)
             : addProductToLocalWishlist(product)
         }
-        style={css.btnIcon()}
+        style={theme.css.btnIcon()}
       >
         {isInWishlist ? <MdDoneAll /> : <IoIosHeartEmpty />}
       </i>

@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment, useContext } from "react";
 import { useRouter } from "next/router";
 import { gql } from "@apollo/client";
 import { useMutation } from "@apollo/client";
@@ -6,8 +6,9 @@ import { onSignIn, init as reloadApollo } from "../../apollo/action";
 import { getErrorMessage } from "../../lib/chip";
 import { useApollo } from "../../apollo/client";
 import { SignInMutation } from "./signin";
-import { css } from "../src/css";
-import { theme } from "../../config/index";
+import { SellerContext } from "../src/SellerProvider";
+
+
 
 const SignUpMutation = gql`
   mutation($email: String!, $password: String!) {
@@ -18,6 +19,8 @@ const SignUpMutation = gql`
   }
 `;
 export function SignUp() {
+  const theme = useContext(SellerContext);
+
   const [signUp] = useMutation(SignUpMutation);
   const [signIn] = useMutation(SignInMutation);
   const [errorMsg, setErrorMsg] = useState();
@@ -87,22 +90,22 @@ export function SignUp() {
   }
   return (
     <Fragment>
-      <h2 style={css.h2}>Đăng Ký Tài Khoản</h2>
+      <h2 style={theme.css.h2}>Đăng Ký Tài Khoản</h2>
       <form noValidate onSubmit={handleSubmit}>
-        <h5 style={css.h5}>Tài khoản</h5>
+        <h5 style={theme.css.h5}>Tài khoản</h5>
         <input
           required
           label="Tài khoản"
           name="email"
           placeholder="Nhập Tài khoản"
           style={{
-            ...css.input,
+            ...theme.css.input,
             width: "100%",
             marginBottom: theme.spacing(3),
             borderRadius: theme.spacing(2),
           }}
         />
-        <h5 style={css.h5}>Mật khẩu</h5>
+        <h5 style={theme.css.h5}>Mật khẩu</h5>
         <input
           required
           name="password"
@@ -110,13 +113,13 @@ export function SignUp() {
           placeholder="Nhập Mật khẩu"
           type="password"
           style={{
-            ...css.input,
+            ...theme.css.input,
             width: "100%",
             marginBottom: theme.spacing(3),
             borderRadius: theme.spacing(2),
           }}
         />
-        <h5 style={css.h5}>Nhập Lại Mật Khẩu</h5>
+        <h5 style={theme.css.h5}>Nhập Lại Mật Khẩu</h5>
 
         <input
           required
@@ -125,7 +128,7 @@ export function SignUp() {
           placeholder="Nhập Lại Mật Khẩu"
           type="password"
           style={{
-            ...css.input,
+            ...theme.css.input,
             width: "100%",
             marginBottom: theme.spacing(3),
             borderRadius: theme.spacing(2),
@@ -135,7 +138,7 @@ export function SignUp() {
         <button
           type="submit"
           style={{
-            ...css.button,
+            ...theme.css.button,
           }}
         >
           Đăng Ký

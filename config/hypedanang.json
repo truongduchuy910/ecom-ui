@@ -10,9 +10,6 @@
         },
         "name": "HYPE - Sneakers & Accessories Đà Nẵng",
         "server": "http://localhost:6007",
-        "seller": {
-            "id": "5e4c2235ea30da18df1c210f"
-        },
         "divider": "/yensaodatquang/assets/img/divider.png",
         "signInBg": "/yensaodatquang/assets/img/nha-yen-1.jpg",
         "prices": [

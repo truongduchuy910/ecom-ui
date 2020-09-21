@@ -5,16 +5,15 @@ import {
   UncontrolledDropdown,
 } from "reactstrap";
 import { gql, useQuery } from "@apollo/client";
-import { getErrorMessage } from "../../lib/chip";
-import { page } from "../../config/index";
 
 import { Link } from "../src/Link";
 import { USER } from "../../apollo/action";
-import { Fragment } from "react";
-import { IoIosLogIn } from "react-icons/io";
+
 import { AiOutlineUser } from "react-icons/ai";
-import { theme } from "../../config/index";
-import { css } from "../src/css";
+
+
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput) {
     allCategories(where: { seller: $seller }) {
@@ -25,6 +24,7 @@ const GET_CATEGORIES = gql`
   }
 `;
 export function CategoriesDropdownMenu({ onClick }) {
+  const theme = useContext(SellerContext);
   const { data } = useQuery(USER);
   return typeof window !== "undefined" ? (
     data?.user?.id ? (
@@ -34,7 +34,7 @@ export function CategoriesDropdownMenu({ onClick }) {
           caret
           style={{ color: theme.primary, margin: 0, padding: 0 }}
         >
-          <AiOutlineUser style={css.iconBorder} />
+          <AiOutlineUser style={theme.css.iconBorder} />
         </DropdownToggle>
         <DropdownMenu
           right
@@ -61,7 +61,7 @@ export function CategoriesDropdownMenu({ onClick }) {
         href="/signin"
         style={{ color: theme.primary, margin: 0, padding: 0 }}
       >
-        <AiOutlineUser style={css.iconBorder} />
+        <AiOutlineUser style={theme.css.iconBorder} />
       </Link>
     )
   ) : (

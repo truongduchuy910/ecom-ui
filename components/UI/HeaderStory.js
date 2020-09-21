@@ -1,7 +1,7 @@
 import { ListBanner } from "../Banner/list";
 import { theme } from "../../config";
 import { Container, Row, Col } from "reactstrap";
-import { css } from "../src/css";
+
 import { PlayButton } from "./PlayButton";
 import { useSpring } from "react-spring";
 import { IoIosBasket } from "react-icons/io";
@@ -16,7 +16,7 @@ export const HeaderStory = () => {
         <Row>
           <Col xs={12} md={6} style={{ display: "flex", alignItems: "center" }}>
             <div>
-              <h1 style={{ ...css.h1, marginBottom: theme.spacing(4) }}>
+              <h1 style={{ ...theme.css.h1, marginBottom: theme.spacing(4) }}>
                 Câu Chuyện Sản Phẩm
               </h1>
               {/* <p>

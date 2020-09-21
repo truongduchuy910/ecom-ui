@@ -1,28 +1,14 @@
 import { gql, useQuery } from "@apollo/client";
 import { Item } from "./item";
-import { page, theme } from "../../config/index";
 
 import { getErrorMessage } from "../../lib/chip";
 import { Loading } from "../src/Loading";
-import { css } from "../src/css";
-import { useState } from "react";
+
+import { useContext, useState } from "react";
 import {
-  IoIosArchive,
-  IoIosStarOutline,
-  IoIosCheckbox,
-  IoIosCheckmark,
-  IoIosCheckboxOutline,
-  IoIosContact,
-  IoIosHome,
-  IoIosAdd,
-  IoIosFlag,
-  IoIosFlashlight,
-  IoIosBusiness,
-  IoIosCash,
-  IoIosDesktop,
-  IoIosOptions,
   IoIosBookmark,
 } from "react-icons/io";
+import { SellerContext } from "../src/SellerProvider";
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput) {
     allBrands(where: { seller: $seller }) {
@@ -33,16 +19,18 @@ const GET_CATEGORIES = gql`
   }
 `;
 export function List() {
+  const theme = useContext(SellerContext);
+
   const { data, loading, error } = useQuery(GET_CATEGORIES, {
-    variables: { seller: page.seller },
+    variables: { seller: theme.seller },
   });
   const [open, setOpen] = useState(false);
   if (loading) return <Loading />;
   if (error) return <i color="danger">{getErrorMessage(error)}</i>;
   return !loading && data ? (
     <div>
-      <h5 style={css.h5}>
-        <IoIosBookmark style={css.iconHeader} /> Thương Hiệu
+      <h5 style={theme.css.h5}>
+        <IoIosBookmark style={theme.css.iconHeader} /> Thương Hiệu
       </h5>
       <Item brand={{ id: "all-brand", name: "Tất Cả ", url: "all" }} />
       {data?.allBrands

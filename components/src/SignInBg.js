@@ -5,7 +5,7 @@ export function SignInBg({ children, style }) {
     <div
       style={{
         ...style,
-        background: `url(${page.signInBg})`,
+        background: `url(${theme.signInBg})`,
         backgroundSize: "cover",
       }}
     >

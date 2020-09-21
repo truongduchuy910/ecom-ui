@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { Row, Container, Col } from "reactstrap";
 import { theme } from "../../config";
-import { css } from "../src/css";
+import { SellerContext } from "../src/SellerProvider";
+
 import { TextWrap } from "./TextWrap";
 const Item = ({ src, title = "", content = "" }) => {
+  const theme = useContext(SellerContext);
   return (
     <div
       style={{
@@ -40,6 +43,8 @@ const Item = ({ src, title = "", content = "" }) => {
   );
 };
 export const Feature = () => {
+  const theme = useContext(SellerContext);
+
   return (
     <section
       style={{
@@ -60,7 +65,9 @@ export const Feature = () => {
           >
             Thương Hiệu
           </h5>
-          <h2 style={{ ...css.h2, textAlign: "center", fontWeight: "bold" }}>
+          <h2
+            style={{ ...theme.css.h2, textAlign: "center", fontWeight: "bold" }}
+          >
             Chất Lượng. Cao Cấp. Tinh Túy.
           </h2>
           <p style={{ textAlign: "center", marginBottom: theme.spacing(5) }}>

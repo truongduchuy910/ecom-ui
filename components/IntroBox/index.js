@@ -1,18 +1,17 @@
+import { useContext } from "react";
 import { Container, Row, Col } from "reactstrap";
 
-import { Box } from "../src/Box";
-import { Divider } from "../src/Divider";
-import { List as Products } from "../Product/list";
-import { BirdBg } from "../src/BirdBg";
-import { css } from "../src/css";
-import { theme } from "../../config/index";
+
+import { SellerContext } from "../src/SellerProvider";
 
 export function IntroBox() {
+  const theme = useContext(SellerContext);
+
   return (
-    <div style={{ ...css.box, marginTop: theme.spacing(4) }}>
+    <div style={{ ...theme.css.box, marginTop: theme.spacing(4) }}>
       <Row style={{ padding: theme.spacing(2) }}>
         <Col xs={12} md={6}>
-          <h1 style={{ ...css.h2, textAlign: "center" }}>
+          <h1 style={{ ...theme.css.h2, textAlign: "center" }}>
             Câu Chuyện Sản Phẩm
           </h1>
           <p>

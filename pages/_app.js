@@ -6,55 +6,28 @@ import MenuApp from "../components/MenuApp/index";
 import { useApollo } from "../apollo/client";
 import { Footer } from "../components/src/Footer";
 import { FacebookProvider, CustomChat } from "react-facebook";
-import { theme } from "../config/index";
-import { Query } from "../components/src/Query";
+
 import { createContext, Fragment, useContext } from "react";
+import { SellerProvider } from "../components/src/SellerProvider";
 export const sellerContext = createContext();
-export default function App({ Component, pageProps }) {
+function App(props) {
+  const { Component, pageProps } = props;
   const apolloClient = useApollo(pageProps.initialApolloState);
 
   return (
-    <ApolloProvider client={apolloClient}>
-      <Query
-        query={gql`
-          query($host: String) {
-            allUsers(where: { host: $host }) {
-              id
-              email
-              store
-              slogan
-              intro
-              contact
-              color
-              backgroundColor
-              productBackgroundColor
-              file {
-                publicUrl
-              }
-            }
-          }
-        `}
-        variables={{
-          host:
-            typeof window != "undefined" && window
-              ? window.location.host
-              : null,
-        }}
-      >
-        {({ data, error, loading }) => {
-          const seller = data?.allUsers[0];
-          return (
-            <Fragment>
-              <FacebookProvider appId="404979820059541" chatSupport>
-                <CustomChat pageId="1627025060846047" minimized={false} />
-              </FacebookProvider>
-              <MenuApp />
-              <Component {...pageProps} {...seller} />
-              <Footer />
-            </Fragment>
-          );
-        }}
-      </Query>
-    </ApolloProvider>
+    <Fragment>
+      <ApolloProvider client={apolloClient}>
+        <SellerProvider>
+          <header>
+            <MenuApp />
+          </header>
+          <main style={{ paddingTop: 68, minHeight: "60vh" }}>
+            <Component {...pageProps} />
+          </main>
+          <Footer />
+        </SellerProvider>
+      </ApolloProvider>
+    </Fragment>
   );
 }
+export default App;

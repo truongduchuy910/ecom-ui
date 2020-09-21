@@ -1,17 +1,14 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment, useContext } from "react";
 import { gql, useQuery, rewriteURIForGET } from "@apollo/client";
-import { useRouter, withRouter, Router } from "next/router";
 import { Item as Product } from "./item";
 import { Container, Row, Col, Spinner } from "reactstrap";
-import { page } from "../../config/index";
 
 import { toSlug } from "../../lib/chip";
 import { Loading } from "../src/Loading";
 
-import { theme } from "../../config/index";
-
 import { MoreProducts } from "../UI/moreProducts";
-import { css } from "../src/css";
+
+import { SellerContext } from "../src/SellerProvider";
 const GET_PRODUCTS = gql`
   query(
     $first: Int
@@ -96,6 +93,7 @@ export const List = ({
   search,
   except,
 }) => {
+  const theme = useContext(SellerContext);
   let variables = {
     first,
     skip,
@@ -105,7 +103,7 @@ export const List = ({
     attributes,
     orderBy,
     suggestions,
-    seller: page.seller,
+    seller: theme.seller,
     price_from,
     price_to: price_to ? price_to : 999999999,
     except,
@@ -172,7 +170,7 @@ export const List = ({
       {title ? (
         <h2
           style={{
-            ...css.h2,
+            ...theme.css.h2,
             textAlign: "center",
             marginBottom: theme.spacing(5),
           }}

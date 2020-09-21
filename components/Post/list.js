@@ -1,12 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
-import { Item } from "./item";
-import { page, theme } from "../../config/index";
 
-import { getErrorMessage } from "../../lib/chip";
 import { Loading } from "../src/Loading";
-import { css } from "../src/css";
-import { IoIosOptions } from "react-icons/io";
-import { useState } from "react";
+
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {
     allPosts(where: { seller: $seller }) {
@@ -19,7 +14,7 @@ const GET_ATTRIBUTES = gql`
 `;
 export function List({ attributes }) {
   const { data, loading, error } = useQuery(GET_ATTRIBUTES, {
-    variables: { seller: page.seller },
+    variables: { seller: theme.seller },
   });
 
   if (loading || error) return <Loading />;
@@ -28,7 +23,7 @@ export function List({ attributes }) {
   return !loading && data ? (
     <div>
       <img
-        src={page.server + data.allPosts[0]?.file?.publicUrl}
+        src={theme.server + data.allPosts[0]?.file?.publicUrl}
         style={{ borderRadius: 15 }}
       />
 

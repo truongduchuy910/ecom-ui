@@ -3,11 +3,13 @@ import { Box } from "./Box";
 import { BirdBg } from "./BirdBg";
 import { page } from "../../config/index";
 
-import { theme } from "../../config/index";
-
-import { css } from "../src/css";
+import { useContext } from "react";
+import { SellerContext } from "./SellerProvider";
+import FacebookProvider from "react-facebook/dist/FacebookProvider";
+import CustomChat from "react-facebook/dist/CustomChat";
 
 export const Footer = () => {
+  const theme = useContext(SellerContext);
   return (
     <div style={{ backgroundColor: theme.backgroundColor }}>
       <Container
@@ -18,29 +20,32 @@ export const Footer = () => {
       >
         <Row>
           <Col xs={12} md={6} style={{ marginBottom: theme.spacing(4) }}>
-            <h2 style={css.h2}>{page.intro.name}</h2>
+            <h2 style={theme.css.h2}>Giới Thiệu</h2>
             <div
               style={{
                 color: theme.color,
                 display: "inline",
               }}
             >
-              {page.intro.content}
+              {theme.intro}
             </div>
           </Col>
           <Col xs={12} md={6} style={{ marginBottom: theme.spacing(4) }}>
-            <h2 style={css.h2}>{page.term.name}</h2>
+            <h2 style={theme.css.h2}>Liên Hệ</h2>
             <div
               style={{
                 color: theme.color,
                 display: "inline",
               }}
             >
-              {page.term.content}
+              {theme.contact}
             </div>
           </Col>
         </Row>
       </Container>
+      <FacebookProvider appId="404979820059541" chatSupport>
+        <CustomChat pageId={theme?.pageId} minimized={false} />
+      </FacebookProvider>
     </div>
   );
 };

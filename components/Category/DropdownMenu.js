@@ -20,7 +20,7 @@ const GET_CATEGORIES = gql`
 `;
 export function CategoriesDropdownMenu() {
   const { data, loading, error } = useQuery(GET_CATEGORIES, {
-    variables: { seller: page.seller },
+    variables: { seller: theme.seller },
   });
   if (error) return null;
   if (loading) return null;

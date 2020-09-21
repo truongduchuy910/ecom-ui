@@ -1,16 +1,11 @@
 import { gql, useQuery } from "@apollo/client";
 import { Item } from "./item";
-import { Fragment, useState } from "react";
-import { useRouter } from "next/router";
-import { Link } from "../src/Link";
-import { queryVar } from "../../apollo/action";
-import { page, theme } from "../../config/index";
-
-import { Spinner, Alert } from "reactstrap";
+import { useContext, useState } from "react";
 import { getErrorMessage } from "../../lib/chip";
 import { Loading } from "../src/Loading";
-import { css } from "../src/css";
-import { IoIosColorFilter, IoIosAdd, IoIosAnalytics, IoIosCompass, IoIosCheckbox, IoIosCheckboxOutline, IoIosCheckmark, IoIosAirplane, IoIosArrowDropup, IoIosBackspace, IoIosBookmark, IoIosOptions } from "react-icons/io";
+
+import { IoIosOptions } from "react-icons/io";
+import { SellerContext } from "../src/SellerProvider";
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {
     allAttributes(where: { seller: $seller }) {
@@ -21,8 +16,10 @@ const GET_ATTRIBUTES = gql`
   }
 `;
 export function List({ attributes }) {
+  const theme = useContext(SellerContext);
+
   const { data, loading, error } = useQuery(GET_ATTRIBUTES, {
-    variables: { seller: page.seller },
+    variables: { seller: theme.seller },
   });
   const [open, setOpen] = useState(false);
 
@@ -32,8 +29,8 @@ export function List({ attributes }) {
   let source = attributes ? attributes : data.allAttributes;
   return !loading && data ? (
     <div>
-      <h5 style={css.h5}>
-        <IoIosOptions style={css.iconHeader} />
+      <h5 style={theme.css.h5}>
+        <IoIosOptions style={theme.css.iconHeader} />
         Thuộc Tính
       </h5>
       <Item attribute={{ id: "all-attribute", name: "Tất Cả", url: "all" }} />
