@@ -13,14 +13,17 @@ import { theme } from "../../config/index";
 
 import { css } from "../src/css";
 import { useQuery, gql } from "@apollo/client";
-const GET_USER = gql`
-  query {
-    user @client
-  }
-`;
 export default function MenuApp() {
   const router = useRouter();
-  const { data } = useQuery(GET_USER);
+
+  const { data } = useQuery(
+    gql`
+      query {
+        user @client
+      }
+    `,
+    {}
+  );
   const isLogin = data?.user;
   // ANIMATION
 

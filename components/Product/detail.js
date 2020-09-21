@@ -27,7 +27,8 @@ const GET_CART = gql`
     cartItems @client
   }
 `;
-export function Product({ product }) {
+export function Product({ product, seller }) {
+  console.log(seller);
   const { data } = useQuery(GET_CART);
   const isIncart = data?.cartItems?.some(
     (item) => item.product.id === product.id

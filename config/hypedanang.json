@@ -9,7 +9,7 @@
             "content": "Chuyên cung cấp nguồn yến sào tự dẫn dụ và khai thác. Với công nghệ giả hang đá tự nhiên. Chất lượng tổ Yến của chúng tôi đã làm hài lòng tất cả khách hàng."
         },
         "name": "HYPE - Sneakers & Accessories Đà Nẵng",
-        "server": "https://ecommerce.loaloa.tech",
+        "server": "http://localhost:6007",
         "seller": {
             "id": "5e4c2235ea30da18df1c210f"
         },
