@@ -1,4 +1,4 @@
-import { page } from "../../config/index";
+
 
 export function SignInBg({ children, style }) {
   return (

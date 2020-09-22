@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { useRouter } from "next/router";
 import { Link } from "../src/Link";
 import { queryVar } from "../../apollo/action";
-import { page } from "../../config/index";
+
 
 import { Spinner } from "reactstrap";
 const GET_ATTRIBUTES = gql`

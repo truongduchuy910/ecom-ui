@@ -1,9 +1,10 @@
-import { theme } from "../../config";
 import { Container, Row, Col } from "reactstrap";
 import { TextWrap } from "./TextWrap";
-
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
 
 export const BgDivider = () => {
+  const theme = useContext(SellerContext);
   return (
     <section
       style={{

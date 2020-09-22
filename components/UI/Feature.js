@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Row, Container, Col } from "reactstrap";
-import { theme } from "../../config";
 import { SellerContext } from "../src/SellerProvider";
 
 import { TextWrap } from "./TextWrap";
@@ -25,7 +24,7 @@ const Item = ({ src, title = "", content = "" }) => {
           top: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0,0,0,0.3)",
+          backgroundColor: "rgba(0,0,0,0.4)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -33,8 +32,14 @@ const Item = ({ src, title = "", content = "" }) => {
         }}
       >
         <div>
-          <h2 style={{ fontWeight: "bold" }}>{title}</h2>
-          <p style={{ textTransform: "uppercase", fontWeight: "bold" }}>
+          <h2 style={{ fontWeight: "bold", color: "white" }}>{title}</h2>
+          <p
+            style={{
+              textTransform: "uppercase",
+              fontWeight: "bold",
+              color: "white",
+            }}
+          >
             {content}
           </p>
         </div>

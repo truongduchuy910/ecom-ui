@@ -3,7 +3,7 @@ import { Icon as CartIcon } from "../Cart/icon";
 import { Icon as WishlistIcon } from "../Wishlist/icon";
 import { Icon as OrderIcon } from "../Order/icon";
 import { Container } from "reactstrap";
-import { page } from "../../config/index";
+import { Logo } from "../src/logo";
 import { useRouter } from "next/router";
 
 import { useQuery, gql } from "@apollo/client";
@@ -36,7 +36,7 @@ export default function MenuApp() {
         border: "1px solid rgba(0,0,0,0.05)",
       }}
     >
-      <Container>
+      <Container fluid>
         <div
           style={{
             display: "flex",
@@ -45,28 +45,28 @@ export default function MenuApp() {
             width: "100%",
           }}
         >
-          {/* <Logo
+          <Logo
             style={{
               float: "left",
               marginLeft: theme.spacing(3),
+              marginRight: theme.spacing(3),
               minHeight: 40,
             }}
             onClick={() => {
               router.push("/");
             }}
-          /> */}
+          />
           <h1
             style={{
               float: "left",
               marginLeft: theme.spacing(3),
-              fontSize: "1.2rem",
+              fontSize: "0.9rem",
               width: "100%",
               padding: 0,
-              marginBottom: 0,
+              margin: 0,
               color: theme.primary,
-              fontWeight: "bold",
               cursor: "pointer",
-              textTransform: "uppercase",
+              wordWrap: "initial",
             }}
             onClick={() => {
               router.push("/");
@@ -74,7 +74,6 @@ export default function MenuApp() {
           >
             {theme.store}
           </h1>
-
           <WishlistIcon
             style={{
               ...theme.css.iconBorder,

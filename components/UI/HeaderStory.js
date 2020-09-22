@@ -1,13 +1,13 @@
 import { ListBanner } from "../Banner/list";
-import { theme } from "../../config";
 import { Container, Row, Col } from "reactstrap";
 
 import { PlayButton } from "./PlayButton";
-import { useSpring } from "react-spring";
-import { IoIosBasket } from "react-icons/io";
-import { Link } from "../src/Link";
+
 import { MoreProducts } from "./moreProducts";
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
 export const HeaderStory = () => {
+  const theme = useContext(SellerContext);
   return (
     <section
       style={{ marginTop: theme.spacing(5), marginBottom: theme.spacing(5) }}
@@ -72,7 +72,17 @@ export const HeaderStory = () => {
                 marginBottom: theme.spacing(4),
               }}
             >
-              <ListBanner style={{ height: "60vh" }} />
+              {/* <ListBanner style={{ height: "60vh" }} /> */}
+              <div
+                style={{
+                  width: "100%",
+                  height: "60vh",
+                  background: `url(${theme.server + theme.file?.publicUrl})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  borderRadius: theme.spacing(2),
+                }}
+              ></div>
               <PlayButton />
             </div>
           </Col>

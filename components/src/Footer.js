@@ -1,7 +1,6 @@
 import { Container, Row, Col } from "reactstrap";
 import { Box } from "./Box";
 import { BirdBg } from "./BirdBg";
-import { page } from "../../config/index";
 
 import { useContext } from "react";
 import { SellerContext } from "./SellerProvider";
@@ -13,6 +12,7 @@ export const Footer = () => {
   return (
     <div style={{ backgroundColor: theme.backgroundColor }}>
       <Container
+        fluid
         style={{
           paddingTop: theme.spacing(5),
           paddingBottom: theme.spacing(5),

@@ -11,7 +11,7 @@ import {
 import { useMutation, useQuery } from "@apollo/client";
 import { Loading } from "../src/Loading";
 import { useRouter } from "next/router";
-import { page } from "../../config/index";
+
 import { SellerContext } from "../src/SellerProvider";
 export const QuickCart = ({ cartItems }) => {
   const theme = useContext(SellerContext);
@@ -46,7 +46,7 @@ export const QuickCart = ({ cartItems }) => {
               createOrderItems,
               createOrder,
               dataOICI,
-              page,
+              theme,
               customer,
               sum,
               router,

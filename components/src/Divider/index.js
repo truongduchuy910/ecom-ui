@@ -1,4 +1,3 @@
-import { page } from "../../../config/index";
 
 export function Divider() {
   return (

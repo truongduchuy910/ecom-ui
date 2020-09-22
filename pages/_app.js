@@ -1,7 +1,7 @@
 import { ApolloProvider, gql, useQuery } from "@apollo/client";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../public/yensaodatquang/assets/css/style.css";
+// import "../public/yensaodatquang/assets/css/style.css";
 import MenuApp from "../components/MenuApp/index";
 import { useApollo } from "../apollo/client";
 import { Footer } from "../components/src/Footer";
@@ -9,7 +9,6 @@ import { FacebookProvider, CustomChat } from "react-facebook";
 
 import { createContext, Fragment, useContext } from "react";
 import { SellerProvider } from "../components/src/SellerProvider";
-export const sellerContext = createContext();
 function App(props) {
   const { Component, pageProps } = props;
   const apolloClient = useApollo(pageProps.initialApolloState);

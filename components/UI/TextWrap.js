@@ -1,6 +1,8 @@
-import { theme } from "../../config";
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
 
 export const TextWrap = ({ children, style }) => {
+  const theme = useContext(SellerContext);
   return (
     <div
       style={{

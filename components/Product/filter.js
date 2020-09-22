@@ -3,12 +3,11 @@ import { Item as Category } from "../Category/item";
 import { Item as Attribute } from "../Attribute/item";
 import { formatMoney } from "../../lib/chip";
 
-
 import { Item as Brand } from "../Brand/item";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { useRouter } from "next/router";
 import { SellerContext } from "../src/SellerProvider";
-import { useContext } from "react";
+import { Fragment, useContext } from "react";
 const GET_CATE = gql`
   query($category: String, $attributes: [String], $brand: String) {
     allCategories(where: { url: $category }) {
@@ -59,18 +58,6 @@ export const Filter = ({
     router.push({ query });
   };
 
-  const localCss = {
-    marginTop: 0,
-    marginBottom: 0,
-    marginRight: 0,
-    marginLeft: theme.spacing(2),
-    padding: 3,
-    color: theme.primary,
-    position: "relative",
-    top: 0,
-    width: 25,
-    height: 25,
-  };
   return (
     <section
       style={{
@@ -89,7 +76,7 @@ export const Filter = ({
             Tìm kiếm:
           </h6>
           <a style={{ color: theme.color }}>{search}</a>
-          <IoIosRemoveCircleOutline onClick={removeSearch} style={localCss} />
+          <IoIosRemoveCircleOutline onClick={removeSearch} style={theme.css.removeIcon} />
         </div>
       ) : null}
       {price_to != 999999999 ? (
@@ -101,10 +88,10 @@ export const Filter = ({
               marginRight: theme.spacing(2),
             }}
           >
-            Giá:{" "}
+            Giá:
           </h6>
           {formatMoney(price_from)} - {formatMoney(price_to)}
-          <IoIosRemoveCircleOutline onClick={removePrice} style={localCss} />
+          <IoIosRemoveCircleOutline onClick={removePrice} style={theme.css.removeIcon} />
         </div>
       ) : null}
 
@@ -117,7 +104,7 @@ export const Filter = ({
               marginRight: theme.spacing(2),
             }}
           >
-            Danh mục:{" "}
+            Danh mục:
           </h6>
           <Category
             category={data?.allCategories[0]}
@@ -135,13 +122,16 @@ export const Filter = ({
             }}
           >
             Thuộc Tính:
-          </h6>{" "}
+          </h6>
           {data?.allAttributes.map((attribute) => (
-            <Attribute
-              key={attribute.id}
-              attribute={attribute}
-              style={{ display: "inline", marginRight: 8 }}
-            />
+            <Fragment>
+              <Attribute
+                key={attribute.id}
+                attribute={attribute}
+                style={{ display: "inline", marginRight: 8 }}
+                removeIcon
+              />
+            </Fragment>
           ))}
         </div>
       ) : null}
@@ -155,7 +145,7 @@ export const Filter = ({
             }}
           >
             Thương Hiệu:
-          </h6>{" "}
+          </h6>
           <Brand
             brand={data?.allBrands[0]}
             style={{ display: "inline-block" }}

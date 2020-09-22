@@ -6,7 +6,7 @@ import { SellerContext } from "../src/SellerProvider";
 export const Item = ({ product }) => {
   const theme = useContext(SellerContext);
   return (
-    <>
+    <div style={{ display: "block" }}>
       <th>
         <img
           src={
@@ -23,6 +23,6 @@ export const Item = ({ product }) => {
           {product.name}
         </Link>
       </th>
-    </>
+    </div>
   );
 };

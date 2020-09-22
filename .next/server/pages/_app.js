@@ -93,13 +93,6 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "+LRL":
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"page\":{\"term\":{\"name\":\"Thông tin\",\"content\":\"Địa chỉ: thôn Trà Đóa, xã Bình Đào, huyện Thăng Bình, tỉnh Quảng Nam. \\nMã số thuế: 4001040242. \\nĐiện thoại: 0914758179 (chị Vinh), 0973799915 (anh Long)\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Chuyên cung cấp nguồn yến sào tự dẫn dụ và khai thác. Với công nghệ giả hang đá tự nhiên. Chất lượng tổ Yến của chúng tôi đã làm hài lòng tất cả khách hàng.\"},\"name\":\"HYPE - Sneakers & Accessories Đà Nẵng\",\"server\":\"http://localhost:6007\",\"divider\":\"/yensaodatquang/assets/img/divider.png\",\"signInBg\":\"/yensaodatquang/assets/img/nha-yen-1.jpg\",\"prices\":[200000,500000,1000000,2000000,5000000]},\"theme\":{\"backgroundColor\":\"#343a40\",\"color\":\"white\",\"secondary\":\"#a9a9a9\",\"primary\":\"white\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"#222\"}}");
-
-/***/ }),
-
 /***/ "/WcL":
 /***/ (function(module, exports) {
 
@@ -172,9 +165,6 @@ function withRouter(ComposedComponent) {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, "sellerContext", function() { return /* binding */ sellerContext; });
-
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__("cDcd");
 var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
@@ -184,9 +174,6 @@ var client_ = __webpack_require__("z+8S");
 
 // EXTERNAL MODULE: ./node_modules/bootstrap/dist/css/bootstrap.min.css
 var bootstrap_min = __webpack_require__("q4sD");
-
-// EXTERNAL MODULE: ./public/yensaodatquang/assets/css/style.css
-var css_style = __webpack_require__("Avfn");
 
 // EXTERNAL MODULE: external "reactstrap"
 var external_reactstrap_ = __webpack_require__("oL/c");
@@ -304,12 +291,6 @@ function Icon({
     count: count
   }) : null);
 }
-// EXTERNAL MODULE: external "react-icons/fi"
-var fi_ = __webpack_require__("C9pf");
-
-// EXTERNAL MODULE: ./config/index.js
-var config = __webpack_require__("rOcY");
-
 // CONCATENATED MODULE: ./components/Wishlist/icon.js
 
 var Wishlist_icon_jsx = external_react_default.a.createElement;
@@ -333,6 +314,7 @@ function icon_Icon({
 }) {
   var _data$wishlist;
 
+  const theme = Object(external_react_["useContext"])(SellerProvider["a" /* SellerContext */]);
   const {
     data,
     loading,
@@ -354,6 +336,9 @@ function icon_Icon({
 }
 // EXTERNAL MODULE: ./apollo/client.js
 var client = __webpack_require__("rbTy");
+
+// EXTERNAL MODULE: external "react-icons/fi"
+var fi_ = __webpack_require__("C9pf");
 
 // CONCATENATED MODULE: ./components/Order/icon.js
 
@@ -407,6 +392,34 @@ function Order_icon_Icon({
     count: (_data3 = data) === null || _data3 === void 0 ? void 0 : (_data3$_allOrdersMeta = _data3._allOrdersMeta) === null || _data3$_allOrdersMeta === void 0 ? void 0 : _data3$_allOrdersMeta.count
   })) : null;
 }
+// CONCATENATED MODULE: ./components/src/logo.js
+
+var logo_jsx = external_react_default.a.createElement;
+
+function logo_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function logo_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { logo_ownKeys(Object(source), true).forEach(function (key) { logo_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { logo_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function logo_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+function Logo({
+  onClick,
+  style
+}) {
+  var _theme$logo;
+
+  const theme = Object(external_react_["useContext"])(SellerProvider["a" /* SellerContext */]);
+  return logo_jsx("img", {
+    src: (theme === null || theme === void 0 ? void 0 : theme.server) + (theme === null || theme === void 0 ? void 0 : (_theme$logo = theme.logo) === null || _theme$logo === void 0 ? void 0 : _theme$logo.publicUrl),
+    style: logo_objectSpread(logo_objectSpread({}, style), {}, {
+      padding: 0,
+      maxWidth: 40
+    }),
+    onClick: onClick
+  });
+}
 // EXTERNAL MODULE: external "next/router"
 var router_ = __webpack_require__("4Q3z");
 
@@ -453,25 +466,36 @@ function MenuApp() {
       paddingBottom: theme.spacing(3),
       border: "1px solid rgba(0,0,0,0.05)"
     }
-  }, MenuApp_jsx(external_reactstrap_["Container"], null, MenuApp_jsx("div", {
+  }, MenuApp_jsx(external_reactstrap_["Container"], {
+    fluid: true
+  }, MenuApp_jsx("div", {
     style: {
       display: "flex",
       alignItems: "center",
       height: 40,
       width: "100%"
     }
-  }, MenuApp_jsx("h1", {
+  }, MenuApp_jsx(Logo, {
     style: {
       float: "left",
       marginLeft: theme.spacing(3),
-      fontSize: "1.2rem",
+      marginRight: theme.spacing(3),
+      minHeight: 40
+    },
+    onClick: () => {
+      router.push("/");
+    }
+  }), MenuApp_jsx("h1", {
+    style: {
+      float: "left",
+      marginLeft: theme.spacing(3),
+      fontSize: "0.9rem",
       width: "100%",
       padding: 0,
-      marginBottom: 0,
+      margin: 0,
       color: theme.primary,
-      fontWeight: "bold",
       cursor: "pointer",
-      textTransform: "uppercase"
+      wordWrap: "initial"
     },
     onClick: () => {
       router.push("/");
@@ -542,7 +566,6 @@ var Footer_jsx = external_react_default.a.createElement;
 
 
 
-
 const Footer = () => {
   const theme = Object(external_react_["useContext"])(SellerProvider["a" /* SellerContext */]);
   return Footer_jsx("div", {
@@ -550,6 +573,7 @@ const Footer = () => {
       backgroundColor: theme.backgroundColor
     }
   }, Footer_jsx(external_reactstrap_["Container"], {
+    fluid: true,
     style: {
       paddingTop: theme.spacing(5),
       paddingBottom: theme.spacing(5)
@@ -595,6 +619,7 @@ var external_react_facebook_ = __webpack_require__("ekOq");
 
 var _app_jsx = external_react_default.a.createElement;
 
+ // import "../public/yensaodatquang/assets/css/style.css";
 
 
 
@@ -602,8 +627,6 @@ var _app_jsx = external_react_default.a.createElement;
 
 
 
-
-const sellerContext = Object(external_react_["createContext"])();
 
 function App(props) {
   const {
@@ -854,13 +877,6 @@ function BirdBg({
     }
   }, children);
 }
-
-/***/ }),
-
-/***/ "Avfn":
-/***/ (function(module, exports) {
-
-
 
 /***/ }),
 
@@ -2745,6 +2761,9 @@ const SellerProvider = ({
             file {
               publicUrl
             }
+            logo {
+              publicUrl
+            }
             store
             slogan
             intro
@@ -2752,7 +2771,6 @@ const SellerProvider = ({
             color
             primary
             backgroundColor
-            descriptionBackgroundColor
             productBackgroundColor
             pageId
           }
@@ -2878,7 +2896,7 @@ const css = theme => ({
   },
   filter: {
     color: theme.color,
-    backgroundColor: theme.backgroundColor,
+    backgroundColor: theme.productBackgroundColor,
     borderRadius: spacing(1),
     border: "1px solid rgba(0,0,0,0.05)",
     padding: spacing(2),
@@ -2886,7 +2904,6 @@ const css = theme => ({
     paddingRight: spacing(3),
     display: "inline-block",
     boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
-    marginTop: spacing(4),
     marginBottom: spacing(3),
     marginLeft: spacing(3),
     fontSize: "0.9rem",
@@ -2907,6 +2924,18 @@ const css = theme => ({
     height: 35,
     padding: 8,
     fontSize: "1rem"
+  },
+  removeIcon: {
+    marginTop: 0,
+    marginBottom: 0,
+    marginRight: 0,
+    marginLeft: spacing(2),
+    padding: 3,
+    color: theme.primary,
+    position: "relative",
+    top: 0,
+    width: 25,
+    height: 25
   }
 });
 
@@ -3101,37 +3130,6 @@ module.exports = require("reactstrap");
 
 /***/ }),
 
-/***/ "rOcY":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return page; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return theme; });
-/* harmony import */ var _hypedanang_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("+LRL");
-var _hypedanang_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t("+LRL", 1);
-/* harmony import */ var _components_src_SellerProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("htFV");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-const spacing = [0, 5, 8, 13, 21, 34, 55, 89];
-const page = _objectSpread(_objectSpread({}, _hypedanang_json__WEBPACK_IMPORTED_MODULE_0__.page), {}, {
-  seller: {
-    host: false ? undefined : null
-  }
-});
-const theme = _objectSpread(_objectSpread({
-  SellerContext: _components_src_SellerProvider__WEBPACK_IMPORTED_MODULE_1__[/* SellerContext */ "a"]
-}, _hypedanang_json__WEBPACK_IMPORTED_MODULE_0__.theme), {}, {
-  spacing: n => spacing[n]
-});
-
-/***/ }),
-
 /***/ "rbTy":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3152,14 +3150,12 @@ const theme = _objectSpread(_objectSpread({
 /* harmony import */ var _apollo_client_link_context__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_apollo_client_link_context__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _apollo_client_link_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("DHnX");
 /* harmony import */ var _apollo_client_link_http__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_apollo_client_link_http__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _config_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("rOcY");
-/* harmony import */ var _action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("CO9l");
+/* harmony import */ var _action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("CO9l");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -3211,7 +3207,7 @@ function initializeApollo(initialState = null) {
 }
 function useApollo(initialState) {
   const store = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => {
-    Object(_action__WEBPACK_IMPORTED_MODULE_5__[/* init */ "j"])();
+    Object(_action__WEBPACK_IMPORTED_MODULE_4__[/* init */ "j"])();
     return initializeApollo(initialState);
   }, [initialState]);
   return store;

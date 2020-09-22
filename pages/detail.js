@@ -5,8 +5,7 @@ import { useRouter } from "next/router";
 import { useQuery, gql } from "@apollo/client";
 import { Loading } from "../components/src/Loading";
 import { css } from "../components/src/css";
-import { theme } from "../config";
-import Comments from "react-facebook/dist/Comments";
+
 import { useEffect } from "react";
 const GET_PRODUCTS = gql`
   query($url: String) {

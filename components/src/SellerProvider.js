@@ -22,6 +22,9 @@ export const SellerProvider = ({ children }) => {
             file {
               publicUrl
             }
+            logo {
+              publicUrl
+            }
             store
             slogan
             intro
@@ -29,7 +32,6 @@ export const SellerProvider = ({ children }) => {
             color
             primary
             backgroundColor
-            descriptionBackgroundColor
             productBackgroundColor
             pageId
           }
@@ -167,7 +169,7 @@ const css = (theme) => ({
   },
   filter: {
     color: theme.color,
-    backgroundColor: theme.backgroundColor,
+    backgroundColor: theme.productBackgroundColor,
     borderRadius: spacing(1),
     border: "1px solid rgba(0,0,0,0.05)",
 
@@ -176,7 +178,6 @@ const css = (theme) => ({
     paddingRight: spacing(3),
     display: "inline-block",
     boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
-    marginTop: spacing(4),
     marginBottom: spacing(3),
     marginLeft: spacing(3),
     fontSize: "0.9rem",
@@ -197,5 +198,17 @@ const css = (theme) => ({
     height: 35,
     padding: 8,
     fontSize: "1rem",
+  },
+  removeIcon: {
+    marginTop: 0,
+    marginBottom: 0,
+    marginRight: 0,
+    marginLeft: spacing(2),
+    padding: 3,
+    color: theme.primary,
+    position: "relative",
+    top: 0,
+    width: 25,
+    height: 25,
   },
 });

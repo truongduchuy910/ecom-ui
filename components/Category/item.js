@@ -41,6 +41,7 @@ export function Item({ category, style }) {
       style={{
         ...style,
         cursor: "pointer",
+        display: "block",
       }}
       onClick={handleClick}
     >

@@ -1,11 +1,12 @@
 import { SignIn as In } from "../components/User/signin";
 import { SignUp as Up } from "../components/User/signup";
 import { Container, Col, Row } from "reactstrap";
-import { Divider } from "../components/src/Divider";
-import { SignInBg } from "../components/src/SignInBg";
-import { theme } from "../config/index";
 import { ListBanner } from "../components/Banner/list";
+
+import { useContext } from "react";
+import { SellerContext } from "../components/src/SellerProvider";
 export default function SignIn() {
+  const theme = useContext(SellerContext);
   return (
     <Container>
       <section
@@ -23,7 +24,16 @@ export default function SignIn() {
           </Col>
           <Col xs={12} md={8}>
             <div style={{ height: "100%" }}>
-              <ListBanner style={{ height: "100%" }} />
+              <div
+                style={{
+                  width: "100%",
+                  height: "60vh",
+                  background: `url(${theme.server + theme.file?.publicUrl})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  borderRadius: theme.spacing(2),
+                }}
+              ></div>{" "}
             </div>
           </Col>
         </Row>

@@ -1,8 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
-import { page } from "../../config/index";
 
 import { refetchCustomer } from "../../apollo/client";
-
 
 import { useContext } from "react";
 import { SellerContext } from "../src/SellerProvider";
@@ -29,19 +27,22 @@ export function Create({ onCreate = () => {} }) {
     e.stopPropagation();
 
     const { phone, name, address } = e.target;
-    const { data, errors } = await createCustomer({
-      variables: {
-        data: {
-          phone: phone.value,
-          name: name.value,
-          address: address.value,
-          ofSeller: { connect: { id: theme.seller.id } },
+    
+    if (phone.value && name.value && address.value) {
+      const { data, errors } = await createCustomer({
+        variables: {
+          data: {
+            phone: phone.value,
+            name: name.value,
+            address: address.value,
+            ofSeller: { connect: { id: theme.seller.id } },
+          },
         },
-      },
-    });
-    const customer = data?.createCustomer;
-    if (customer?.id) {
-      onCreate({ customer });
+      });
+      const customer = data?.createCustomer;
+      if (customer?.id) {
+        onCreate({ customer });
+      }
     }
   };
   return (
@@ -54,13 +55,21 @@ export function Create({ onCreate = () => {} }) {
         Điền thông tin nhận hàng
       </h5>
       <input
-        style={{ ...theme.css.input, width: "100%", marginBottom: theme.spacing(3) }}
+        style={{
+          ...theme.css.input,
+          width: "100%",
+          marginBottom: theme.spacing(3),
+        }}
         required
         name="name"
         placeholder="Tên"
       />
       <input
-        style={{ ...theme.css.input, width: "100%", marginBottom: theme.spacing(3) }}
+        style={{
+          ...theme.css.input,
+          width: "100%",
+          marginBottom: theme.spacing(3),
+        }}
         required
         name="phone"
         placeholder="Điện Thoại"
@@ -68,7 +77,11 @@ export function Create({ onCreate = () => {} }) {
       />
 
       <input
-        style={{ ...theme.css.input, width: "100%", marginBottom: theme.spacing(3) }}
+        style={{
+          ...theme.css.input,
+          width: "100%",
+          marginBottom: theme.spacing(3),
+        }}
         required
         name="address"
         placeholder="Địa Chỉ"

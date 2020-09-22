@@ -6,7 +6,7 @@ import {
 } from "reactstrap";
 import { gql, useQuery } from "@apollo/client";
 import { getErrorMessage } from "../../lib/chip";
-import { page } from "../../config/index";
+
 
 import { Link } from "../src/Link";
 const GET_CATEGORIES = gql`

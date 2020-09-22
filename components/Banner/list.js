@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { Item } from "./item";
 
-import { page } from "../../config/index";
+
 
 import { Spinner, Container } from "reactstrap";
 import { Loading } from "../src/Loading";

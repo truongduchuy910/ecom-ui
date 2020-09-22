@@ -1,13 +1,14 @@
 // show in product detail
 import { gql, useQuery } from "@apollo/client";
 import { Item } from "./itemOne";
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { useRouter } from "next/router";
 import { Link } from "../src/Link";
 import { queryVar } from "../../apollo/action";
-import { page } from "../../config/index";
+
 
 import { Spinner, Row, Col } from "reactstrap";
+import { SellerContext } from "../src/SellerProvider";
 
 const GET_ATTRIBUTES = gql`
   query($seller: UserWhereInput) {
@@ -19,6 +20,7 @@ const GET_ATTRIBUTES = gql`
   }
 `;
 export function List({ attributeGroups }) {
+  const theme = useContext(SellerContext);
   return (
     <div>
       {attributeGroups?.map((attributeGroup) => (

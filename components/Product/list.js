@@ -92,6 +92,7 @@ export const List = ({
   more = true,
   search,
   except,
+  center,
 }) => {
   const theme = useContext(SellerContext);
   let variables = {
@@ -178,15 +179,15 @@ export const List = ({
           {title}
         </h2>
       ) : null}
-      <Row noGutters>
+      <Row noGutters style={{ display: "flex", justifyContent: "center" }}>
         {data.allProducts.map((product) => (
           <Col
             key={product.id}
-            xs={xs ? xs : 6}
-            sm={sm ? sm : 6}
-            md={md ? md : 4}
-            lg={lg ? lg : 3}
-            xl={xl ? xl : 2}
+            xs={data?.allProducts?.length > 2 ? (xs ? xs : 6) : 12}
+            sm={data?.allProducts?.length > 2 ? (sm ? sm : 6) : 6}
+            md={data?.allProducts?.length > 2 ? (md ? md : 4) : 4}
+            lg={data?.allProducts?.length > 2 ? (lg ? lg : 3) : 3}
+            xl={data?.allProducts?.length > 2 ? (xl ? xl : 2) : 3}
             style={{
               padding: width <= 768 && width != 0 ? 3 : theme.spacing(2),
               paddingTop: 0,

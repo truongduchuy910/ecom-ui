@@ -3,9 +3,11 @@ import { WISHLIST } from "../../apollo/action";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { CountIcon } from "../src/count";
 import { Link } from "../src/Link";
-import { FiThermometer } from "react-icons/fi";
-import { theme } from "../../config";
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
+
 export function Icon({ onClick, style }) {
+  const theme = useContext(SellerContext);
   const { data, loading, error } = useQuery(WISHLIST);
   if (loading || error || !data) return null;
   const count = data?.wishlist?.length;

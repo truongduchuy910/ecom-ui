@@ -1,5 +1,5 @@
 import { removeItemOnce } from "../../lib/chip";
-import { page } from "../../config/index";
+
 
 import { FadeIn } from "../Animations/FadeIn";
 import { useContext } from "react";

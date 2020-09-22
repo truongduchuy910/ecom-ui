@@ -1,13 +1,14 @@
-import { useEffect, Fragment } from "react";
+import { useEffect, Fragment, useContext } from "react";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Link from "next/link";
 import { List as Carts } from "../components/Cart/list";
 import { List } from "../components/Customer/ChooseCustomer";
 import { Container, Row, Col } from "reactstrap";
-import { theme } from "../config/index";
+import { SellerContext } from "../components/src/SellerProvider";
 
 const Customer = () => {
+  const theme = useContext(SellerContext);
   return (
     <div>
       <Container

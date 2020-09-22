@@ -9,12 +9,9 @@ import {
 import { Item as CartItem } from "./item";
 import { List } from "./list";
 import { useRouter } from "next/router";
-import { page } from "../../config/index";
 
 import { formatMoney, getErrorMessage } from "../../lib/chip";
 import { Fragment, useContext } from "react";
-
-
 
 import { Loading } from "../src/Loading";
 import { Link } from "../src/Link";
@@ -57,7 +54,6 @@ export const CREATE_ORDER = gql`
       id
       seller {
         id
-        name
       }
       items {
         id
@@ -96,7 +92,7 @@ export const order = async ({
   createOrderItems,
   createOrder,
   dataOICI,
-  page,
+  theme,
   customer,
   sum,
   router,
@@ -194,7 +190,7 @@ export function Cart() {
                 createOrderItems,
                 createOrder,
                 dataOICI,
-                page,
+                theme,
                 customer,
                 sum,
                 router,

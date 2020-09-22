@@ -1,4 +1,4 @@
-import { page } from "../../config/index";
+
 
 import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { MdCompareArrows, MdDoneAll } from "react-icons/md";

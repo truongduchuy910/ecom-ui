@@ -1,8 +1,10 @@
-import { theme } from "../../config";
 import { Link } from "../src/Link";
 import { IoIosBasket } from "react-icons/io";
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
 
 export const MoreProducts = () => {
+  const theme = useContext(SellerContext);
   return (
     <Link
       style={{ color: theme.primary, marginBottom: theme.spacing(4) }}
