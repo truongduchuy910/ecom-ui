@@ -102,7 +102,7 @@ const css = (theme) => ({
     padding: spacing(1),
     paddingLeft: spacing(3),
     borderRadius: spacing(2),
-    backgroundColor: theme?.bgDark,
+    backgroundColor: theme?.backgroundColor,
     color: theme.color,
   },
   btnInline: {

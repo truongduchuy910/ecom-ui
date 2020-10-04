@@ -3,11 +3,11 @@ import { SellerContext } from "./SellerProvider";
 
 export function Logo({ onClick, style }) {
   const theme = useContext(SellerContext);
-  return (
+  return theme?.logo?.publicUrl ? (
     <img
       src={theme?.server + theme?.logo?.publicUrl}
-      style={{ ...style, padding: 0, maxWidth: 40 }}
+      style={{ ...style, padding: 0 }}
       onClick={onClick}
     />
-  );
+  ) : null;
 }

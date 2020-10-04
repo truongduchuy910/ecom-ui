@@ -54,7 +54,8 @@ export const Filter = ({
   };
   const removePrice = () => {
     let query = router.query;
-    query.price_to = 999999999;
+    delete query.price_from;
+    delete query.price_to;
     router.push({ query });
   };
 
@@ -76,7 +77,10 @@ export const Filter = ({
             Tìm kiếm:
           </h6>
           <a style={{ color: theme.color }}>{search}</a>
-          <IoIosRemoveCircleOutline onClick={removeSearch} style={theme.css.removeIcon} />
+          <IoIosRemoveCircleOutline
+            onClick={removeSearch}
+            style={theme.css.removeIcon}
+          />
         </div>
       ) : null}
       {price_to != 999999999 ? (
@@ -91,7 +95,10 @@ export const Filter = ({
             Giá:
           </h6>
           {formatMoney(price_from)} - {formatMoney(price_to)}
-          <IoIosRemoveCircleOutline onClick={removePrice} style={theme.css.removeIcon} />
+          <IoIosRemoveCircleOutline
+            onClick={removePrice}
+            style={theme.css.removeIcon}
+          />
         </div>
       ) : null}
 

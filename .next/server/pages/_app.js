@@ -408,17 +408,16 @@ function Logo({
   onClick,
   style
 }) {
-  var _theme$logo;
+  var _theme$logo, _theme$logo2;
 
   const theme = Object(external_react_["useContext"])(SellerProvider["a" /* SellerContext */]);
-  return logo_jsx("img", {
-    src: (theme === null || theme === void 0 ? void 0 : theme.server) + (theme === null || theme === void 0 ? void 0 : (_theme$logo = theme.logo) === null || _theme$logo === void 0 ? void 0 : _theme$logo.publicUrl),
+  return (theme === null || theme === void 0 ? void 0 : (_theme$logo = theme.logo) === null || _theme$logo === void 0 ? void 0 : _theme$logo.publicUrl) ? logo_jsx("img", {
+    src: (theme === null || theme === void 0 ? void 0 : theme.server) + (theme === null || theme === void 0 ? void 0 : (_theme$logo2 = theme.logo) === null || _theme$logo2 === void 0 ? void 0 : _theme$logo2.publicUrl),
     style: logo_objectSpread(logo_objectSpread({}, style), {}, {
-      padding: 0,
-      maxWidth: 40
+      padding: 0
     }),
     onClick: onClick
-  });
+  }) : null;
 }
 // EXTERNAL MODULE: external "next/router"
 var router_ = __webpack_require__("4Q3z");
@@ -449,10 +448,10 @@ function MenuApp() {
   const {
     data
   } = Object(client_["useQuery"])(client_["gql"]`
-      query {
-        user @client
-      }
-    `, {});
+		query {
+			user @client
+		}
+		`, {});
   const isLogin = data === null || data === void 0 ? void 0 : data.user; // ANIMATION
 
   return MenuApp_jsx("section", {
@@ -480,7 +479,7 @@ function MenuApp() {
       float: "left",
       marginLeft: theme.spacing(3),
       marginRight: theme.spacing(3),
-      minHeight: 40
+      height: "100%"
     },
     onClick: () => {
       router.push("/");
@@ -495,7 +494,8 @@ function MenuApp() {
       margin: 0,
       color: theme.primary,
       cursor: "pointer",
-      wordWrap: "initial"
+      wordWrap: "initial",
+      fontWeight: 'bold'
     },
     onClick: () => {
       router.push("/");
@@ -2830,7 +2830,7 @@ const css = theme => ({
     padding: spacing(1),
     paddingLeft: spacing(3),
     borderRadius: spacing(2),
-    backgroundColor: theme === null || theme === void 0 ? void 0 : theme.bgDark,
+    backgroundColor: theme === null || theme === void 0 ? void 0 : theme.backgroundColor,
     color: theme.color
   },
   btnInline: {

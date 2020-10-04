@@ -80,7 +80,7 @@ export function Sidebar() {
                 padding: theme.spacing(1),
                 marginBottom: theme.spacing(3),
                 textAlign: "center",
-                border: `1px solid ${theme.color}`,
+                // border: `1px solid ${theme.color}`,
                 cursor: "pointer",
                 fontWeight: choosed ? 700 : 300,
                 color: choosed ? theme.primary : theme.color,

@@ -56,6 +56,7 @@ const GET_PRODUCTS = gql`
           publicUrl
         }
       }
+      altImages
       price
       sale
       attributeGroups {
