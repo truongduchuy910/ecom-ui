@@ -1,19 +1,18 @@
-import { useState, useEffect, Fragment, useContext } from "react";
-import { gql, useQuery, rewriteURIForGET } from "@apollo/client";
-import { Item as Product } from "./item";
-import { Container, Row, Col, Spinner } from "reactstrap";
+import {useState, useEffect, Fragment, useContext} from 'react';
+import {gql, useQuery, rewriteURIForGET} from '@apollo/client';
+import {Item as Product} from './item';
+import {Container, Row, Col, Spinner} from 'reactstrap';
 
-import { toSlug } from "../../lib/chip";
-import { Loading } from "../src/Loading";
+import {toSlug} from '../../lib/chip';
+import {Loading} from '../src/Loading';
 
-import { MoreProducts } from "../UI/moreProducts";
+import {MoreProducts} from '../UI/moreProducts';
 
-import { SellerContext } from "../src/SellerProvider";
+import {SellerContext} from '../src/SellerProvider';
 const GET_PRODUCTS = gql`
   query(
     $first: Int
     $skip: Int
-    $attributes: AttributeGroupWhereInput
     $category: String
     $categories: [String]
     $brand: BrandWhereInput
@@ -31,16 +30,15 @@ const GET_PRODUCTS = gql`
       skip: $skip
       where: {
         AND: [
-          { url_contains: $keyword }
-          { category: { OR: [{ url: $category }, { url_in: $categories }] } }
-          { brand: $brand }
-          { attributeGroups_some: $attributes }
-          { suggestions: $suggestions }
-          { seller: $seller }
-          { sale_gt: $sale_gt }
-          { price_gt: $price_from }
-          { price_lt: $price_to }
-          { url_not: $except }
+          {url_contains: $keyword}
+          {category: {OR: [{url: $category}, {url_in: $categories}]}}
+          {brand: $brand}
+          {suggestions: $suggestions}
+          {seller: $seller}
+          {sale_gt: $sale_gt}
+          {price_gt: $price_from}
+          {price_lt: $price_to}
+          {url_not: $except}
         ]
       }
       orderBy: $orderBy
@@ -59,26 +57,17 @@ const GET_PRODUCTS = gql`
       altImages
       price
       sale
-      attributeGroups {
-        id
-        name
-        attributes {
-          id
-          name
-          url
-        }
-      }
       url
     }
   }
 `;
 export const List = ({
-  title = "",
-  first = 2,
+  title = '',
+  first = 4,
   skip = 0,
   category,
   categories,
-  brand = "",
+  brand = '',
   attributes,
   orderBy,
   suggestions,
@@ -101,7 +90,7 @@ export const List = ({
     skip,
     category,
     categories,
-    brand: brand ? { url_contains: brand } : null,
+    brand: brand ? {url_contains: brand} : null,
     attributes,
     orderBy,
     suggestions,
@@ -112,7 +101,7 @@ export const List = ({
   };
   if (search) variables.keyword = toSlug(search);
   if (sale) variables.sale_gt = 0;
-  let { data, error, loading, fetchMore } = useQuery(GET_PRODUCTS, {
+  let {data, error, loading, fetchMore} = useQuery(GET_PRODUCTS, {
     variables,
   });
   let [on, setOn] = useState(true);
@@ -120,7 +109,7 @@ export const List = ({
   useEffect(() => {
     // fetch more data
     if (more) {
-      const productsEle = document.getElementById("products");
+      const productsEle = document.getElementById('products');
       // hight of element - scrollTop < window height ?
       const alpha = () =>
         productsEle?.clientHeight -
@@ -145,7 +134,7 @@ export const List = ({
     try {
       fetchMore({
         variables,
-        updateQuery: (prev, { fetchMoreResult }) => {
+        updateQuery: (prev, {fetchMoreResult}) => {
           if (!fetchMoreResult.allProducts?.length) {
             return prev;
           }
@@ -158,7 +147,7 @@ export const List = ({
   }
   if (error || loading)
     return (
-      <div style={{ margin: theme.spacing(3) }}>
+      <div style={{margin: theme.spacing(3)}}>
         <Loading />
       </div>
     );
@@ -167,21 +156,19 @@ export const List = ({
       id="products"
       style={{
         paddingLeft: theme.spacing(2),
-      }}
-    >
+      }}>
       {title ? (
         <h2
           style={{
             ...theme.css.h2,
-            textAlign: "center",
+            textAlign: 'center',
             marginBottom: theme.spacing(5),
-          }}
-        >
+          }}>
           {title}
         </h2>
       ) : null}
-      <Row noGutters style={{ display: "flex", justifyContent: "center" }}>
-        {data.allProducts.map((product) => (
+      <Row noGutters style={{display: 'flex', justifyContent: 'center'}}>
+        {data.allProducts.map(product => (
           <Col
             key={product.id}
             xs={data?.allProducts?.length > 2 ? (xs ? xs : 6) : 12}
@@ -192,14 +179,13 @@ export const List = ({
             style={{
               padding: width <= 768 && width != 0 ? 3 : theme.spacing(2),
               paddingTop: 0,
-            }}
-          >
+            }}>
             <Product product={product} />
           </Col>
         ))}
       </Row>
     </section>
   ) : (
-    <p style={{ textAlign: "center" }}>Không có kết quả!</p>
+    <p style={{textAlign: 'center'}}>Không có kết quả!</p>
   );
 };
