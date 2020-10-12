@@ -2,10 +2,7 @@ import { Container, Row, Col } from "reactstrap";
 import { useContext } from "react";
 import { SellerContext } from "./SellerProvider";
 import { FacebookProvider, Page, CustomChat } from "react-facebook";
-import {
-  AiOutlineClockCircle,
-  AiOutlinePhone,
-} from "react-icons/ai";
+import { AiOutlineClockCircle, AiOutlinePhone } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 export const Footer = () => {
   const theme = useContext(SellerContext);
@@ -44,11 +41,16 @@ export const Footer = () => {
               <Page href={"https://www.facebook.com/" + theme.pageId} />
             </Col>
           </Row>
+          <center>
+            <a style={{ color: theme.color }} href="https://loaloa.tech">
+              cung cấp bởi Loa Loa Tech
+            </a>
+          </center>
         </Container>
         <CustomChat
           pageId={theme?.pageId}
           minimized={false}
-          themeColor={theme.color}
+          // themeColor={theme.color}
         />
       </FacebookProvider>
     </div>

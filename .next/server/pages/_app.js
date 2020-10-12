@@ -561,10 +561,15 @@ const Footer = () => {
     style: theme.css.h2
   }, "Facebook"), Footer_jsx(external_react_facebook_["Page"], {
     href: "https://www.facebook.com/" + theme.pageId
-  })))), Footer_jsx(external_react_facebook_["CustomChat"], {
+  }))), Footer_jsx("center", null, Footer_jsx("a", {
+    style: {
+      color: theme.color
+    },
+    href: "https://loaloa.tech"
+  }, "cung c\u1EA5p b\u1EDFi Loa Loa Tech"))), Footer_jsx(external_react_facebook_["CustomChat"], {
     pageId: theme === null || theme === void 0 ? void 0 : theme.pageId,
-    minimized: false,
-    themeColor: theme.color
+    minimized: false // themeColor={theme.color}
+
   })));
 };
 // CONCATENATED MODULE: ./pages/_app.js

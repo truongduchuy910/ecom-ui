@@ -13,7 +13,7 @@
   "/signin": "pages/signin.html",
   "/signout": "pages/signout.html",
   "/wishlist": "pages/wishlist.html",
-  "/ysqd-index": "pages/ysqd-index.html",
+  "/yensaodatquang-index": "pages/yensaodatquang-index.html",
   "/_error": "pages/_error.js",
   "/404": "pages/404.html"
 }
