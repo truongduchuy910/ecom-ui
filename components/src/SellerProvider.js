@@ -1,33 +1,37 @@
-import {gql} from '@apollo/client';
-import {createContext, Fragment} from 'react';
-import {Query} from './Query';
+import { gql } from "@apollo/client";
+import { createContext, Fragment } from "react";
+import { Query } from "./Query";
 export const SellerContext = createContext();
-import Head from 'next/head';
+import Head from "next/head";
 
-import {useContext} from 'react';
-import ReactGA from 'react-ga';
-import {useEffect, useState} from 'react';
+import { useContext } from "react";
+import ReactGA from "react-ga";
+import { useEffect, useState } from "react";
 const level = [0, 5, 8, 13, 21, 34, 55, 89];
 const prices = [100000, 200000, 500000, 1000000, 2000000];
-const spacing = i => level[i];
+const spacing = (i) => level[i];
 const uri =
-  process.env.NODE_ENV === 'production'
-    ? 'https://ecommerce.loaloa.tech'
-    : 'http://localhost:6007';
-export const SellerProvider = ({children}) => {
+  process.env.NODE_ENV === "production"
+    ? "https://ecommerce.loaloa.tech"
+    : "http://localhost:6007";
+export const SellerProvider = ({ children }) => {
   const [isLoad, setIsLoad] = useState(false);
-  console.log(isLoad);
+  const [GA, setGA] = useState();
   useEffect(() => {
-    if (!isLoad) {
-      ReactGA.initialize('UA-145951123-3');
-      ReactGA.pageview(window.location.pathname + window.location.search);
+    if (GA && !isLoad) {
+      console.log("init", GA);
+      ReactGA.initialize(GA);
+      setIsLoad(true);
     }
+    const url = window.location.pathname + window.location.search;
+    console.log(url);
+    ReactGA.pageview(url);
   });
   return (
     <Query
       query={gql`
         query($host: String) {
-          allUsers(where: {host: $host}) {
+          allUsers(where: { host: $host }) {
             id
             email
             file {
@@ -54,12 +58,14 @@ export const SellerProvider = ({children}) => {
         }
       `}
       variables={{
-        host: typeof window !== 'undefined' ? window.location.host : null,
-      }}>
-      {({data, error, loading}) => {
+        host: typeof window !== "undefined" ? window.location.host : null,
+      }}
+    >
+      {({ data, error, loading }) => {
         const theme = data?.allUsers[0];
-        if (theme) setIsLoad(true);
-        console.log(theme);
+        if (theme) {
+          setGA(theme.googleId);
+        }
         return theme ? (
           <Fragment>
             <Head>
@@ -67,24 +73,40 @@ export const SellerProvider = ({children}) => {
                 {theme.store} | {theme.slogan}
               </title>
               <meta name="description" content={theme.intro} />
+              <meta
+                property="og:image"
+                content={uri + theme?.file?.publicUrl}
+              />
+              <link
+                rel="icon"
+                type="image/png"
+                href={uri + theme?.logo?.publicUrl}
+              />
             </Head>
             <SellerContext.Provider
               value={{
                 ...theme,
                 server:
-                  process.env.NODE_ENV === 'production'
-                    ? 'https://ecommerce.loaloa.tech'
-                    : 'http://localhost:6007',
-                seller: {id: theme.id},
+                  process.env.NODE_ENV === "production"
+                    ? "https://ecommerce.loaloa.tech"
+                    : "http://localhost:6007",
+                seller: { id: theme.id },
                 spacing,
-                prices: theme.prices ? theme.prices?.replace(/ /g,"").split(',').map(e =>Number(e)): [],
+                prices: theme.prices
+                  ? theme.prices
+                      ?.replace(/ /g, "")
+                      .split(",")
+                      .map((e) => Number(e))
+                  : [],
                 css: css(theme),
-              }}>
+              }}
+            >
               <div
                 style={{
                   backgroundColor: theme.backgroundColor,
                   color: theme.color,
-                }}>
+                }}
+              >
                 {children}
               </div>
             </SellerContext.Provider>
@@ -94,25 +116,25 @@ export const SellerProvider = ({children}) => {
     </Query>
   );
 };
-const css = theme => ({
+const css = (theme) => ({
   btnIcon: (top = -5, color = theme.backgroundColor) => ({
-    position: 'absolute',
+    position: "absolute",
     top,
     right: -5,
     padding: 3,
     paddingTop: 5,
     width: 30,
     height: 30,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: '50%',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "50%",
     color,
     fontWeight: 800,
     backgroundColor: theme.primary,
   }),
   input: {
-    display: 'block-inline',
+    display: "block-inline",
     border: `1px solid ${theme?.productBackgroundColor}`,
     padding: spacing(1),
     paddingLeft: spacing(3),
@@ -121,16 +143,16 @@ const css = theme => ({
     color: theme.color,
   },
   btnInline: {
-    display: 'inline-block',
+    display: "inline-block",
     backgroundColor: theme.primary,
     color: theme.backgroundColor,
-    border: 'none',
+    border: "none",
     borderRadius: 35,
     minWidth: 35,
   },
   button: {
     color: theme.backgroundColor,
-    width: '100%',
+    width: "100%",
     backgroundColor: theme.primary,
     border: `1px solid ${theme.primary}`,
     borderRadius: spacing(2),
@@ -150,14 +172,14 @@ const css = theme => ({
   },
   h5: {
     color: theme.primary,
-    fontSize: '0.87rem',
-    fontWeight: 'bold',
+    fontSize: "0.87rem",
+    fontWeight: "bold",
     marginBottom: spacing(3),
   },
   h6: {
     color: theme.primary,
-    fontSize: '0.8rem',
-    textTransform: 'uppercase',
+    fontSize: "0.8rem",
+    textTransform: "uppercase",
     margin: 0,
     padding: 0,
   },
@@ -165,44 +187,44 @@ const css = theme => ({
     color: theme.primary,
   },
   h2: {
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    textTransform: "uppercase",
     color: theme.primary,
     marginBottom: spacing(2),
   },
   a: {
-    display: 'block',
+    display: "block",
   },
   box: {
     backgroundColor: theme.productBackgroundColor,
     marginBottom: spacing(4),
     padding: spacing(3),
     borderRadius: spacing(1),
-    border: '1px solid rgba(0,0,0,0.05)',
-    boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.03)',
+    border: "1px solid rgba(0,0,0,0.05)",
+    boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
   },
   filter: {
     color: theme.color,
     backgroundColor: theme.productBackgroundColor,
     borderRadius: spacing(1),
-    border: '1px solid rgba(0,0,0,0.05)',
+    border: "1px solid rgba(0,0,0,0.05)",
 
     padding: spacing(2),
     paddingLeft: spacing(3),
     paddingRight: spacing(3),
-    display: 'inline-block',
-    boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.03)',
+    display: "inline-block",
+    boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
     marginBottom: spacing(3),
     marginLeft: spacing(3),
-    fontSize: '0.9rem',
-    position: 'relative',
+    fontSize: "0.9rem",
+    position: "relative",
   },
   icon: {
     color: theme.color,
   },
   iconHeader: {
-    fontSize: '1rem',
+    fontSize: "1rem",
     marginRight: spacing(2),
     marginBottom: spacing(1),
   },
@@ -212,7 +234,7 @@ const css = theme => ({
     width: 35,
     height: 35,
     padding: 8,
-    fontSize: '1rem',
+    fontSize: "1rem",
   },
   removeIcon: {
     marginTop: 0,
@@ -221,7 +243,7 @@ const css = theme => ({
     marginLeft: spacing(2),
     padding: 3,
     color: theme.primary,
-    position: 'relative',
+    position: "relative",
     top: 0,
     width: 25,
     height: 25,

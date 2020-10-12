@@ -1,13 +1,15 @@
-import {useRouter} from 'next/router';
-import {toAttributeGourpWhereInput, formatMoney} from '../../lib/chip';
-import {useState, useRef, useCallback, useContext} from 'react';
-import {List as Attributes} from '../Attribute/list';
-import {List as Categories} from '../Category/list';
-import {List as Brands} from '../Brand/list';
-import {Search} from '../Search/index';
+import { useRouter } from "next/router";
+import { formatMoney } from "../../lib/chip";
+import { useState, useRef, useCallback, useContext } from "react";
+// import { List as Attributes } from "../Attribute/list";
+import { List as Categories } from "../Category/list";
+import { List as Brands } from "../Brand/list";
+import { List as Hashtags } from "../Hashtag/list";
+import { Search } from "../Search/index";
+import ReactGA from "react-ga";
 
-import {IoIosSearch, IoIosPricetag} from 'react-icons/io';
-import {SellerContext} from '../src/SellerProvider';
+import { IoIosSearch, IoIosPricetag } from "react-icons/io";
+import { SellerContext } from "../src/SellerProvider";
 
 export function Sidebar() {
   const theme = useContext(SellerContext);
@@ -19,7 +21,7 @@ export function Sidebar() {
   const [priceFrom, setPriceFrom] = useState(0);
   const [priceTo, setPriceTo] = useState(99999999);
   //
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     /**
      * Prevent submit from reloading the page
      */
@@ -27,7 +29,7 @@ export function Sidebar() {
     e.stopPropagation();
     query.price_from = priceFrom;
     query.price_to = priceTo;
-    router.push({query});
+    router.push({ query });
   };
   const [collapsed, setCollapsed] = useState(true);
   const top = useRef(null);
@@ -51,7 +53,7 @@ export function Sidebar() {
           <IoIosSearch style={theme.css.iconHeader} />
           Tìm Kiếm
         </h5>
-        <Search style={{width: '100%', marginBottom: theme.spacing(3)}} />
+        <Search style={{ width: "100%", marginBottom: theme.spacing(3) }} />
       </div>
       <div style={theme.css.box}>
         <Categories />
@@ -69,23 +71,33 @@ export function Sidebar() {
             <div
               key={index}
               style={{
-                fontSize: '0.8rem',
+                fontSize: "0.8rem",
                 borderRadius: theme.spacing(1),
                 padding: theme.spacing(1),
                 marginBottom: theme.spacing(3),
-                textAlign: 'center',
+                textAlign: "center",
                 // border: `1px solid ${theme.color}`,
-                cursor: 'pointer',
+                cursor: "pointer",
                 fontWeight: choosed ? 700 : 300,
                 color: choosed ? theme.primary : theme.color,
               }}
               onClick={() => {
                 query.price_from = index > 0 ? theme.prices[index - 1] : 0;
                 query.price_to = price;
-                router.push({query});
-              }}>
+
+                const event = {
+                  category: "Price",
+                  action: "filter",
+                  value: price,
+                };
+                console.log(event);
+                ReactGA.event(event);
+
+                router.push({ query });
+              }}
+            >
               {index > 0 ? formatMoney(theme.prices[index - 1]) : 0}
-              {' - '}
+              {" - "}
               {formatMoney(price)}
             </div>
           );
@@ -96,6 +108,9 @@ export function Sidebar() {
       </div>*/}
       <div style={theme.css.box}>
         <Brands />
+      </div>
+      <div style={theme.css.box}>
+        <Hashtags />
       </div>
       {/* </div> */}
 

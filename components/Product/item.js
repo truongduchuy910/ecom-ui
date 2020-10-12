@@ -5,8 +5,7 @@ import { useState, Fragment, useContext } from "react";
 
 import { ImgProduct } from "./imageProduct";
 import { FadeIn } from "../Animations/FadeIn";
-
-
+import ReactGA from "react-ga";
 import { useRouter } from "next/router";
 import { SellerContext } from "../src/SellerProvider";
 
@@ -36,7 +35,18 @@ export const Item = ({ product }) => {
             });
           }}
         />
-        <div style={{ padding: theme.spacing(2) }}>
+        <div
+          style={{ padding: theme.spacing(2) }}
+          onClick={() => {
+            const event = {
+              category: "Product",
+              action: "view",
+              value: product.name,
+            };
+            console.log(event);
+            ReactGA.event(event);
+          }}
+        >
           <Link
             href={{
               pathname: "/detail",

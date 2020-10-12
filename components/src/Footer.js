@@ -1,47 +1,55 @@
-import {Container, Row, Col} from 'reactstrap';
-import {Box} from './Box';
-import {BirdBg} from './BirdBg';
-
-import {useContext} from 'react';
-import {SellerContext} from './SellerProvider';
-import FacebookProvider from 'react-facebook/dist/FacebookProvider';
-import CustomChat from 'react-facebook/dist/CustomChat';
-
+import { Container, Row, Col } from "reactstrap";
+import { useContext } from "react";
+import { SellerContext } from "./SellerProvider";
+import { FacebookProvider, Page, CustomChat } from "react-facebook";
+import {
+  AiOutlineClockCircle,
+  AiOutlinePhone,
+} from "react-icons/ai";
+import { GoLocation } from "react-icons/go";
 export const Footer = () => {
   const theme = useContext(SellerContext);
   return (
-    <div style={{backgroundColor: theme.backgroundColor}}>
-      <Container
-        fluid
-        style={{
-          paddingTop: theme.spacing(5),
-          paddingBottom: theme.spacing(5),
-        }}>
-        <Row>
-          <Col xs={12} md={6} style={{marginBottom: theme.spacing(4)}}>
-            <h2 style={theme.css.h2}>Giới Thiệu</h2>
-            <div
-              style={{
-                color: theme.color,
-                display: 'inline',
-              }}>
-              {theme.intro}
-            </div>
-          </Col>
-          <Col xs={12} md={6} style={{marginBottom: theme.spacing(4)}}>
-            <h2 style={theme.css.h2}>Liên Hệ</h2>
-            <div
-              style={{
-                color: theme.color,
-                display: 'inline',
-              }}>
-              {theme.contact}
-            </div>
-          </Col>
-        </Row>
-      </Container>
+    <div style={{ backgroundColor: theme.backgroundColor, width: "100%" }}>
       <FacebookProvider appId="404979820059541" chatSupport>
-        <CustomChat pageId={theme?.pageId} minimized={false} />
+        <Container
+          style={{
+            paddingTop: theme.spacing(5),
+            paddingBottom: theme.spacing(5),
+          }}
+        >
+          <Row>
+            <Col xs={12} md={4}>
+              <h2 style={theme.css.h2}>Giới Thiệu</h2>
+              <p>
+                {theme.store} {theme.slogan}
+              </p>
+              <p>{theme.intro}</p>
+            </Col>
+            <Col xs={12} md={4}>
+              <h2 style={theme.css.h2}>Liên Hệ</h2>
+
+              <p>
+                <AiOutlinePhone /> {theme.phone}
+              </p>
+              <p>
+                <GoLocation /> {theme.address}
+              </p>
+              <p>
+                <AiOutlineClockCircle /> {theme.contact}
+              </p>
+            </Col>
+            <Col xs={12} md={4}>
+              <h2 style={theme.css.h2}>Facebook</h2>
+              <Page href={"https://www.facebook.com/" + theme.pageId} />
+            </Col>
+          </Row>
+        </Container>
+        <CustomChat
+          pageId={theme?.pageId}
+          minimized={false}
+          themeColor={theme.color}
+        />
       </FacebookProvider>
     </div>
   );

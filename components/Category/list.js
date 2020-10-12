@@ -51,11 +51,11 @@ export function List() {
     <div>
       <h5 style={theme.css.h5}>
         <IoIosList style={theme.css.iconHeader} />
-        {category ? data.allCategories[0].name : "Danh Mục"}
+        {category ? data?.allCategories[0]?.name : "Danh Mục"}
       </h5>
 
       {category
-        ? data.allCategories[0].childs.map((cate) => (
+        ? data?.allCategories[0]?.childs.map((cate) => (
             <Item
               key={cate.id}
               category={cate}
