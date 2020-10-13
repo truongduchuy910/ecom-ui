@@ -2,25 +2,30 @@ import { useRouter } from "next/router";
 import { List as Products } from "../components/Product/list";
 
 import { toAttributeGourpWhereInput } from "../lib/chip";
-
+import { useState, useEffect, Fragment, useContext } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Sidebar } from "../components/Sidebar";
 
 import { Filter } from "../components/Product/filter";
-
-import { css } from "../components/src/css";
-import { HeaderStory } from "../components/UI/HeaderStory";
-import { Fragment, useContext } from "react";
-import { Feature } from "../components/UI/Feature";
-import { BgDivider } from "../components/UI/bgDiviver";
-import { MoreProducts } from "../components/UI/moreProducts";
 import { SellerContext } from "../components/src/SellerProvider";
+
 const Index = () => {
   const theme = useContext(SellerContext);
+  const router = useRouter();
+  let query = router.query;
+  const category = query.category;
+  const categories = query.categories;
+  const brand = query.brand;
+  const search = query.search;
+  const price_from = query.price_from ? Number(query.price_from) : 0;
+  const price_to = query.price_to ? Number(query.price_to) : 999999999;
+  const attributes = toAttributeGourpWhereInput(
+    query.attributes ? query.attributes.split(",") : []
+  );
+
   return (
     <Fragment>
-      <HeaderStory />
-      {/* <div
+      <div
         style={{
           width: "100%",
           height: "60vh",
@@ -28,57 +33,77 @@ const Index = () => {
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
-      ></div> */}
-      <Feature />
-      <Container>
-        <h2
-          style={{
-            ...css.h2,
-            marginBottom: theme.spacing(4),
-            marginTop: theme.spacing(6),
-
-            textAlign: "center",
-          }}
-        >
-          Phóng Sự Báo Quốc Hội
-        </h2>
-        <video
-          width="100%"
-          height="100%"
-          controls
-          style={{
-            marginBottom: theme.spacing(6),
-            borderRadius: theme.spacing(2),
-          }}
-        >
-          <source
-            src="http://quochoitv.vn//202008/Sequence%2001.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </Container>
-      <Container>
-        <Products
-          first={4}
-          lg={4}
-          xl={4}
-          sale
-          more={false}
-          title="Sản Phẩm Khuyến Mãi"
-        />
-        <MoreProducts />
-      </Container>
-      <BgDivider />
-      <Container>
-        <Products
-          first={4}
-          lg={3}
-          xl={3}
-          suggestions="bestSeller"
-          more={false}
-          title="Sản Phẩm Bán Chạy"
-        />
-        <MoreProducts />
+      ></div>
+      <Container fluid>
+        <Row noGutters style={{ paddingTop: theme.spacing(4) }}>
+          <Col xs={4} md={3} lg={3} xl={2}>
+            <Sidebar
+              onSearch={(search) => {
+                setSearch(search);
+              }}
+            />
+          </Col>
+          <Col xs={8} md={9} lg={9} xl={10}>
+            <Filter
+              category={category}
+              categories={categories}
+              brand={brand}
+              search={search}
+              price_from={price_from}
+              price_to={price_to}
+              attributes={query.attributes ? query.attributes.split(",") : []}
+            />
+            {category ||
+            categories ||
+            brand ||
+            search ||
+            price_from ||
+            price_to != 999999999 ||
+            attributes ? (
+              <Products
+                sm={6}
+                lg={4}
+                xl={3}
+                category={category}
+                categories={categories}
+                brand={brand}
+                search={search}
+                price_from={price_from}
+                price_to={price_to}
+                attributes={attributes}
+              />
+            ) : (
+              <Fragment>
+                <div style={theme.css.filter}>
+                  <h6
+                    style={{
+                      display: "inline-block",
+                      margin: 0,
+                      textTransform: "uppercase",
+                      color: theme.primary,
+                    }}
+                  >
+                    Khuyến Mãi
+                  </h6>
+                </div>
+                <Products sm={6} lg={4} xl={3} sale />
+                <div style={theme.css.filter}>
+                  <h6
+                    style={{
+                      display: "inline-block",
+                      margin: 0,
+                      textTransform: "uppercase",
+                      color: theme.primary,
+                    }}
+                  >
+                    Bán Chạy
+                  </h6>
+                </div>
+                <Products sm={6} lg={4} xl={3} suggestions="bestSeller" />
+              </Fragment>
+            )}
+          </Col>
+        </Row>
       </Container>
     </Fragment>
   );
