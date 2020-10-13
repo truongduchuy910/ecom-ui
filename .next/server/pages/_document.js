@@ -129,11 +129,11 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       name: "viewport",
       content: "initial-scale=1, maximum-scale=1"
     }), __jsx("link", {
-      href: "https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Source+Sans+Pro:wght@400;600&display=swap",
+      href: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap",
       rel: "stylesheet"
     }), __jsx("body", {
       style: {
-        fontFamily: `'Lato', sans-serif`
+        fontFamily: `'Open Sans', sans-serif`
       }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], null), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], null)));
   }

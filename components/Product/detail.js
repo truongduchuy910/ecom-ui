@@ -177,14 +177,13 @@ export function Product({ product, seller }) {
           {product.description ? (
             <Col xs={12}>
               <h5 style={theme.css.h5}>Mô Tả</h5>
-              <p style={{ color: theme.color }}>{product.description}</p>
+              <div dangerouslySetInnerHTML={{ __html: product.description }} />
             </Col>
           ) : null}
           {product.guide ? (
             <Col>
               <h5 style={theme.css.h5}>Hướng dẫn</h5>
-
-              <p style={{ color: theme.color }}>{product.guide}</p>
+              <div dangerouslySetInnerHTML={{ __html: product.guide }} />
             </Col>
           ) : null}
           <Col xs={12} md={open ? 12 : 6}>

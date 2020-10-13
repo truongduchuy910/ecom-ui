@@ -7,10 +7,10 @@ export default class MyDocument extends Document {
         <Head />
         <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Source+Sans+Pro:wght@400;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
           rel="stylesheet"
         />
-        <body style={{ fontFamily: `'Lato', sans-serif` }}>
+        <body style={{ fontFamily: `'Open Sans', sans-serif` }}>
           <Main />
           <NextScript />
         </body>
