@@ -64,7 +64,7 @@ export const Item = ({ product }) => {
               </p>
             </a>
           </Link>
-          <p
+          {/* <p
             style={{
               textDecoration: product.sale ? "line-through" : "",
               color: product.sale ? theme.secondary : theme.primary,
@@ -90,7 +90,7 @@ export const Item = ({ product }) => {
             >
               {formatMoney(product.price - product.sale)}
             </p>
-          ) : null}
+          ) : null} */}
 
           {/* <button
           onClick={() => {

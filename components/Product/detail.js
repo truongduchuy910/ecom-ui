@@ -73,7 +73,7 @@ export function Product({ product, seller }) {
           <div>
             <h1 style={theme.css.h1}>{product.name}</h1>
 
-            <h5
+            {/* <h5
               style={{
                 textDecoration: product.sale ? "line-through" : "",
                 color: product.sale ? "var(--secondary)" : "default",
@@ -86,7 +86,7 @@ export function Product({ product, seller }) {
 
             {product.sale ? (
               <h5>{formatMoney(product.price - product.sale)}</h5>
-            ) : null}
+            ) : null} */}
             <div
               style={{
                 marginTop: theme.spacing(4),
@@ -117,7 +117,7 @@ export function Product({ product, seller }) {
                 <AttributeGroups attributeGroups={product.attributeGroups} />
               ) : null}
             </div>
-            {quickCart ? (
+            {/* {quickCart ? (
               <Fragment>
                 <QuickCart
                   cartItems={[
@@ -167,7 +167,7 @@ export function Product({ product, seller }) {
                   Mua nhanh
                 </a>
               </Fragment>
-            )}
+            )} */}
           </div>
         </Col>
       </Row>

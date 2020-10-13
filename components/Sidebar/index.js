@@ -60,7 +60,7 @@ export function Sidebar() {
       </div>
       {/* KHOANG GIA */}
 
-      <form onSubmit={onSubmit} action="" style={theme.css.box}>
+      {/* <form onSubmit={onSubmit} action="" style={theme.css.box}>
         <h5 style={theme.css.h5}>
           <IoIosPricetag style={theme.css.iconHeader} />
           Giá
@@ -102,7 +102,7 @@ export function Sidebar() {
             </div>
           );
         })}
-      </form>
+      </form> */}
       {/*      <div style={theme.css.box}>
         <Attributes />
       </div>*/}
