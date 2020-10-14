@@ -534,7 +534,7 @@ const Footer = () => {
   return Footer_jsx("div", {
     style: {
       backgroundColor: theme.backgroundColor,
-      width: "100%"
+      width: '100%'
     }
   }, Footer_jsx(external_react_facebook_["FacebookProvider"], {
     appId: "404979820059541",
@@ -560,13 +560,13 @@ const Footer = () => {
   }, Footer_jsx("h2", {
     style: theme.css.h2
   }, "Facebook"), Footer_jsx(external_react_facebook_["Page"], {
-    href: "https://www.facebook.com/" + theme.pageId
+    href: 'https://www.facebook.com/' + theme.pageId
   }))), Footer_jsx("center", null, Footer_jsx("a", {
     style: {
       color: theme.color
     },
     href: "https://loaloa.tech"
-  }, "cung c\u1EA5p b\u1EDFi Loa Loa Tech"))), Footer_jsx(external_react_facebook_["CustomChat"], {
+  }, "Cung c\u1EA5p b\u1EDFi Loa Loa Tech"))), Footer_jsx(external_react_facebook_["CustomChat"], {
     pageId: theme === null || theme === void 0 ? void 0 : theme.pageId,
     minimized: false // themeColor={theme.color}
 
