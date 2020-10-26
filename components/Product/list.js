@@ -1,22 +1,18 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment, useContext } from "react";
 import { gql, useQuery, rewriteURIForGET } from "@apollo/client";
-import { useRouter, withRouter, Router } from "next/router";
 import { Item as Product } from "./item";
 import { Container, Row, Col, Spinner } from "reactstrap";
-import { page } from "../../config/index";
 
 import { toSlug } from "../../lib/chip";
 import { Loading } from "../src/Loading";
 
-import { theme } from "../../config/index";
-
 import { MoreProducts } from "../UI/moreProducts";
-import { css } from "../src/css";
+
+import { SellerContext } from "../src/SellerProvider";
 const GET_PRODUCTS = gql`
   query(
     $first: Int
     $skip: Int
-    $attributes: AttributeGroupWhereInput
     $category: String
     $categories: [String]
     $brand: BrandWhereInput
@@ -37,7 +33,6 @@ const GET_PRODUCTS = gql`
           { url_contains: $keyword }
           { category: { OR: [{ url: $category }, { url_in: $categories }] } }
           { brand: $brand }
-          { attributeGroups_some: $attributes }
           { suggestions: $suggestions }
           { seller: $seller }
           { sale_gt: $sale_gt }
@@ -59,24 +54,16 @@ const GET_PRODUCTS = gql`
           publicUrl
         }
       }
+      altImages
       price
       sale
-      attributeGroups {
-        id
-        name
-        attributes {
-          id
-          name
-          url
-        }
-      }
       url
     }
   }
 `;
 export const List = ({
   title = "",
-  first = 2,
+  first = 4,
   skip = 0,
   category,
   categories,
@@ -95,7 +82,9 @@ export const List = ({
   more = true,
   search,
   except,
+  center,
 }) => {
+  const theme = useContext(SellerContext);
   let variables = {
     first,
     skip,
@@ -105,7 +94,7 @@ export const List = ({
     attributes,
     orderBy,
     suggestions,
-    seller: page.seller,
+    seller: theme.seller,
     price_from,
     price_to: price_to ? price_to : 999999999,
     except,
@@ -127,9 +116,10 @@ export const List = ({
         document.scrollingElement.scrollTop -
         window.innerHeight +
         150;
-
-      if (alpha() > 0) setOn(false); // loading done
-      if (on && !loading && alpha() < 0) {
+      // loading done
+      let al = alpha();
+      if (al > 0) setOn(false);
+      if (on && !loading && al < 0) {
         loadingMore();
       }
 
@@ -172,7 +162,7 @@ export const List = ({
       {title ? (
         <h2
           style={{
-            ...css.h2,
+            ...theme.css.h2,
             textAlign: "center",
             marginBottom: theme.spacing(5),
           }}
@@ -180,15 +170,15 @@ export const List = ({
           {title}
         </h2>
       ) : null}
-      <Row noGutters>
+      <Row noGutters style={{ display: "flex", justifyContent: "center" }}>
         {data.allProducts.map((product) => (
           <Col
             key={product.id}
-            xs={xs ? xs : 6}
-            sm={sm ? sm : 6}
-            md={md ? md : 4}
-            lg={lg ? lg : 3}
-            xl={xl ? xl : 2}
+            xs={data?.allProducts?.length > 2 ? (xs ? xs : 6) : 12}
+            sm={data?.allProducts?.length > 2 ? (sm ? sm : 6) : 6}
+            md={data?.allProducts?.length > 2 ? (md ? md : 4) : 4}
+            lg={data?.allProducts?.length > 2 ? (lg ? lg : 3) : 3}
+            xl={data?.allProducts?.length > 2 ? (xl ? xl : 2) : 3}
             style={{
               padding: width <= 768 && width != 0 ? 3 : theme.spacing(2),
               paddingTop: 0,

@@ -1,46 +1,58 @@
 import { Container, Row, Col } from "reactstrap";
-import { Box } from "./Box";
-import { BirdBg } from "./BirdBg";
-import { page } from "../../config/index";
-
-import { theme } from "../../config/index";
-
-import { css } from "../src/css";
-
+import { useContext } from "react";
+import { SellerContext } from "./SellerProvider";
+import { FacebookProvider, Page, CustomChat } from "react-facebook";
+import { AiOutlineClockCircle, AiOutlinePhone } from "react-icons/ai";
+import { GoLocation } from "react-icons/go";
 export const Footer = () => {
+  const theme = useContext(SellerContext);
   return (
-    <div style={{ backgroundColor: theme.backgroundColor }}>
-      <Container
-        style={{
-          paddingTop: theme.spacing(5),
-          paddingBottom: theme.spacing(5),
-        }}
-      >
-        <Row>
-          <Col xs={12} md={6} style={{ marginBottom: theme.spacing(4) }}>
-            <h2 style={css.h2}>{page.intro.name}</h2>
-            <div
-              style={{
-                color: theme.color,
-                display: "inline",
-              }}
-            >
-              {page.intro.content}
-            </div>
-          </Col>
-          <Col xs={12} md={6} style={{ marginBottom: theme.spacing(4) }}>
-            <h2 style={css.h2}>{page.term.name}</h2>
-            <div
-              style={{
-                color: theme.color,
-                display: "inline",
-              }}
-            >
-              {page.term.content}
-            </div>
-          </Col>
-        </Row>
-      </Container>
+    <div style={{ backgroundColor: theme.backgroundColor, width: "100%" }}>
+      <FacebookProvider appId="404979820059541" chatSupport>
+        <Container
+          style={{
+            paddingTop: theme.spacing(5),
+            paddingBottom: theme.spacing(5),
+          }}
+        >
+          <Row>
+            <Col xs={12} md={4}>
+              <h2 style={theme.css.h2}>Giới Thiệu</h2>
+              <p>
+                {theme.store} {theme.slogan}
+              </p>
+              <p>{theme.intro}</p>
+            </Col>
+            <Col xs={12} md={4}>
+              <h2 style={theme.css.h2}>Liên Hệ</h2>
+
+              <p>
+                <AiOutlinePhone /> {theme.phone}
+              </p>
+              <p>
+                <GoLocation /> {theme.address}
+              </p>
+              <p>
+                <AiOutlineClockCircle /> {theme.contact}
+              </p>
+            </Col>
+            <Col xs={12} md={4}>
+              <h2 style={theme.css.h2}>Facebook</h2>
+              <Page href={"https://www.facebook.com/" + theme.pageId} />
+            </Col>
+          </Row>
+          <center>
+            <a style={{ color: theme.color }} href="https://loaloa.tech">
+              cung cấp bởi Loa Loa Tech
+            </a>
+          </center>
+        </Container>
+        <CustomChat
+          pageId={theme?.pageId}
+          minimized={false}
+          // themeColor={theme.color}
+        />
+      </FacebookProvider>
     </div>
   );
 };

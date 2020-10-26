@@ -1,14 +1,12 @@
 import { gql, useQuery } from "@apollo/client";
 
 import { Item } from "./item";
-
-import { page, theme } from "../../config/index";
-
 import { Loading } from "../src/Loading";
 import { useRouter } from "next/router";
-import { css } from "../src/css";
-import { useState } from "react";
+
+import { useContext, useState } from "react";
 import { IoIosList, IoIosArrowRoundBack } from "react-icons/io";
+import { SellerContext } from "../src/SellerProvider";
 
 const GET_CATEGORIES = gql`
   query($seller: UserWhereInput, $category: String, $root: Boolean) {
@@ -35,13 +33,15 @@ const GET_CATEGORIES = gql`
   }
 `;
 export function List() {
+  const theme = useContext(SellerContext);
+
   const router = useRouter();
   const [open, setOpen] = useState(false);
 
   const { category } = router.query;
   const { data, loading, error } = useQuery(GET_CATEGORIES, {
     variables: {
-      seller: page.seller,
+      seller: theme.seller,
       category,
       root: category ? false : true,
     },
@@ -49,13 +49,13 @@ export function List() {
   if (error || loading) return <Loading />;
   return !loading && data ? (
     <div>
-      <h5 style={css.h5}>
-        <IoIosList style={css.iconHeader} />
-        {category ? data.allCategories[0].name : "Danh Mục"}
+      <h5 style={theme.css.h5}>
+        <IoIosList style={theme.css.iconHeader} />
+        {category ? data?.allCategories[0]?.name : "Danh Mục"}
       </h5>
 
       {category
-        ? data.allCategories[0].childs.map((cate) => (
+        ? data?.allCategories[0]?.childs.map((cate) => (
             <Item
               key={cate.id}
               category={cate}

@@ -2,16 +2,15 @@ import { useRouter } from "next/router";
 import { List as Products } from "../components/Product/list";
 
 import { toAttributeGourpWhereInput } from "../lib/chip";
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment, useContext } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Sidebar } from "../components/Sidebar";
-import { theme } from "../config/index";
 
 import { Filter } from "../components/Product/filter";
-import { List as Banners } from "../components/Banner/list";
-import { css } from "../components/src/css";
-import { IntroBox } from "../components/IntroBox";
+import { SellerContext } from "../components/src/SellerProvider";
+
 const Index = () => {
+  const theme = useContext(SellerContext);
   const router = useRouter();
   let query = router.query;
   const category = query.category;
@@ -26,7 +25,16 @@ const Index = () => {
 
   return (
     <Fragment>
-      <Container>
+      <div
+        style={{
+          width: "100%",
+          height: "60vh",
+          background: `url(${theme.server + theme.file?.publicUrl})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      ></div>
+      <Container fluid>
         <Row noGutters style={{ paddingTop: theme.spacing(4) }}>
           <Col xs={4} md={3} lg={3} xl={2}>
             <Sidebar
@@ -45,18 +53,55 @@ const Index = () => {
               price_to={price_to}
               attributes={query.attributes ? query.attributes.split(",") : []}
             />
-            <Products
-              sm={6}
-              lg={4}
-              xl={3}
-              category={category}
-              categories={categories}
-              brand={brand}
-              search={search}
-              price_from={price_from}
-              price_to={price_to}
-              attributes={attributes}
-            />
+            {category ||
+            categories ||
+            brand ||
+            search ||
+            price_from ||
+            price_to != 999999999 ||
+            attributes ? (
+              <Products
+                sm={6}
+                lg={4}
+                xl={3}
+                category={category}
+                categories={categories}
+                brand={brand}
+                search={search}
+                price_from={price_from}
+                price_to={price_to}
+                attributes={attributes}
+              />
+            ) : (
+              <Fragment>
+                <div style={theme.css.filter}>
+                  <h6
+                    style={{
+                      display: "inline-block",
+                      margin: 0,
+                      textTransform: "uppercase",
+                      color: theme.primary,
+                    }}
+                  >
+                    Khuyến Mãi
+                  </h6>
+                </div>
+                <Products sm={6} lg={4} xl={3} sale />
+                <div style={theme.css.filter}>
+                  <h6
+                    style={{
+                      display: "inline-block",
+                      margin: 0,
+                      textTransform: "uppercase",
+                      color: theme.primary,
+                    }}
+                  >
+                    Bán Chạy
+                  </h6>
+                </div>
+                <Products sm={6} lg={4} xl={3} suggestions="bestSeller" />
+              </Fragment>
+            )}
           </Col>
         </Row>
       </Container>

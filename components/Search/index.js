@@ -1,11 +1,11 @@
 // search in nav
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import { Form } from "reactstrap";
-import { theme } from "../../config/index";
+import { SellerContext } from "../src/SellerProvider";
 
-import { css } from "../src/css";
 export function Search({ style }) {
+  const theme = useContext(SellerContext);
   const [searchInput, setSearchInput] = useState();
   const router = useRouter();
   return (
@@ -28,7 +28,7 @@ export function Search({ style }) {
         onChange={(event) => {
           setSearchInput(event.target.value);
         }}
-        style={{ ...css.input, width: "100%" }}
+        style={{ ...theme.css.input, width: "100%" }}
       />
     </Form>
   );

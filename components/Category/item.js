@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import { gql, useQuery } from "@apollo/client";
+import ReactGA from "react-ga";
+
 const GET_PARENT = gql`
   query($url: String) {
     allCategories(where: { url: $url }) {
@@ -22,6 +24,15 @@ export function Item({ category, style }) {
     ? category?.childs.map((category) => category?.url).toString()
     : [];
   const handleClick = () => {
+    // google analytics
+    const event = {
+      category: "Category",
+      action: "view",
+      value: category.name,
+    };
+    console.log(event);
+    ReactGA.event(event);
+
     if (category?.url === "back") {
       if (category?.parent) query.category = category?.parent.url;
       else {
@@ -41,6 +52,7 @@ export function Item({ category, style }) {
       style={{
         ...style,
         cursor: "pointer",
+        display: "block",
       }}
       onClick={handleClick}
     >

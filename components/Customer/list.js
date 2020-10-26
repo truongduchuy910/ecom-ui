@@ -1,22 +1,10 @@
-import { useState, useEffect, Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { gql, useQuery } from "@apollo/client";
-import { getErrorMessage } from "../../lib/chip";
-import { Item } from "./item";
 import { Loading } from "../src/Loading";
-import { MdCreate, MdChangeHistory, MdTrackChanges } from "react-icons/md";
-import {
-  IoMdAddCircleOutline,
-  IoIosColorWand,
-  IoIosSwap,
-} from "react-icons/io";
-import { Create } from "./create";
-import { customerVar } from "../../apollo/client";
-import { Link } from "../src/Link";
-import { theme } from "../../config/index";
+import { IoIosSwap } from "react-icons/io";
 
-import { css } from "../src/css";
-import { chooseCustomer } from "../../apollo/action";
-import { useRouter } from "next/router";
+
+import { SellerContext } from "../src/SellerProvider";
 // get
 const GET_CUS = gql`
   query {
@@ -30,6 +18,8 @@ const GET_CUS = gql`
 `;
 
 export function List() {
+  const theme = useContext(SellerContext);
+
   const router = useRouter();
   const { data, loading, error, refetch } = useQuery(GET_CUS);
   if (loading) return <Loading />;
@@ -42,7 +32,7 @@ export function List() {
         marginBottom: theme.spacing(3),
       }}
     >
-      <h5 style={{ ...css.h5, display: "inline", marginRight: 13 }}>
+      <h5 style={{ ...theme.css.h5, display: "inline", marginRight: 13 }}>
         Địa Chỉ Nhận.
       </h5>
       <label

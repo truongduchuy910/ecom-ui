@@ -1,4 +1,4 @@
-import { useState, Fragment, useReducer } from "react";
+import { useState, Fragment, useReducer, useContext } from "react";
 
 import { Create as CreateCustomer } from "../Customer/create";
 import {
@@ -11,8 +11,10 @@ import {
 import { useMutation, useQuery } from "@apollo/client";
 import { Loading } from "../src/Loading";
 import { useRouter } from "next/router";
-import { page } from "../../config/index";
+
+import { SellerContext } from "../src/SellerProvider";
 export const QuickCart = ({ cartItems }) => {
+  const theme = useContext(SellerContext);
   const router = useRouter();
   // query
   const { data: cartData, loading, error } = useQuery(CART);
@@ -31,7 +33,7 @@ export const QuickCart = ({ cartItems }) => {
   // create OrderItemsCreateInputs (GraphQL type)
   let dataOICI = OrderItemsCreateInputs(cartItems);
   dataOICI?.map(
-    (data) => (data.data.ofSeller = { connect: { id: page.seller.id } })
+    (data) => (data.data.ofSeller = { connect: { id: theme.seller.id } })
   );
 
   // function
@@ -44,7 +46,7 @@ export const QuickCart = ({ cartItems }) => {
               createOrderItems,
               createOrder,
               dataOICI,
-              page,
+              theme,
               customer,
               sum,
               router,

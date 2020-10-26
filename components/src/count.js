@@ -1,6 +1,8 @@
-import { theme } from "../../config";
+import { useContext } from "react";
+import { SellerContext } from "./SellerProvider";
 
 export function CountIcon({ count }) {
+  const theme = useContext(SellerContext);
   return (
     <span
       style={{

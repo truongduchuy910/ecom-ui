@@ -1,31 +1,23 @@
-import { List as AttributeGroups } from "../AttributeGroups/listOne";
-import {
-  addProductToLocalCart,
-  addProductToLocalWishlist,
-  addProductToLocalCompare,
-} from "../../apollo/action";
 import { formatMoney } from "../../lib/chip";
 import { Link } from "../src/Link";
-import { page } from "../../config/index";
 
-import { Tooltip } from "react-tippy";
-import { useState, Fragment } from "react";
+import { useState, Fragment, useContext } from "react";
 
 import { ImgProduct } from "./imageProduct";
 import { FadeIn } from "../Animations/FadeIn";
-import { theme } from "../../config/index";
-
-import { css } from "../src/css";
+import ReactGA from "react-ga";
 import { useRouter } from "next/router";
+import { SellerContext } from "../src/SellerProvider";
 
 export const Item = ({ product }) => {
+  const theme = useContext(SellerContext);
   const [show, setShow] = useState(false);
   const router = useRouter();
   return (
     <FadeIn>
       <div
         style={{
-          ...css.box,
+          ...theme.css.box,
           padding: 0,
           position: "relative",
         }}
@@ -38,15 +30,26 @@ export const Item = ({ product }) => {
           }}
           onClick={() => {
             router.push({
-              pathname: "detail",
+              pathname: "/detail",
               query: { detail: product.url },
             });
           }}
         />
-        <div style={{ padding: theme.spacing(2) }}>
+        <div
+          style={{ padding: theme.spacing(2) }}
+          onClick={() => {
+            const event = {
+              category: "Product",
+              action: "view",
+              value: product.name,
+            };
+            console.log(event);
+            ReactGA.event(event);
+          }}
+        >
           <Link
             href={{
-              pathname: "detail",
+              pathname: "/detail",
               query: { detail: product.url },
             }}
           >

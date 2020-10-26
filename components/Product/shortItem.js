@@ -1,16 +1,16 @@
-import { Fragment } from "react";
-import { page } from "../../config/index";
+import { Fragment, useContext } from "react";
 
 import { Link } from "../src/Link";
-import { theme } from "../../config/index";
+import { SellerContext } from "../src/SellerProvider";
 
 export const Item = ({ product }) => {
+  const theme = useContext(SellerContext);
   return (
-    <>
+    <div style={{ display: "block" }}>
       <th>
         <img
           src={
-            page.server +
+            theme.server +
             (product.image
               ? product.image.publicUrl
               : product.images[0]?.file.publicUrl)
@@ -19,10 +19,10 @@ export const Item = ({ product }) => {
         />
       </th>
       <th>
-        <Link href={{ pathname: "detail", query: { detail: product.url } }}>
+        <Link href={{ pathname: "/detail", query: { detail: product.url } }}>
           {product.name}
         </Link>
       </th>
-    </>
+    </div>
   );
 };

@@ -1,11 +1,15 @@
 import { useRouter } from "next/router";
 import { removeItemOnce } from "../../lib/chip";
 import { FiThermometer } from "react-icons/fi";
-import { theme } from "../../config/index";
 
 import { filterAttributeVar } from "../../apollo/client";
-export function Item({ attribute, style }) {
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
+import { IoIosRemoveCircleOutline } from "react-icons/io";
+export function Item({ attribute, style, removeIcon }) {
   const router = useRouter();
+  const theme = useContext(SellerContext);
+
   let query = router.query;
   let currentAttributes = query.attributes ? query.attributes.split(",") : [];
   const exist = currentAttributes.includes(attribute.url);
@@ -20,6 +24,7 @@ export function Item({ attribute, style }) {
     if (attribute.url === "all") delete query.attributes;
     router.push({ query });
   };
+
   return (
     <a
       style={{
@@ -32,6 +37,7 @@ export function Item({ attribute, style }) {
       onClick={handleClick}
     >
       {attribute.name}
+      {removeIcon ? <IoIosRemoveCircleOutline style={theme.css.removeIcon} /> : null}
     </a>
   );
 }

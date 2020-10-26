@@ -1,11 +1,13 @@
-import { page } from "../../config/index";
+import { useContext } from "react";
+import { SellerContext } from "./SellerProvider";
 
 export function Logo({ onClick, style }) {
-  return (
+  const theme = useContext(SellerContext);
+  return theme?.logo?.publicUrl ? (
     <img
-      src={page.logo}
-      style={{ ...style, padding: 0, maxWidth: 40 }}
+      src={theme?.server + theme?.logo?.publicUrl}
+      style={{ ...style, padding: 0 }}
       onClick={onClick}
     />
-  );
+  ) : null;
 }

@@ -100,136 +100,6 @@ module.exports = require("react-icons/ai");
 
 /***/ }),
 
-/***/ "/d8b":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return css; });
-/* harmony import */ var _config_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("rOcY");
-
-const css = {
-  btnIcon: (top = -5, color = _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor) => ({
-    position: "absolute",
-    top,
-    right: -5,
-    padding: 3,
-    paddingTop: 5,
-    width: 30,
-    height: 30,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: "50%",
-    color,
-    fontWeight: 800,
-    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary
-  }),
-  input: {
-    display: "block-inline",
-    border: `1px solid ${_config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].bgHighlight}`,
-    padding: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
-    paddingLeft: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
-    borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
-    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].bgDark,
-    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].color
-  },
-  btnInline: {
-    display: "inline-block",
-    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
-    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor,
-    border: "none",
-    borderRadius: 35,
-    minWidth: 35
-  },
-  button: {
-    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor,
-    width: "100%",
-    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
-    border: `1px solid ${_config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary}`,
-    borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
-    paddingTop: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
-    paddingBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
-    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2)
-  },
-  btnOutline: {
-    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
-    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor,
-    border: `1px solid ${_config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary}`,
-    borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
-    paddingTop: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
-    paddingBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1) + 1,
-    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2)
-  },
-  h5: {
-    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
-    fontSize: "0.87rem",
-    fontWeight: "bold",
-    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3)
-  },
-  h6: {
-    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
-    fontSize: "0.8rem",
-    textTransform: "uppercase",
-    margin: 0,
-    padding: 0
-  },
-  h1: {
-    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary
-  },
-  h2: {
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
-    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2)
-  },
-  a: {
-    display: "block"
-  },
-  box: {
-    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor,
-    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(4),
-    padding: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
-    borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
-    border: "1px solid rgba(0,0,0,0.05)",
-    boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)"
-  },
-  filter: {
-    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].color,
-    backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].backgroundColor,
-    borderRadius: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1),
-    border: "1px solid rgba(0,0,0,0.05)",
-    padding: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
-    paddingLeft: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
-    paddingRight: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
-    display: "inline-block",
-    boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
-    marginTop: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(4),
-    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
-    marginLeft: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(3),
-    fontSize: "0.9rem",
-    position: "relative"
-  },
-  icon: {
-    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].color
-  },
-  iconHeader: {
-    fontSize: "1rem",
-    marginRight: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(2),
-    marginBottom: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].spacing(1)
-  },
-  iconBorder: {
-    borderRadius: 35,
-    color: _config_index__WEBPACK_IMPORTED_MODULE_0__[/* theme */ "b"].primary,
-    width: 35,
-    height: 35,
-    padding: 8,
-    fontSize: "1rem"
-  }
-};
-
-/***/ }),
-
 /***/ "/jkW":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -295,9 +165,6 @@ function withRouter(ComposedComponent) {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, "default", function() { return /* binding */ App; });
-
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__("cDcd");
 var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
@@ -308,17 +175,8 @@ var client_ = __webpack_require__("z+8S");
 // EXTERNAL MODULE: ./node_modules/bootstrap/dist/css/bootstrap.min.css
 var bootstrap_min = __webpack_require__("q4sD");
 
-// EXTERNAL MODULE: ./public/yensaodatquang/assets/css/style.css
-var css_style = __webpack_require__("Avfn");
-
 // EXTERNAL MODULE: external "reactstrap"
 var external_reactstrap_ = __webpack_require__("oL/c");
-
-// EXTERNAL MODULE: ./lib/chip.js
-var chip = __webpack_require__("6x3k");
-
-// EXTERNAL MODULE: ./config/index.js
-var config = __webpack_require__("rOcY");
 
 // EXTERNAL MODULE: ./components/src/Link.js
 var Link = __webpack_require__("4FuJ");
@@ -326,22 +184,15 @@ var Link = __webpack_require__("4FuJ");
 // EXTERNAL MODULE: ./apollo/action.js
 var action = __webpack_require__("CO9l");
 
-// EXTERNAL MODULE: external "react-icons/io"
-var io_ = __webpack_require__("2yjL");
-
 // EXTERNAL MODULE: external "react-icons/ai"
 var ai_ = __webpack_require__("/WcL");
 
-// EXTERNAL MODULE: ./components/src/css.js
-var css = __webpack_require__("/d8b");
+// EXTERNAL MODULE: ./components/src/SellerProvider.js + 1 modules
+var SellerProvider = __webpack_require__("htFV");
 
 // CONCATENATED MODULE: ./components/User/DropdownUser.js
 
 var __jsx = external_react_default.a.createElement;
-
-
-
-
 
 
 
@@ -363,6 +214,7 @@ function CategoriesDropdownMenu({
 }) {
   var _data$user, _data$user2;
 
+  const theme = Object(external_react_["useContext"])(SellerProvider["a" /* SellerContext */]);
   const {
     data
   } = Object(client_["useQuery"])(action["c" /* USER */]);
@@ -375,9 +227,11 @@ var md_ = __webpack_require__("j3R+");
 
 var count_jsx = external_react_default.a.createElement;
 
+
 function CountIcon({
   count
 }) {
+  const theme = Object(external_react_["useContext"])(SellerProvider["a" /* SellerContext */]);
   return count_jsx("span", {
     style: {
       position: "absolute",
@@ -386,10 +240,13 @@ function CountIcon({
       float: "right",
       right: 0,
       display: "inline",
-      color: config["b" /* theme */].primary
+      color: theme.primary
     }
   }, count);
 }
+// EXTERNAL MODULE: external "react-icons/io"
+var io_ = __webpack_require__("2yjL");
+
 // CONCATENATED MODULE: ./components/Cart/icon.js
 
 var icon_jsx = external_react_default.a.createElement;
@@ -407,6 +264,7 @@ function Icon({
 }) {
   var _data$cartItems;
 
+  const theme = Object(external_react_["useContext"])(SellerProvider["a" /* SellerContext */]);
   const {
     data,
     loading,
@@ -433,9 +291,6 @@ function Icon({
     count: count
   }) : null);
 }
-// EXTERNAL MODULE: external "react-icons/fi"
-var fi_ = __webpack_require__("C9pf");
-
 // CONCATENATED MODULE: ./components/Wishlist/icon.js
 
 var Wishlist_icon_jsx = external_react_default.a.createElement;
@@ -459,6 +314,7 @@ function icon_Icon({
 }) {
   var _data$wishlist;
 
+  const theme = Object(external_react_["useContext"])(SellerProvider["a" /* SellerContext */]);
   const {
     data,
     loading,
@@ -481,10 +337,12 @@ function icon_Icon({
 // EXTERNAL MODULE: ./apollo/client.js
 var client = __webpack_require__("rbTy");
 
+// EXTERNAL MODULE: external "react-icons/fi"
+var fi_ = __webpack_require__("C9pf");
+
 // CONCATENATED MODULE: ./components/Order/icon.js
 
 var Order_icon_jsx = external_react_default.a.createElement;
-
 
 
 
@@ -545,18 +403,21 @@ function logo_objectSpread(target) { for (var i = 1; i < arguments.length; i++) 
 function logo_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+
 function Logo({
   onClick,
   style
 }) {
-  return logo_jsx("img", {
-    src: config["a" /* page */].logo,
+  var _theme$logo, _theme$logo2;
+
+  const theme = Object(external_react_["useContext"])(SellerProvider["a" /* SellerContext */]);
+  return (theme === null || theme === void 0 ? void 0 : (_theme$logo = theme.logo) === null || _theme$logo === void 0 ? void 0 : _theme$logo.publicUrl) ? logo_jsx("img", {
+    src: (theme === null || theme === void 0 ? void 0 : theme.server) + (theme === null || theme === void 0 ? void 0 : (_theme$logo2 = theme.logo) === null || _theme$logo2 === void 0 ? void 0 : _theme$logo2.publicUrl),
     style: logo_objectSpread(logo_objectSpread({}, style), {}, {
-      padding: 0,
-      maxWidth: 40
+      padding: 0
     }),
     onClick: onClick
-  });
+  }) : null;
 }
 // EXTERNAL MODULE: external "next/router"
 var router_ = __webpack_require__("4Q3z");
@@ -581,81 +442,83 @@ function MenuApp_defineProperty(obj, key, value) { if (key in obj) { Object.defi
 
 
 
-
-
-
-const GET_USER = client_["gql"]`
-  query {
-    user @client
-  }
-`;
 function MenuApp() {
   const router = Object(router_["useRouter"])();
+  const theme = Object(external_react_["useContext"])(SellerProvider["a" /* SellerContext */]);
   const {
     data
-  } = Object(client_["useQuery"])(GET_USER);
+  } = Object(client_["useQuery"])(client_["gql"]`
+      query {
+        user @client
+      }
+    `, {});
   const isLogin = data === null || data === void 0 ? void 0 : data.user; // ANIMATION
 
   return MenuApp_jsx("section", {
     style: {
-      position: "fixed",
-      width: "100%",
+      position: 'fixed',
+      width: '100%',
       zIndex: 100,
-      backgroundColor: config["b" /* theme */].backgroundColor,
-      paddingTop: config["b" /* theme */].spacing(3),
-      paddingBottom: config["b" /* theme */].spacing(3),
-      border: "1px solid rgba(0,0,0,0.05)"
+      top: 0,
+      backgroundColor: theme.productBackgroundColor,
+      paddingTop: theme.spacing(3),
+      paddingBottom: theme.spacing(3),
+      border: '1px solid rgba(0,0,0,0.05)'
     }
-  }, MenuApp_jsx(external_reactstrap_["Container"], null, MenuApp_jsx("div", {
+  }, MenuApp_jsx(external_reactstrap_["Container"], {
+    fluid: true
+  }, MenuApp_jsx("div", {
     style: {
-      display: "flex",
-      alignItems: "center",
+      display: 'flex',
+      alignItems: 'center',
       height: 40,
-      width: "100%"
+      width: '100%'
     }
   }, MenuApp_jsx(Logo, {
     style: {
-      float: "left",
-      marginLeft: config["b" /* theme */].spacing(3),
-      minHeight: 40
+      float: 'left',
+      marginLeft: theme.spacing(3),
+      marginRight: theme.spacing(3),
+      height: '100%'
     },
     onClick: () => {
-      router.push("/");
+      router.push('/');
     }
   }), MenuApp_jsx("h1", {
     style: {
-      float: "left",
-      marginLeft: config["b" /* theme */].spacing(3),
-      fontSize: "1.2rem",
-      width: "100%",
+      float: 'left',
+      marginLeft: theme.spacing(3),
+      fontSize: '0.9rem',
+      width: '100%',
       padding: 0,
-      marginBottom: 0,
-      color: config["b" /* theme */].primary,
-      fontWeight: "bold",
-      cursor: "pointer"
+      margin: 0,
+      color: theme.primary,
+      cursor: 'pointer',
+      wordWrap: 'initial',
+      fontWeight: 'bold'
     },
     onClick: () => {
-      router.push("/");
+      router.push('/');
     }
-  }, config["a" /* page */].name), MenuApp_jsx(icon_Icon, {
-    style: MenuApp_objectSpread(MenuApp_objectSpread({}, css["a" /* css */].iconBorder), {}, {
-      float: "right"
+  }, theme.store), MenuApp_jsx(icon_Icon, {
+    style: MenuApp_objectSpread(MenuApp_objectSpread({}, theme.css.iconBorder), {}, {
+      float: 'right'
     })
   }), MenuApp_jsx(Icon, {
-    style: MenuApp_objectSpread(MenuApp_objectSpread({}, css["a" /* css */].iconBorder), {}, {
-      float: "right"
+    style: MenuApp_objectSpread(MenuApp_objectSpread({}, theme.css.iconBorder), {}, {
+      float: 'right'
     })
   }), MenuApp_jsx(Order_icon_Icon, {
-    style: MenuApp_objectSpread(MenuApp_objectSpread({}, css["a" /* css */].iconBorder), {}, {
-      float: "right"
+    style: MenuApp_objectSpread(MenuApp_objectSpread({}, theme.css.iconBorder), {}, {
+      float: 'right'
     })
   }), MenuApp_jsx(CategoriesDropdownMenu, null))));
 }
-// EXTERNAL MODULE: ./components/src/Box.js
-var Box = __webpack_require__("WBZH");
+// EXTERNAL MODULE: external "react-facebook"
+var external_react_facebook_ = __webpack_require__("ekOq");
 
-// EXTERNAL MODULE: ./components/src/BirdBg.js
-var BirdBg = __webpack_require__("AYQM");
+// EXTERNAL MODULE: external "react-icons/go"
+var go_ = __webpack_require__("9yvl");
 
 // CONCATENATED MODULE: ./components/src/Footer.js
 
@@ -667,50 +530,53 @@ var Footer_jsx = external_react_default.a.createElement;
 
 
 const Footer = () => {
+  const theme = Object(external_react_["useContext"])(SellerProvider["a" /* SellerContext */]);
   return Footer_jsx("div", {
     style: {
-      backgroundColor: config["b" /* theme */].backgroundColor
+      backgroundColor: theme.backgroundColor,
+      width: "100%"
     }
+  }, Footer_jsx(external_react_facebook_["FacebookProvider"], {
+    appId: "404979820059541",
+    chatSupport: true
   }, Footer_jsx(external_reactstrap_["Container"], {
     style: {
-      paddingTop: config["b" /* theme */].spacing(5),
-      paddingBottom: config["b" /* theme */].spacing(5)
+      paddingTop: theme.spacing(5),
+      paddingBottom: theme.spacing(5)
     }
   }, Footer_jsx(external_reactstrap_["Row"], null, Footer_jsx(external_reactstrap_["Col"], {
     xs: 12,
-    md: 6,
-    style: {
-      marginBottom: config["b" /* theme */].spacing(4)
-    }
+    md: 4
   }, Footer_jsx("h2", {
-    style: css["a" /* css */].h2
-  }, config["a" /* page */].intro.name), Footer_jsx("div", {
-    style: {
-      color: config["b" /* theme */].color,
-      display: "inline"
-    }
-  }, config["a" /* page */].intro.content)), Footer_jsx(external_reactstrap_["Col"], {
+    style: theme.css.h2
+  }, "Gi\u1EDBi Thi\u1EC7u"), Footer_jsx("p", null, theme.store, " ", theme.slogan), Footer_jsx("p", null, theme.intro)), Footer_jsx(external_reactstrap_["Col"], {
     xs: 12,
-    md: 6,
-    style: {
-      marginBottom: config["b" /* theme */].spacing(4)
-    }
+    md: 4
   }, Footer_jsx("h2", {
-    style: css["a" /* css */].h2
-  }, config["a" /* page */].term.name), Footer_jsx("div", {
+    style: theme.css.h2
+  }, "Li\xEAn H\u1EC7"), Footer_jsx("p", null, Footer_jsx(ai_["AiOutlinePhone"], null), " ", theme.phone), Footer_jsx("p", null, Footer_jsx(go_["GoLocation"], null), " ", theme.address), Footer_jsx("p", null, Footer_jsx(ai_["AiOutlineClockCircle"], null), " ", theme.contact)), Footer_jsx(external_reactstrap_["Col"], {
+    xs: 12,
+    md: 4
+  }, Footer_jsx("h2", {
+    style: theme.css.h2
+  }, "Facebook"), Footer_jsx(external_react_facebook_["Page"], {
+    href: "https://www.facebook.com/" + theme.pageId
+  }))), Footer_jsx("center", null, Footer_jsx("a", {
     style: {
-      color: config["b" /* theme */].color,
-      display: "inline"
-    }
-  }, config["a" /* page */].term.content)))));
-};
-// EXTERNAL MODULE: external "react-facebook"
-var external_react_facebook_ = __webpack_require__("ekOq");
+      color: theme.color
+    },
+    href: "https://loaloa.tech"
+  }, "cung c\u1EA5p b\u1EDFi Loa Loa Tech"))), Footer_jsx(external_react_facebook_["CustomChat"], {
+    pageId: theme === null || theme === void 0 ? void 0 : theme.pageId,
+    minimized: false // themeColor={theme.color}
 
+  })));
+};
 // CONCATENATED MODULE: ./pages/_app.js
 
 var _app_jsx = external_react_default.a.createElement;
 
+ // import "../public/yensaodatquang/assets/css/style.css";
 
 
 
@@ -718,30 +584,24 @@ var _app_jsx = external_react_default.a.createElement;
 
 
 
-function App({
-  Component,
-  pageProps
-}) {
+
+function App(props) {
+  const {
+    Component,
+    pageProps
+  } = props;
   const apolloClient = Object(client["e" /* useApollo */])(pageProps.initialApolloState);
-  return _app_jsx(client_["ApolloProvider"], {
+  return _app_jsx(external_react_["Fragment"], null, _app_jsx(client_["ApolloProvider"], {
     client: apolloClient
-  }, _app_jsx(external_react_facebook_["FacebookProvider"], {
-    appId: "404979820059541",
-    chatSupport: true
-  }, _app_jsx(external_react_facebook_["CustomChat"], {
-    pageId: "1627025060846047",
-    minimized: false
-  })), _app_jsx("header", null, _app_jsx(MenuApp, null)), _app_jsx("main", {
+  }, _app_jsx(SellerProvider["b" /* SellerProvider */], null, _app_jsx("header", null, _app_jsx(MenuApp, null)), _app_jsx("main", {
     style: {
-      paddingTop: 60,
-      paddingBottom: config["b" /* theme */].spacing(4),
-      minHeight: "60vh",
-      backgroundColor: config["b" /* theme */].bgDark,
-      color: config["b" /* theme */].color,
-      textShadow: "1px 1px 1px rgba(0,0,0,0.04)"
+      paddingTop: 68,
+      minHeight: '60vh'
     }
-  }, _app_jsx(Component, pageProps)), _app_jsx("footer", null, _app_jsx(Footer, null)));
+  }, _app_jsx(Component, pageProps)), _app_jsx(Footer, null))));
 }
+
+/* harmony default export */ var _app = __webpack_exports__["default"] = (App);
 
 /***/ }),
 
@@ -824,7 +684,6 @@ module.exports = require("react-icons/io");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_spring__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("KwCx");
 /* harmony import */ var react_spring__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_spring__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("rOcY");
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -833,7 +692,6 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -944,106 +802,6 @@ function formatUrl(urlObj) {
 
 /***/ }),
 
-/***/ "6x3k":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return removeItemOnce; });
-/* unused harmony export removeItemAll */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return toAttributeGourpWhereInput; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return formatMoney; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return toSlug; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getErrorMessage; });
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("4Q3z");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("rbTy");
-/* harmony import */ var _apollo_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("CO9l");
-
-
-
-function removeItemOnce(arr, value) {
-  var index = arr.indexOf(value);
-
-  if (index > -1) {
-    arr.splice(index, 1);
-  }
-
-  return arr;
-}
-function removeItemAll(arr, value) {
-  var i = 0;
-
-  while (i < arr.length) {
-    if (arr[i] === value) {
-      arr.splice(i, 1);
-    } else {
-      ++i;
-    }
-  }
-
-  return arr;
-}
-function toAttributeGourpWhereInput(attributes) {
-  if (attributes.length) return {
-    attributes_some: {
-      url_in: attributes
-    }
-  };else return null;
-}
-function formatMoney(amount, decimalCount = 0, decimal = ".", thousands = ",") {
-  try {
-    decimalCount = Math.abs(decimalCount);
-    decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
-    const negativeSign = amount < 0 ? "-" : "";
-    let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
-    let j = i.length > 3 ? i.length % 3 : 0;
-    return negativeSign + (j ? i.substr(0, j) + thousands : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "") + " đ";
-  } catch (e) {}
-}
-function toSlug(str) {
-  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ /g, "-").toLocaleLowerCase();
-}
-function getErrorMessage(error) {
-  if (error.graphQLErrors) {
-    for (const graphQLError of error.graphQLErrors) {
-      if (graphQLError.extensions && graphQLError.extensions.code === "BAD_USER_INPUT") {
-        return graphQLError.message;
-      }
-    }
-  }
-
-  switch (error.message.slice(0, 20)) {
-    case "E11000 duplicate key":
-      return "Tên đăng nhập bị trùng.";
-  }
-
-  switch (error.message) {
-    case `ketQua validation failed: ketQua: Cast to Array failed for value "Bạn đã đạt đến giới hạn truy cập." at path "ketQua"`:
-      return `Bạn không đủ lượt truy cập, liên hệ để nhận thêm`;
-
-    case `Response not successful: Received status code 400`:
-      return `Dữ liệu nhập vào không hợp lệ.`;
-
-    case `You do not have access to this resource`:
-      const token = localStorage.getItem("token");
-      return token ? `Đã xảy ra lỗi, truy cập bị từ chối, hãy thử đăng nhập lại!` : `Vui lòng đăng nhập để tiếp tục!`;
-
-    case `NetworkError when attempting to fetch resource.`:
-      return `Lỗi kết nối, đợi 5 phút và thử lại!`;
-
-    case `[passwordAuth:identity:notFound] The email provided didn't identify any undefined`:
-      return `Sai Tên Đăng Nhập`;
-
-    case `[passwordAuth:secret:mismatch] The password provided is incorrect`:
-      return `Sai Mật Khẩu`;
-
-    default:
-      return error.message;
-  }
-}
-
-/***/ }),
-
 /***/ "8xkj":
 /***/ (function(module, exports) {
 
@@ -1051,31 +809,10 @@ module.exports = require("querystring");
 
 /***/ }),
 
-/***/ "AYQM":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export BirdBg */
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("cDcd");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-function BirdBg({
-  children
-}) {
-  return __jsx("div", {
-    style: {
-      background: "url(/assets/img/bird-1.png)"
-    }
-  }, children);
-}
-
-/***/ }),
-
-/***/ "Avfn":
+/***/ "9yvl":
 /***/ (function(module, exports) {
 
-
+module.exports = require("react-icons/go");
 
 /***/ }),
 
@@ -1445,44 +1182,6 @@ module.exports = _interopRequireDefault;
 /***/ (function(module, exports) {
 
 module.exports = require("@apollo/client/link/context");
-
-/***/ }),
-
-/***/ "WBZH":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export Box */
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("cDcd");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_spring__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("KwCx");
-/* harmony import */ var react_spring__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_spring__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _config_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("rOcY");
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-function Box({
-  children
-}) {
-  const props = Object(react_spring__WEBPACK_IMPORTED_MODULE_1__["useSpring"])({
-    opacity: 1,
-    from: {
-      opacity: 0
-    }
-  });
-  return __jsx(react_spring__WEBPACK_IMPORTED_MODULE_1__["animated"].div, {
-    style: props
-  }, __jsx("div", {
-    style: {
-      padding: 34,
-      marginTop: 21,
-      marginBottom: 21,
-      backgroundColor: _config_index__WEBPACK_IMPORTED_MODULE_2__[/* theme */ "b"].backgroundColor,
-      borderRadius: 8
-    }
-  }, children));
-}
 
 /***/ }),
 
@@ -2924,6 +2623,304 @@ function parseRelativeUrl(url, base) {
 
 /***/ }),
 
+/***/ "htFV":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "a", function() { return /* binding */ SellerContext; });
+__webpack_require__.d(__webpack_exports__, "b", function() { return /* binding */ SellerProvider; });
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__("cDcd");
+var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
+
+// EXTERNAL MODULE: external "@apollo/client"
+var client_ = __webpack_require__("z+8S");
+
+// CONCATENATED MODULE: ./components/src/Query.js
+
+const Query = ({
+  query,
+  variables,
+  children
+}) => {
+  const {
+    data,
+    error,
+    loading
+  } = Object(client_["useQuery"])(query, {
+    variables
+  });
+  return children({
+    data,
+    error,
+    loading
+  });
+};
+// EXTERNAL MODULE: external "next/head"
+var head_ = __webpack_require__("xnum");
+var head_default = /*#__PURE__*/__webpack_require__.n(head_);
+
+// EXTERNAL MODULE: external "react-ga"
+var external_react_ga_ = __webpack_require__("lJcc");
+var external_react_ga_default = /*#__PURE__*/__webpack_require__.n(external_react_ga_);
+
+// CONCATENATED MODULE: ./components/src/SellerProvider.js
+
+var __jsx = external_react_default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+const SellerContext = Object(external_react_["createContext"])();
+
+
+
+
+const level = [0, 5, 8, 13, 21, 34, 55, 89];
+const prices = [100000, 200000, 500000, 1000000, 2000000];
+
+const spacing = i => level[i];
+
+const uri = true ? "https://ecommerce.loaloa.tech" : undefined;
+const SellerProvider = ({
+  children
+}) => {
+  const {
+    0: isLoad,
+    1: setIsLoad
+  } = Object(external_react_["useState"])(false);
+  const {
+    0: GA,
+    1: setGA
+  } = Object(external_react_["useState"])();
+  Object(external_react_["useEffect"])(() => {
+    if (GA && !isLoad) {
+      console.log("init", GA);
+      external_react_ga_default.a.initialize(GA);
+      setIsLoad(true);
+    }
+
+    const url = window.location.pathname + window.location.search;
+    console.log(url);
+    external_react_ga_default.a.pageview(url);
+  });
+  return __jsx(Query, {
+    query: client_["gql"]`
+        query($host: String) {
+          allUsers(where: { host: $host }) {
+            id
+            email
+            file {
+              publicUrl
+            }
+            logo {
+              publicUrl
+            }
+            store
+            slogan
+            intro
+            contact
+            color
+            primary
+            backgroundColor
+            productBackgroundColor
+            pageId
+            googleId
+            phone
+            email
+            address
+            prices
+          }
+        }
+      `,
+    variables: {
+      host: false ? undefined : null
+    }
+  }, ({
+    data,
+    error,
+    loading
+  }) => {
+    var _theme$file, _theme$logo, _theme$prices;
+
+    const theme = data === null || data === void 0 ? void 0 : data.allUsers[0];
+
+    if (theme) {
+      setGA(theme.googleId);
+    }
+
+    return theme ? __jsx(external_react_["Fragment"], null, __jsx(head_default.a, null, __jsx("title", null, theme.store, " | ", theme.slogan), __jsx("meta", {
+      name: "description",
+      content: theme.intro
+    }), __jsx("meta", {
+      property: "og:image",
+      content: uri + (theme === null || theme === void 0 ? void 0 : (_theme$file = theme.file) === null || _theme$file === void 0 ? void 0 : _theme$file.publicUrl)
+    }), __jsx("link", {
+      rel: "icon",
+      type: "image/png",
+      href: uri + (theme === null || theme === void 0 ? void 0 : (_theme$logo = theme.logo) === null || _theme$logo === void 0 ? void 0 : _theme$logo.publicUrl)
+    })), __jsx(SellerContext.Provider, {
+      value: _objectSpread(_objectSpread({}, theme), {}, {
+        server: true ? "https://ecommerce.loaloa.tech" : undefined,
+        seller: {
+          id: theme.id
+        },
+        spacing,
+        prices: theme.prices ? (_theme$prices = theme.prices) === null || _theme$prices === void 0 ? void 0 : _theme$prices.replace(/ /g, "").split(",").map(e => Number(e)) : [],
+        css: css(theme)
+      })
+    }, __jsx("div", {
+      style: {
+        backgroundColor: theme.backgroundColor,
+        color: theme.color
+      }
+    }, children))) : null;
+  });
+};
+
+const css = theme => ({
+  btnIcon: (top = -5, color = theme.backgroundColor) => ({
+    position: "absolute",
+    top,
+    right: -5,
+    padding: 3,
+    paddingTop: 5,
+    width: 30,
+    height: 30,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "50%",
+    color,
+    fontWeight: 800,
+    backgroundColor: theme.primary
+  }),
+  input: {
+    display: "block-inline",
+    border: `1px solid ${theme === null || theme === void 0 ? void 0 : theme.productBackgroundColor}`,
+    padding: spacing(1),
+    paddingLeft: spacing(3),
+    borderRadius: spacing(2),
+    backgroundColor: theme === null || theme === void 0 ? void 0 : theme.backgroundColor,
+    color: theme.color
+  },
+  btnInline: {
+    display: "inline-block",
+    backgroundColor: theme.primary,
+    color: theme.backgroundColor,
+    border: "none",
+    borderRadius: 35,
+    minWidth: 35
+  },
+  button: {
+    color: theme.backgroundColor,
+    width: "100%",
+    backgroundColor: theme.primary,
+    border: `1px solid ${theme.primary}`,
+    borderRadius: spacing(2),
+    paddingTop: spacing(1),
+    paddingBottom: spacing(1),
+    marginBottom: spacing(2)
+  },
+  btnOutline: {
+    color: theme.primary,
+    backgroundColor: theme.backgroundColor,
+    border: `1px solid ${theme.primary}`,
+    borderRadius: spacing(2),
+    paddingTop: spacing(1),
+    paddingBottom: spacing(1) + 1,
+    marginBottom: spacing(2)
+  },
+  h5: {
+    color: theme.primary,
+    fontSize: "0.87rem",
+    fontWeight: "bold",
+    marginBottom: spacing(3)
+  },
+  h6: {
+    color: theme.primary,
+    fontSize: "0.8rem",
+    textTransform: "uppercase",
+    margin: 0,
+    padding: 0
+  },
+  h1: {
+    color: theme.primary
+  },
+  h2: {
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    color: theme.primary,
+    marginBottom: spacing(2)
+  },
+  a: {
+    display: "block"
+  },
+  box: {
+    backgroundColor: theme.productBackgroundColor,
+    marginBottom: spacing(4),
+    padding: spacing(3),
+    borderRadius: spacing(1),
+    border: "1px solid rgba(0,0,0,0.05)",
+    boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)"
+  },
+  filter: {
+    color: theme.color,
+    backgroundColor: theme.productBackgroundColor,
+    borderRadius: spacing(1),
+    border: "1px solid rgba(0,0,0,0.05)",
+    padding: spacing(2),
+    paddingLeft: spacing(3),
+    paddingRight: spacing(3),
+    display: "inline-block",
+    boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.03)",
+    marginBottom: spacing(3),
+    marginLeft: spacing(3),
+    fontSize: "0.9rem",
+    position: "relative"
+  },
+  icon: {
+    color: theme.color
+  },
+  iconHeader: {
+    fontSize: "1rem",
+    marginRight: spacing(2),
+    marginBottom: spacing(1)
+  },
+  iconBorder: {
+    borderRadius: 35,
+    color: theme.primary,
+    width: 35,
+    height: 35,
+    padding: 8,
+    fontSize: "1rem"
+  },
+  removeIcon: {
+    marginTop: 0,
+    marginBottom: 0,
+    marginRight: 0,
+    marginLeft: spacing(2),
+    padding: 3,
+    color: theme.primary,
+    position: "relative",
+    top: 0,
+    width: 25,
+    height: 25
+  }
+});
+
+/***/ }),
+
 /***/ "j3R+":
 /***/ (function(module, exports) {
 
@@ -2935,6 +2932,13 @@ module.exports = require("react-icons/md");
 /***/ (function(module, exports) {
 
 module.exports = require("next/dist/next-server/lib/utils.js");
+
+/***/ }),
+
+/***/ "lJcc":
+/***/ (function(module, exports) {
+
+module.exports = require("react-ga");
 
 /***/ }),
 
@@ -3106,29 +3110,6 @@ module.exports = require("reactstrap");
 
 /***/ }),
 
-/***/ "rOcY":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return page; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return theme; });
-/* harmony import */ var _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("siBO");
-var _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t("siBO", 1);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-const spacing = [0, 5, 8, 13, 21, 34, 55, 89];
-const page = _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__.page;
-const theme = _objectSpread(_objectSpread({}, _yensaodatquang_json__WEBPACK_IMPORTED_MODULE_0__.theme), {}, {
-  spacing: n => spacing[n]
-});
-
-/***/ }),
-
 /***/ "rbTy":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3149,14 +3130,12 @@ const theme = _objectSpread(_objectSpread({}, _yensaodatquang_json__WEBPACK_IMPO
 /* harmony import */ var _apollo_client_link_context__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_apollo_client_link_context__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _apollo_client_link_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("DHnX");
 /* harmony import */ var _apollo_client_link_http__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_apollo_client_link_http__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _config_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("rOcY");
-/* harmony import */ var _action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("CO9l");
+/* harmony import */ var _action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("CO9l");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -3172,9 +3151,11 @@ const customerVar = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["makeVar"
 });
 const refetchCustomer = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["makeVar"])(async () => {});
 let cache = new _apollo_client__WEBPACK_IMPORTED_MODULE_1__["InMemoryCache"]();
+const uri = (true ? 'https://ecommerce.loaloa.tech' : undefined) + '/admin/api';
+console.log(uri);
 const httpLink = new _apollo_client_link_http__WEBPACK_IMPORTED_MODULE_3__["HttpLink"]({
-  uri: _config_index__WEBPACK_IMPORTED_MODULE_4__[/* page */ "a"].server + "/admin/api",
-  credentials: "same-origin"
+  uri,
+  credentials: 'same-origin'
 });
 const authLink = Object(_apollo_client_link_context__WEBPACK_IMPORTED_MODULE_2__["setContext"])((_, {
   headers
@@ -3206,7 +3187,7 @@ function initializeApollo(initialState = null) {
 }
 function useApollo(initialState) {
   const store = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => {
-    Object(_action__WEBPACK_IMPORTED_MODULE_5__[/* init */ "j"])();
+    Object(_action__WEBPACK_IMPORTED_MODULE_4__[/* init */ "j"])();
     return initializeApollo(initialState);
   }, [initialState]);
   return store;
@@ -3214,10 +3195,10 @@ function useApollo(initialState) {
 
 /***/ }),
 
-/***/ "siBO":
-/***/ (function(module) {
+/***/ "xnum":
+/***/ (function(module, exports) {
 
-module.exports = JSON.parse("{\"page\":{\"logo\":\"/yensaodatquang/assets/img/logo.png\",\"term\":{\"name\":\"Thông tin\",\"content\":\"Địa chỉ: thôn Trà Đóa, xã Bình Đào, huyện Thăng Bình, tỉnh Quảng Nam. \\nMã số thuế: 4001040242. \\nĐiện thoại: 0914758179 (chị Vinh), 0973799915 (anh Long)\"},\"intro\":{\"name\":\"Giới Thiệu\",\"content\":\"Chuyên cung cấp nguồn yến sào tự dẫn dụ và khai thác. Với công nghệ giả hang đá tự nhiên. Chất lượng tổ Yến của chúng tôi đã làm hài lòng tất cả khách hàng.\"},\"name\":\"Yến Sào Đất Quảng\",\"server\":\"https://ecommerce.loaloa.tech\",\"seller\":{\"id\":\"5e4feaf835fcaa2d50509597\"},\"divider\":\"/yensaodatquang/assets/img/divider.png\",\"signInBg\":\"/yensaodatquang/assets/img/nha-yen-1.jpg\",\"prices\":[200000,500000,1000000,2000000,5000000]},\"theme\":{\"backgroundColor\":\"white\",\"color\":\"#333\",\"secondary\":\"#a9a9a9\",\"primary\":\"brown\",\"bgHighlight\":\"rgb(241, 241, 241)\",\"bgDark\":\"rgb(247, 247, 247)\"}}");
+module.exports = require("next/head");
 
 /***/ }),
 

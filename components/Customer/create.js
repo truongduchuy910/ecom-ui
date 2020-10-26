@@ -1,12 +1,9 @@
-import { useState, useMemo } from "react";
 import { gql, useMutation } from "@apollo/client";
-import { page } from "../../config/index";
 
-import { refetchCustomer, customerVar } from "../../apollo/client";
-import { useRouter } from "next/router";
-import { chooseCustomer } from "../../apollo/action";
-import { css } from "../src/css";
-import { theme } from "../../config/index";
+import { refetchCustomer } from "../../apollo/client";
+
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
 
 const CREATE_CUSTOMER = gql`
   mutation($data: CustomerCreateInput) {
@@ -19,6 +16,8 @@ const CREATE_CUSTOMER = gql`
   }
 `;
 export function Create({ onCreate = () => {} }) {
+  const theme = useContext(SellerContext);
+
   const [createCustomer] = useMutation(CREATE_CUSTOMER);
   const refetchCus = refetchCustomer();
 
@@ -28,19 +27,22 @@ export function Create({ onCreate = () => {} }) {
     e.stopPropagation();
 
     const { phone, name, address } = e.target;
-    const { data, errors } = await createCustomer({
-      variables: {
-        data: {
-          phone: phone.value,
-          name: name.value,
-          address: address.value,
-          ofSeller: { connect: { id: page.seller.id } },
+    
+    if (phone.value && name.value && address.value) {
+      const { data, errors } = await createCustomer({
+        variables: {
+          data: {
+            phone: phone.value,
+            name: name.value,
+            address: address.value,
+            ofSeller: { connect: { id: theme.seller.id } },
+          },
         },
-      },
-    });
-    const customer = data?.createCustomer;
-    if (customer?.id) {
-      onCreate({ customer });
+      });
+      const customer = data?.createCustomer;
+      if (customer?.id) {
+        onCreate({ customer });
+      }
     }
   };
   return (
@@ -49,17 +51,25 @@ export function Create({ onCreate = () => {} }) {
       noValidate
       style={{ marginBottom: theme.spacing(3) }}
     >
-      <h5 style={{ ...css.h5, textTransform: "capitalize" }}>
+      <h5 style={{ ...theme.css.h5, textTransform: "capitalize" }}>
         Điền thông tin nhận hàng
       </h5>
       <input
-        style={{ ...css.input, width: "100%", marginBottom: theme.spacing(3) }}
+        style={{
+          ...theme.css.input,
+          width: "100%",
+          marginBottom: theme.spacing(3),
+        }}
         required
         name="name"
         placeholder="Tên"
       />
       <input
-        style={{ ...css.input, width: "100%", marginBottom: theme.spacing(3) }}
+        style={{
+          ...theme.css.input,
+          width: "100%",
+          marginBottom: theme.spacing(3),
+        }}
         required
         name="phone"
         placeholder="Điện Thoại"
@@ -67,12 +77,16 @@ export function Create({ onCreate = () => {} }) {
       />
 
       <input
-        style={{ ...css.input, width: "100%", marginBottom: theme.spacing(3) }}
+        style={{
+          ...theme.css.input,
+          width: "100%",
+          marginBottom: theme.spacing(3),
+        }}
         required
         name="address"
         placeholder="Địa Chỉ"
       />
-      <button style={css.button} type="submit">
+      <button style={theme.css.button} type="submit">
         Xác nhận thông tin
       </button>
     </form>

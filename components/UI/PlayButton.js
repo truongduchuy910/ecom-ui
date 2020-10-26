@@ -1,8 +1,9 @@
 import { IoIosPlayCircle, IoIosPlay, IoIosClose } from "react-icons/io";
-import { useState, Fragment } from "react";
+import { useState, Fragment, useContext } from "react";
 import { useSpring, animated } from "react-spring";
-import { theme } from "../../config";
+import { SellerContext } from "../src/SellerProvider";
 export const PlayButton = (props) => {
+  const theme = useContext(SellerContext);
   const [horver, setHorver] = useState(false);
   const [show, setShow] = useState(false);
   const animation = useSpring({

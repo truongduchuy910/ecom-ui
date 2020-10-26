@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Item as Product } from "../Product/shortItem";
 import {
   removeCartItem as removeItem,
@@ -9,10 +9,13 @@ import { formatMoney } from "../../lib/chip";
 import { ImgProduct } from "../Product/imageProduct";
 import { MdDelete } from "react-icons/md";
 import { Link } from "../src/Link";
-import { css } from "../src/css";
-import { theme } from "../../config/index";
+
+import { SellerContext } from "../src/SellerProvider";
+
 
 export const Item = ({ cartItem, onChange }) => {
+  const theme = useContext(SellerContext);
+
   return (
     <Row style={{ marginBottom: theme.spacing(3) }}>
       <Col sm={12} md={6} lg={5}>
@@ -25,7 +28,7 @@ export const Item = ({ cartItem, onChange }) => {
             query: { detail: cartItem.product.url },
           }}
         >
-          <h5 style={{ ...css.h5, marginTop: theme.spacing(3) }}>
+          <h5 style={{ ...theme.css.h5, marginTop: theme.spacing(3) }}>
             {cartItem.product.name}
           </h5>
         </Link>
@@ -40,7 +43,7 @@ export const Item = ({ cartItem, onChange }) => {
           }}
         >
           <button
-            style={css.btnInline}
+            style={theme.css.btnInline}
             onClick={() => {
               quantityChange(cartItem, -1);
             }}
@@ -53,7 +56,7 @@ export const Item = ({ cartItem, onChange }) => {
             {cartItem.quantity}
           </label>
           <button
-            style={css.btnInline}
+            style={theme.css.btnInline}
             onClick={() => {
               quantityChange(cartItem, +1);
             }}
@@ -63,7 +66,7 @@ export const Item = ({ cartItem, onChange }) => {
         </div>
         <a
           style={{
-            ...css.a,
+            ...theme.css.a,
             display: "inline-block",
             padding: theme.spacing(1),
             float: "right",

@@ -9,18 +9,16 @@ import {
 import { Item as CartItem } from "./item";
 import { List } from "./list";
 import { useRouter } from "next/router";
-import { page } from "../../config/index";
 
 import { formatMoney, getErrorMessage } from "../../lib/chip";
-import { Fragment } from "react";
-import { css } from "../src/css";
-import { theme } from "../../config/index";
+import { Fragment, useContext } from "react";
 
 import { Loading } from "../src/Loading";
 import { Link } from "../src/Link";
 import { List as Customer } from "../Customer/CurrentCustomer";
 import { QuickCart } from "./quickCart";
 import { Row, Col } from "reactstrap";
+import { SellerContext } from "../src/SellerProvider";
 export const CART = gql`
   query {
     cartItems @client
@@ -56,7 +54,6 @@ export const CREATE_ORDER = gql`
       id
       seller {
         id
-        name
       }
       items {
         id
@@ -95,7 +92,7 @@ export const order = async ({
   createOrderItems,
   createOrder,
   dataOICI,
-  page,
+  theme,
   customer,
   sum,
   router,
@@ -114,7 +111,7 @@ export const order = async ({
         id: e.id,
       })),
       customer: { id: customer.id },
-      ofSeller: { id: page.seller.id },
+      ofSeller: { id: theme.seller.id },
       total: sum,
     };
     try {
@@ -134,6 +131,8 @@ export const order = async ({
   }
 };
 export function Cart() {
+  const theme = useContext(SellerContext);
+
   const router = useRouter();
   // query
   const { data: cartData, loading, error } = useQuery(CART);
@@ -152,7 +151,7 @@ export function Cart() {
   // create OrderItemsCreateInputs (GraphQL type)
   let dataOICI = OrderItemsCreateInputs(cartItems);
   dataOICI?.map(
-    (data) => (data.data.ofSeller = { connect: { id: page.seller.id } })
+    (data) => (data.data.ofSeller = { connect: { id: theme.seller.id } })
   );
 
   // function
@@ -185,13 +184,13 @@ export function Cart() {
         {/* CREATE BUTTON */}
         {dataOICI?.length && user ? (
           <button
-            style={css.button}
+            style={theme.css.button}
             onClick={() => {
               order({
                 createOrderItems,
                 createOrder,
                 dataOICI,
-                page,
+                theme,
                 customer,
                 sum,
                 router,

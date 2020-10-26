@@ -1,20 +1,17 @@
-import { page } from "../../config/index";
-
 import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { MdCompareArrows, MdDoneAll } from "react-icons/md";
 import {
   removeWishListItem,
-  removeCompareItem,
   addProductToLocalWishlist,
   addProductToLocalCompare,
 } from "../../apollo/action";
 import { useQuery, gql } from "@apollo/client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
-import { theme } from "../../config/index";
-import { css } from "../src/css";
+import { SellerContext } from "../src/SellerProvider";
 
 export function ImgProduct({ product, style, onClick }) {
+  const theme = useContext(SellerContext);
   const { data } = useQuery(gql`
     query {
       wishlist @client
@@ -27,6 +24,10 @@ export function ImgProduct({ product, style, onClick }) {
   if (product.image) {
     ImgSrcs = [{ file: product.image }].concat(ImgSrcs);
   }
+  ImgSrcs = ImgSrcs.map((src) => theme.server + src?.file?.publicUrl);
+  if (product.altImages) {
+    ImgSrcs = product.altImages.split(",").concat(ImgSrcs);
+  }
   const [imgIndex, setImgIndex] = useState(0);
 
   return (
@@ -36,11 +37,7 @@ export function ImgProduct({ product, style, onClick }) {
       }}
     >
       <img
-        src={
-          ImgSrcs[imgIndex]
-            ? page.server + ImgSrcs[imgIndex]?.file?.publicUrl
-            : "/assets/img/no-image.jpg"
-        }
+        src={ImgSrcs[imgIndex] ? ImgSrcs[imgIndex] : "/img/no-img.png"}
         onClick={onClick}
         style={{ ...style, width: "100%", cursor: "pointer" }}
         key={ImgSrcs[imgIndex]?.file?.publicUrl}
@@ -53,7 +50,7 @@ export function ImgProduct({ product, style, onClick }) {
             ? removeWishListItem(product)
             : addProductToLocalWishlist(product)
         }
-        style={css.btnIcon()}
+        style={theme.css.btnIcon()}
       >
         {isInWishlist ? <MdDoneAll /> : <IoIosHeartEmpty />}
       </i>

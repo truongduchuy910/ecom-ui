@@ -1,6 +1,4 @@
 import { Link } from "../src/Link";
-import { useRouter } from "next/router";
-import { route } from "next/dist/next-server/server/router";
 
 export function Item({ brand }) {
   return (

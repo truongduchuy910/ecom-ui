@@ -1,7 +1,10 @@
 import { useRouter } from "next/router";
-import { theme } from "../../config/index";
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
 export function Item({ brand, style }) {
   const router = useRouter();
+  const theme = useContext(SellerContext);
+
   let query = router.query;
   const exist = query.brand == brand.url;
   const handleClick = () => {

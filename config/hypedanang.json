@@ -1,0 +1,31 @@
+{
+    "page": {
+        "term": {
+            "name": "Thông tin",
+            "content": "Địa chỉ: thôn Trà Đóa, xã Bình Đào, huyện Thăng Bình, tỉnh Quảng Nam. \nMã số thuế: 4001040242. \nĐiện thoại: 0914758179 (chị Vinh), 0973799915 (anh Long)"
+        },
+        "intro": {
+            "name": "Giới Thiệu",
+            "content": "Chuyên cung cấp nguồn yến sào tự dẫn dụ và khai thác. Với công nghệ giả hang đá tự nhiên. Chất lượng tổ Yến của chúng tôi đã làm hài lòng tất cả khách hàng."
+        },
+        "name": "HYPE - Sneakers & Accessories Đà Nẵng",
+        "server": "http://localhost:6007",
+        "divider": "/yensaodatquang/assets/img/divider.png",
+        "signInBg": "/yensaodatquang/assets/img/nha-yen-1.jpg",
+        "prices": [
+            200000,
+            500000,
+            1000000,
+            2000000,
+            5000000
+        ]
+    },
+    "theme": {
+        "backgroundColor": "#343a40",
+        "color": "white",
+        "secondary": "#a9a9a9",
+        "primary": "white",
+        "bgHighlight": "rgb(241, 241, 241)",
+        "bgDark": "#222"
+    }
+}

@@ -1,8 +1,10 @@
 import { Cart as CartInfo } from "../components/Cart/index";
 import { Container } from "reactstrap";
-import { theme } from "../config/index";
+import { useContext } from "react";
+import { SellerContext } from "../components/src/SellerProvider";
 
 const Cart = () => {
+  const theme = useContext(SellerContext);
   return (
     <div>
       <Container

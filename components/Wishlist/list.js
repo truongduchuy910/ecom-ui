@@ -1,10 +1,10 @@
 import { gql, useQuery } from "@apollo/client";
-import { useEffect, Fragment } from "react";
+import { useEffect, Fragment, useContext } from "react";
 
 import { emptyWishlist } from "../../apollo/action";
 import { Item } from "../Product/item";
 import { Row, Col } from "reactstrap";
-import { theme } from "../../config/index";
+import { SellerContext } from "../src/SellerProvider";
 
 export const GET_WISHLIST = gql`
   query {
@@ -13,6 +13,7 @@ export const GET_WISHLIST = gql`
 `;
 
 export function List() {
+  const theme = useContext(SellerContext);
   const { data, loading, error } = useQuery(GET_WISHLIST);
 
   if (error) return <i>{error}</i>;

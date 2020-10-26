@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { useRouter } from "next/router";
 import { Link } from "../src/Link";
 import { queryVar } from "../../apollo/action";
-import { page } from "../../config/index";
+
 
 import { Spinner } from "reactstrap";
 const GET_ATTRIBUTES = gql`
@@ -26,7 +26,7 @@ export function List({ attributeGroups }) {
     </div>
   );
   // const { data, loading, error } = useQuery(GET_ATTRIBUTES, {
-  //   variables: { seller: page.seller },
+  //   variables: { seller: theme.seller },
   // });
 
   // if (loading) return <Loading/>;

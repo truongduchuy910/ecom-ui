@@ -1,9 +1,11 @@
 import { OrderItems } from "./orderItems";
 import { Row, Col } from "reactstrap";
 import { formatMoney } from "../../lib/chip";
-import { theme, page } from "../../config/index";
-import { css } from "../src/css";
+
+
 import { gql, useMutation } from "@apollo/client";
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
 const UPDATE_step = gql`
   mutation($id: ID!, $step: Int) {
     updateOrder(id: $id, data: { step: $step }) {
@@ -13,10 +15,12 @@ const UPDATE_step = gql`
   }
 `;
 export function Item({ order, user, onChange }) {
+  const theme = useContext(SellerContext);
+
   const [updateStep] = useMutation(UPDATE_step);
   const stepName = ["Đặt thành công", "Đã đóng gói", "Đã vận chuyển"];
 
-  const isSeller = user?.isSeller == true && user.id == page.seller.id;
+  const isSeller = user?.isSeller == true && user.id == theme.seller.id;
   const onConfirm = async () => {
     const id = order.id;
     const step = Number(order.step) + 1;
@@ -42,7 +46,7 @@ export function Item({ order, user, onChange }) {
           <div style={{ marginBottom: theme.spacing(3) }}>
             <h5
               style={{
-                ...css.h5,
+                ...theme.css.h5,
                 display: "inline-block",
                 marginRight: theme.spacing(2),
               }}
@@ -54,13 +58,13 @@ export function Item({ order, user, onChange }) {
             </a>
           </div>
           <div style={{ marginBottom: theme.spacing(3) }}>
-            <h5 style={css.h5}>Địa Chỉ:</h5>
+            <h5 style={theme.css.h5}>Địa Chỉ:</h5>
             <a style={{ display: "block" }}>{order?.customer?.name}</a>
             <a style={{ display: "block" }}>{order?.customer?.phone}</a>
             <a style={{ display: "block" }}>{order?.customer?.address}</a>
           </div>
           <div style={{ marginBottom: theme.spacing(3) }}>
-            <h5 style={css.h5}>Trạng Thái: </h5>
+            <h5 style={theme.css.h5}>Trạng Thái: </h5>
             {stepName.map((step, index) =>
               index <= order.step ? (
                 <i key={index}>
@@ -71,7 +75,7 @@ export function Item({ order, user, onChange }) {
           </div>
           <h5
             style={{
-              ...css.h5,
+              ...theme.css.h5,
               display: "inline-block",
               marginRight: theme.spacing(2),
             }}
@@ -89,7 +93,7 @@ export function Item({ order, user, onChange }) {
 
           {isSeller && order.step < 2 ? (
             <button
-              style={{ ...css.button }}
+              style={{ ...theme.css.button }}
               onClick={() => {
                 onConfirm();
               }}

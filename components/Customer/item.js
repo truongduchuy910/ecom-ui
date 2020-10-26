@@ -1,13 +1,12 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext } from "react";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { chooseCustomer } from "../../apollo/action";
-import { compose } from "redux";
+
 import { CUSTOMER } from "../../apollo/action";
-import { CustomInput } from "reactstrap";
-import { theme } from "../../config/index";
 
 import { useRouter } from "next/router";
-import { refetchCustomer } from "../../apollo/client";
+import { SellerContext } from "../src/SellerProvider";
+
 const DELETE_CUSTOMER = gql`
   mutation($id: ID!) {
     deleteCustomer(id: $id) {
@@ -16,6 +15,8 @@ const DELETE_CUSTOMER = gql`
   }
 `;
 export function Item({ customer, onDelete, hight = false }) {
+  const theme = useContext(SellerContext);
+
   const router = useRouter();
   const [deleteCustomer] = useMutation(DELETE_CUSTOMER);
   const { data } = useQuery(CUSTOMER);

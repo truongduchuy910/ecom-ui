@@ -6,28 +6,27 @@
 import { Item as BrandItem } from "../../components/Brand/itemOne";
 import { Item as CategoryItem } from "../../components/Category/itemOne";
 import { List as AttributeGroups } from "../../components/AttributeGroups/listOne";
-import { css } from "../src/css";
+
 import { formatMoney } from "../../lib/chip";
 import { addProductToLocalCart, removeCartItem } from "../../apollo/action";
-import { Fragment, useState } from "react";
-import { page } from "../../config/index";
+import { Fragment, useContext, useState } from "react";
 
 import { Row, Col } from "reactstrap";
 import { ImgProduct } from "./imageProduct";
 
-import { Box } from "../src/Box";
-
 import { useSpring, animated } from "react-spring";
-import { theme } from "../../config/index";
 
 import { QuickCart } from "../Cart/quickCart";
 import { gql, useQuery } from "@apollo/client";
+import { SellerContext } from "../src/SellerProvider";
 const GET_CART = gql`
   query {
     cartItems @client
   }
 `;
-export function Product({ product }) {
+export function Product({ product, seller }) {
+  const theme = useContext(SellerContext);
+
   const { data } = useQuery(GET_CART);
   const isIncart = data?.cartItems?.some(
     (item) => item.product.id === product.id
@@ -45,7 +44,7 @@ export function Product({ product }) {
 
   return (
     <Fragment>
-      <Row>
+      <Row style={{ marginTop: theme.spacing(3) }}>
         <Col
           xs={12}
           lg={6}
@@ -72,7 +71,7 @@ export function Product({ product }) {
           }}
         >
           <div>
-            <h1 style={css.h1}>{product.name}</h1>
+            <h1 style={theme.css.h1}>{product.name}</h1>
 
             <h5
               style={{
@@ -97,7 +96,7 @@ export function Product({ product }) {
               {product.brand ? (
                 <Row>
                   <Col xs={4}>
-                    <h5 style={css.h5}>Thương Hiệu</h5>
+                    <h5 style={theme.css.h5}>Thương Hiệu</h5>
                   </Col>
                   <Col xs={8}>
                     <BrandItem brand={product.brand} />
@@ -107,7 +106,7 @@ export function Product({ product }) {
               {product.category ? (
                 <Row>
                   <Col xs={4}>
-                    <h5 style={css.h5}>Danh Mục</h5>
+                    <h5 style={theme.css.h5}>Danh Mục</h5>
                   </Col>
                   <Col xs={8}>
                     <CategoryItem category={product.category} />{" "}
@@ -139,60 +138,60 @@ export function Product({ product }) {
                 </a>
               </Fragment>
             ) : (
-              <Fragment>
-                {isIncart ? (
+                <Fragment>
+                  {isIncart ? (
+                    <button
+                      style={{ ...theme.css.button }}
+                      onClick={() => {
+                        removeCartItem({ product });
+                      }}
+                    >
+                      Bỏ khỏi giỏ hàng
+                    </button>
+                  ) : (
+                      <button
+                        onClick={() => {
+                          addProductToLocalCart({ product });
+                        }}
+                        style={{ ...theme.css.button }}
+                      >
+                        Thêm vào giỏ hàng
+                      </button>
+                    )}
                   <button
-                    style={{ ...css.button }}
                     onClick={() => {
-                      removeCartItem({ product });
+                      setQuickCart(true);
                     }}
+                    style={{ ...theme.css.button }}
                   >
-                    Bỏ khỏi giỏ hàng
+                    Mua ngay
                   </button>
-                ) : (
-                  <button
-                    onClick={() => {
-                      addProductToLocalCart({ product });
-                    }}
-                    style={{ ...css.button }}
-                  >
-                    Thêm vào giỏ hàng
-                  </button>
-                )}
-                <a
-                  onClick={() => {
-                    setQuickCart(true);
-                  }}
-                  style={{ marginBottom: theme.spacing(3), display: "block" }}
-                >
-                  Mua nhanh
-                </a>
-              </Fragment>
-            )}
+
+                </Fragment>
+              )}
           </div>
         </Col>
       </Row>
 
-      <div style={css.box}>
+      <div style={theme.css.box}>
         <Row>
           {product.description ? (
             <Col xs={12}>
-              <h5 style={css.h5}>Mô Tả</h5>
-              <p style={{ color: theme.color }}>{product.description}</p>
+              <h5 style={theme.css.h5}>Mô Tả</h5>
+              <div dangerouslySetInnerHTML={{ __html: product.description }} />
             </Col>
           ) : null}
           {product.guide ? (
             <Col>
-              <h5 style={css.h5}>Hướng dẫn</h5>
-
-              <p style={{ color: theme.color }}>{product.guide}</p>
+              <h5 style={theme.css.h5}>Hướng dẫn</h5>
+              <div dangerouslySetInnerHTML={{ __html: product.guide }} />
             </Col>
           ) : null}
           <Col xs={12} md={open ? 12 : 6}>
             <center>
               {product.file ? (
                 <img
-                  src={page.server + product.file.publicUrl}
+                  src={theme.server + product.file.publicUrl}
                   style={{ width: "100%" }}
                   onClick={() => {
                     toggle(!open);

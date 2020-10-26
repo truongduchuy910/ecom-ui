@@ -1,5 +1,4 @@
-import { theme } from "../../config/index";
-export const css = {
+export const css = (theme) => ({
   btnIcon: (top = -5, color = theme.backgroundColor) => ({
     position: "absolute",
     top,
@@ -18,11 +17,11 @@ export const css = {
   }),
   input: {
     display: "block-inline",
-    border: `1px solid ${theme.bgHighlight}`,
+    border: `1px solid ${theme?.productBackgroundColor}`,
     padding: theme.spacing(1),
     paddingLeft: theme.spacing(3),
     borderRadius: theme.spacing(2),
-    backgroundColor: theme.bgDark,
+    backgroundColor: theme?.bgDark,
     color: theme.color,
   },
   btnInline: {
@@ -120,4 +119,4 @@ export const css = {
     padding: 8,
     fontSize: "1rem",
   },
-};
+});

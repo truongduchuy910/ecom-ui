@@ -1,17 +1,15 @@
-import { useState, useEffect, Fragment } from "react";
+import { useContext, useState,  } from "react";
 import { gql, useQuery } from "@apollo/client";
-import { getErrorMessage } from "../../lib/chip";
+
 import { Item } from "./item";
 import { Loading } from "../src/Loading";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { Create } from "./create";
-import { customerVar, refetchCustomer } from "../../apollo/client";
-import { Link } from "../src/Link";
-import { theme } from "../../config/index";
 
-import { css } from "../src/css";
+
 import { chooseCustomer } from "../../apollo/action";
-import { useRouter } from "next/router";
+import { SellerContext } from "../src/SellerProvider";
+
 // get
 const GET_CUSTOMERS = gql`
   query {
@@ -26,6 +24,8 @@ const GET_CUSTOMERS = gql`
 `;
 
 export function List({ autoSelect }) {
+  const theme = useContext(SellerContext);
+
   const [create, setCreate] = useState(false);
 
   const { data, loading, error, refetch } = useQuery(GET_CUSTOMERS);
@@ -51,7 +51,7 @@ export function List({ autoSelect }) {
           }}
         />
       ) : null}
-      <h5 style={{ ...css.h5, display: "inline", marginRight: 13 }}>
+      <h5 style={{ ...theme.css.h5, display: "inline", marginRight: 13 }}>
         Chọn địa chỉ bên dưới
       </h5>
       <label

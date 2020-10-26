@@ -1,10 +1,14 @@
 import { Item as CartItem } from "./item";
 
 import { formatMoney, getErrorMessage } from "../../lib/chip";
-import { css } from "../src/css";
-import { theme } from "../../config/index";
+
+import { useContext } from "react";
+import { SellerContext } from "../src/SellerProvider";
+
 
 export function List({ cartItems }) {
+  const theme = useContext(SellerContext);
+
   // loading data
   let sum = 0;
   cartItems?.map((cartItem) => {
@@ -22,7 +26,7 @@ export function List({ cartItems }) {
           })
         )
       ) : null}
-      <h5 style={{ ...css.h5, display: "inline-block" }}>Tổng:</h5>
+      <h5 style={{ ...theme.css.h5, display: "inline-block" }}>Tổng:</h5>
       <p style={{ display: "inline-block", marginLeft: theme.spacing(2) }}>
         {formatMoney(sum)}
       </p>

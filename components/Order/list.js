@@ -5,7 +5,7 @@ import { newOrderVar } from "../../apollo/client";
 import { Item } from "./item";
 import { Loading } from "../src/Loading";
 import { useRouter } from "next/router";
-import { route } from "next/dist/next-server/server/router";
+
 export const GET_CART_ITEMS = gql`
   query($id: ID) {
     user @client

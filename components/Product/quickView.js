@@ -29,7 +29,7 @@ export function QuickView({ product, onClick }) {
           <div>
             <Link
               href={{
-                pathname: "detail",
+                pathname: "/detail",
                 query: { detail: product.url },
               }}
             >

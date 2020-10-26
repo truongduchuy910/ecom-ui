@@ -1,11 +1,11 @@
-import { page } from "../../config/index";
+
 
 export function SignInBg({ children, style }) {
   return (
     <div
       style={{
         ...style,
-        background: `url(${page.signInBg})`,
+        background: `url(${theme.signInBg})`,
         backgroundSize: "cover",
       }}
     >
