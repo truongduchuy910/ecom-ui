@@ -13,7 +13,7 @@ export const refetchCustomer = makeVar(async () => {});
 
 export let cache = new InMemoryCache();
 const uri =
-  (process.env.NODE_ENV === 'production'
+  (process.env.NODE_ENV !== 'production'
     ? 'https://ecommerce.loaloa.tech'
     : 'http://localhost:6007') + '/admin/api';
 console.log(uri);

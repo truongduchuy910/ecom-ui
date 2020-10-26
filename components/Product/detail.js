@@ -138,36 +138,37 @@ export function Product({ product, seller }) {
                 </a>
               </Fragment>
             ) : (
-              <Fragment>
-                {isIncart ? (
+                <Fragment>
+                  {isIncart ? (
+                    <button
+                      style={{ ...theme.css.button }}
+                      onClick={() => {
+                        removeCartItem({ product });
+                      }}
+                    >
+                      Bỏ khỏi giỏ hàng
+                    </button>
+                  ) : (
+                      <button
+                        onClick={() => {
+                          addProductToLocalCart({ product });
+                        }}
+                        style={{ ...theme.css.button }}
+                      >
+                        Thêm vào giỏ hàng
+                      </button>
+                    )}
                   <button
-                    style={{ ...theme.css.button }}
                     onClick={() => {
-                      removeCartItem({ product });
-                    }}
-                  >
-                    Bỏ khỏi giỏ hàng
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => {
-                      addProductToLocalCart({ product });
+                      setQuickCart(true);
                     }}
                     style={{ ...theme.css.button }}
                   >
-                    Thêm vào giỏ hàng
+                    Mua ngay
                   </button>
-                )}
-                <a
-                  onClick={() => {
-                    setQuickCart(true);
-                  }}
-                  style={{ marginBottom: theme.spacing(3), display: "block" }}
-                >
-                  Mua nhanh
-                </a>
-              </Fragment>
-            )}
+
+                </Fragment>
+              )}
           </div>
         </Col>
       </Row>
