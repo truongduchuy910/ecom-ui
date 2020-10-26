@@ -3151,7 +3151,7 @@ const customerVar = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["makeVar"
 });
 const refetchCustomer = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["makeVar"])(async () => {});
 let cache = new _apollo_client__WEBPACK_IMPORTED_MODULE_1__["InMemoryCache"]();
-const uri = (false ? undefined : 'http://localhost:6007') + '/admin/api';
+const uri = (true ? 'https://ecommerce.loaloa.tech' : undefined) + '/admin/api';
 console.log(uri);
 const httpLink = new _apollo_client_link_http__WEBPACK_IMPORTED_MODULE_3__["HttpLink"]({
   uri,
