@@ -15,17 +15,8 @@ const uri =
     ? "https://ecommerce.loaloa.tech"
     : "http://localhost:6007";
 export const SellerProvider = ({ children }) => {
-  const [isLoad, setIsLoad] = useState(false);
-  const [GA, setGA] = useState();
   useEffect(() => {
-    if (GA && !isLoad) {
-      console.log("init", GA);
-      ReactGA.initialize(GA);
-      setIsLoad(true);
-    }
     const url = window.location.pathname + window.location.search;
-    console.log(url);
-    ReactGA.pageview(url);
   });
   return (
     <Query
@@ -58,57 +49,36 @@ export const SellerProvider = ({ children }) => {
         }
       `}
       variables={{
-        host: typeof window !== "undefined" ? window.location.host : null,
+        // host: typeof window !== "undefined" ? window.location.host : null,
+        host: 'madeuniform.vn'
       }}
     >
       {({ data, error, loading }) => {
         const theme = data?.allUsers[0];
-        if (theme) {
-          setGA(theme.googleId);
-        }
+
         return theme ? (
           <Fragment>
-            <Head>
-              <title>
-                {theme.store} | {theme.slogan}
-              </title>
-              <meta name="description" content={theme.intro} />
-              <meta
-                property="og:image"
-                content={uri + theme?.file?.publicUrl}
-              />
-              <link
-                rel="icon"
-                type="image/png"
-                href={uri + theme?.logo?.publicUrl}
-              />
-            </Head>
+
             <SellerContext.Provider
               value={{
                 ...theme,
                 server:
-                  process.env.NODE_ENV === "production"
+                  process.env.NODE_ENV !== "production"
                     ? "https://ecommerce.loaloa.tech"
                     : "http://localhost:6007",
                 seller: { id: theme.id },
                 spacing,
                 prices: theme.prices
                   ? theme.prices
-                      ?.replace(/ /g, "")
-                      .split(",")
-                      .map((e) => Number(e))
+                    ?.replace(/ /g, "")
+                    .split(",")
+                    .map((e) => Number(e))
                   : [],
                 css: css(theme),
               }}
             >
-              <div
-                style={{
-                  backgroundColor: theme.backgroundColor,
-                  color: theme.color,
-                }}
-              >
-                {children}
-              </div>
+
+              {children}
             </SellerContext.Provider>
           </Fragment>
         ) : null;

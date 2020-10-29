@@ -1,30 +1,26 @@
-import {ApolloProvider, gql, useQuery} from '@apollo/client';
-
+import { ApolloProvider } from '@apollo/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import "../public/yensaodatquang/assets/css/style.css";
-import MenuApp from '../components/MenuApp/index';
-import {useApollo} from '../apollo/client';
-import {Footer} from '../components/src/Footer';
-import {FacebookProvider, CustomChat} from 'react-facebook';
-import {createContext, Fragment, useContext} from 'react';
-import {SellerProvider} from '../components/src/SellerProvider';
+import { useApollo } from '../apollo/client';
+import { Fragment, useReducer } from 'react';
+import { SellerProvider } from '../apollo';
+import Categories from "../components/Category";
+import { useRouter } from 'next/router'
+import Link from 'next/link';
+
 function App(props) {
-  const {Component, pageProps} = props;
+  const { Component, pageProps } = props;
   const apolloClient = useApollo(pageProps.initialApolloState);
+  const router = useRouter();
   return (
     <Fragment>
       <ApolloProvider client={apolloClient}>
         <SellerProvider>
-          <header>
-            <MenuApp />
-          </header>
-          <main style={{paddingTop: 68, minHeight: '60vh'}}>
-            <Component {...pageProps} />
-          </main>
-          <Footer />
+          <Link href='/'><a>home</a></Link>
+          <Categories onChoose={(category) => { router.push({ pathname: '/category', query: { category: category.url } }) }} />
+          <Component {...pageProps} />
         </SellerProvider>
       </ApolloProvider>
-    </Fragment>
+    </Fragment >
   );
 }
 export default App;
