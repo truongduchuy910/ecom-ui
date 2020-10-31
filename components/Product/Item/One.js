@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Products from "..";
+import Products from "../List/index";
 
 const One = ({ product }) => {
     return <Fragment>

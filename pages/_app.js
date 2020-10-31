@@ -1,11 +1,11 @@
-import { ApolloProvider } from '@apollo/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useApollo } from '../apollo/client';
-import { Fragment, useReducer } from 'react';
-import { SellerProvider } from '../apollo';
-import Categories from "../components/Category";
-import { useRouter } from 'next/router'
-import Link from 'next/link';
+import { ApolloProvider } from "@apollo/client";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useApollo } from "../apollo/client";
+import { Fragment, useReducer } from "react";
+import { SellerProvider } from "../apollo";
+import { useRouter } from "next/router";
+import Header from "../components/Header/index";
+import { Footer } from "../components/Footer";
 
 function App(props) {
   const { Component, pageProps } = props;
@@ -15,12 +15,12 @@ function App(props) {
     <Fragment>
       <ApolloProvider client={apolloClient}>
         <SellerProvider>
-          <Link href='/'><a>home</a></Link>
-          <Categories onChoose={(category) => { router.push({ pathname: '/category', query: { category: category.url } }) }} />
+          <Header />
           <Component {...pageProps} />
+          <Footer />
         </SellerProvider>
       </ApolloProvider>
-    </Fragment >
+    </Fragment>
   );
 }
 export default App;
