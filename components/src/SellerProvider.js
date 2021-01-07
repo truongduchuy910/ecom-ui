@@ -58,7 +58,8 @@ export const SellerProvider = ({ children }) => {
         }
       `}
       variables={{
-        host: typeof window !== "undefined" ? window.location.host : null,
+        // host: typeof window !== "undefined" ? window.location.host : null,
+        host: "shopwheydanang.com",
       }}
     >
       {({ data, error, loading }) => {
@@ -89,7 +90,7 @@ export const SellerProvider = ({ children }) => {
                 server:
                   process.env.NODE_ENV === "production"
                     ? "https://ecommerce.loaloa.tech"
-                    : "http://localhost:6007",
+                    : "https://ecommerce.loaloa.tech",
                 seller: { id: theme.id },
                 spacing,
                 prices: theme.prices
@@ -155,7 +156,7 @@ const css = (theme) => ({
     width: "100%",
     backgroundColor: theme.primary,
     border: `1px solid ${theme.primary}`,
-    borderRadius: spacing(2),
+    borderRadius: spacing(4),
     paddingTop: spacing(1),
     paddingBottom: spacing(1),
     marginBottom: spacing(2),
