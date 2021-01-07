@@ -1,8 +1,18 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js",
-  "/": "pages/index.js",
+  "/cart": "pages/cart.js",
+  "/compare": "pages/compare.js",
+  "/customer": "pages/customer.js",
   "/detail": "pages/detail.js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js"
+  "/": "pages/index.js",
+  "/order": "pages/order.js",
+  "/posts": "pages/posts.js",
+  "/products": "pages/products.js",
+  "/seller": "pages/seller.js",
+  "/signin": "pages/signin.js",
+  "/signout": "pages/signout.js",
+  "/wishlist": "pages/wishlist.js",
+  "/yensaodatquang-index": "pages/yensaodatquang-index.js",
+  "/_error": "pages/_error.js"
 }
