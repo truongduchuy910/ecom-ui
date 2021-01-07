@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { removeItemOnce } from "../../lib/chip";
 import { FiThermometer } from "react-icons/fi";
 
-import { filterAttributeVar } from "../apollo/client";
+import { filterAttributeVar } from "../../apollo/client";
 import { useContext } from "react";
 import { SellerContext } from "../src/SellerProvider";
 import { IoIosRemoveCircleOutline } from "react-icons/io";

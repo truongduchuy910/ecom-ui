@@ -14,7 +14,7 @@ const uri =
   process.env.NODE_ENV === "production"
     ? "https://ecommerce.loaloa.tech"
     : "http://localhost:6007";
-export const SellerProvider = ({ children }) => {
+export const SellerProvider = ({ children, host }) => {
   const [isLoad, setIsLoad] = useState(false);
   const [GA, setGA] = useState();
   useEffect(() => {
@@ -58,8 +58,7 @@ export const SellerProvider = ({ children }) => {
         }
       `}
       variables={{
-        // host: typeof window !== "undefined" ? window.location.host : null,
-        host: "shopwheydanang.com",
+        host,
       }}
     >
       {({ data, error, loading }) => {

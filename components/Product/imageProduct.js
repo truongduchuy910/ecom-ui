@@ -4,7 +4,7 @@ import {
   removeWishListItem,
   addProductToLocalWishlist,
   addProductToLocalCompare,
-} from "../apollo/action";
+} from "../../apollo/action";
 import { useQuery, gql } from "@apollo/client";
 import { useContext, useState } from "react";
 
