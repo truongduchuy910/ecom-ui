@@ -1784,11 +1784,11 @@ const Index = () => {
   const price_from = query.price_from ? Number(query.price_from) : 0;
   const price_to = query.price_to ? Number(query.price_to) : 999999999;
   const attributes = Object(_lib_chip__WEBPACK_IMPORTED_MODULE_3__[/* toAttributeGourpWhereInput */ "d"])(query.attributes ? query.attributes.split(",") : []);
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, __jsx("div", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, (theme === null || theme === void 0 ? void 0 : theme.file) && __jsx("div", {
     style: {
       width: "100%",
       height: "60vh",
-      background: `url(${theme.server + ((_theme$file = theme.file) === null || _theme$file === void 0 ? void 0 : _theme$file.publicUrl)})`,
+      background: `url(${theme.server + (theme === null || theme === void 0 ? void 0 : (_theme$file = theme.file) === null || _theme$file === void 0 ? void 0 : _theme$file.publicUrl)})`,
       backgroundPosition: "center",
       backgroundSize: "cover"
     }

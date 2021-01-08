@@ -25,15 +25,17 @@ const Index = () => {
 
   return (
     <Fragment>
-      <div
-        style={{
-          width: "100%",
-          height: "60vh",
-          background: `url(${theme.server + theme.file?.publicUrl})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-      ></div>
+      {theme?.file && (
+        <div
+          style={{
+            width: "100%",
+            height: "60vh",
+            background: `url(${theme.server + theme?.file?.publicUrl})`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        ></div>
+      )}
       <Container fluid>
         <Row noGutters style={{ paddingTop: theme.spacing(4) }}>
           <Col xs={4} md={3} lg={3} xl={2}>
